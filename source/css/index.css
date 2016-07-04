@@ -1,0 +1,11 @@
+html {
+  font-size: 2.5vmin;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'akkurat', sans-serif;
+  line-height: 1.5;
+  margin: 0;
+}

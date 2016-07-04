@@ -1,0 +1,14 @@
+# System
+.DS_Store
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules
+
+node_modules/
+build/
+credentials.json

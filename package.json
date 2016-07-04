@@ -1,0 +1,23 @@
+{
+  "name": "asdf.cool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo source/index.js:build/bundle.js --live --pushstate -- -t [ sheetify/transform ] -t [ babelify --plugins [ static-fs ] --presets [ es2015 ] ]",
+    "build": "browserify source/index.js -o build/bundle.js -t [ sheetify/transform ] -t [ babelify --plugins [ static-fs ] --presets [ es2015 ] ]"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
+    "budo": "^8.3.0"
+  },
+  "dependencies": {
+    "babel-plugin-static-fs": "^1.1.0",
+    "choo": "yoshuawuyts/choo#3.0",
+    "gr8": "^1.0.4",
+    "sheetify": "^5.0.3"
+  }
+}
