@@ -1,22 +1,28 @@
 const html = require('choo/html')
+const sf = require('sheetify')
+
+const style = sf`
+  :host {
+    background: #000;
+    color: #fff;
+  }
+`
+
+
+const templateOption = (option, state, send) => html`
+  <div class="x c4">
+    <div>
+      ${option.name}
+    </div>
+    <input
+      value="${state.design[option.key]}"
+      oninput=${e => send('design:update', { [option.key]: e.target.value })}
+    >
+  </div>
+`
 
 module.exports = (state, prev, send) => {
-  return html`<view-panel>
-    <input
-      value="${state.design.background}"
-      oninput=${e => send('design:update', { background: e.target.value })}
-    >
-    <input
-      value="${state.design.backgroundLink}"
-      oninput=${e => send('design:update', { backgroundLink: e.target.value })}
-    >
-    <input
-      value="${state.design.colorLink}"
-      oninput=${e => send('design:update', { colorLink: e.target.value })}
-    >
-    <input
-      value="${state.design.font}"
-      oninput=${e => send('design:update', { font: e.target.value })}
-    >
+  return html`<view-panel class="x xw p1 ${style}">
+    ${state.panel.options.map(option => templateOption(option, state, send))}
   </view-panel>`
 }

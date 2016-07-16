@@ -21,7 +21,8 @@ app.model(require('./model/tags'))
  * Router
  */
 app.router((route) => [
-  route('/', require('./templates/index'))
+  route('/', require('./templates/index')),
+  route('panel', require('./templates/panel'))
 ])
 
 /**
