@@ -13,6 +13,7 @@ const app = choo()
  */
 app.model(require('./model/design'))
 app.model(require('./model/links'))
+app.model(require('./model/panel'))
 app.model(require('./model/tags'))
 
 

@@ -12,7 +12,6 @@ module.exports = {
     blockMargin: '1px',
     colorLink: '#000',
     template: 'blocks',
-    templates: ['inline', 'grid', 'blocks'],
     font: 'Bau-Medium'
   },
   subscriptions: [
