@@ -26,6 +26,16 @@ const filler = [{
 module.exports = {
   namespace: 'links',
   state: {
-    all: filler
+    all: filler,
+    order: [
+      '6c84fb90-12c4-11e1-840d-7b25c5ee775a',
+      '14fe935b-3103-45eb-acdc-5254c5537b67',
+      'c2b2db1a-641d-426a-9e08-895487f97e63'
+    ]
+  },
+  reducers: {
+    all: (data, state) => ({
+      all: data
+    })
   }
 }

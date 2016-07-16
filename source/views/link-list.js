@@ -34,7 +34,7 @@ module.exports = (state, prev, send) => {
     <view-link-list
       class="
         x xw
-        design-font design-background
+        design-font design-background design-color-link
         ${state.design.template === 'blocks' ? 'design-block-margin' : ''}
       ">
       ${templateLink(state, prev, send)}

@@ -15,6 +15,11 @@ module.exports = (state, prev, send) => {
         padding: ${state.design.blockMargin};
       }
 
+      .design-color-link,
+      .design-color-link a {
+        color: ${state.design.colorLink};
+      }
+
       .design-font {
         font-family: ${state.design.font}, sans-serif;
       }
