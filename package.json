@@ -18,6 +18,7 @@
     "babel-plugin-static-fs": "^1.1.0",
     "choo": "^3.0.0",
     "gr8": "^1.0.4",
+    "node-uuid": "^1.4.7",
     "sheetify": "^5.0.3",
     "xtend": "^4.0.1"
   }

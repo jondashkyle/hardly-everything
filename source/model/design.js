@@ -10,6 +10,7 @@ module.exports = {
     background: '#eee',
     backgroundLink: '#fff',
     blockMargin: '1px',
+    blockPadding: '0.5rem',
     colorLink: '#000',
     template: 'blocks',
     font: 'Bau-Medium'

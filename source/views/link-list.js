@@ -3,11 +3,6 @@ const componentsLink = require('../components/link')
 
 const templateLink = (state, prev, send) => {
   switch (state.design.template) {
-    case 'inline':
-      return state.links.all.map(link =>
-        componentsLink.inline(link, prev, send)
-      )
-      break
     case 'grid':
       return state.links.all.map(link =>
         componentsLink.grid(link, prev, send)
@@ -35,6 +30,7 @@ module.exports = (state, prev, send) => {
       class="
         x xw
         design-font design-background design-color-link
+        ${state.design.template !== 'blocks' ? 'design-block-padding' : ''}
         ${state.design.template === 'blocks' ? 'design-block-margin' : ''}
       ">
       ${templateLink(state, prev, send)}

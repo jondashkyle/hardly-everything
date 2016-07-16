@@ -15,6 +15,10 @@ module.exports = (state, prev, send) => {
         padding: ${state.design.blockMargin};
       }
 
+      .design-block-padding {
+        padding: ${state.design.blockPadding};
+      }
+
       .design-color-link,
       .design-color-link a {
         color: ${state.design.colorLink};

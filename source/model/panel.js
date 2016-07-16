@@ -42,6 +42,11 @@ const options = [
     name: 'Background',
     type: 'text',
     key: 'background'
+  },
+  {
+    name: 'Design',
+    type: 'text',
+    key: 'template'
   }
 ]
 

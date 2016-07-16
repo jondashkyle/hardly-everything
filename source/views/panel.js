@@ -8,7 +8,6 @@ const style = sf`
   }
 `
 
-
 const templateOption = (option, state, send) => html`
   <div class="x c4">
     <div>

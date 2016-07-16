@@ -15,10 +15,10 @@ exports.blocks = (link, prev, send) => {
     <component-link
       data-id="${link.id}"
       class="db c4 design-block-margin">
-      <div class="p1 design-background-link">
+      <div class="design-background-link">
         <a
           href="${link.url}"
-          class="x xjc xac tac"
+          class="x xjc xac tac design-block-padding"
           style="min-height: 20vh">
           <div>
             <div class="h5">${link.title}</div>
@@ -38,7 +38,9 @@ exports.blocks = (link, prev, send) => {
 exports.inline = (link, prev, send) => {
   return html`
     <component-link data-id="${link.id}">
-      <a href="${link.url}">
+      <a
+        href="${link.url}"
+        class="dib design-block-padding">
         ${link.title}
       </a>
     </component-link>
@@ -50,8 +52,12 @@ exports.inline = (link, prev, send) => {
  */
 exports.grid = (link, prev, send) => {
   return html`
-    <component-link data-id="${link.id}">
-      <a href="${link.url}">
+    <component-link
+      data-id="${link.id}"
+      class="c3">
+      <a
+        href="${link.url}"
+        class="dib design-block-padding">
         ${link.title}
       </a>
     </component-link>
