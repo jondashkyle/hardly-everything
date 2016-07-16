@@ -9,3 +9,23 @@ body {
   line-height: 1.5;
   margin: 0;
 }
+
+/**
+ * Typography
+ */
+
+/**
+ * Anchors
+ */
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+/**
+ * Lists
+ */
+.list-comma-seperated > span:not(:last-child):after {
+  content: ', '
+}

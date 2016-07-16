@@ -4,11 +4,6 @@ const sf = require('sheetify')
 const css = require('./css')
 
 /**
- * Components
- */
-const Soon = require('./components/soon')
-
-/**
  * App
  */
 const app = choo()
@@ -16,13 +11,16 @@ const app = choo()
 /**
  * Model
  */
+app.model(require('./model/design'))
+app.model(require('./model/links'))
+app.model(require('./model/tags'))
 
 
 /**
  * Router
  */
 app.router((route) => [
-  route('/', Soon.view)
+  route('/', require('./templates/index'))
 ])
 
 /**
