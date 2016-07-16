@@ -13,6 +13,14 @@ const Soon = require('./components/soon')
  */
 const app = choo()
 
+/**
+ * Model
+ */
+
+
+/**
+ * Router
+ */
 app.router((route) => [
   route('/', Soon.view)
 ])
