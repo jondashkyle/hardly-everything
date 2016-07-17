@@ -5,17 +5,17 @@ const templateLink = (state, prev, send) => {
   switch (state.design.template) {
     case 'grid':
       return state.links.all.map(link =>
-        componentsLink.grid(link, prev, send)
+        componentsLink.grid(state, prev, send, link)
       )
       break
     case 'blocks':
       return state.links.all.map(link =>
-        componentsLink.blocks(link, prev, send)
+        componentsLink.blocks(state, prev, send, link)
       )
       break
     default:
       return state.links.all.map(link =>
-        componentsLink.inline(link, prev, send)
+        componentsLink.inline(state, prev, send, link)
       )
   }
 }

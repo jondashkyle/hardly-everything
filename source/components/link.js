@@ -8,23 +8,40 @@ const templateTags = (tags) => tags.map(tag => html`
 `)
 
 /**
+ * Handle Click
+ */
+const handleClick = (state, prev, send, event) => {
+  if (state.panel.active) {
+    const parent = event.target.closest('[data-id]')
+    const id = parent.getAttribute('data-id')
+    const staging = state.links.all.filter(link => link.id === id)
+    if (id !== undefined && staging.length >= 0) {
+      send('panel:edit', {
+        id: id,
+        staging: staging[0]
+      })
+    }
+    event.preventDefault()
+  }
+}
+
+/**
  * Block
  */
-exports.blocks = (link, prev, send) => {
+exports.blocks = (state, prev, send, link) => {
   return html`
     <component-link
-      data-id="${link.id}"
-      class="db c4 design-block-margin">
+      class="db c4 design-block-margin"
+      data-id="${link.id}">
       <div class="design-background-link">
         <a
           href="${link.url}"
           class="x xjc xac tac design-block-padding"
-          style="min-height: 20vh">
+          style="min-height: 20vh"
+          onclick=${event => handleClick(state, prev, send, event)}
+          >
           <div>
             <div class="h5">${link.title}</div>
-            <div class="list-comma-seperated">
-              ${templateTags(link.tags)}
-            </div>
           </div>
         </a>
       </div>
@@ -35,12 +52,13 @@ exports.blocks = (link, prev, send) => {
 /**
  * Inline
  */
-exports.inline = (link, prev, send) => {
+exports.inline = (state, prev, send, link) => {
   return html`
     <component-link data-id="${link.id}">
       <a
         href="${link.url}"
-        class="dib design-block-padding">
+        class="dib design-block-padding"
+        onclick=${e => handleClick(e, state, send)}>
         ${link.title}
       </a>
     </component-link>
@@ -50,14 +68,13 @@ exports.inline = (link, prev, send) => {
 /**
  * Grid
  */
-exports.grid = (link, prev, send) => {
+exports.grid = (state, prev, send, link) => {
   return html`
-    <component-link
-      data-id="${link.id}"
-      class="c3">
+    <component-link class="c3" data-id="${link.id}">
       <a
         href="${link.url}"
-        class="dib design-block-padding">
+        class="dib design-block-padding"
+        onclick=${e => handleClick(e, state, send)}>
         ${link.title}
       </a>
     </component-link>

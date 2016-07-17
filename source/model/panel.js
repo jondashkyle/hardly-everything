@@ -51,12 +51,44 @@ const options = [
 ]
 
 /**
+ * Staging
+ */
+const staging = {
+  title: '',
+  tags: '',
+  url: ''
+}
+
+/**
  * Panel
  */
 module.exports = {
   namespace: 'panel',
   state: {
-    templates: ['inline', 'grid', 'blocks'],
-    options: options
+    active: false,
+    editId: '',
+    staging: staging,
+    open: false,
+    options: options,
+    templates: ['inline', 'grid', 'blocks']
+  },
+  reducers: {
+    active: (data, state) => ({
+      active: data.active,
+      editId: '',
+      open: false,
+      staging: staging
+    }),
+    updateStaging: (data, state) => ({
+      staging: xtend(state.staging, data)
+    }),
+    edit: (data, state) => ({
+      open: true,
+      staging: data.staging
+    }),
+    open: (data, state) => ({
+      open: data.open,
+      staging: staging
+    })
   }
 }

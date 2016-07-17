@@ -21,7 +21,11 @@ const templateOption = (option, state, send) => html`
 `
 
 module.exports = (state, prev, send) => {
-  return html`<view-panel class="x xw p1 ${style}">
-    ${state.panel.options.map(option => templateOption(option, state, send))}
-  </view-panel>`
+  return html`
+    <div class="psf t0 l0 r0 z3 ${state.panel.active ? 'db' : 'dn'}">
+      <div class="x xw p1 ${style}">
+        ${state.panel.options.map(option => templateOption(option, state, send))}
+      </div>
+    </div>
+  `
 }

@@ -13,6 +13,7 @@ body {
 /**
  * Typography
  */
+.lh1 { line-height: 1 }
 
 /**
  * Anchors
