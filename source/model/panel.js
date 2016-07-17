@@ -68,7 +68,7 @@ module.exports = {
     active: false,
     editId: '',
     staging: staging,
-    open: false,
+    open: true,
     options: options,
     templates: ['inline', 'grid', 'blocks']
   },
