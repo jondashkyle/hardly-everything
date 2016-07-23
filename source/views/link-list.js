@@ -2,22 +2,10 @@ const html = require('choo/html')
 const componentsLink = require('../components/link')
 
 const templateLink = (state, prev, send) => {
-  switch (state.design.template) {
-    case 'grid':
-      return state.links.all.map(link =>
-        componentsLink.grid(state, prev, send, link)
-      )
-      break
-    case 'blocks':
-      return state.links.all.map(link =>
-        componentsLink.blocks(state, prev, send, link)
-      )
-      break
-    default:
-      return state.links.all.map(link =>
-        componentsLink.inline(state, prev, send, link)
-      )
-  }
+  console.log(state.design.template, componentsLink)
+  return state.links.all.map(link =>
+    componentsLink[state.design.template](state, prev, send, link)
+  )
 }
 
 /**

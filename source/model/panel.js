@@ -46,7 +46,7 @@ const options = [
   {
     name: 'Design',
     type: 'radio',
-    options: ['list', 'grid', 'blocks'],
+    options: ['inline', 'grid', 'blocks'],
     key: 'template'
   },
   {
