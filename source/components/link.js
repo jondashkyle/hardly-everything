@@ -31,20 +31,19 @@ const handleClick = (state, prev, send, event) => {
 exports.blocks = (state, prev, send, link) => {
   return html`
     <component-link
-      class="db c4 design-block-margin"
-      data-id="${link.id}">
-      <div class="design-background-link">
-        <a
-          href="${link.url}"
-          class="x xjc xac tac design-block-padding"
-          style="min-height: 20vh"
-          onclick=${event => handleClick(state, prev, send, event)}
-          >
-          <div>
-            <div class="h5">${link.title}</div>
-          </div>
-        </a>
-      </div>
+      class="db c4 design-block-border"
+      data-id="${link.id}"
+    >
+      <a
+        href="${link.url}"
+        class="x xjc xac tac design-block-padding"
+        style="min-height: 20vh"
+        onclick=${event => handleClick(state, prev, send, event)}
+        >
+        <div>
+          <div>${link.title}</div>
+        </div>
+      </a>
     </component-link>
   `
 }
@@ -58,7 +57,7 @@ exports.inline = (state, prev, send, link) => {
       <a
         href="${link.url}"
         class="dib design-block-padding"
-        onclick=${e => handleClick(e, state, send)}>
+        onclick=${e => handleClick(state, prev, send, event)}>
         ${link.title}
       </a>
     </component-link>
@@ -74,7 +73,7 @@ exports.grid = (state, prev, send, link) => {
       <a
         href="${link.url}"
         class="dib design-block-padding"
-        onclick=${e => handleClick(e, state, send)}>
+        onclick=${e => handleClick(state, prev, send, event)}>
         ${link.title}
       </a>
     </component-link>

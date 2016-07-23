@@ -67,7 +67,7 @@ module.exports = (state, prev, send) => {
       >
       <input
         name="url"
-        placeholder="URL"
+        placeholder="http://"
         value="${state.panel.staging.url}"
         oninput=${e => send('panel:updateStaging', { url: e.target.value })}
         type="text"

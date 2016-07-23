@@ -24,9 +24,9 @@ const options = [
     key: 'background'
   },
   {
-    name: 'Link Background',
+    name: 'Block Border',
     type: 'text',
-    key: 'backgroundLink'
+    key: 'blockBorder'
   },
   {
     name: 'Link Color',
@@ -45,8 +45,23 @@ const options = [
   },
   {
     name: 'Design',
-    type: 'text',
+    type: 'radio',
+    options: ['list', 'grid', 'blocks'],
     key: 'template'
+  },
+  {
+    name: 'Scale',
+    type: 'range',
+    key: 'scale',
+    min: 5,
+    max: 100
+  },
+  {
+    name: 'Padding',
+    type: 'range',
+    key: 'blockPadding',
+    min: 5,
+    max: 50
   }
 ]
 
@@ -65,10 +80,10 @@ const staging = {
 module.exports = {
   namespace: 'panel',
   state: {
-    active: false,
+    active: true,
     editId: '',
     staging: staging,
-    open: true,
+    open: false,
     options: options,
     templates: ['inline', 'grid', 'blocks']
   },

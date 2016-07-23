@@ -7,13 +7,14 @@ const xtend = require('xtend')
 module.exports = {
   namespace: 'design',
   state: {
-    background: '#eee',
-    backgroundLink: '#fff',
+    background: '#fff',
+    blockBorder: '#ddd',
     blockMargin: '1px',
-    blockPadding: '0.5rem',
+    blockPadding: 20,
     colorLink: '#000',
     template: 'blocks',
-    font: 'Bau-Medium'
+    font: 'Bau-Medium',
+    scale: 62
   },
   subscriptions: [
     (send, done) => {

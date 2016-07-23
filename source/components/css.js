@@ -7,8 +7,8 @@ module.exports = (state, prev, send) => {
         background: ${state.design.background};
       }
 
-      .design-background-link {
-        background: ${state.design.backgroundLink};
+      .design-block-border {
+        border: 1px solid ${state.design.blockBorder};
       }
 
       .design-block-margin {
@@ -16,7 +16,7 @@ module.exports = (state, prev, send) => {
       }
 
       .design-block-padding {
-        padding: ${state.design.blockPadding};
+        padding: ${state.design.blockPadding / 100 * 10}rem;
       }
 
       .design-color-link,
@@ -26,6 +26,7 @@ module.exports = (state, prev, send) => {
 
       .design-font {
         font-family: ${state.design.font}, sans-serif;
+        font-size: ${state.design.scale / 100 * 10}rem;
       }
     </style>
   `
