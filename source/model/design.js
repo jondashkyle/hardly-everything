@@ -8,11 +8,8 @@ module.exports = {
   namespace: 'design',
   state: {
     background: '#fff',
-    blockBorder: '#ddd',
-    blockMargin: '1px',
     blockPadding: 20,
     colorLink: '#000',
-    template: 'blocks',
     font: 'Bau-Medium',
     scale: 62
   },

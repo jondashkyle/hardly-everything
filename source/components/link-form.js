@@ -81,6 +81,18 @@ module.exports = (state, prev, send) => {
         type="text"
         class="c12"
       >
+      <div class="c12">
+        <div class="x">
+          <div>Timeout:</div>
+          <input type="number" name="quantity" value="5" min="1" max="60">
+          <select>
+            <option value="minutes">Minutes</option>
+            <option value="hours" selected>Hours</option>
+            <option value="days">Days</option>
+            <option value="weeks">Weeks</option>
+          </select>
+        </div>
+      </div>
       <div class="c12 x">
         <input
           type="submit"

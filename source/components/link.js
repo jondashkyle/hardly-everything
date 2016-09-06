@@ -31,7 +31,7 @@ const handleClick = (state, prev, send, event) => {
 exports.blocks = (state, prev, send, link) => {
   return html`
     <component-link
-      class="db c4 design-block-border"
+      class="component-link db c4 design-block-border"
       data-id="${link.id}"
     >
       <a
@@ -53,7 +53,7 @@ exports.blocks = (state, prev, send, link) => {
  */
 exports.inline = (state, prev, send, link) => {
   return html`
-    <component-link data-id="${link.id}">
+    <component-link class="component-link" data-id="${link.id}">
       <a
         href="${link.url}"
         class="dib design-block-padding"
@@ -69,7 +69,7 @@ exports.inline = (state, prev, send, link) => {
  */
 exports.grid = (state, prev, send, link) => {
   return html`
-    <component-link class="c3" data-id="${link.id}">
+    <component-link class="component-link c3" data-id="${link.id}">
       <a
         href="${link.url}"
         class="dib design-block-padding"

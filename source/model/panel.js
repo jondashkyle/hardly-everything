@@ -44,24 +44,18 @@ const options = [
     key: 'background'
   },
   {
-    name: 'Design',
-    type: 'radio',
-    options: ['inline', 'grid', 'blocks'],
-    key: 'template'
-  },
-  {
     name: 'Scale',
     type: 'range',
     key: 'scale',
     min: 5,
-    max: 100
+    max: 50
   },
   {
     name: 'Padding',
     type: 'range',
     key: 'blockPadding',
-    min: 5,
-    max: 50
+    min: 0,
+    max: 25
   }
 ]
 
@@ -80,7 +74,7 @@ const staging = {
 module.exports = {
   namespace: 'panel',
   state: {
-    active: true,
+    active: false,
     editId: '',
     staging: staging,
     open: false,

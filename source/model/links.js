@@ -14,6 +14,7 @@ module.exports = {
   namespace: 'links',
   state: {
     all: [ ],
+    visible: [ ],
     order: [ ]
   },
   subscriptions: [

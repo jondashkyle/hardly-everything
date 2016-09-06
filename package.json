@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "budo source/index.js:build/bundle.js --live --pushstate -- -t [ sheetify/transform ] -t [ babelify --plugins [ static-fs ] --presets [ es2015 ] ]",
-    "build": "browserify source/index.js -o build/bundle.js -t [ sheetify/transform ] -t [ babelify --plugins [ static-fs ] --presets [ es2015 ] ]"
+    "start": "budo source/index.js:bundle.js --dir build --live --pushstate -- -t [ sheetify/transform ]",
+    "build": "browserify source/index.js -o build/bundle.js -t [ sheetify/transform ]"
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +18,7 @@
     "babel-plugin-static-fs": "^1.1.0",
     "choo": "^3.0.0",
     "gr8": "^1.0.4",
+    "moment": "^2.14.1",
     "node-uuid": "^1.4.7",
     "sheetify": "^5.0.3",
     "sortablejs": "^1.4.2",
