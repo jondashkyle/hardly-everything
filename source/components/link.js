@@ -11,71 +11,35 @@ const templateTags = (tags) => tags.map(tag => html`
  * Handle Click
  */
 const handleClick = (state, prev, send, event) => {
+  const parent = event.target.closest('[data-id]')
+  const id = parent.getAttribute('data-id')
+
   if (state.panel.active) {
-    const parent = event.target.closest('[data-id]')
-    const id = parent.getAttribute('data-id')
-    const staging = state.links.all.filter(link => link.id === id)
-    if (id !== undefined && staging.length >= 0) {
+    const staging = state.links.all.find(link => link.id === id)
+    if (id !== undefined && staging !== undefined) {
       send('panel:edit', {
         id: id,
-        staging: staging[0]
+        staging: staging
       })
     }
+
     event.preventDefault()
+  } else {
+    send('links:dismiss', { id: id })
   }
 }
 
-/**
- * Block
- */
-exports.blocks = (state, prev, send, link) => {
+const view = (state, prev, send, link) => {
   return html`
-    <component-link
-      class="component-link db c4 design-block-border"
-      data-id="${link.id}"
-    >
-      <a
-        href="${link.url}"
-        class="x xjc xac tac design-block-padding"
-        style="min-height: 20vh"
-        onclick=${event => handleClick(state, prev, send, event)}
-        >
-        <div>
-          <div>${link.title}</div>
-        </div>
-      </a>
-    </component-link>
-  `
-}
-
-/**
- * Inline
- */
-exports.inline = (state, prev, send, link) => {
-  return html`
-    <component-link class="component-link" data-id="${link.id}">
+    <div class="component-link c12" data-id="${link.id}">
       <a
         href="${link.url}"
         class="dib design-block-padding"
         onclick=${e => handleClick(state, prev, send, event)}>
         ${link.title}
       </a>
-    </component-link>
+    </div>
   `
 }
 
-/**
- * Grid
- */
-exports.grid = (state, prev, send, link) => {
-  return html`
-    <component-link class="component-link c3" data-id="${link.id}">
-      <a
-        href="${link.url}"
-        class="dib design-block-padding"
-        onclick=${e => handleClick(state, prev, send, event)}>
-        ${link.title}
-      </a>
-    </component-link>
-  `
-}
+module.exports = { view }

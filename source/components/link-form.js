@@ -38,7 +38,7 @@ const style = sf`
 /**
  * Submit
  */
-const submit = (state, event, send) => {
+const handleSubmit = (state, event, send) => {
   if (state.panel.staging.id) {
     send('links:update', state.panel.staging)
   } else {
@@ -51,11 +51,14 @@ const submit = (state, event, send) => {
  * View
  */
 module.exports = (state, prev, send) => {
+  const checkInterval = interval =>
+    state.panel.staging.interval === interval ? 'selected' : ''
+
   return html`
     <form
       autocomplete="off"
       class="${style} x xw"
-      onsubmit=${event => submit(state, event, send)}
+      onsubmit=${event => handleSubmit(state, event, send)}
     >
       <input
         name="title"
@@ -84,13 +87,35 @@ module.exports = (state, prev, send) => {
       <div class="c12">
         <div class="x">
           <div>Timeout:</div>
-          <input type="number" name="quantity" value="5" min="1" max="60">
-          <select>
-            <option value="minutes">Minutes</option>
-            <option value="hours" selected>Hours</option>
-            <option value="days">Days</option>
-            <option value="weeks">Weeks</option>
+          <input
+            type="number"
+            name="duration"
+            min="1"
+            max="60"
+            oninput=${e => send('panel:updateStaging', { duration: e.target.value })}
+            value=${state.panel.staging.duration}
+          />
+          <select
+            oninput=${e => send('panel:updateStaging', { interval: e.target.value })}
+          >
+            <option value="minutes" ${checkInterval('minutes')}>Minutes</option>
+            <option value="hours" ${checkInterval('hours')}>Hours</option>
+            <option value="days" ${checkInterval('days')}>Days</option>
+            <option value="weeks" ${checkInterval('weeks')}>Weeks</option>
+            <option value="months" ${checkInterval('months')}>Months</option>
           </select>
+           <div class="x">
+            <input
+              id="repeat"
+              type="checkbox"
+              ${state.panel.staging.repeat ? 'checked' : ''}
+              onclick=${e => {
+                console.log(state.panel.staging.repeat, e.target.checked)
+                send('panel:updateStaging', { repeat: e.target.checked })
+              }}
+            />
+            <label for="repeat">Repeat</label>
+          </div>
         </div>
       </div>
       <div class="c12 x">

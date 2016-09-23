@@ -11,10 +11,6 @@ module.exports = (state, prev, send) => {
         border: 1px solid ${state.design.blockBorder};
       }
 
-      .design-block-margin {
-        padding: ${state.design.blockMargin};
-      }
-
       .design-block-padding {
         padding: ${state.design.blockPadding / 100 * 10}rem;
       }

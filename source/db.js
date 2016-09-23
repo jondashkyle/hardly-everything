@@ -15,6 +15,6 @@ exports.get = (storeName, cb) => {
  * Save All
  */
 exports.save = (storeName, state, cb = () => { }) => {
-  window.localStorage[STORAGE_ID +storeName] = JSON.stringify(state)
+  window.localStorage[STORAGE_ID + storeName] = JSON.stringify(state)
   cb()
 }

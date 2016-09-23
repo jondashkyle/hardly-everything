@@ -1,4 +1,5 @@
 const db = require('../db')
+const moment = require('moment')
 const xtend = require('xtend')
 const uuid = require('node-uuid')
 
@@ -13,9 +14,7 @@ const formatTags = tag => tag.replace(/^\s+|\s+$/g,"").split(/\s*,\s*/)
 module.exports = {
   namespace: 'links',
   state: {
-    all: [ ],
-    visible: [ ],
-    order: [ ]
+    all: [ ]
   },
   subscriptions: [
     (send, done) => {
@@ -23,42 +22,63 @@ module.exports = {
         send('links:init', data, done)
         done()
       })
+    },
+    (send, done) => {
+      // setInterval(() => send('links:refresh', { }, done), 61 * 1000)
     }
   ],
   reducers: {
-    save: (data, state) => data
+    all: (data, state) => ({ all: data }),
+    refresh: (data, state) => (state)
   },
   effects: {
     add: (data, state, send, done) => {
       const id = uuid.v4()
-      const updateState = xtend(state, {
-        all: [xtend({ id: id }, data)].concat(state.all),
-        order: [id].concat(state.all)
-      })
+      const link = xtend({
+        id: id,
+        dateAdded: moment().toISOString(),
+        dateDismissed: moment().subtract(10, 'years').toISOString()
+      }, data)
+
+      const updateState =  state.all.concat(link)
+
       db.save('links', updateState)
       send('panel:open', { open: false }, done)
-      send('links:save', updateState, done)
+      send('links:all', updateState, done)
     },
     remove: (data, state, send, done) => {
-      const updateState = xtend(state, {
-        all: state.all.filter(link => link.id !== data.id)
-      })
+      const updateState = state.all.filter(link => link.id !== data.id)
+
       db.save('links', updateState)
       send('panel:open', { open: false }, done)
-      send('links:save', updateState, done)
+      send('links:all', updateState, done)
     },
     update: (data, state, send, done) => {
-      const updateState = xtend(state, {
-        all: state.all.map(link => link.id === data.id ? data : link)
-      })
+      const updateState = state.all.map(link =>
+        link.id === data.id ? data : link
+      )
+
       db.save('links', updateState)
       send('panel:open', { open: false }, done)
-      send('links:save', updateState, done)
+      send('links:all', updateState, done)
+    },
+    dismiss: (data, state, send, done) => {
+      const updateState = state.all.map(link => {
+        if (link.id === data.id) {
+          return xtend(link, {
+            dateDismissed: moment().toISOString()
+          })
+        } else {
+          return link
+        }
+      })
+
+      db.save('links', updateState)
+      send('links:all', updateState, done)
     },
     init: (data, state, send, done) => {
-      const updateState = xtend(state, data)
-      db.save('links', updateState)
-      send('links:save', updateState, done)
+      db.save('links', data)
+      send('links:all', data, done)
     }
   }
 }

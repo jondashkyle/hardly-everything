@@ -24,12 +24,7 @@ const options = [
     key: 'background'
   },
   {
-    name: 'Block Border',
-    type: 'text',
-    key: 'blockBorder'
-  },
-  {
-    name: 'Link Color',
+    name: 'Color',
     type: 'text',
     key: 'colorLink'
   },
@@ -37,11 +32,6 @@ const options = [
     name: 'Font',
     type: 'text',
     key: 'font'
-  },
-  {
-    name: 'Background',
-    type: 'text',
-    key: 'background'
   },
   {
     name: 'Scale',
@@ -65,6 +55,9 @@ const options = [
 const staging = {
   title: '',
   tags: '',
+  duration: 1,
+  interval: 'weeks',
+  repeat: true,
   url: ''
 }
 
@@ -79,7 +72,6 @@ module.exports = {
     staging: staging,
     open: false,
     options: options,
-    templates: ['inline', 'grid', 'blocks']
   },
   reducers: {
     active: (data, state) => ({
