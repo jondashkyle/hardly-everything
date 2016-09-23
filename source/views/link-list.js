@@ -1,4 +1,4 @@
-const html = require('choo/html')
+const h = require('choo/html')
 const moment = require('moment')
 const Link = require('../components/link')
 
@@ -13,11 +13,19 @@ const templateLink = (state, prev, send) => {
         return true
       }
     })
+    .filter(link => {
+      if (link.visited > 0 && !link.repeat) {
+        send('links:remove', { id: link.id })
+        return false
+      } else {
+        return true
+      }
+    })
     .map(link => Link.view(state, prev, send, link))
 }
 
 module.exports = (state, prev, send) => {
-  const el = html`
+  const el = h`
     <div
       class="
         x xw lh1

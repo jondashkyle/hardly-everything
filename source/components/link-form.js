@@ -109,10 +109,7 @@ module.exports = (state, prev, send) => {
               id="repeat"
               type="checkbox"
               ${state.panel.staging.repeat ? 'checked' : ''}
-              onclick=${e => {
-                console.log(state.panel.staging.repeat, e.target.checked)
-                send('panel:updateStaging', { repeat: e.target.checked })
-              }}
+              onclick=${e => send('panel:updateStaging', { repeat: e.target.checked })}
             />
             <label for="repeat">Repeat</label>
           </div>

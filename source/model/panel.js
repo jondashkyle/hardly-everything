@@ -58,6 +58,7 @@ const staging = {
   duration: 1,
   interval: 'weeks',
   repeat: true,
+  visited: 0,
   url: ''
 }
 

@@ -66,6 +66,7 @@ module.exports = {
       const updateState = state.all.map(link => {
         if (link.id === data.id) {
           return xtend(link, {
+            visited: link.visited + 1,
             dateDismissed: moment().toISOString()
           })
         } else {
