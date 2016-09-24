@@ -11,7 +11,7 @@ module.exports = (state, prev, send) => {
   return html`
     <div
       data-link-panel
-      class="psf t0 l0 r0 b0 xjc xac z2 ${state.panel.open ? 'x' : 'dn'}"
+      class="psf t0 l0 r0 b0 xjc xac z2 x"
       onclick=${event => handleClick(event, send)}>
       ${linkForm(state, prev, send)}
     </div>

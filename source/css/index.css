@@ -30,3 +30,15 @@ a {
 .list-comma-seperated > span:not(:last-child):after {
   content: ', '
 }
+
+/**
+ * Gr8
+ */
+.usn {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

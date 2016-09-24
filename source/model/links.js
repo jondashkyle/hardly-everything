@@ -14,7 +14,8 @@ const formatTags = tag => tag.replace(/^\s+|\s+$/g,"").split(/\s*,\s*/)
 module.exports = {
   namespace: 'links',
   state: {
-    all: [ ]
+    all: [ ],
+    viewAll: false
   },
   subscriptions: [
     (send, done) => {
@@ -29,7 +30,8 @@ module.exports = {
   ],
   reducers: {
     all: (data, state) => ({ all: data }),
-    refresh: (data, state) => (state)
+    refresh: (data, state) => (state),
+    viewAll: (data, state) => ({ viewAll: data.viewAll })
   },
   effects: {
     add: (data, state, send, done) => {

@@ -51,8 +51,9 @@ const handleSubmit = (state, event, send) => {
  * View
  */
 module.exports = (state, prev, send) => {
-  const checkInterval = interval =>
-    state.panel.staging.interval === interval ? 'selected' : ''
+  const checkInterval = interval => {
+    return state.panel.staging.interval === interval ? 'selected' : ''
+  }
 
   return html`
     <form
@@ -104,15 +105,6 @@ module.exports = (state, prev, send) => {
             <option value="weeks" ${checkInterval('weeks')}>Weeks</option>
             <option value="months" ${checkInterval('months')}>Months</option>
           </select>
-           <div class="x">
-            <input
-              id="repeat"
-              type="checkbox"
-              ${state.panel.staging.repeat ? 'checked' : ''}
-              onclick=${e => send('panel:updateStaging', { repeat: e.target.checked })}
-            />
-            <label for="repeat">Repeat</label>
-          </div>
         </div>
       </div>
       <div class="c12 x">

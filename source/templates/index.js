@@ -11,8 +11,8 @@ const css = require('../components/css')
 module.exports = (state, prev, send) => {
   return html`<div>
     ${panel(state, prev, send)}
+    ${state.panel.open ? linkPanel(state, prev, send) : ''}
     ${linkList(state, prev, send)}
-    ${linkPanel(state, prev, send)}
     ${linkNavigation(state, prev, send)}
     ${css(state, prev, send)}
   </div>`
