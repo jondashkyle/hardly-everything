@@ -6,7 +6,7 @@ const sf = require('sheetify')
  */
 const style = sf`
   :host {
-    background: rgba(127, 127, 127, 0.2);
+    background: #000;
     padding: 2px;
     width: 50%;
   }
@@ -18,7 +18,7 @@ const style = sf`
   input[type="text"] {
     border: 0;
     outline: 0;
-    margin: 0 0 2px 0;
+    margin: 0;
     padding: 0.5rem 1rem;
   }
 
@@ -67,7 +67,7 @@ module.exports = (state, prev, send) => {
         value="${state.panel.staging.title}"
         oninput=${e => send('panel:updateStaging', { title: e.target.value })}
         type="text"
-        class="c12"
+        class="c12 sans"
       >
       <input
         name="url"
@@ -75,15 +75,7 @@ module.exports = (state, prev, send) => {
         value="${state.panel.staging.url}"
         oninput=${e => send('panel:updateStaging', { url: e.target.value })}
         type="text"
-        class="c12"
-      >
-      <input
-        name="tags"
-        placeholder="just, some, tags"
-        value="${state.panel.staging.tags}"
-        oninput=${e => send('panel:updateStaging', { tags: e.target.value })}
-        type="text"
-        class="c12"
+        class="c12 sans"
       >
       <div class="c12">
         <div class="x">
@@ -105,6 +97,12 @@ module.exports = (state, prev, send) => {
             <option value="weeks" ${checkInterval('weeks')}>Weeks</option>
             <option value="months" ${checkInterval('months')}>Months</option>
           </select>
+        </div>
+        <div class="c12 x">
+          <div>
+            Rest
+          </div>
+          <input type="range"/> 
         </div>
       </div>
       <div class="c12 x">

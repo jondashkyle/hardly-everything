@@ -8,10 +8,11 @@ const getDismissedDate = link => {
 
 const templateLink = (state, prev, send) => {
   const now = moment().toDate()
+  if (!state.links.all) { return }
   return state.links.all
     .filter(link => {
       if (
-        !state.links.viewAll &&
+        !state.links.options.viewAll &&
         link.dateDismissed &&
         link.duration &&
         link.interval

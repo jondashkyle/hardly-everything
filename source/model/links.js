@@ -1,6 +1,6 @@
 const db = require('../db')
 const moment = require('moment')
-const xtend = require('xtend')
+const x = require('xtend')
 const uuid = require('node-uuid')
 
 /**
@@ -15,7 +15,10 @@ module.exports = {
   namespace: 'links',
   state: {
     all: [ ],
-    viewAll: false
+    archive: [ ],
+    options: {
+      viewAll: false
+    }
   },
   subscriptions: [
     (send, done) => {
@@ -31,12 +34,12 @@ module.exports = {
   reducers: {
     all: (data, state) => ({ all: data }),
     refresh: (data, state) => (state),
-    viewAll: (data, state) => ({ viewAll: data.viewAll })
+    options: (data, state) => ({ options: x(state.options, data) })
   },
   effects: {
     add: (data, state, send, done) => {
       const id = uuid.v4()
-      const link = xtend({
+      const link = x({
         id: id,
         dateAdded: moment().toISOString(),
         dateDismissed: moment().subtract(10, 'years').toISOString()
@@ -67,7 +70,7 @@ module.exports = {
     dismiss: (data, state, send, done) => {
       const updateState = state.all.map(link => {
         if (link.id === data.id) {
-          return xtend(link, {
+          return x(link, {
             visited: link.visited + 1,
             dateDismissed: moment().toISOString()
           })
@@ -80,7 +83,6 @@ module.exports = {
       send('links:all', updateState, done)
     },
     init: (data, state, send, done) => {
-      db.save('links', data)
       send('links:all', data, done)
     }
   }
