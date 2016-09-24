@@ -2,6 +2,10 @@ const h = require('choo/html')
 const moment = require('moment')
 const Link = require('../components/link')
 
+const getDismissedDate = link => {
+  return moment(link.dateDismissed).add(link.duration, link.interval).toDate()
+}
+
 const templateLink = (state, prev, send) => {
   const now = moment().toDate()
   return state.links.all
@@ -12,11 +16,14 @@ const templateLink = (state, prev, send) => {
         link.duration &&
         link.interval
       ) {
-        const dismissed = moment(link.dateDismissed).add(link.duration, link.interval).toDate()
+        const dismissed = getDismissedDate(link)
         return dismissed < now
       } else {
         return true
       }
+    })
+    .sort((a, b) => {
+      return getDismissedDate(a) - getDismissedDate(b)
     })
     .map(link => Link.view(state, prev, send, link))
 }

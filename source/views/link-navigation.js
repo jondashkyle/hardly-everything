@@ -18,7 +18,7 @@ module.exports = (state, prev, send) => {
       <div
         class="p1 curp ${state.panel.active ? 'op10' : 'op5'}"
         onclick=${e => send('panel:active', editClick(state, send))}>
-        Editing
+        Edit
       </div>
       <div
         class="p1 curp ${state.panel.open && !state.panel.staging.id ? 'op10' : 'op5'}"
