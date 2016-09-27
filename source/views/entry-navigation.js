@@ -9,9 +9,9 @@ module.exports = (state, prev, send) => {
       <div
         class="
           p1 curp
-          ${state.links.options.viewAll ? 'op10' : 'op5'} 
+          ${state.entries.options.viewAll ? 'op10' : 'op5'} 
         "
-        onclick=${e => send('links:options', { viewAll: !state.links.options.viewAll })}>
+        onclick=${e => send('entries:options', { viewAll: !state.entries.options.viewAll })}>
         👀
       </div> 
       <div

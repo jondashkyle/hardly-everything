@@ -15,7 +15,7 @@ const handleClick = (state, prev, send, event) => {
   const id = parent.getAttribute('data-id')
 
   if (state.panel.active) {
-    const staging = state.links.all.find(link => link.id === id)
+    const staging = state.entries.all.find(entry => entry.id === id)
     if (id !== undefined && staging !== undefined) {
       send('panel:edit', {
         id: id,
@@ -25,18 +25,18 @@ const handleClick = (state, prev, send, event) => {
 
     event.preventDefault()
   } else {
-    send('links:dismiss', { id: id })
+    send('entries:dismiss', { id: id })
   }
 }
 
-const view = (state, prev, send, link) => {
+const view = (state, prev, send, entry) => {
   return html`
-    <div class="component-link c12" data-id="${link.id}">
+    <div class="component-entry c12" data-id="${entry.id}">
       <a
-        href="${link.url}"
+        href="${entry.url}"
         class="dib design-block-padding"
         onclick=${e => handleClick(state, prev, send, event)}>
-        ${link.title}
+        ${entry.title}
       </a>
     </div>
   `

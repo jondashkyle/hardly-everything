@@ -43,9 +43,9 @@ const style = sf`
  */
 const handleSubmit = (state, event, send) => {
   if (state.panel.staging.id) {
-    send('links:update', state.panel.staging)
+    send('entries:update', state.panel.staging)
   } else {
-    send('links:add', state.panel.staging)
+    send('entries:add', state.panel.staging)
   }
   event.preventDefault()
 }
@@ -117,7 +117,7 @@ module.exports = (state, prev, send) => {
           name="delete"
           value="Delete"
           class="${state.panel.staging.id ? 'xa' : 'dn'}"
-          onclick=${e => send('links:remove', { id: state.panel.staging.id })}
+          onclick=${e => send('entries:remove', { id: state.panel.staging.id })}
           type="button"
         >
       </div>

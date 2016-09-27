@@ -1,8 +1,8 @@
 const html = require('choo/html')
-const linkForm = require('../components/link-form')
+const entryForm = require('../components/entry-form')
 
 const handleClick = (event, send) => {
-  if (event.target.hasAttribute('data-link-panel')) {
+  if (event.target.hasAttribute('data-entry-panel')) {
     send('panel:open', { open: false })
   }
 }
@@ -10,10 +10,10 @@ const handleClick = (event, send) => {
 module.exports = (state, prev, send) => {
   return html`
     <div
-      data-link-panel
+      data-entry-panel
       class="psf t0 l0 r0 b0 xjc xac z2 x"
       onclick=${event => handleClick(event, send)}>
-      ${linkForm(state, prev, send)}
+      ${entryForm(state, prev, send)}
     </div>
   `
 }

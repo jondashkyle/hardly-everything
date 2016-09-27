@@ -16,7 +16,7 @@ app.use(log())
  * Model
  */
 app.model(require('./model/design'))
-app.model(require('./model/links'))
+app.model(require('./model/entries'))
 app.model(require('./model/panel'))
 app.model(require('./model/tags'))
 
