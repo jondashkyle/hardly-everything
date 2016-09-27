@@ -5,6 +5,7 @@ const xtend = require('xtend')
  * Typography
  */
 const typography = [
+  { name: 'system', weight: [200, 400, 600] },
   { name: 'Cabin', weight: 400 },
   { name: 'Cormorant+Garamond', weight: 400 },
   { name: 'Inconsolata', weight: 400 },

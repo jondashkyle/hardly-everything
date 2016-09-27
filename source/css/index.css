@@ -19,6 +19,16 @@ body {
 }
 
 /**
+ * Colors
+ */
+
+.bg-white { background: #fff }
+.bg-black { background: #000 }
+
+.tc-white { color: #fff }
+.tc-black { color: #000 }
+
+/**
  * Anchors
  */
 

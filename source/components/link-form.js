@@ -77,7 +77,7 @@ module.exports = (state, prev, send) => {
         type="text"
         class="c12 sans"
       >
-      <div class="c12">
+      <div class="c12 bg-white">
         <div class="x">
           <div>Timeout:</div>
           <input
