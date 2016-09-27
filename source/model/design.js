@@ -9,7 +9,7 @@ module.exports = {
   state: {
     background: '#fff',
     blockPadding: 20,
-    colorLink: '#000',
+    colorEntry: '#000',
     font: 'Bau-Medium',
     scale: 62
   },

@@ -28,6 +28,7 @@ an attention & time focused bookmarking app
     - color picker
     - range design
     - google font picker
+    - export
   - link panel
     - single slider for duration which goes from minutes to hours
       to days to weeks?
@@ -39,6 +40,8 @@ an attention & time focused bookmarking app
     - email list
 - promo
   - mailchimp or something?
+- release
+  - migration tool
 
 ## future
 - archive

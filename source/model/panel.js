@@ -27,7 +27,7 @@ const options = [
   {
     name: 'Color',
     type: 'text',
-    key: 'colorLink'
+    key: 'colorEntry'
   },
   {
     name: 'Font',
@@ -39,7 +39,7 @@ const options = [
     type: 'range',
     key: 'scale',
     min: 5,
-    max: 50
+    max: 72
   },
   {
     name: 'Padding',
@@ -56,10 +56,10 @@ const options = [
 const staging = {
   title: '',
   tags: '',
-  duration: 1,
-  interval: 'weeks',
+  duration: 7,
+  interval: 'days',
   visited: 0,
-  timeRange: 20,
+  timeRange: 50,
   url: ''
 }
 
