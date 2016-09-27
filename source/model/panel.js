@@ -59,6 +59,7 @@ const staging = {
   duration: 1,
   interval: 'weeks',
   visited: 0,
+  timeRange: 20,
   url: ''
 }
 
@@ -68,7 +69,7 @@ const staging = {
 module.exports = {
   namespace: 'panel',
   state: {
-    active: false,
+    active: true,
     editId: '',
     staging: staging,
     open: false,

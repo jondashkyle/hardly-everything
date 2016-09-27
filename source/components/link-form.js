@@ -1,5 +1,8 @@
 const html = require('choo/html')
 const sf = require('sheetify')
+const x = require('xtend')
+
+const { intToRest } = require('../helpers/time')
 
 /**
  * Style
@@ -55,6 +58,10 @@ module.exports = (state, prev, send) => {
     return state.panel.staging.interval === interval ? 'selected' : ''
   }
 
+  const getTime = e => intToRest({
+    value: parseInt(e.target.value)
+  })
+
   return html`
     <form
       autocomplete="off"
@@ -78,31 +85,26 @@ module.exports = (state, prev, send) => {
         class="c12 sans"
       >
       <div class="c12 bg-white">
-        <div class="x">
-          <div>Timeout:</div>
-          <input
-            type="number"
-            name="duration"
-            min="1"
-            max="60"
-            oninput=${e => send('panel:updateStaging', { duration: e.target.value })}
-            value=${state.panel.staging.duration}
-          />
-          <select
-            oninput=${e => send('panel:updateStaging', { interval: e.target.value })}
-          >
-            <option value="minutes" ${checkInterval('minutes')}>Minutes</option>
-            <option value="hours" ${checkInterval('hours')}>Hours</option>
-            <option value="days" ${checkInterval('days')}>Days</option>
-            <option value="weeks" ${checkInterval('weeks')}>Weeks</option>
-            <option value="months" ${checkInterval('months')}>Months</option>
-          </select>
-        </div>
         <div class="c12 x">
           <div>
             Rest
           </div>
-          <input type="range"/> 
+          <div>
+            ${state.panel.staging.duration}
+            ${state.panel.staging.interval}
+          </div>
+        </div>
+        <div class="c12">
+          <input
+            class="c12"
+            type="range"
+            min="0"
+            max="100"
+            value=${state.panel.staging.timeRange}
+            oninput=${e => send('panel:updateStaging', x(getTime(e), {
+              timeRange: parseInt(e.target.value)
+            }))}
+          /> 
         </div>
       </div>
       <div class="c12 x">
