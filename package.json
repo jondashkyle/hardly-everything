@@ -14,7 +14,7 @@
     "budo": "^9.0.0",
     "choo": "^3.2.2",
     "choo-log": "^1.4.1",
-    "gr8": "^1.0.4",
+    "gr8": "github:folderstudio/gr8",
     "moment": "^2.14.1",
     "node-uuid": "^1.4.7",
     "sheetify": "^5.0.3",

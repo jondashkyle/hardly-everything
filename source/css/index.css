@@ -14,6 +14,7 @@ body {
  * Typography
  */
 .lh1 { line-height: 1 }
+.fw-800 { font-weight: 800 }
 
 .sans {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

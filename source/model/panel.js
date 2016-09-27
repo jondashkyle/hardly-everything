@@ -69,7 +69,7 @@ const staging = {
 module.exports = {
   namespace: 'panel',
   state: {
-    active: true,
+    active: false,
     editId: '',
     staging: staging,
     open: false,
