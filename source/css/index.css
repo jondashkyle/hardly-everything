@@ -14,6 +14,7 @@ body {
  * Typography
  */
 .lh1 { line-height: 1 }
+.fwl { font-weight: 200 }
 .fw-800 { font-weight: 800 }
 
 .sans {
@@ -62,6 +63,7 @@ a {
   user-select: none;
 }
 
+.pen { pointer-events: none }
 .cur-ewr { cursor: ew-resize }
 
 /**

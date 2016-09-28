@@ -3,6 +3,7 @@ const sf = require('sheetify')
 const x = require('xtend')
 
 const { intToRest } = require('../helpers/time')
+const inputRange = require('./input-range')
 
 /**
  * Style
@@ -19,14 +20,15 @@ const style = sf`
   }
 
   input {
-    font-size: 2rem;
+    font-size: 1rem;
+    line-height: 3rem;
   }
 
   input[type="text"] {
     border: 0;
     outline: 0;
     margin: 0;
-    padding: 0.5rem 1rem;
+    padding: 0 1rem;
   }
 
   input[type="submit"] {
@@ -58,8 +60,8 @@ module.exports = (state, prev, send) => {
     return state.panel.staging.interval === interval ? 'selected' : ''
   }
 
-  const getTime = e => intToRest({
-    value: parseInt(e.target.value)
+  const getTime = value=> intToRest({
+    value: value
   })
 
   return html`
@@ -88,29 +90,15 @@ module.exports = (state, prev, send) => {
           class="c12 sans bg-white"
         />
       </div>
-      <div>
+      <div style="line-height: 3rem">
         <div class="c12 bg-white">
-          <div class="c12 x">
-            <div>
-              Rest
-            </div>
-            <div>
-              ${state.panel.staging.duration}
-              ${state.panel.staging.interval}
-            </div>
-          </div>
-          <div class="c12">
-            <input
-              class="c12"
-              type="range"
-              min="0"
-              max="100"
-              value=${state.panel.staging.timeRange}
-              oninput=${e => send('panel:updateStaging', x(getTime(e), {
-                timeRange: parseInt(e.target.value)
-              }))}
-            /> 
-          </div>
+          ${inputRange({
+            name: 'Rest',
+            value: state.panel.staging.timeRange,
+            handleInput: value => send('panel:updateStaging', x(getTime(value), {
+              timeRange: value
+            })) 
+          })}
         </div>
       </div>
       <div class="c12 x">

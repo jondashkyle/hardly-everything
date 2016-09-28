@@ -25,7 +25,7 @@ app.model(require('./model/tags'))
  */
 app.router((route) => [
   route('/', require('./templates/index')),
-  route('/export', require('./templates/export'))
+  route('/data', require('./templates/export'))
 ])
 
 /**
