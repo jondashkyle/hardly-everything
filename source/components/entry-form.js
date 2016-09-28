@@ -9,9 +9,13 @@ const { intToRest } = require('../helpers/time')
  */
 const style = sf`
   :host {
-    background: #000;
-    padding: 2px;
+    padding: 1px;
     width: 50%;
+  }
+
+  :host > div {
+    padding: 1px;
+    width: 100%;
   }
 
   input {
@@ -26,15 +30,11 @@ const style = sf`
   }
 
   input[type="submit"] {
-    background: #000;
     border: 0;
-    color: #fff;
   }
 
   input[type="button"] {
-    background: #808080;
     border: 0;
-    color: #fff;
   }
 `
 
@@ -65,58 +65,64 @@ module.exports = (state, prev, send) => {
   return html`
     <form
       autocomplete="off"
-      class="${style} x xw"
+      class="${style} x xw bg-black"
       onsubmit=${event => handleSubmit(state, event, send)}
     >
-      <input
-        name="title"
-        placeholder="Title"
-        value="${state.panel.staging.title}"
-        oninput=${e => send('panel:updateStaging', { title: e.target.value })}
-        type="text"
-        class="c12 sans"
-      >
-      <input
-        name="url"
-        placeholder="http://"
-        value="${state.panel.staging.url}"
-        oninput=${e => send('panel:updateStaging', { url: e.target.value })}
-        type="text"
-        class="c12 sans"
-      >
-      <div class="c12 bg-white">
-        <div class="c12 x">
-          <div>
-            Rest
+      <div>
+        <input
+          name="title"
+          placeholder="Title"
+          value="${state.panel.staging.title}"
+          oninput=${e => send('panel:updateStaging', { title: e.target.value })}
+          type="text"
+          class="c12 sans bg-white"
+        />
+      </div>
+      <div>
+        <input
+          name="url"
+          placeholder="http://"
+          value="${state.panel.staging.url}"
+          oninput=${e => send('panel:updateStaging', { url: e.target.value })}
+          type="text"
+          class="c12 sans bg-white"
+        />
+      </div>
+      <div>
+        <div class="c12 bg-white">
+          <div class="c12 x">
+            <div>
+              Rest
+            </div>
+            <div>
+              ${state.panel.staging.duration}
+              ${state.panel.staging.interval}
+            </div>
           </div>
-          <div>
-            ${state.panel.staging.duration}
-            ${state.panel.staging.interval}
+          <div class="c12">
+            <input
+              class="c12"
+              type="range"
+              min="0"
+              max="100"
+              value=${state.panel.staging.timeRange}
+              oninput=${e => send('panel:updateStaging', x(getTime(e), {
+                timeRange: parseInt(e.target.value)
+              }))}
+            /> 
           </div>
-        </div>
-        <div class="c12">
-          <input
-            class="c12"
-            type="range"
-            min="0"
-            max="100"
-            value=${state.panel.staging.timeRange}
-            oninput=${e => send('panel:updateStaging', x(getTime(e), {
-              timeRange: parseInt(e.target.value)
-            }))}
-          /> 
         </div>
       </div>
       <div class="c12 x">
         <input
           type="submit"
           value="Save"
-          class="xa"
+          class="xa bg-white tc-black"
         >
         <input
           name="delete"
           value="Delete"
-          class="${state.panel.staging.id ? 'xa' : 'dn'}"
+          class="${state.panel.staging.id ? 'xa' : 'dn'} tc-black"
           onclick=${e => send('entries:remove', { id: state.panel.staging.id })}
           type="button"
         >

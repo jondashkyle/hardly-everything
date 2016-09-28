@@ -1,58 +1,78 @@
-const html = require('choo/html')
+const h = require('choo/html')
 const sf = require('sheetify')
 
 const style = sf`
   :host {
-    background: #000;
-    color: #fff;
+    padding: 1px;
+    line-height: 3rem;
+  }
+
+  input {
+    text-align: right;
+    border: 0;
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0 1rem;
+    font-size: 1rem;
+    outline: 0;
+    width: 100%;
+  }
+
+  label {
+    pointer-events: none;
+    padding: 0 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  .container-option {
+    padding: 1px;
+  }
+
+  .range-position {
+    background: rgba(127, 127, 127, 0.2);
+    pointer-events: none;
+    width: 100%;
   }
 `
 
-const inputText = (option, state, send) => html`
-  <div class="x c4">
-    <div>
+const inputText = (option, state, send) => h`
+  <div class="psr bg-white">
+    <label>
       ${option.name}
-    </div>
+    </label>
     <input
       type="text"
+      class="bg-white tc-black"
       value="${state.design[option.key]}"
-      oninput=${e => send('design:update', { [option.key]: e.target.value })}
+      oninput=${e => send('design:update', {
+        [option.key]: e.target.value 
+      })}
     >
   </div>
 `
 
-const inputRange = (option, state, send) => html`
-  <div class="x c4">
-    <div>
+const inputRange = (option, state, send) => h`
+  <div class="psr bg-white ofh cur-ewr">
+    <label>
       ${option.name}
-    </div>
+    </label>
     <input
       type="range"
-      min="${option.min || 5}"
-      max="${option.max || 100}"
+      min="0"
+      max="100"
+      class="op0 cur-ewr"
       value="${state.design[option.key]}"
-      oninput=${e => send('design:update', { [option.key]: parseInt(e.target.value) })}
+      oninput=${e => send('design:update', {
+        [option.key]: parseInt(e.target.value)
+      })}
     >
-  </div>
-`
-
-const inputRadio = (option, state, send) => html`
-  <div class="x c4">
-    <div>
-      ${option.name}
-    </div>
-    ${option.options.map(o => html`
-      <label>
-        <input
-          type="radio"
-          name="${option.key}"
-          value="${o}"
-          ${state.design[option.key] == o ? 'checked' : ''}
-          onchange=${e => send('design:update', { [option.key]: e.target.value })}
-        >
-        ${o}
-      </label>
-    `)}
+    <div
+      class="psa t0 b0 range-position"
+      style="transform: translate3d(${state.design[option.key]}%, 0, 0)"
+    ></div>
   </div>
 `
 
@@ -62,18 +82,24 @@ const templateOption = (state, prev, send, option) => {
       return inputText(option, state, send)
     case 'range':
       return inputRange(option, state, send)
-    case 'radio':
-      return inputRadio(option, state, send)
     default:
       return
   }
 }
 
+const optionContainer = ({ content }) => h`
+  <div class="c4 psr p0-5 container-option">
+    ${content}
+  </div>
+`
+
 module.exports = (state, prev, send) => {
-  return html`
-    <div class="psf t0 l0 r0 z3 ${state.panel.active ? 'db' : 'dn'}">
-      <div class="x xw p1 ${style}">
-        ${state.panel.options.map(option => templateOption(state, state, send, option))}
+  return h`
+    <div class="bg-black tc-black psf t0 l0 r0 z3 ${state.panel.active ? 'db' : 'dn'}">
+      <div class="x xw ${style}">
+        ${state.panel.options.map(option => optionContainer({
+          content: templateOption(state, state, send, option)
+        }))}
       </div>
     </div>
   `

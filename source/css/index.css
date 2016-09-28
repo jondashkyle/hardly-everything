@@ -62,6 +62,8 @@ a {
   user-select: none;
 }
 
+.cur-ewr { cursor: ew-resize }
+
 /**
  * Type
  */

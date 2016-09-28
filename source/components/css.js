@@ -1,6 +1,24 @@
 const html = require('choo/html')
 
+const { linearConversion } = require('../helpers/scale')
+
 module.exports = (state, prev, send) => {
+  const blockPadding = linearConversion({
+    value: state.design.blockPadding,
+    out: {
+      min: 0.5,
+      max: 5
+    }
+  })
+
+  const fontSize = linearConversion({
+    value: state.design.scale,
+    out: {
+      min: 0.5,
+      max: 10
+    } 
+  })
+
   return html`
     <style>
       body {
@@ -12,7 +30,7 @@ module.exports = (state, prev, send) => {
       }
 
       .design-block-padding {
-        padding: ${state.design.blockPadding / 100 * 10}rem;
+        padding: ${blockPadding}rem;
       }
 
       .design-color-entry,
@@ -22,7 +40,7 @@ module.exports = (state, prev, send) => {
 
       .design-font {
         font-family: ${state.design.font}, sans-serif;
-        font-size: ${state.design.scale / 100 * 10}rem;
+        font-size: ${fontSize}rem;
       }
     </style>
   `

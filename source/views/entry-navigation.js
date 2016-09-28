@@ -1,11 +1,18 @@
-const html = require('choo/html')
+const h = require('choo/html')
+const sf = require('sheetify')
+
+const styles = sf`
+  :host {
+    font-size: 14px;
+  }
+`
 
 const newClick = (state, send) => ({ open: !state.panel.open })
 const editClick = (state, send) => ({ active: !state.panel.active })
 
 module.exports = (state, prev, send) => {
-  return html`
-    <div class="psf b0 r0 p0-5 lh1 x z2 usn sans ttu fwb">
+  return h`
+    <div class="psf b0 r0 p0-5 lh1 x z2 usn sans ttu fwb ${styles}">
       <div
         class="
           p0-5 curp

@@ -18,37 +18,25 @@ const typography = [
 /**
  * Options
  */
-const options = [
-  {
-    name: 'Background',
-    type: 'text',
-    key: 'background'
-  },
-  {
-    name: 'Color',
-    type: 'text',
-    key: 'colorEntry'
-  },
-  {
-    name: 'Font',
-    type: 'text',
-    key: 'font'
-  },
-  {
-    name: 'Scale',
-    type: 'range',
-    key: 'scale',
-    min: 5,
-    max: 72
-  },
-  {
-    name: 'Padding',
-    type: 'range',
-    key: 'blockPadding',
-    min: 0,
-    max: 25
-  }
-]
+const options = [{
+  name: 'Font',
+  type: 'text',
+  key: 'font'
+},
+{
+  name: 'Scale',
+  type: 'range',
+  key: 'scale',
+  min: 5,
+  max: 72
+},
+{
+  name: 'Spacing',
+  type: 'range',
+  key: 'blockPadding',
+  min: 0,
+  max: 25
+}]
 
 /**
  * Staging
