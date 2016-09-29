@@ -13,8 +13,13 @@ const style = sf`
     border: 0;
     line-height: 1.5;
     display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     outline: 0;
   }
 `
@@ -25,7 +30,7 @@ const container = opts => {
   }, opts)
 
   const el = h`<div class="${style}">
-    <textarea class="mono">${JSON.stringify(options.entries, false, 2)}</textarea>
+    <textarea class="mono bg-black tc-white p2">${JSON.stringify(options.entries, false, 2)}</textarea>
   </div>`
 
   return el
