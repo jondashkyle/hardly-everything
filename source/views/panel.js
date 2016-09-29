@@ -20,8 +20,10 @@ const style = sf`
   }
 
   .container-option {
-    border-right: 1px solid rgba(127, 127, 127, 0.33);
+    border-right: 2px solid rgba(127, 127, 127, 0.33);
   }
+  
+ .container-option:last-child { border-right: 0 } 
 `
 
 const inputText = (option, state, send) => h`
@@ -31,7 +33,7 @@ const inputText = (option, state, send) => h`
     </label>
     <input
       type="text"
-      class="bg-black tc-white fwl"
+      class="bg-black tc-white"
       value="${state.design[option.key]}"
       oninput=${e => send('design:update', {
         [option.key]: e.target.value 
@@ -65,7 +67,7 @@ const optionContainer = ({ content }) => h`
 
 module.exports = (state, prev, send) => {
   return h`
-    <div class="bg-black tc-white fwl psf t0 l0 r0 z3 ${state.panel.active ? 'db' : 'dn'}">
+    <div class="bg-black tc-white psf t0 l0 r0 z3 ${state.panel.active ? 'db' : 'dn'}">
       <div class="x xw ${style}">
         ${state.panel.options.map(option => optionContainer({
           content: templateOption(state, state, send, option)

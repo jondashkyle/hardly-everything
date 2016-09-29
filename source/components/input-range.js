@@ -7,8 +7,15 @@ const inputRange = (opts) => {
     height: '3rem',
     slideBg: 'rgba(127, 127, 127, 0.165)',
     value: 20,
+    valueShow: true,
     handleInput: e => { }
   }, opts)
+
+  const valueEl = h`
+    <div class="psa t0 r0 pen px1 mono">
+      ${options.value}
+    </div>
+  `
 
   return h`
     <div
@@ -18,15 +25,14 @@ const inputRange = (opts) => {
       <label class="psa t0 l0 pen px1">
         ${options.name}
       </label>
-      <div class="psa t0 r0 pen px1 mono fs0-8">
-        ${options.value}
-      </div>
+      ${options.valueShow ? valueEl : ''} 
       <input
         type="range"
         min="0"
         max="1000"
         class="op0 cur-ewr"
         style="height: ${options.height}; width: 100%;"
+        tabindex="-1"
         value="${options.value * 10}"
         oninput=${e => options.handleInput(Math.floor(parseInt(e.target.value) / 10))}
       >

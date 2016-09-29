@@ -120,17 +120,5 @@ button {cursor: pointer;}
 /* Webkit browsers add a 2px margin outside the chrome of form elements */
 button, input, select, textarea {margin: 0;}
 
-/* make buttons play nice in IE */
-button,
-input[type=button] {width: auto; overflow: visible;}
-
-/* scale images in IE7 more attractively */
-.ie7 img {-ms-interpolation-mode: bicubic;}
-
-/* prevent BG image flicker upon hover
-   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
-.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
-*/
-
 /* let's clear some floats */
 .clearfix:after { content: " "; display: block; clear: both; }

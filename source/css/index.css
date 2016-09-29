@@ -5,7 +5,6 @@ html {
 body {
   background: #fff;
   color: #000;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   line-height: 1.5;
   margin: 0;
 }
@@ -18,11 +17,11 @@ body {
 .fw-800 { font-weight: 800 }
 
 .sans {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Moderat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .mono {
-  font-family: menlo, monaco, monospace;
+  font-family: "Space Mono", menlo, monaco, monospace;
 }
 
 /**
@@ -63,8 +62,25 @@ a {
   user-select: none;
 }
 
+.p1px { padding: 1px }
+
 .pen { pointer-events: none }
 .cur-ewr { cursor: ew-resize }
+
+.bro { border-radius: 4px }
+
+.brit {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.brib {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.bribl { border-bottom-left-radius: 2px }
+.bribr { border-bottom-right-radius: 2px }
 
 /**
  * Type

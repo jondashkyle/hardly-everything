@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Moderat';
+  font-weight: normal;
+  src: url('ModeratTrial-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Moderat';
+  font-weight: bold;
+  src: url('ModeratTrial-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Moderat-Bold';
+  font-weight: normal;
+  src: url('ModeratTrial-Bold.otf') format('opentype');
+}

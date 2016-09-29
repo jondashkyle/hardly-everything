@@ -19,19 +19,14 @@ an attention & time focused bookmarking app
 
 ## todo
 - design
-  - work on it
-  - icons
-    - view all: eye
-    - edit: pencil
-    - new: plus
   - panel
     - color picker
-    - range design
+    x range design
+    - drop down design
     - google font picker
     - export
-  - link panel
-    - single slider for duration which goes from minutes to hours
-      to days to weeks?
+  - link form
+    - add type checking to an effect for interval & duration
   - edit mode
     - checkered bg
 - db
@@ -42,6 +37,9 @@ an attention & time focused bookmarking app
   - mailchimp or something?
 - release
   - migration tool
+
+## release
+- only open to first 100 signups
 
 ## future
 - archive
