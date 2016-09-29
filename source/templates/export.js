@@ -38,9 +38,7 @@ const container = opts => {
 
 const view = (state, prev, send) => {
   return state.entries.all.length
-    ? container({
-        entries: state.entries.all
-      })
+    ? container({ entries: state.entries.all })
     : h`<div>nothing to export</div>`
 }
 
