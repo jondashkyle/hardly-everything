@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "budo source/index.js:bundle.js --dir build --live --pushstate -- -t [ sheetify/transform ]",
-    "build": "browserify source/index.js -o build/bundle.js -t [ sheetify/transform ]"
+    "start": "budo source/index.js:bundle.js --dir public --live --pushstate -- -t [ sheetify/transform ]",
+    "build": "browserify source/index.js -o public/bundle.js -t [ sheetify/transform ]"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +14,7 @@
     "budo": "^9.0.0",
     "choo": "^3.2.2",
     "choo-log": "^1.4.1",
+    "firebase": "^3.4.1",
     "gr8": "github:folderstudio/gr8",
     "moment": "^2.14.1",
     "node-uuid": "^1.4.7",

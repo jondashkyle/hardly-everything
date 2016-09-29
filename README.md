@@ -38,8 +38,13 @@ an attention & time focused bookmarking app
 - release
   - migration tool
 
+## monetization
+- ask fg about the deck intro for ad in free v
+- monthly sponsorship slots
+
 ## release
 - only open to first 100 signups
+
 
 ## future
 - archive
