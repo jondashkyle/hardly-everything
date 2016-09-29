@@ -22,6 +22,7 @@ const style = sf`
     font-size: 1rem;
     height: 3rem;
     line-height: 3rem;
+    outline: 0;
   }
 
   input[type="text"] {
@@ -42,13 +43,21 @@ const style = sf`
 /**
  * Submit
  */
-const handleSubmit = (state, event, send) => {
+const handleSubmit = (state, prev, send, event) => {
   if (state.panel.staging.id) {
     send('entries:update', state.panel.staging)
   } else {
     send('entries:add', state.panel.staging)
   }
   event.preventDefault()
+}
+
+/**
+ * Load
+ */
+const handleLoad = (state, prev, send, element) => {
+  const title = element.querySelector('[name="title"]')
+  title.focus()
 }
 
 /**
@@ -67,7 +76,8 @@ module.exports = (state, prev, send) => {
     <form
       autocomplete="off"
       class="${style} x xw bg-black bro"
-      onsubmit=${event => handleSubmit(state, event, send)}
+      onload=${element => handleLoad(state, prev, send, element)}
+      onsubmit=${event => handleSubmit(state, prev, send, event)}
     >
       <div class="p1px">
         <input
@@ -150,6 +160,7 @@ module.exports = (state, prev, send) => {
           <input
             type="submit"
             value="Save"
+            tabindex="-1"
             class="c12 bg-white tc-black sans bribr"
           />
         </div>

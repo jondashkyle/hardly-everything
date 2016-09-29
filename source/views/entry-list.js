@@ -29,8 +29,14 @@ const templateEntry = (state, prev, send) => {
     .map(entry => Entry.view(state, prev, send, entry))
 }
 
+const emptyEl = () => h`
+  <div class="fs2">👌</div>
+`
+
 module.exports = (state, prev, send) => {
-  const el = h`
+  const elements = templateEntry(state, prev, send)
+
+  return h`
     <div
       class="
         x xw xac xjc tac lh1
@@ -38,8 +44,7 @@ module.exports = (state, prev, send) => {
       "
       style="min-height: 100vh"
     >
-      ${templateEntry(state, prev, send)}
+      ${elements.length ? elements : emptyEl()}
     </div>
   `
-  return el
 }

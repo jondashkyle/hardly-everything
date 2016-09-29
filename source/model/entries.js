@@ -28,7 +28,7 @@ module.exports = {
       })
     },
     (send, done) => {
-      // setInterval(() => send('links:refresh', { }, done), 61 * 1000)
+      setInterval(() => send('entries:refresh', { }, done), 500)
     }
   ],
   reducers: {
