@@ -1,9 +1,7 @@
-const db = require('../db')
 const xtend = require('xtend')
 
-/**
- * Typography
- */
+const namespace = 'panel'
+
 const typography = [
   { name: 'system', weight: [200, 400, 600] },
   { name: 'Cabin', weight: 400 },
@@ -12,25 +10,20 @@ const typography = [
   { name: 'Montserrat', weight: 400 },
   { name: 'Open+Sans', weight: [400, 600] },
   { name: 'Space+Mono', weight: 400 },
-  { name: 'Work+Sans', weight: 400 },
+  { name: 'Work+Sans', weight: 400 }
 ]
 
-/**
- * Options
- */
 const options = [{
   name: 'Font',
   type: 'text',
   key: 'font'
-},
-{
+}, {
   name: 'Scale',
   type: 'range',
   key: 'scale',
   min: 5,
   max: 72
-},
-{
+}, {
   name: 'Spacing',
   type: 'range',
   key: 'blockPadding',
@@ -51,35 +44,37 @@ const staging = {
   url: ''
 }
 
-/**
- * Panel
- */
-module.exports = {
-  namespace: 'panel',
-  state: {
-    active: false,
+
+const state = {
+  active: false,
+  editId: '',
+  staging: staging,
+  open: false,
+  options: options
+}
+
+const reducers = {
+  active: (data, state) => ({
+    active: data.active,
     editId: '',
-    staging: staging,
     open: false,
-    options: options,
-  },
-  reducers: {
-    active: (data, state) => ({
-      active: data.active,
-      editId: '',
-      open: false,
-      staging: staging
-    }),
-    updateStaging: (data, state) => ({
-      staging: xtend(state.staging, data)
-    }),
-    edit: (data, state) => ({
-      open: true,
-      staging: data.staging
-    }),
-    open: (data, state) => ({
-      open: data.open,
-      staging: staging
-    })
-  }
+    staging: staging
+  }),
+  updateStaging: (data, state) => ({
+    staging: xtend(state.staging, data)
+  }),
+  edit: (data, state) => ({
+    open: true,
+    staging: data.staging
+  }),
+  open: (data, state) => ({
+    open: data.open,
+    staging: staging
+  })
+}
+
+module.exports = {
+  namespace,
+  state,
+  reducers
 }

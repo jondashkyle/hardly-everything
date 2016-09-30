@@ -1,13 +1,28 @@
-const uuid = require('uuid')
+const namespace = 'user'
 
 const state = {
-  id: uuid.v4(),
+  id: '',
   name: '',
   email: '',
   photo: ''
 }
 
+const reducers = {
+
+}
+
+const effects = {
+
+}
+
+const subscriptions = {
+ 
+}
+
 module.exports = {
-  namespace: 'user',
-  state: state
+  namespace,
+  state,
+  reducers,
+  effects,
+  subscriptions
 }

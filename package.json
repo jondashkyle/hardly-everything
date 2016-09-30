@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {},
   "dependencies": {
+    "axios": "^0.14.0",
     "budo": "^9.0.0",
     "choo": "^3.2.2",
     "choo-log": "^1.4.1",
