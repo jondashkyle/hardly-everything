@@ -15,7 +15,6 @@ app.use(log())
 app.model(require('./model/design'))
 app.model(require('./model/entries'))
 app.model(require('./model/panel'))
-app.model(require('./model/tags'))
 
 /**
  * Router
