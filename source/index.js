@@ -1,11 +1,10 @@
 const choo = require('choo')
-const css = require('./css')
+require('./css')
 
 /**
  * App
  */
 const app = choo()
-
 const log = require('choo-log')
 app.use(log())
 

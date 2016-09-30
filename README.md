@@ -18,17 +18,15 @@ an attention & time focused bookmarking app
     - who is controlling the algotithim, and what are their motives
 
 ## todo
-- design
-  - panel
-    - color picker
-    x range design
-    - drop down design
-    - google font picker
-    - export
-  - link form
-    - add type checking to an effect for interval & duration
-  - edit mode
-    - checkered bg
+- panel
+  - dropdown design
+- link form
+  - validation
+    - is a url
+    - duration and interval
+- ui
+  - break panel-entry into components and containers
+    to use for the user area
 - db
   - hook up to firebase
     - accounts / login

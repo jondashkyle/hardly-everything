@@ -44,7 +44,6 @@ const staging = {
   url: ''
 }
 
-
 const state = {
   active: false,
   editId: '',
