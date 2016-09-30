@@ -28,9 +28,7 @@ an attention & time focused bookmarking app
   - break panel-entry into components and containers
     to use for the user area
 - db
-  - convert all arrays into objects
   - hook up to firebase
-    - accounts / login
     - email list
 - promo
   - mailchimp or something?

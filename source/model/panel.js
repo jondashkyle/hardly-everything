@@ -13,27 +13,28 @@ const typography = [
   { name: 'Work+Sans', weight: 400 }
 ]
 
-const options = [{
-  name: 'Font',
-  type: 'text',
-  key: 'font'
-}, {
-  name: 'Scale',
-  type: 'range',
-  key: 'scale',
-  min: 5,
-  max: 72
-}, {
-  name: 'Spacing',
-  type: 'range',
-  key: 'blockPadding',
-  min: 0,
-  max: 25
-}]
+const options = {
+  font: {
+    name: 'Font',
+    type: 'text',
+    key: 'font'
+  },
+    scale: {
+    name: 'Scale',
+    type: 'range',
+    min: 5,
+    max: 72,
+    key: 'scale'
+  },
+  spacing: {
+    name: 'Spacing',
+    type: 'range',
+    min: 0,
+    max: 25,
+    key: 'spacing'
+  }
+}
 
-/**
- * Staging
- */
 const staging = {
   title: '',
   tags: '',

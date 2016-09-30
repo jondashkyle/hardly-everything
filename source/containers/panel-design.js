@@ -1,5 +1,6 @@
 const h = require('choo/html')
 const sf = require('sheetify')
+const ov = require('object.values')
 
 const inputRange = require('../components/input-range')
 
@@ -66,10 +67,12 @@ const optionContainer = ({ content }) => h`
 `
 
 module.exports = (state, prev, send) => {
+  const options = ov(state.panel.options)
+
   return h`
     <div class="bg-black tc-white psf t0 l0 r0 z3 ${state.panel.active ? 'db' : 'dn'}">
       <div class="x xw ${style}">
-        ${state.panel.options.map(option => optionContainer({
+        ${options.map(option => optionContainer({
           content: templateOption(state, state, send, option)
         }))}
       </div>
