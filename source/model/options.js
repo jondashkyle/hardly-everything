@@ -61,9 +61,9 @@ exports.state = {
 
 exports.subscriptions = [
   (send, done) => {
+    // db.update({ }, exports.state)
     db.get(data => {
       send('options:update', data, done)
-      done()
     })
   }
 ]
@@ -76,7 +76,7 @@ exports.effects = {
   design: (data, state, send, done) => {
     const newState = clone(state)
     newState.design[data.key].value = data.value
-    // db.update(data, { design:newState })
+    db.update(data, newState )
     send('options:update', newState, done)
   }
 }

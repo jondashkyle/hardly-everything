@@ -38,7 +38,7 @@ const inputText = (option, state, send) => h`
       class="bg-black tc-white"
       value="${state.options.design[option.key].value}"
       oninput=${e => send('options:design', {
-        key: options.key,
+        key: option.key,
         value: e.target.value 
       })}
     >
