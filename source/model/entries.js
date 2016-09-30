@@ -1,5 +1,6 @@
 const db = require('../db/entries')
 const x = require('xtend')
+const clone = require('clone-deep')
 const moment = require('moment')
 const uuid = require('node-uuid')
 
@@ -9,8 +10,8 @@ const formatTags = tag =>
   tag.replace(/^\s+|\s+$/g, '').split(/\s*,\s*/)
 
 const state = {
-  all: [ ],
-  archive: [ ],
+  all: { },
+  archive: { },
   options: {
     viewAll: false
   }
@@ -20,7 +21,6 @@ const subscriptions = [
   (send, done) => {
     db.get(data => {
       send('entries:init', data, done)
-      console.log(data)
     })
   },
   (send, done) => {
@@ -43,42 +43,41 @@ const effects = {
       dateDismissed: moment().subtract(10, 'years').toISOString()
     }, data)
 
-    const updateState =  state.all.concat(entry)
+    const newState = clone(state.all)
+    newState[id] = entry
 
     send('panel:open', { open: false }, done)
-    send('entries:all', updateState, done)
-    db.add(entry, updateState)
+    send('entries:all', newState, done)
+    db.add(entry, newState)
   },
   remove: (data, state, send, done) => {
-    const updateState = state.all.filter(entry => entry.id !== data.id)
+    const newState = clone(state.all)
+    delete newState[data.id]
 
     send('panel:open', { open: false }, done)
-    send('entries:all', updateState, done)
-    db.remove(data, updateState)
+    send('entries:all', newState, done)
+    db.remove(data, newState)
   },
   update: (data, state, send, done) => {
-    const updateState = state.all.map(entry =>
-      entry.id === data.id ? data : entry
-    )
+    const newState = clone(state.all)
+    newState[data.id] = data
 
     send('panel:open', { open: false }, done)
-    send('entries:all', updateState, done)
-    db.update(data, updateState)
+    send('entries:all', newState, done)
+    db.update(data, newState)
   },
   dismiss: (data, state, send, done) => {
-    const updateState = state.all.map(entry => {
-      if (entry.id === data.id) {
-        return x(entry, {
-          visited: entry.visited + 1,
-          dateDismissed: moment().toISOString()
-        })
-      } else {
-        return entry
-      }
+    const newState = clone(state.all)
+    const curEntry = newState[data.id]
+    const newEntry = x(curEntry, {
+      visited: curEntry.visited + 1,
+      dateDismissed: moment().toISOString()
     })
 
-    send('entries:all', updateState, done)
-    db.update(data, updateState)
+    newState[data.id] = newEntry
+
+    send('entries:all', newState, done)
+    db.update(newEntry, newState)
   },
   init: (data, state, send, done) => {
     send('entries:all', data, done)

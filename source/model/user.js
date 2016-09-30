@@ -26,7 +26,7 @@ exports.subscriptions = [
           uuid: user.uuid
         }, done)
       } else {
-        send(namespace + ':reset',  { })
+        send(namespace + ':reset', { })
         done()
       }
     })

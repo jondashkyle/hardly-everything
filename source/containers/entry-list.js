@@ -6,16 +6,19 @@ const getDismissedDate = entry => {
   return moment(entry.dateDismissed).add(entry.duration, entry.interval).toDate()
 }
 
-const templateEntry = (state, prev, send) => {
+const templateEntries = (state, prev, send) => {
+  const ids = Object.keys(state.entries.all)
+  const entries = ids.map(id => state.entries.all[id])
   const now = moment().toDate()
-  if (!state.entries.all) { return }
-  return state.entries.all
+
+  if (!entries.length) { return '' }
+
+  return entries
     .filter(entry => {
-      if (
-        !state.entries.options.viewAll &&
-        entry.dateDismissed &&
-        entry.duration &&
-        entry.interval
+      if (!state.entries.options.viewAll
+        && entry.dateDismissed
+        && entry.duration
+        && entry.interval
       ) {
         const dismissed = getDismissedDate(entry)
         return dismissed < now
@@ -34,7 +37,7 @@ const emptyEl = () => h`
 `
 
 module.exports = (state, prev, send) => {
-  const elements = templateEntry(state, prev, send)
+  const elements = templateEntries(state, prev, send)
 
   return h`
     <div

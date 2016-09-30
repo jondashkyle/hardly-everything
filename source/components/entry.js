@@ -15,7 +15,7 @@ const handleClick = (state, prev, send, event) => {
   const id = parent.getAttribute('data-id')
 
   if (state.panel.active) {
-    const staging = state.entries.all.find(entry => entry.id === id)
+    const staging = state.entries.all[id]
     if (id !== undefined && staging !== undefined) {
       send('panel:edit', {
         id: id,
