@@ -43,7 +43,6 @@ const effects = {
     const newState = clone(state.all)
     newState[id] = entry
 
-    send('ui:update', { stagingActive: false }, done)
     send('entries:all', newState, done)
     db.add(entry, newState)
   },

@@ -44,12 +44,14 @@ const style = sf`
  * Submit
  */
 const handleSubmit = (state, prev, send, event) => {
-  console.log(state.staging.id)
-  if (state.staging.id) {
+  if (state.staging.entry.id) {
     send('entries:update', state.staging.entry)
   } else {
     send('entries:add', state.staging.entry)
   }
+
+  send('staging:reset')
+  send('ui:update', { stagingActive: false })
   event.preventDefault()
 }
 

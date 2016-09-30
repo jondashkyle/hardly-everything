@@ -18,7 +18,6 @@ exports.state = {
 exports.reducers = {
   reset: (data, state) => exports.state,
   entry: (data, state) => ({
-    id: data.id,
     entry: xtend(state.entry, data)
   })
 }
