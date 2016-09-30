@@ -1,26 +1,28 @@
 const a = require('axios')
-const l = require('./local')
+const ls = require('./localstorage')
 const fb = require('firebase')
 
 const namespace = 'entries'
 
 const add = (data, state) => {
-  l.save(namespace, state)
+  ls.save(namespace, state)
 }
 
 const update = (data, state) => {
-  l.save(namespace, state)
+  ls.save(namespace, state)
 }
 
 const remove = (data, state) => {
-  l.save(namespace, state)
+  ls.save(namespace, state)
 }
 
 const dismiss = (data, state) => {
-  l.save(namespace, state)
+  ls.save(namespace, state)
 }
 
-const get = (cb) => l.get(namespace, cb)
+const get = (cb) => {
+  ls.get(namespace, cb)
+}
 
 module.exports = {
   add,

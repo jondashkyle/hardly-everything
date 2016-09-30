@@ -1,13 +1,14 @@
-const l = require('./local')
+const fb = require('firebase')
+const ls = require('./localstorage')
 
 const namespace = 'design'
 
 const update = (data, state) => {
-  l.save(namespace, state)
+  ls.save(namespace, state)
 }
 
 const get = (cb) => {
-  l.get(namespace, cb)
+  ls.get(namespace, cb)
 }
 
 module.exports = {

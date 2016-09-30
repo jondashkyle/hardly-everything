@@ -1,4 +1,6 @@
 const choo = require('choo')
+
+require('./db')
 require('./css')
 
 /**
@@ -11,6 +13,7 @@ app.use(log())
 /**
  * Model
  */
+app.model(require('./model/user'))
 app.model(require('./model/design'))
 app.model(require('./model/entries'))
 app.model(require('./model/panel'))

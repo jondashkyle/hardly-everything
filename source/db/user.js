@@ -1,21 +1,34 @@
-const a = require('axios')
 const fb = require('firebase')
 
-const login = (email, password) => {
-  fb
-    .auth()
-    .signInWithEmailAndPassword(email, password)
-    .catch(error => console.warn(error))
+const auth = fb.auth()
+const namespace = 'user'
+
+const success = data => {
+  return Promise.resolve()
 }
 
-const logout = () => {
-  fb
-    .auth()
-    .signOut()
-    .catch(error => console.warn(error))
+const error = err => {
+  throw new Error(namespace, err)
 }
+
+const create = (email, password) =>
+  auth.createUserWithEmailAndPassword(email, password)
+
+const signIn = (email, password) => auth
+    .signInWithEmailAndPassword(email, password)
+    .then(success, error)
+
+const signOut = () => auth
+    .signOut()
+    .then(success, error)
+
+const onStateChange = cb => auth.onAuthStateChanged(cb)
+const currentUser = () => auth.currentUser
 
 module.exports = {
-  login,
-  logout
+  create,
+  signIn,
+  signOut,
+  currentUser,
+  onStateChange
 }

@@ -8,7 +8,6 @@ exports.get = (namespace, cb) => {
   try {
     cb(JSON.parse(window.localStorage[STORAGE_ID + namespace]))
   } catch (e) {
-    cb({ })
   }
 }
 

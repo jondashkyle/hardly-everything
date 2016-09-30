@@ -6,7 +6,7 @@ const uuid = require('node-uuid')
 const namespace = 'entries'
 
 const formatTags = tag =>
-  tag.replace(/^\s+|\s+$/g,"").split(/\s*,\s*/)
+  tag.replace(/^\s+|\s+$/g, '').split(/\s*,\s*/)
 
 const state = {
   all: [ ],
@@ -20,15 +20,15 @@ const subscriptions = [
   (send, done) => {
     db.get(data => {
       send('entries:init', data, done)
-      done()
+      console.log(data)
     })
   },
   (send, done) => {
-    setInterval(() => send('entries:refresh', { }, done), 500)
+    setInterval(() => send('entries:refresh', { }, done), 1000 * 61)
   }
 ]
 
-const reducers  ={
+const reducers = {
   all: (data, state) => ({ all: data }),
   refresh: (data, state) => (state),
   options: (data, state) => ({ options: x(state.options, data) })

@@ -1,28 +1,56 @@
+const x = require('xtend')
+const db = require('../db/user')
 const namespace = 'user'
 
-const state = {
-  id: '',
-  name: '',
-  email: '',
-  photo: ''
+exports.state = {
+  credentials: {
+    email: '',
+    photoURL: '',
+    uuid: ''
+  },
+  signedIn: false
 }
 
-const reducers = {
+exports.subscriptions = [
+  (send, done) => {
+    // FOR TESTING USER ACCOUNTS
+    // db.create('jkmohr@gmail.com', 'testing')
+    // db.signIn('jkmohr@gmail.com', 'testing')
+  },
+  (send, done) => {
+    db.onStateChange(user => {
+      if (user) {
+        send(namespace + ':credentials', {
+          email: user.email,
+          photoURL: user.photoURL,
+          uuid: user.uuid
+        }, done)
+      } else {
+        send(namespace + ':reset',  { })
+        done()
+      }
+    })
+  }
+]
 
+exports.reducers = {
+  credentials: (data, state) => ({
+    signedIn: true,
+    credentials: data
+  }),
+  reset: (data, state) => ({
+    signedIn: false,
+    credentials: exports.state.credentials
+  })
 }
 
-const effects = {
+exports.effects = {
+  login: (data, state, send, done) => {
 
+  },
+  logout: (data, state, send, done) => {
+
+  }
 }
 
-const subscriptions = {
- 
-}
-
-module.exports = {
-  namespace,
-  state,
-  reducers,
-  effects,
-  subscriptions
-}
+exports.namespace = namespace
