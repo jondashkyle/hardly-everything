@@ -1,6 +1,7 @@
 const h = require('choo/html')
 const sf = require('sheetify')
 const ov = require('object.values')
+const x = require('xtend')
 
 const inputRange = require('../components/input-range')
 
@@ -35,9 +36,10 @@ const inputText = (option, state, send) => h`
     <input
       type="text"
       class="bg-black tc-white"
-      value="${state.design[option.key]}"
-      oninput=${e => send('design:update', {
-        [option.key]: e.target.value 
+      value="${state.options.design[option.key].value}"
+      oninput=${e => send('options:design', {
+        key: options.key,
+        value: e.target.value 
       })}
     >
   </div>
@@ -50,9 +52,10 @@ const templateOption = (state, prev, send, option) => {
     case 'range':
       return inputRange({
         name: option.name,
-        value: state.design[option.key],
-        handleInput: value => send('design:update', {
-          [option.key]: value
+        value: state.options.design[option.key].value,
+        handleInput: value => send('options:design', {
+          key: option.key,
+          value: value
         })
       })
     default:
@@ -67,10 +70,10 @@ const optionContainer = ({ content }) => h`
 `
 
 module.exports = (state, prev, send) => {
-  const options = ov(state.panel.options)
+  const options = ov(state.options.design).filter(opt => opt.visible)
 
   return h`
-    <div class="bg-black tc-white psf t0 l0 r0 z3 ${state.panel.active ? 'db' : 'dn'}">
+    <div class="bg-black tc-white psf t0 l0 r0 z3 ${state.ui.panelActive ? 'db' : 'dn'}">
       <div class="x xw ${style}">
         ${options.map(option => optionContainer({
           content: templateOption(state, state, send, option)

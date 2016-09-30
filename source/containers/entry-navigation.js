@@ -22,7 +22,6 @@ const styles = sf`
 `
 
 const newClick = (state, send) => ({ open: !state.panel.open })
-const editClick = (state, send) => ({ active: !state.panel.active })
 
 module.exports = (state, prev, send) => {
   return h`
@@ -30,24 +29,28 @@ module.exports = (state, prev, send) => {
       <div
         class="
           p0-5 curp
-          ${state.entries.options.viewAll ? 'strike' : ''} 
+          ${state.ui.entriesViewAll ? 'strike' : ''} 
         "
-        onclick=${e => send('entries:options', {
-          viewAll: !state.entries.options.viewAll
+        onclick=${e => send('ui:update', {
+          entriesViewAll: !state.ui.entriesViewAll
         })}>
         all
       </div> 
       <div
-        class="p0-5 curp ${state.panel.active ? 'strike' : ''}"
-        onclick=${e => send('panel:active', editClick(state, send))}>
+        class="p0-5 curp ${state.ui.panelActive ? 'strike' : ''}"
+        onclick=${e => send('ui:update', {
+          panelActive: !state.ui.panelActive
+        })}>
         edit
       </div>
       <div
         class="
           p0-5 curp
-          ${state.panel.open && !state.panel.staging.id ? 'strike' : ''}
+          ${state.ui.stagingActive ? 'strike' : ''}
         "
-        onclick=${e => send('panel:open', newClick(state, send))}>
+        onclick=${e => send('ui:update', {
+          stagingActive: !state.ui.stagingActive
+        })}>
         add
       </div>
     </div>

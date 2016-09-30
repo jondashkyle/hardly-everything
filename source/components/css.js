@@ -4,7 +4,7 @@ const { linearConversion } = require('../helpers/scale')
 
 module.exports = (state, prev, send) => {
   const blockPadding = linearConversion({
-    value: state.design.blockPadding,
+    value: state.options.design.spacing.value,
     out: {
       min: 0.5,
       max: 5
@@ -12,7 +12,7 @@ module.exports = (state, prev, send) => {
   })
 
   const fontSize = linearConversion({
-    value: state.design.scale,
+    value: state.options.design.scale.value,
     out: {
       min: 0.5,
       max: 10
@@ -22,11 +22,7 @@ module.exports = (state, prev, send) => {
   return html`
     <style>
       body {
-        background: ${state.design.background};
-      }
-
-      .design-block-border {
-        border: 1px solid ${state.design.blockBorder};
+        background: ${state.options.design.colorBg.value};
       }
 
       .design-block-padding {
@@ -35,11 +31,11 @@ module.exports = (state, prev, send) => {
 
       .design-color-entry,
       .design-color-entry a {
-        color: ${state.design.colorEntry};
+        color: ${state.options.design.colorText.value};
       }
 
       .design-font {
-        font-family: ${state.design.font}, sans-serif;
+        font-family: ${state.options.design.font.value}, sans-serif;
         font-size: ${fontSize}rem;
       }
     </style>

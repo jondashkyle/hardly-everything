@@ -12,7 +12,7 @@ const templateEntries = (state, prev, send) => {
 
   const entries = ov(state.entries.all)
     .filter(entry => {
-      if (!state.entries.options.viewAll
+      if (!state.ui.entriesViewAll
         && entry.dateDismissed
         && entry.duration
         && entry.interval

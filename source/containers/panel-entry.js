@@ -44,10 +44,11 @@ const style = sf`
  * Submit
  */
 const handleSubmit = (state, prev, send, event) => {
-  if (state.panel.staging.id) {
-    send('entries:update', state.panel.staging)
+  console.log(state.staging.id)
+  if (state.staging.id) {
+    send('entries:update', state.staging.entry)
   } else {
-    send('entries:add', state.panel.staging)
+    send('entries:add', state.staging.entry)
   }
   event.preventDefault()
 }
@@ -55,6 +56,16 @@ const handleSubmit = (state, prev, send, event) => {
 const handleLoad = (state, prev, send, element) => {
   const title = element.querySelector('[name="title"]')
   title.focus()
+}
+
+const reset = send => {
+  send('ui:update', { stagingActive: false })
+  send('staging:reset')
+}
+
+const remove = (id, send) => {
+  reset(send)
+  send('entries:remove', { id: id })
 }
 
 const form = (state, prev, send) => {
@@ -73,8 +84,8 @@ const form = (state, prev, send) => {
         <input
           name="title"
           placeholder="Title"
-          value="${state.panel.staging.title}"
-          oninput=${e => send('panel:updateStaging', { title: e.target.value })}
+          value="${state.staging.entry.title}"
+          oninput=${e => send('staging:entry', { title: e.target.value })}
           type="text"
           class="c12 sans bg-white px1 brit"
         />
@@ -83,8 +94,8 @@ const form = (state, prev, send) => {
         <input
           name="url"
           placeholder="http://"
-          value="${state.panel.staging.url}"
-          oninput=${e => send('panel:updateStaging', { url: e.target.value })}
+          value="${state.staging.entry.url}"
+          oninput=${e => send('staging:entry', { url: e.target.value })}
           type="text"
           class="c12 sans bg-white px1"
         />
@@ -94,9 +105,9 @@ const form = (state, prev, send) => {
           <div class="c12 bg-white">
             ${inputRange({
               name: 'Rest',
-              value: state.panel.staging.timeRange,
+              value: state.staging.entry.timeRange,
               valueShow: false,
-              handleInput: value => send('panel:updateStaging', x(getTime(value), {
+              handleInput: value => send('staging:entry', x(getTime(value), {
                 timeRange: value
               }))
             })}
@@ -104,8 +115,8 @@ const form = (state, prev, send) => {
         </div>
         <div class="c2 p1px">
           <input
-            value=${state.panel.staging.duration}
-            oninput=${e => send('panel:updateStaging', {
+            value=${state.staging.entry.duration}
+            oninput=${e => send('staging:entry', {
               timeRange: 0,
               duration: parseInt(e.target.value || 0)
             })}
@@ -115,8 +126,8 @@ const form = (state, prev, send) => {
         </div>
         <div class="c2 p1px">
           <input
-            value=${state.panel.staging.interval}
-            oninput=${e => send('panel:updateStaging', {
+            value=${state.staging.entry.interval}
+            oninput=${e => send('staging:entry', {
               timeRange: 0,
               interval: e.target.value
             })}
@@ -126,23 +137,23 @@ const form = (state, prev, send) => {
         </div>
       </div>
       <div class="c12 x">
-        <div class="${state.panel.staging.id ? 'x c4' : 'dn'} p1px">
+        <div class="${state.staging.entry.id ? 'x c4' : 'dn'} p1px">
           <input
             name="delete"
             value="Delete"
             tabindex="-1"
             class="c12 tc-black bg-white sans bribl"
-            onclick=${e => send('entries:remove', { id: state.panel.staging.id })}
+            onclick=${e => remove(state.staging.entry.id, send)}
             type="button"
           />
         </div>
-        <div class="${!state.panel.staging.id ? 'x c4' : 'dn'} p1px">
+        <div class="${!state.staging.entry.id ? 'x c4' : 'dn'} p1px">
           <input
             name="cancel"
             value="Cancel"
             tabindex="-1"
             class="c12 tc-black bg-white sans bribl"
-            onclick=${e => send('panel:open', { open: false })}
+            onclick=${e => reset(send)}
             type="button"
           />
         </div>
@@ -162,7 +173,7 @@ const form = (state, prev, send) => {
 
 const handleContainerClick = (event, send) => {
   if (event.target.hasAttribute('data-entry-panel')) {
-    send('panel:open', { open: false })
+    reset(send)
   }
 }
 

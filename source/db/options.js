@@ -1,7 +1,7 @@
 const fb = require('firebase')
 const ls = require('./localstorage')
 
-const namespace = 'design'
+const namespace = 'options'
 
 const update = (data, state) => {
   ls.save(namespace, state)
