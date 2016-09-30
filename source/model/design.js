@@ -7,7 +7,7 @@ const state = {
   background: '#fff',
   blockPadding: 5,
   colorEntry: '#000',
-  font: 'Bau-Medium',
+  font: 'Moderat-Bold',
   scale: 35
 }
 
