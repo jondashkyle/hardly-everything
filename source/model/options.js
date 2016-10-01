@@ -76,7 +76,7 @@ exports.effects = {
   design: (data, state, send, done) => {
     const newState = clone(state)
     newState.design[data.key].value = data.value
-    db.update(data, newState )
+    db.update(data, newState)
     send('options:update', newState, done)
   }
 }
