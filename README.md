@@ -17,6 +17,11 @@ an attention & time focused bookmarking app
     - echo chamber, im only so interesting
     - who is controlling the algotithim, and what are their motives
 
+## some things w/ feed readers
+- you lose the context
+- the loud ones are still loud
+- that feeling of catching up
+
 ## todo
 - panel
   - dropdown design
