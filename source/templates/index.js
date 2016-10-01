@@ -4,7 +4,7 @@ const entryList = require('../containers/entry-list')
 const entryNavigation = require('../containers/entry-navigation')
 
 const panelOverlay = require('../components/overlay-edit')
-const panelDesign = require('../containers/panel-design')
+const panelOptions = require('../containers/panel-options')
 const panelEntry = require('../containers/panel-entry')
 
 const css = require('../components/css')
@@ -14,9 +14,9 @@ module.exports = (state, prev, send) => h`
     ${entryList(state, prev, send)}
     ${entryNavigation(state, prev, send)}
 
-    ${panelDesign(state, prev, send)}
-    ${state.panel.open ? panelEntry(state, prev, send) : ''}
-    ${state.panel.active ? panelOverlay : ''}
+    ${panelOptions(state, prev, send)}
+    ${state.ui.stagingActive ? panelEntry(state, prev, send) : ''}
+    ${state.ui.panelActive ? panelOverlay : ''}
 
     ${css(state, prev, send)}
   </div>

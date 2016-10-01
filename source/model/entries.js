@@ -11,14 +11,12 @@ const formatTags = tag =>
 
 const state = {
   all: { },
-  archive: { },
-  options: {
-    viewAll: false
-  }
+  archive: { }
 }
 
 const subscriptions = [
   (send, done) => {
+    // db.update({ }, { })
     db.get(data => {
       send('entries:init', data, done)
     })
@@ -30,8 +28,7 @@ const subscriptions = [
 
 const reducers = {
   all: (data, state) => ({ all: data }),
-  refresh: (data, state) => (state),
-  options: (data, state) => ({ options: x(state.options, data) })
+  refresh: (data, state) => (state)
 }
 
 const effects = {
@@ -46,7 +43,6 @@ const effects = {
     const newState = clone(state.all)
     newState[id] = entry
 
-    send('panel:open', { open: false }, done)
     send('entries:all', newState, done)
     db.add(entry, newState)
   },
@@ -54,7 +50,6 @@ const effects = {
     const newState = clone(state.all)
     delete newState[data.id]
 
-    send('panel:open', { open: false }, done)
     send('entries:all', newState, done)
     db.remove(data, newState)
   },
@@ -62,7 +57,6 @@ const effects = {
     const newState = clone(state.all)
     newState[data.id] = data
 
-    send('panel:open', { open: false }, done)
     send('entries:all', newState, done)
     db.update(data, newState)
   },

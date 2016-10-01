@@ -14,13 +14,11 @@ const handleClick = (state, prev, send, event) => {
   const parent = event.target.closest('[data-id]')
   const id = parent.getAttribute('data-id')
 
-  if (state.panel.active) {
+  if (state.ui.panelActive) {
     const staging = state.entries.all[id]
     if (id !== undefined && staging !== undefined) {
-      send('panel:edit', {
-        id: id,
-        staging: staging
-      })
+      send('staging:entry', staging)
+      send('ui:update', { stagingActive: true })
     }
 
     event.preventDefault()

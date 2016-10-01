@@ -1,4 +1,5 @@
 const h = require('choo/html')
+const ov = require('object.values')
 const moment = require('moment')
 const Entry = require('../components/entry')
 
@@ -7,15 +8,11 @@ const getDismissedDate = entry => {
 }
 
 const templateEntries = (state, prev, send) => {
-  const ids = Object.keys(state.entries.all)
-  const entries = ids.map(id => state.entries.all[id])
   const now = moment().toDate()
 
-  if (!entries.length) { return '' }
-
-  return entries
+  const entries = ov(state.entries.all)
     .filter(entry => {
-      if (!state.entries.options.viewAll
+      if (!state.ui.entriesViewAll
         && entry.dateDismissed
         && entry.duration
         && entry.interval
@@ -30,6 +27,8 @@ const templateEntries = (state, prev, send) => {
       return getDismissedDate(a) - getDismissedDate(b)
     })
     .map(entry => Entry.view(state, prev, send, entry))
+
+  return entries ? entries : ''
 }
 
 const emptyEl = () => h`

@@ -14,9 +14,10 @@ app.use(log())
  * Model
  */
 app.model(require('./model/user'))
-app.model(require('./model/design'))
 app.model(require('./model/entries'))
-app.model(require('./model/panel'))
+app.model(require('./model/options'))
+app.model(require('./model/staging'))
+app.model(require('./model/ui'))
 
 /**
  * Router
