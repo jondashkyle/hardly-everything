@@ -4,16 +4,40 @@ const x = require('xtend')
 
 const namespace = 'options'
 
-const typography = [
-  { name: 'system', weight: [200, 400, 600] },
-  { name: 'Cabin', weight: 400 },
-  { name: 'Cormorant+Garamond', weight: 400 },
-  { name: 'Inconsolata', weight: 400 },
-  { name: 'Montserrat', weight: 400 },
-  { name: 'Open+Sans', weight: [400, 600] },
-  { name: 'Space+Mono', weight: 400 },
-  { name: 'Work+Sans', weight: 400 }
-]
+const typography = {
+  system: {
+    name: 'system',
+    weights: [200, 400, 600]
+  },
+  cabin: {
+    name: 'Cabin',
+    weights: [400]
+  },
+  garamond: {
+    name: 'Cormorant+Garamond',
+    weights: [400]
+  },
+  inconsolata: {
+    name: 'Inconsolata',
+    weights: [400]
+  },
+  montserrat: {
+    name: 'Montserrat',
+    weights: [400]
+  },
+  openSans: {
+    name: 'Open+Sans',
+    weights: [400, 600]
+  },
+  spaceMono: {
+    ame: 'Space+Mono',
+    weights: [400]
+  },
+  workSans: {
+    name: 'Work+Sans',
+    weights: [400]
+  }
+}
 
 exports.state = {
   design: {
@@ -34,9 +58,9 @@ exports.state = {
     font: {
       name: 'Font',
       key: 'font',
-      type: 'text',
-      visible: true,
-      value: 'Moderat-Bold'
+      type: 'dropdown',
+      value: 'Moderat-Bold',
+      visible: true
     },
     scale: {
       name: 'Scale',
@@ -56,7 +80,8 @@ exports.state = {
       value: 5,
       visible: true
     }
-  }
+  },
+  typography: typography
 }
 
 exports.subscriptions = [

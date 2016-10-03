@@ -28,7 +28,7 @@ const Dropdown = opts => {
       send([route, 'test'].join(':'), {
         test: 'whaaatever'
       })
-    } 
+    }
   }
 
   const view = (state, prev, send) => {

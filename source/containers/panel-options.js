@@ -3,6 +3,7 @@ const sf = require('sheetify')
 const ov = require('object.values')
 const x = require('xtend')
 
+const inputText = require('../components/input-text')
 const inputRange = require('../components/input-range')
 const inputDropdown = require('../components/input-dropdown')
 
@@ -36,27 +37,10 @@ const style = sf`
  .container-option:last-child { border-right: 0 } 
 `
 
-const inputText = (option, state, send) => h`
-  <div class="psr bg-black">
-    <label class="psa t0 l0 px1 pen">
-      ${option.name}
-    </label>
-    <input
-      type="text"
-      class="bg-black tc-white"
-      value="${state.options.design[option.key].value}"
-      oninput=${e => send('options:design', {
-        key: option.key,
-        value: e.target.value 
-      })}
-    >
-  </div>
-`
-
 const templateOption = (state, prev, send, option) => {
   switch (option.type) {
     case 'text':
-      return inputText(option, state, send)
+      return inputText.view(option, state, send)
     case 'range':
       return inputRange({
         name: option.name,
@@ -66,6 +50,12 @@ const templateOption = (state, prev, send, option) => {
           value: value
         })
       })
+    case 'dropdown':
+      return dropdownTypography.view({
+        local: state[namespace].dropdownTypography,
+        options: state.options.typography,
+        ui: state.ui
+      }, prev, send)
     default:
       return
   }
@@ -91,7 +81,7 @@ exports.model = {
   state: x(
     model.state
   ),
-  reducers: x (
+  reducers: x(
     dropdownTypography.model.reducers,
     model.reducers
   )
@@ -99,10 +89,6 @@ exports.model = {
 
 exports.view = (state, prev, send) => {
   const options = ov(state.options.design).filter(opt => opt.visible)
-  const typography = dropdownTypography.view({
-    local: state[namespace].dropdownTypography,
-    ui: state.ui
-  }, prev, send)
 
   return h`
     <div class="bg-black tc-white psf t0 l0 r0 z3 ${state.ui.panelActive ? 'db' : 'dn'}">
@@ -110,9 +96,6 @@ exports.view = (state, prev, send) => {
         ${options.map(option => optionContainer({
           content: templateOption(state, state, send, option)
         }))}
-      </div>
-      <div style="padding: 2rem">
-        ${typography}
       </div>
     </div>
   `
