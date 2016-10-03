@@ -2,19 +2,52 @@ const h = require('choo/html')
 const x = require('xtend')
 
 const Dropdown = opts => {
-  const o = xtend({
-    namespace: 'dropdown'
+  const o = x({
+    namespace: 'dropdown',
+    options: {
+      'example': {
+        'name': 'Example Font',
+        'value': 'example+font',
+        'weights': [200, 400, 700]
+      }
+    }
   }, opts)
 
-  const state = {
-    active: false
+  const route = [o.parent, o.namespace].join(':')
+
+  const model = {
+    state: {
+      options: o.options,
+      test: 'nope'
+    },
+    reducers: {
+      [o.namespace + ':test']: (data, state) => ({
+        [o.namespace]: x(state[o.namespace], {
+          test: data.test
+        })
+      })
+    }
   }
 
-  const view = () => {
-
+  const handle = {
+    clickContainer: (event, send) => {
+      send([route, 'test'].join(':'), {
+        test: 'whaaatever'
+      })
+    } 
   }
 
-  return { state, view }
+  const view = (state, prev, send) => {
+    const localstate = state[o.parent][o.namespace]
+    return h`
+      <div onclick=${e => handle.clickContainer(e, send)}>
+        oh hellooo<br>
+        ${localstate.test}
+      </div>
+    `
+  }
+
+  return { model, view }
 }
 
 module.exports = Dropdown

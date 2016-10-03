@@ -19,6 +19,8 @@ app.model(require('./model/options'))
 app.model(require('./model/staging'))
 app.model(require('./model/ui'))
 
+app.model(require('./containers/panel-options').model)
+
 /**
  * Router
  */

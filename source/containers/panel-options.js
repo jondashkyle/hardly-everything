@@ -4,6 +4,14 @@ const ov = require('object.values')
 const x = require('xtend')
 
 const inputRange = require('../components/input-range')
+const inputDropdown = require('../components/input-dropdown')
+
+const namespace = 'panelOptions'
+
+const dropdownTypography = inputDropdown({
+  namespace: 'dropdownTypography',
+  parent: namespace
+})
 
 const style = sf`
   :host {
@@ -69,7 +77,27 @@ const optionContainer = ({ content }) => h`
   </div>
 `
 
-module.exports = (state, prev, send) => {
+const model = {
+  state: {
+    dropdownTypography: dropdownTypography.model.state
+  },
+  reducers: {
+
+  }
+}
+
+exports.model = {
+  namespace: namespace,
+  state: x(
+    model.state
+  ),
+  reducers: x (
+    dropdownTypography.model.reducers,
+    model.reducers
+  )
+}
+
+exports.view = (state, prev, send) => {
   const options = ov(state.options.design).filter(opt => opt.visible)
 
   return h`
@@ -78,6 +106,9 @@ module.exports = (state, prev, send) => {
         ${options.map(option => optionContainer({
           content: templateOption(state, state, send, option)
         }))}
+      </div>
+      <div style="padding: 2rem">
+        ${dropdownTypography.view(state, prev, send)}
       </div>
     </div>
   `

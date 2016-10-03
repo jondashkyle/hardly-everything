@@ -14,7 +14,7 @@ module.exports = (state, prev, send) => h`
     ${entryList(state, prev, send)}
     ${entryNavigation(state, prev, send)}
 
-    ${panelOptions(state, prev, send)}
+    ${panelOptions.view(state, prev, send)}
     ${state.ui.stagingActive ? panelEntry(state, prev, send) : ''}
     ${state.ui.panelActive ? panelOverlay : ''}
 
