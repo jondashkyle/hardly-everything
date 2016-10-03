@@ -99,6 +99,10 @@ exports.model = {
 
 exports.view = (state, prev, send) => {
   const options = ov(state.options.design).filter(opt => opt.visible)
+  const typography = dropdownTypography.view({
+    local: state[namespace].dropdownTypography,
+    ui: state.ui
+  }, prev, send)
 
   return h`
     <div class="bg-black tc-white psf t0 l0 r0 z3 ${state.ui.panelActive ? 'db' : 'dn'}">
@@ -108,7 +112,7 @@ exports.view = (state, prev, send) => {
         }))}
       </div>
       <div style="padding: 2rem">
-        ${dropdownTypography.view(state, prev, send)}
+        ${typography}
       </div>
     </div>
   `

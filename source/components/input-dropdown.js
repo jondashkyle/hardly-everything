@@ -4,13 +4,7 @@ const x = require('xtend')
 const Dropdown = opts => {
   const o = x({
     namespace: 'dropdown',
-    options: {
-      'example': {
-        'name': 'Example Font',
-        'value': 'example+font',
-        'weights': [200, 400, 700]
-      }
-    }
+    parent: 'container'
   }, opts)
 
   const route = [o.parent, o.namespace].join(':')
@@ -38,11 +32,10 @@ const Dropdown = opts => {
   }
 
   const view = (state, prev, send) => {
-    const localstate = state[o.parent][o.namespace]
     return h`
       <div onclick=${e => handle.clickContainer(e, send)}>
         oh hellooo<br>
-        ${localstate.test}
+        ${state.local.test}
       </div>
     `
   }
