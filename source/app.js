@@ -1,6 +1,8 @@
 const choo = require('choo')
 const log = require('choo-log')
 
+require('./db')
+
 const app = choo()
 app.use(log())
 
