@@ -1,5 +1,6 @@
 const h = require('choo/html')
 const x = require('xtend')
+const ov = require('object.values')
 
 const Dropdown = opts => {
   const o = x({
@@ -32,10 +33,14 @@ const Dropdown = opts => {
   }
 
   const view = (state, prev, send) => {
+    const options = ov(state.options)
+    const optionsEl = h`<div>
+      ${options.map(opt => opt.name)}
+    </div>`
+
     return h`
       <div onclick=${e => handle.clickContainer(e, send)}>
         oh hellooo<br>
-        ${state.local.test}
       </div>
     `
   }

@@ -9,8 +9,8 @@ const inputDropdown = require('../components/input-dropdown')
 
 const namespace = 'panelOptions'
 
-const dropdownTypography = inputDropdown({
-  namespace: 'dropdownTypography',
+const font = inputDropdown({
+  namespace: 'font',
   parent: namespace
 })
 
@@ -51,8 +51,8 @@ const templateOption = (state, prev, send, option) => {
         })
       })
     case 'dropdown':
-      return dropdownTypography.view({
-        local: state[namespace].dropdownTypography,
+      return font.view({
+        local: state[namespace].font,
         options: state.options.typography,
         ui: state.ui
       }, prev, send)
@@ -69,7 +69,7 @@ const optionContainer = ({ content }) => h`
 
 const model = {
   state: {
-    dropdownTypography: dropdownTypography.model.state
+    font: font.model.state
   },
   reducers: {
 
@@ -82,7 +82,7 @@ exports.model = {
     model.state
   ),
   reducers: x(
-    dropdownTypography.model.reducers,
+    font.model.reducers,
     model.reducers
   )
 }
