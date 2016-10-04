@@ -15,3 +15,15 @@
   font-weight: normal;
   src: url('ModeratTrial-Bold.otf') format('opentype');
 }
+
+@font-face {
+  font-family: 'Space Mono';
+  font-weight: normal;
+  src: url('SpaceMono-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  font-weight: bold;
+  src: url('SpaceMono-Bold.otf') format('opentype');
+}

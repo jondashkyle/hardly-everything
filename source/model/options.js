@@ -95,15 +95,20 @@ exports.state = {
       max: 25,
       value: 5,
       visible: true
+    },
+    invert: {
+      name: 'Invert',
+      key: 'invert',
+      value: false,
+      visible: false
     }
   },
-  invert: false,
   typography: typography
 }
 
 exports.subscriptions = [
   (send, done) => {
-    // db.update({ }, exports.state)
+    // db.update({ }, exports.state.design)
     db.get(data => {
       send('options:update', data, done)
     })
@@ -111,30 +116,32 @@ exports.subscriptions = [
 ]
 
 exports.reducers = {
-  update: (data, state) => (x(state, data))
+  update: (data, state) => ({
+    design: x(state.design, data)
+  })
 }
 
 exports.effects = {
   design: (data, state, send, done) => {
-    const newState = clone(state)
-    newState.design[data.key].value = data.value
+    const newState = clone(state.design)
+    newState[data.key].value = data.value
     db.update(data, newState)
     send('options:update', newState, done)
   },
   invert: (data, state, send, done) => {
-    const newState = clone(state)
+    const newState = clone(state.design)
 
-    if (state.invert) {
-      newState.invert = false
-      newState.design.colorBg.value = '#fff'
-      newState.design.colorText.value = '#000'
+    if (state.design.invert.value) {
+      newState.invert.value = false
+      newState.colorBg.value = '#fff'
+      newState.colorText.value = '#000'
     } else {
-      newState.invert = true
-      newState.design.colorBg.value = '#000'
-      newState.design.colorText.value = '#fff'
+      newState.invert.value = true
+      newState.colorBg.value = '#000'
+      newState.colorText.value = '#fff'
     }
 
-    db.update(data, newState)
+    db.update({ }, newState)
     send('options:update', newState, done)
   }
 }
