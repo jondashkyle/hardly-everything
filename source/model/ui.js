@@ -5,8 +5,7 @@ const namespace = 'ui'
 
 
 exports.state = {
-  // panelActive: false,
-  panelActive: true,
+  panelActive: false,
   stagingActive: false,
   entriesViewAll: false
 }

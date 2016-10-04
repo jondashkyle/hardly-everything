@@ -89,19 +89,6 @@ exports.model = {
   )
 }
 
-// exports.view = (state, prev, send) => {
-//   const options = ov(state.options.design).filter(opt => opt.visible)
-
-//   return h`
-//     <div class="bg-black tc-white psf t0 l0 r0 z3 ${state.ui.panelActive ? 'db' : 'dn'}">
-//       <div class="x xw ${style}">
-//         ${options.map(option => optionContainer({
-//           content: templateOption(state, state, send, option)
-//         }))}
-//       </div>
-//     </div>
-//   `
-// }
 const handleInvertClick = (event, send) => {
   send('options:invert')
 }

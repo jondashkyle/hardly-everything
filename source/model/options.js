@@ -103,7 +103,7 @@ exports.state = {
 
 exports.subscriptions = [
   (send, done) => {
-    db.update({ }, exports.state)
+    // db.update({ }, exports.state)
     db.get(data => {
       send('options:update', data, done)
     })
