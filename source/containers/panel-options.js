@@ -53,8 +53,8 @@ const templateOption = (state, prev, send, option) => {
     case 'dropdown':
       return font.view({
         local: state[namespace].font,
-        options: state.options.typography,
-        ui: state.ui
+        current: state.options.design.font,
+        options: state.options.typography
       }, prev, send)
     default:
       return
@@ -78,9 +78,7 @@ const model = {
 
 exports.model = {
   namespace: namespace,
-  state: x(
-    model.state
-  ),
+  state: model.state,
   reducers: x(
     font.model.reducers,
     model.reducers

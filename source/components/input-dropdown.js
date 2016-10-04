@@ -12,35 +12,75 @@ const Dropdown = opts => {
 
   const model = {
     state: {
-      options: o.options,
-      test: 'nope'
+      active: false
     },
     reducers: {
-      [o.namespace + ':test']: (data, state) => ({
-        [o.namespace]: x(state[o.namespace], {
-          test: data.test
-        })
+      [o.namespace + ':update']: (data, state) => ({
+        [o.namespace]: x(state[o.namespace], data)
       })
     }
   }
 
   const handle = {
-    clickContainer: (event, send) => {
-      send([route, 'test'].join(':'), {
-        test: 'whaaatever'
+    clickCurrent: (event, send) => {
+      send([route, 'update'].join(':'), {
+        active: true
+      })
+    },
+    clickOption: (event, state, send) => {
+      send([route, 'update'].join(':'), {
+        active: false
+      })
+      send('options:design', {
+        key: 'font',
+        value: state.name
       })
     }
   }
 
+  const containerEl = (state, send, content) => h`
+    <div
+      class="psa l0 r0 t0 bg-black ofa"
+      style="max-height: 50vh"
+    >
+      ${content}
+    </div>
+  `
+
+  const optionEl = (state, send) => h`
+    <div
+      class="px1 curp"
+      onclick=${e => handle.clickOption(e, state, send)}
+    >${state.name}</div> 
+  `
+
   const view = (state, prev, send) => {
     const options = ov(state.options)
-    const optionsEl = h`<div>
-      ${options.map(opt => opt.name)}
-    </div>`
+
+    const optionsEl = containerEl(
+      state,
+      send,
+      options.map(option => optionEl(option, send))
+    )
+
+    const currentEl = h`
+      <div
+        class="psr c12 curp x xje"
+        onclick=${e => handle.clickCurrent(event, send)}
+      >
+        <label class="psa t0 l0 px1">
+          Font
+        </label>
+        <div class="px1">
+          ${state.current.value}
+        </div>
+      </div>
+    `
 
     return h`
-      <div onclick=${e => handle.clickContainer(e, send)}>
-        oh hellooo<br>
+      <div>
+        ${currentEl}
+        ${state.local.active ? optionsEl : ''}
       </div>
     `
   }

@@ -25,6 +25,9 @@ an attention & time focused bookmarking app
 ## todo
 - panel
   - dropdown design
+  - dropdown select & set
+    - google fonts loading
+    - state saving
 - link form
   - validation
     - is a url
@@ -35,6 +38,7 @@ an attention & time focused bookmarking app
 - db
   - hook up to firebase
     - email list
+
 - promo
   - mailchimp or something?
 - release

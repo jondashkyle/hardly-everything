@@ -5,36 +5,52 @@ const x = require('xtend')
 const namespace = 'options'
 
 const typography = {
-  system: {
-    name: 'system',
-    weights: [200, 400, 600]
+  moderat: {
+    name: 'Moderat',
+    key: 'moderat',
+    value: 'Moderat',
+    weights: [400, 700]
   },
   cabin: {
     name: 'Cabin',
+    key: 'cabin',
+    value: 'Cabin',
     weights: [400]
   },
   garamond: {
-    name: 'Cormorant+Garamond',
+    name: 'Cormorant Garamond',
+    key: 'garamond',
+    value: 'Cormorant+Garamond',
     weights: [400]
   },
   inconsolata: {
     name: 'Inconsolata',
+    key: 'inconsolata',
+    value: 'Inconsolata',
     weights: [400]
   },
   montserrat: {
     name: 'Montserrat',
+    key: 'montserrat',
+    value: 'Montseratt',
     weights: [400]
   },
   openSans: {
-    name: 'Open+Sans',
+    name: 'Open Sans',
+    key: 'openSans',
+    value: 'Open+Sans',
     weights: [400, 600]
   },
   spaceMono: {
-    ame: 'Space+Mono',
+    name: 'Space Mono',
+    key: 'spaceMono',
+    value: 'Space+Mono',
     weights: [400]
   },
   workSans: {
-    name: 'Work+Sans',
+    name: 'Work Sans',
+    key: 'workSans',
+    value: 'Work+Sans',
     weights: [400]
   }
 }
@@ -86,7 +102,7 @@ exports.state = {
 
 exports.subscriptions = [
   (send, done) => {
-    // db.update({ }, exports.state)
+    db.update({ }, exports.state)
     db.get(data => {
       send('options:update', data, done)
     })

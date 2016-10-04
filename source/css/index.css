@@ -82,6 +82,8 @@ a {
 .bribl { border-bottom-left-radius: 2px }
 .bribr { border-bottom-right-radius: 2px }
 
+.ofa { overflow: auto }
+
 /**
  * Type
  */
