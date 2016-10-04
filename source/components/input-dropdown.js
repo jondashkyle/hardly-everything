@@ -22,9 +22,9 @@ const Dropdown = opts => {
   }
 
   const handle = {
-    clickCurrent: (event, send) => {
+    clickCurrent: (event, state, send) => {
       send([route, 'update'].join(':'), {
-        active: true
+        active: !state.local.active 
       })
     },
     clickOption: (event, state, send) => {
@@ -38,16 +38,13 @@ const Dropdown = opts => {
     }
   }
 
-  const containerEl = (state, send, content) => h`
-    <div
-      class="psa l0 r0 t0 bg-black ofa"
-      style="max-height: 50vh"
-    >
+  const elContainer = (state, send, content) => h`
+    <div class="bg-white tc-black input-dropdown-options">
       ${content}
     </div>
   `
 
-  const optionEl = (state, send) => h`
+  const elOption = (state, send) => h`
     <div
       class="px1 curp"
       onclick=${e => handle.clickOption(e, state, send)}
@@ -57,16 +54,16 @@ const Dropdown = opts => {
   const view = (state, prev, send) => {
     const options = ov(state.options)
 
-    const optionsEl = containerEl(
+    const elOptions = elContainer(
       state,
       send,
-      options.map(option => optionEl(option, send))
+      options.map(option => elOption(option, send))
     )
 
-    const currentEl = h`
+    const elCurrent = h`
       <div
         class="psr c12 curp x xje"
-        onclick=${e => handle.clickCurrent(event, send)}
+        onclick=${e => handle.clickCurrent(event, state, send)}
       >
         <label class="psa t0 l0 px1">
           Font
@@ -78,9 +75,9 @@ const Dropdown = opts => {
     `
 
     return h`
-      <div>
-        ${currentEl}
-        ${state.local.active ? optionsEl : ''}
+      <div class="usn c12 psr">
+        ${elCurrent}
+        ${state.local.active ? elOptions : ''}
       </div>
     `
   }

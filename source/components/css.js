@@ -29,9 +29,29 @@ module.exports = (state, prev, send) => {
         padding: ${blockPadding}rem;
       }
 
-      .design-color-entry,
-      .design-color-entry a {
+      .tc-black {
         color: ${state.options.design.colorText.value};
+      }
+
+      .tc-white {
+        color: ${state.options.design.colorBg.value};
+      }
+
+      .bg-black {
+        background: ${state.options.design.colorText.value};
+      }
+
+      .bg-white {
+        background: ${state.options.design.colorBg.value};
+      }
+
+      .design-color-entry,
+      .design-color-entry a, {
+        color: ${state.options.design.colorText.value};
+      }
+
+      .strike:before {
+        background: ${state.options.design.colorText.value};
       }
 
       .design-font {

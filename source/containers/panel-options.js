@@ -30,11 +30,21 @@ const style = sf`
     width: 100%;
   }
 
-  .container-option {
-    border-right: 2px solid rgba(127, 127, 127, 0.33);
+  .opt-bl {
+    border-left: 1px solid rgba(127, 127, 127, 0.33);
   }
-  
- .container-option:last-child { border-right: 0 } 
+
+  .opt-br {
+    border-right: 1px solid rgba(127, 127, 127, 0.33);
+  }
+
+  .opt-bt {
+    border-top: 1px solid rgba(127, 127, 127, 0.33);
+  }
+
+  .opt-bb {
+    border-bottom: 1px solid rgba(127, 127, 127, 0.33);
+  }
 `
 
 const templateOption = (state, prev, send, option) => {
@@ -61,12 +71,6 @@ const templateOption = (state, prev, send, option) => {
   }
 }
 
-const optionContainer = ({ content }) => h`
-  <div class="c4 psr container-option">
-    ${content}
-  </div>
-`
-
 const model = {
   state: {
     font: font.model.state
@@ -85,16 +89,55 @@ exports.model = {
   )
 }
 
-exports.view = (state, prev, send) => {
-  const options = ov(state.options.design).filter(opt => opt.visible)
+// exports.view = (state, prev, send) => {
+//   const options = ov(state.options.design).filter(opt => opt.visible)
 
+//   return h`
+//     <div class="bg-black tc-white psf t0 l0 r0 z3 ${state.ui.panelActive ? 'db' : 'dn'}">
+//       <div class="x xw ${style}">
+//         ${options.map(option => optionContainer({
+//           content: templateOption(state, state, send, option)
+//         }))}
+//       </div>
+//     </div>
+//   `
+// }
+const handleInvertClick = (event, send) => {
+  send('options:invert')
+}
+
+exports.view = (state, prev, send) => {
   return h`
-    <div class="bg-black tc-white psf t0 l0 r0 z3 ${state.ui.panelActive ? 'db' : 'dn'}">
-      <div class="x xw ${style}">
-        ${options.map(option => optionContainer({
-          content: templateOption(state, state, send, option)
-        }))}
+    <div class="
+      bg-black tc-white psf t0 l0 r0 z3 usn
+      ${style}
+      ${state.ui.panelActive ? 'x' : 'dn'}
+    ">
+      <div class="c4 opt-br">
+        <div class="opt-bb">
+          ${templateOption(state, state, send, state.options.design.scale)}
+        </div>
+        <div class="opt-bt">
+          ${templateOption(state, state, send, state.options.design.font)}
+        </div>
       </div>
+      <div class="c4 opt-bl opt-br">
+        <div class="opt-bb">
+          ${templateOption(state, state, send, state.options.design.spacing)}
+        </div>
+        <div class="opt-bt x tac">
+          <div class="c6 opt-br curp" onclick=${e => handleInvertClick(e, send)}>
+            Invert
+          </div>
+          <div class="c6 opt-bl fwb curp">
+            Login
+          </div>
+        </div>
+      </div>
+      <div class="c4 opt-bl x xjc xac">
+        Ad
+      </div>
+      
     </div>
   `
 }

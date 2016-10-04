@@ -89,7 +89,7 @@ const form = (state, prev, send) => {
           value="${state.staging.entry.title}"
           oninput=${e => send('staging:entry', { title: e.target.value })}
           type="text"
-          class="c12 sans bg-white px1 brit"
+          class="c12 sans bg-white tc-black px1 brit"
         />
       </div>
       <div class="p1px">
@@ -99,12 +99,12 @@ const form = (state, prev, send) => {
           value="${state.staging.entry.url}"
           oninput=${e => send('staging:entry', { url: e.target.value })}
           type="text"
-          class="c12 sans bg-white px1"
+          class="c12 sans bg-white tc-black px1"
         />
       </div>
       <div class="c12 x" style="line-height: 3rem">
         <div class="c8 p1px">
-          <div class="c12 bg-white">
+          <div class="c12 bg-white tc-black">
             ${inputRange({
               name: 'Rest',
               value: state.staging.entry.timeRange,

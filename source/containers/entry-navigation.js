@@ -17,7 +17,6 @@ const styles = sf`
     right: 0.5rem;
     bottom: 2px;
     height: 2px;
-    background: #000;
   }
 `
 

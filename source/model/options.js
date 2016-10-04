@@ -97,6 +97,7 @@ exports.state = {
       visible: true
     }
   },
+  invert: false,
   typography: typography
 }
 
@@ -117,6 +118,22 @@ exports.effects = {
   design: (data, state, send, done) => {
     const newState = clone(state)
     newState.design[data.key].value = data.value
+    db.update(data, newState)
+    send('options:update', newState, done)
+  },
+  invert: (data, state, send, done) => {
+    const newState = clone(state)
+
+    if (state.invert) {
+      newState.invert = false
+      newState.design.colorBg.value = '#fff'
+      newState.design.colorText.value = '#000'
+    } else {
+      newState.invert = true
+      newState.design.colorBg.value = '#000'
+      newState.design.colorText.value = '#fff'
+    }
+
     db.update(data, newState)
     send('options:update', newState, done)
   }

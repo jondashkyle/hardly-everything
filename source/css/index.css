@@ -3,8 +3,6 @@ html {
 }
 
 body {
-  background: #fff;
-  color: #000;
   line-height: 1.5;
   margin: 0;
 }
@@ -25,21 +23,10 @@ body {
 }
 
 /**
- * Colors
- */
-
-.bg-white { background: #fff }
-.bg-black { background: #000 }
-
-.tc-white { color: #fff }
-.tc-black { color: #000 }
-
-/**
  * Anchors
  */
 
 a {
-  color: #000;
   text-decoration: none;
 }
 
@@ -89,4 +76,22 @@ a {
  */
 .emoji {
   font-family: "Apple Color Emoji","Segoe UI Emoji","NotoColorEmoji","Segoe UI Symbol","Android Emoji","EmojiSymbols";
+}
+
+/**
+ * Dropdown
+ */
+.input-dropdown-options {
+  border-top: 0;
+  border-left: 0;
+  overflow-y: auto;
+  max-height: 50vh;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0px;
+}
+
+.input-dropdown-options > div:not(:last-child) {
+  border-bottom: 1px dashed rgba(127, 127, 127, 0.33);
 }

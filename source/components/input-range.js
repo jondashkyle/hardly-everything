@@ -19,7 +19,7 @@ const inputRange = (opts) => {
 
   return h`
     <div
-      class="psr ofh cur-ewr"
+      class="psr ofh cur-ewr c12"
       style="height: ${options.height}; line-height: ${options.height}"
     >
       <label class="psa t0 l0 pen px1">

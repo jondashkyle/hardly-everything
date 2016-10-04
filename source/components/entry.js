@@ -32,7 +32,7 @@ const view = (state, prev, send, entry) => {
     <div class="component-entry c12" data-id="${entry.id}">
       <a
         href="${entry.url}"
-        class="dib design-block-padding"
+        class="dib design-block-padding tc-black"
         onclick=${e => handleClick(state, prev, send, event)}>
         ${entry.title}
       </a>
