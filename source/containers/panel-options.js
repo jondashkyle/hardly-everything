@@ -122,7 +122,7 @@ exports.view = (state, prev, send) => {
         </div>
       </div>
       <div class="c4 opt-bl x xjc xac">
-        Ad
+        Sponsor
       </div>
       
     </div>
