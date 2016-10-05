@@ -30,7 +30,7 @@ const formatEntry = data => {
 const validateEntry = data => {
   if (data.title === '') {
     return 'Please enter a title'
-  } else if (!isUrl(data.url)) {
+  } else if (!isUrl(data.url || '')) {
     return 'Please enter a valid url'
   } else if (isNaN(data.duration)) {
     return 'Please enter a valid duration'
