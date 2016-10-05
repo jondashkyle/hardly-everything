@@ -33,13 +33,16 @@ const Dropdown = opts => {
       })
       send('options:design', {
         key: 'font',
-        value: state.name
+        value: state
       })
     }
   }
 
   const elContainer = (state, send, content) => h`
-    <div class="bg-white tc-black input-dropdown-options">
+    <div class="
+      bg-white tc-black input-dropdown-options
+      ${state.local.active ? 'db' : 'dn'}
+    ">
       ${content}
     </div>
   `
@@ -69,7 +72,7 @@ const Dropdown = opts => {
           Font
         </label>
         <div class="px1">
-          ${state.current.value}
+          ${state.current.value.name}
         </div>
       </div>
     `
@@ -77,7 +80,7 @@ const Dropdown = opts => {
     return h`
       <div class="usn c12 psr">
         ${elCurrent}
-        ${state.local.active ? elOptions : ''}
+        ${elOptions}
       </div>
     `
   }

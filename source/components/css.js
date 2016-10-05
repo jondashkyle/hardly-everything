@@ -55,7 +55,8 @@ module.exports = (state, prev, send) => {
       }
 
       .design-font {
-        font-family: ${state.options.design.font.value}, sans-serif;
+        font-family: ${state.options.design.font.value.value}, sans-serif;
+        font-weight: ${state.options.design.font.value.weight || 400};
         font-size: ${fontSize}rem;
       }
     </style>
