@@ -63,7 +63,6 @@ const subscriptions = [
 const reducers = {
   all: (data, state) => ({ all: data }),
   refresh: (data, state) => (state),
-  reset: (data, state) => ({ })
 }
 
 const effects = {
@@ -129,6 +128,10 @@ const effects = {
   },
   init: (data, state, send, done) => {
     send('entries:all', data, done)
+  },
+  reset: (data, state, send, done) => {
+    send('entries:all', { }, done)
+    db.update({ }, { })
   }
 }
 

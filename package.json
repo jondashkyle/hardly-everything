@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "budo source/index.js:bundle.js --dir public --live --pushstate -- -t [ sheetify/transform ]",
-    "build": "browserify source/index.js -o public/bundle.js -t [ sheetify/transform ]"
+    "build": "browserify source/index.js -o public/bundle.js -t [ sheetify/transform ] -g es2040"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "es2040": "^1.2.4",
     "firebase": "^3.4.1"
   },
   "dependencies": {

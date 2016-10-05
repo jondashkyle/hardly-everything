@@ -16,7 +16,8 @@ app.model(require('./containers/panel-options').model)
 
 app.router((route) => [
   route('/', require('./templates/index')),
-  route('/data', require('./templates/export'))
+  route('/data', require('./templates/export')),
+  route('/reset', require('./templates/reset'))
 ])
 
 module.exports = app
