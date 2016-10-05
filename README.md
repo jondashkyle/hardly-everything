@@ -51,8 +51,9 @@ an attention & time focused bookmarking app
 ## release
 - only open to first 100 signups
 
-
 ## future
 - archive
   - dismiss links to the archive
   - one time links which auto-move to the archive
+- typography
+  - http://www.new-letters.de/
