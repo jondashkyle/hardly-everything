@@ -16,30 +16,28 @@ const formatTags = tag =>
 const formatEntry = data => {
   const result = clone(data)
 
-  for (key in result) {
+  for (let key in result) {
     switch (key) {
       case 'url':
         result.url = normalizeUrl(result.url)
         break
     }
   }
-  
+
   return result
 }
 
 const validateEntry = data => {
-  for (key in data) {
-    switch (key) {
-      case 'url': return isUrl(data.url)
-        ? true
-        : 'Please enter a valid URL'
-      case 'duration': return isNaN(data.duration)
-        ? 'Please enter a valid duration'
-        : true
-      case 'interval': return intervals.indexOf(data.interval) > -1
-        ? true
-        : 'Please enter a valid interval'
-    }
+  if (data.title === '') {
+    return 'Please enter a title'
+  } else if (!isUrl(data.url)) {
+    return 'Please enter a valid url'
+  } else if (isNaN(data.duration)) {
+    return 'Please enter a valid duration'
+  } else if (intervals.indexOf(data.interval) === -1) {
+    return 'Please enter a valid interval'
+  } else {
+    return true
   }
 }
 
@@ -50,7 +48,6 @@ const state = {
 
 const subscriptions = [
   (send, done) => {
-    // db.update({ }, { })
     db.get(data => {
       send('entries:init', data, done)
     })
@@ -62,7 +59,7 @@ const subscriptions = [
 
 const reducers = {
   all: (data, state) => ({ all: data }),
-  refresh: (data, state) => (state),
+  refresh: (data, state) => (state)
 }
 
 const effects = {
@@ -76,7 +73,7 @@ const effects = {
     const entry = formatEntry(staging)
     const validation = validateEntry(entry)
 
-    if (validation) {
+    if (validation === true) {
       const newState = clone(state.all)
       newState[id] = entry
 
@@ -84,7 +81,7 @@ const effects = {
       send('ui:update', { stagingActive: false }, done)
       send('entries:all', newState, done)
 
-      db.add(entry, newState), done
+      db.add(entry, newState, done)
     } else {
       alert(validation)
     }

@@ -31,38 +31,38 @@ const optionsTypography = {
     key: 'cabinBold',
     host: 'google',
     weight: 700,
-    value: 'Cabin',
+    value: 'Cabin'
   },
   garamond: {
     name: 'Cormorant Garamond',
     key: 'garamond',
     host: 'google',
-    value: 'Cormorant Garamond',
+    value: 'Cormorant Garamond'
   },
   inconsolata: {
     name: 'Inconsolata',
     key: 'inconsolata',
     host: 'google',
-    value: 'Inconsolata',
+    value: 'Inconsolata'
   },
   montserrat: {
     name: 'Montserrat',
     key: 'montserrat',
     host: 'google',
-    value: 'Montserrat',
+    value: 'Montserrat'
   },
   montserratBold: {
     name: 'Montserrat Bold',
     key: 'montserratBold',
     host: 'google',
     weight: '700',
-    value: 'Montserrat',
+    value: 'Montserrat'
   },
   karla: {
     name: 'Karla',
     key: 'karla',
     host: 'google',
-    value: 'Karla',
+    value: 'Karla'
   },
   openSansLight: {
     name: 'Open Sans Light',
@@ -82,13 +82,13 @@ const optionsTypography = {
     name: 'Space Mono',
     key: 'spaceMono',
     host: 'google',
-    value: 'Space Mono',
+    value: 'Space Mono'
   },
   workSans: {
     name: 'Work Sans',
     key: 'workSans',
     host: 'google',
-    value: 'Work Sans',
+    value: 'Work Sans'
   },
   workSansLight: {
     name: 'Work Sans Light',
