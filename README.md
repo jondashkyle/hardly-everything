@@ -23,18 +23,10 @@ an attention & time focused bookmarking app
 - that feeling of catching up
 
 ## todo
-- panel
-  - dropdown design
-  - dropdown select & set
-    - google fonts loading
-    - state saving
 - link form
   - validation
     - is a url
     - duration and interval
-- ui
-  - break panel-entry into components and containers
-    to use for the user area
 - db
   - hook up to firebase
     - email list

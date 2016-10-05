@@ -50,8 +50,6 @@ const handleSubmit = (state, prev, send, event) => {
     send('entries:add', state.staging.entry)
   }
 
-  send('staging:reset')
-  send('ui:update', { stagingActive: false })
   event.preventDefault()
 }
 

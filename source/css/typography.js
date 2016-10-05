@@ -13,7 +13,6 @@ exports.load = (data) => {
       const value = data.weight
         ? data.value + ':' + data.weight
         : data.value
-      console.log(data.value)
       return webfontloader.load({
         google: {
           families: [value]
