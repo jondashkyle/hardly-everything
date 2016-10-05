@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Moderat';
+    src: url('moderat-regular-webfont.eot');
+    src: url('moderat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('moderat-regular-webfont.woff2') format('woff2'),
+         url('moderat-regular-webfont.woff') format('woff'),
+         url('moderat-regular-webfont.ttf') format('truetype'),
+         url('moderat-regular-webfont.svg#moderatregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'Moderat';
+    src: url('moderat-bold-webfont.eot');
+    src: url('moderat-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('moderat-bold-webfont.woff2') format('woff2'),
+         url('moderat-bold-webfont.woff') format('woff'),
+         url('moderat-bold-webfont.ttf') format('truetype'),
+         url('moderat-bold-webfont.svg#moderatbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
+}

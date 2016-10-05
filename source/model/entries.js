@@ -74,7 +74,7 @@ const effects = {
       dateAdded: moment().toISOString(),
       dateDismissed: moment().subtract(10, 'years').toISOString()
     }, data)
-    const entry = formatentry(staging)
+    const entry = formatEntry(staging)
     const validation = validateEntry(entry)
 
     if (validation) {
