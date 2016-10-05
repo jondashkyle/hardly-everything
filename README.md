@@ -1,40 +1,11 @@
 # asdf
 an attention & time focused bookmarking app
 
-## some things w/ feeds
-- loudness
-  - i follow people (things) in different places
-  - i do this to keep up with what they’re doing
-  - often the things posting the most are the ones i see most often
-  - those things drown out some of the more interesting quiter things
-- algorithms
-  - computers are good at recognizing patterns
-  - my behaviour follows patterns
-  - yeah
-    - suggesting unfamiliar things which are similar to my taste
-    - efficiency in showing me what im prob most interested in
-  - nah
-    - echo chamber, im only so interesting
-    - who is controlling the algotithim, and what are their motives
-
-## some things w/ feed readers
-- you lose the context
-- the loud ones are still loud
-- that feeling of catching up
-
 ## todo
-- panel
-  - dropdown design
-  - dropdown select & set
-    - google fonts loading
-    - state saving
 - link form
   - validation
     - is a url
     - duration and interval
-- ui
-  - break panel-entry into components and containers
-    to use for the user area
 - db
   - hook up to firebase
     - email list

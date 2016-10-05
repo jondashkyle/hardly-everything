@@ -68,7 +68,7 @@ module.exports = (state, prev, send) => {
     return state.panel.staging.interval === interval ? 'selected' : ''
   }
 
-  const getTime = value=> intToRest({
+  const getTime = value => intToRest({
     value: value
   })
 

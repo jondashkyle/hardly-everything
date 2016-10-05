@@ -28,12 +28,12 @@ module.exports = (state, prev, send) => {
       <div
         class="
           p0-5 curp
-          ${state.ui.entriesViewAll ? 'strike' : ''} 
+          ${state.ui.stagingActive ? 'strike' : ''}
         "
         onclick=${e => send('ui:update', {
-          entriesViewAll: !state.ui.entriesViewAll
+          stagingActive: !state.ui.stagingActive
         })}>
-        all
+        add
       </div> 
       <div
         class="p0-5 curp ${state.ui.panelActive ? 'strike' : ''}"
@@ -45,12 +45,12 @@ module.exports = (state, prev, send) => {
       <div
         class="
           p0-5 curp
-          ${state.ui.stagingActive ? 'strike' : ''}
+          ${state.ui.entriesViewAll ? 'strike' : ''} 
         "
         onclick=${e => send('ui:update', {
-          stagingActive: !state.ui.stagingActive
+          entriesViewAll: !state.ui.entriesViewAll
         })}>
-        add
+        all
       </div>
     </div>
   `

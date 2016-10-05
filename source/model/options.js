@@ -2,56 +2,107 @@ const db = require('../db/options')
 const clone = require('clone-deep')
 const x = require('xtend')
 
+const typography = require('../css/typography')
+
 const namespace = 'options'
 
-const typography = {
+const optionsTypography = {
   moderat: {
     name: 'Moderat',
     key: 'moderat',
-    value: 'Moderat',
-    weights: [400, 700]
+    host: 'local',
+    value: 'Moderat'
+  },
+  moderatBold: {
+    name: 'Moderat Bold',
+    key: 'moderatBold',
+    host: 'local',
+    weight: '700',
+    value: 'Moderat'
   },
   cabin: {
     name: 'Cabin',
     key: 'cabin',
+    host: 'google',
+    value: 'Cabin'
+  },
+  cabinBold: {
+    name: 'Cabin Bold',
+    key: 'cabinBold',
+    host: 'google',
+    weight: 700,
     value: 'Cabin',
-    weights: [400]
   },
   garamond: {
     name: 'Cormorant Garamond',
     key: 'garamond',
-    value: 'Cormorant+Garamond',
-    weights: [400]
+    host: 'google',
+    value: 'Cormorant Garamond',
   },
   inconsolata: {
     name: 'Inconsolata',
     key: 'inconsolata',
+    host: 'google',
     value: 'Inconsolata',
-    weights: [400]
   },
   montserrat: {
     name: 'Montserrat',
     key: 'montserrat',
-    value: 'Montseratt',
-    weights: [400]
+    host: 'google',
+    value: 'Montserrat',
   },
-  openSans: {
-    name: 'Open Sans',
-    key: 'openSans',
-    value: 'Open+Sans',
-    weights: [400, 600]
+  montserratBold: {
+    name: 'Montserrat Bold',
+    key: 'montserratBold',
+    host: 'google',
+    weight: '700',
+    value: 'Montserrat',
+  },
+  karla: {
+    name: 'Karla',
+    key: 'karla',
+    host: 'google',
+    value: 'Karla',
+  },
+  openSansLight: {
+    name: 'Open Sans Light',
+    key: 'openSansLight',
+    host: 'google',
+    weight: 200,
+    value: 'Open Sans'
+  },
+  openSansBold: {
+    name: 'Open Sans Bold',
+    key: 'openSansBold',
+    host: 'google',
+    weight: 700,
+    value: 'Open Sans'
   },
   spaceMono: {
     name: 'Space Mono',
     key: 'spaceMono',
-    value: 'Space+Mono',
-    weights: [400]
+    host: 'google',
+    value: 'Space Mono',
   },
   workSans: {
     name: 'Work Sans',
     key: 'workSans',
-    value: 'Work+Sans',
-    weights: [400]
+    host: 'google',
+    value: 'Work Sans',
+  },
+  workSansLight: {
+    name: 'Work Sans Light',
+    key: 'workSansLight',
+    host: 'google',
+    weight: 200,
+    value: 'Work Sans'
+  },
+  workSansBold: {
+    name: 'Work Sans Bold',
+    key: 'workSansBold',
+    host: 'google',
+    weight: 700,
+    value: 'Work Sans'
   }
 }
 
@@ -75,7 +126,7 @@ exports.state = {
       name: 'Font',
       key: 'font',
       type: 'dropdown',
-      value: 'Moderat-Bold',
+      value: optionsTypography.moderatBold,
       visible: true
     },
     scale: {
@@ -103,13 +154,14 @@ exports.state = {
       visible: false
     }
   },
-  typography: typography
+  typography: optionsTypography
 }
 
 exports.subscriptions = [
   (send, done) => {
     db.get(data => {
       send('options:update', data, done)
+      typography.load(data.font.value)
     })
   }
 ]
@@ -128,6 +180,11 @@ exports.effects = {
   design: (data, state, send, done) => {
     const newState = clone(state.design)
     newState[data.key].value = data.value
+
+    if (data.key === 'font') {
+      typography.load(data.value)
+    }
+
     db.update(data, newState)
     send('options:update', newState, done)
   },
