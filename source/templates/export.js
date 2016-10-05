@@ -26,20 +26,18 @@ const style = sf`
 
 const container = opts => {
   const options = x({
-    entries: [ ]
+    entries: { }
   }, opts)
 
   const el = h`<div class="${style}">
-    <textarea class="mono bg-black tc-white p2">${JSON.stringify(options.entries, false, 2)}</textarea>
+    <pre class="mono bg-black tc-white p2"><code>${JSON.stringify(options.entries, null, 2)}</code></pre>
   </div>`
 
   return el
 }
 
 const view = (state, prev, send) => {
-  return state.entries.all.length
-    ? container({ entries: state.entries.all })
-    : h`<div>nothing to export</div>`
+  return container({ entries: state.entries.all })
 }
 
 module.exports = view

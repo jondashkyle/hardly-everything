@@ -79,12 +79,7 @@ input, select {
   vertical-align: middle;
 }
 
-pre {
-    white-space: pre; /* CSS2 */
-    white-space: pre-wrap; /* CSS 2.1 */
-    white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
-    word-wrap: break-word; /* IE */
-}
+
 
 input[type="radio"] {vertical-align: text-bottom;}
 input[type="checkbox"] {vertical-align: bottom;}
@@ -105,9 +100,6 @@ td, td img {vertical-align: top;}
 sub, sup {font-size: 75%; line-height: 0; position: relative;}
 sup {top: -0.5em;}
 sub {bottom: -0.25em;}
-
-/* standardize any monospaced elements */
-pre, code, kbd, samp {font-family: monospace, sans-serif;}
 
 /* hand cursor on clickable elements */
 .clickable,

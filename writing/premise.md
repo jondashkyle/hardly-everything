@@ -3,6 +3,8 @@
 
 - the browser is able to accomidate extreme time scales
 
+- it's not about scheduling, it's about intervals
+
 ## some things w/ feeds
 - loudness
   - i follow people (things) in different places
