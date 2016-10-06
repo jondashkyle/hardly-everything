@@ -26,7 +26,7 @@ module.exports = (state, prev, send) => {
       }
 
       .design-block-padding {
-        padding: ${blockPadding}rem;
+        padding: ${blockPadding * 0.8}rem ${blockPadding}rem;
       }
 
       .tc-black {

@@ -55,10 +55,10 @@ module.exports = (state, prev, send) => {
   return h`
     <div
       class="
-        x xw xac xjc tac lh1
+        x xw xac xjc tac
         design-font design-background design-color-entry design-block-padding
       "
-      style="min-height: 100vh"
+      style="min-height: 100vh; line-height: 1.2"
     >${elContent}</div>
   `
 }
