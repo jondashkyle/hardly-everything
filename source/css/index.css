@@ -49,6 +49,11 @@ a {
   user-select: none;
 }
 
+.r45 {
+  display: inline-block;
+  transform: rotate(-45deg);
+}
+
 .p1px { padding: 1px }
 
 .pen { pointer-events: none }
@@ -71,9 +76,6 @@ a {
 
 .ofa { overflow: auto }
 
-/**
- * Type
- */
 .emoji {
   font-family: "Apple Color Emoji","Segoe UI Emoji","NotoColorEmoji","Segoe UI Symbol","Android Emoji","EmojiSymbols";
 }

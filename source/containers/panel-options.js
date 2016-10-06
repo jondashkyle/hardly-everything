@@ -121,8 +121,15 @@ exports.view = (state, prev, send) => {
           </div>
         </div>
       </div>
-      <div class="c4 opt-bl x xjc xac">
-        Sponsor
+      <div class="c4 opt-bl x xjc xac psr">
+        <a href="#log" class="psa t0 l0 r0 b0 z2"></a>
+        <div class="lh1-5 tac">
+          <div>Currently beta</div>
+          <div class="fs0-7">Visit the log for updates</div>
+        </div>
+        <div class="psa t0 r0 p0-5 lh1">
+          <span class="r45">→</span>
+        </div>
       </div>
       
     </div>
