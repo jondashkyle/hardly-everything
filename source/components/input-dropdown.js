@@ -24,14 +24,14 @@ const Dropdown = opts => {
   const handle = {
     clickCurrent: (event, state, send) => {
       send([route, 'update'].join(':'), {
-        active: !state.local.active 
+        active: !state.local.active
       })
     },
     clickOption: (event, state, send) => {
       send([route, 'update'].join(':'), {
         active: false
       })
-      send('options:design', {
+      send('options:values', {
         key: 'font',
         value: state
       })
@@ -72,7 +72,7 @@ const Dropdown = opts => {
           Font
         </label>
         <div class="px1">
-          ${state.current.value.name}
+          ${state.current.name}
         </div>
       </div>
     `

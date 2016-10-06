@@ -4,7 +4,7 @@ const { linearConversion } = require('../helpers/scale')
 
 module.exports = (state, prev, send) => {
   const blockPadding = linearConversion({
-    value: state.options.design.spacing.value,
+    value: state.options.values.spacing,
     out: {
       min: 0.5,
       max: 5
@@ -12,17 +12,17 @@ module.exports = (state, prev, send) => {
   })
 
   const fontSize = linearConversion({
-    value: state.options.design.scale.value,
+    value: state.options.values.scale,
     out: {
       min: 0.5,
       max: 10
-    } 
+    }
   })
 
   return html`
     <style>
       body {
-        background: ${state.options.design.colorBg.value};
+        background: ${state.options.values.colorBg};
       }
 
       .design-block-padding {
@@ -30,33 +30,37 @@ module.exports = (state, prev, send) => {
       }
 
       .tc-black {
-        color: ${state.options.design.colorText.value};
+        color: ${state.options.values.colorText};
       }
 
       .tc-white {
-        color: ${state.options.design.colorBg.value};
+        color: ${state.options.values.colorBg};
       }
 
       .bg-black {
-        background: ${state.options.design.colorText.value};
+        background: ${state.options.values.colorText};
       }
 
       .bg-white {
-        background: ${state.options.design.colorBg.value};
+        background: ${state.options.values.colorBg};
       }
 
       .design-color-entry,
       .design-color-entry a, {
-        color: ${state.options.design.colorText.value};
+        color: ${state.options.values.colorText};
       }
 
       .strike:before {
-        background: ${state.options.design.colorText.value};
+        background: ${state.options.values.colorText};
+      }
+
+      .bbu {
+        border-bottom-color: ${state.options.values.colorText};
       }
 
       .design-font {
-        font-family: ${state.options.design.font.value.value}, sans-serif;
-        font-weight: ${state.options.design.font.value.weight || 400};
+        font-family: ${state.options.values.font.name}, sans-serif;
+        font-weight: ${state.options.values.font.weight || 400};
         font-size: ${fontSize}rem;
       }
     </style>

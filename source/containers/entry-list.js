@@ -31,12 +31,23 @@ const templateEntries = (state, prev, send) => {
   return entries ? entries : ''
 }
 
-const emptyEl = () => h`
-  <div class="fs2">👌</div>
-`
+const emptyEl = h`<div class="fs2">
+  👌
+</div>`
+
+const elEntriesNone = h`<div class="fs2 lh1-5">
+  There aren’t any entries;<br>
+  go ahead and <span class="curp bbu">add one</span>?
+</div>`
 
 module.exports = (state, prev, send) => {
-  const elements = templateEntries(state, prev, send)
+  const elsEntries = templateEntries(state, prev, send)
+  const isEntriesAll = Object.keys(state.entries.all).length > 0
+
+  const elContent =
+      isEntriesAll && elsEntries.length ? elsEntries
+    : isEntriesAll && !elsEntries.length ? emptyEl
+    : elEntriesNone
 
   return h`
     <div
@@ -45,8 +56,6 @@ module.exports = (state, prev, send) => {
         design-font design-background design-color-entry design-block-padding
       "
       style="min-height: 100vh"
-    >
-      ${elements.length ? elements : emptyEl()}
-    </div>
+    >${elContent}</div>
   `
 }

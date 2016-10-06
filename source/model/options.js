@@ -68,7 +68,7 @@ const optionsTypography = {
     name: 'Open Sans Light',
     key: 'openSansLight',
     host: 'google',
-    weight: 200,
+    weight: 300,
     value: 'Open Sans'
   },
   openSansBold: {
@@ -112,21 +112,18 @@ exports.state = {
       name: 'Background',
       key: 'colorBg',
       type: 'text',
-      visible: false,
-      value: '#fff'
+      visible: false
     },
     colorText: {
       name: 'Text',
       key: 'colorText',
       type: 'text',
-      visible: false,
-      value: '#000'
+      visible: false
     },
     font: {
       name: 'Font',
       key: 'font',
       type: 'dropdown',
-      value: optionsTypography.moderatBold,
       visible: true
     },
     scale: {
@@ -135,24 +132,29 @@ exports.state = {
       type: 'range',
       min: 5,
       max: 72,
-      value: 35,
       visible: true
     },
     spacing: {
-      name: 'Spacing',
+      name: 'Space',
       key: 'spacing',
       type: 'range',
       min: 0,
       max: 25,
-      value: 5,
       visible: true
     },
     invert: {
       name: 'Invert',
       key: 'invert',
-      value: false,
       visible: false
     }
+  },
+  values: {
+    colorBg: '#fff',
+    colorText: '#000',
+    font: optionsTypography.moderatBold,
+    scale: 35,
+    spacing: 5,
+    invert: false
   },
   typography: optionsTypography
 }
@@ -161,25 +163,25 @@ exports.subscriptions = [
   (send, done) => {
     db.get(data => {
       send('options:update', data, done)
-      typography.load(data.font.value)
+      typography.load(data.font)
     })
   }
 ]
 
 exports.reducers = {
   update: (data, state) => ({
-    design: x(state.design, data)
+    values: x(state.values, data)
   })
 }
 
 exports.effects = {
   reset: (data, state, send, done) => {
-    db.update({ }, exports.state.design)
-    send('options:update', exports.state.design, done)
+    db.update({ }, exports.state.values)
+    send('options:update', exports.state.values, done)
   },
-  design: (data, state, send, done) => {
-    const newState = clone(state.design)
-    newState[data.key].value = data.value
+  values: (data, state, send, done) => {
+    const newState = clone(state.values)
+    newState[data.key] = data.value
 
     if (data.key === 'font') {
       typography.load(data.value)
@@ -189,16 +191,16 @@ exports.effects = {
     send('options:update', newState, done)
   },
   invert: (data, state, send, done) => {
-    const newState = clone(state.design)
+    const newState = clone(state.values)
 
-    if (state.design.invert.value) {
-      newState.invert.value = false
-      newState.colorBg.value = '#fff'
-      newState.colorText.value = '#000'
+    if (state.values.invert) {
+      newState.invert = false
+      newState.colorBg = '#fff'
+      newState.colorText = '#000'
     } else {
-      newState.invert.value = true
-      newState.colorBg.value = '#000'
-      newState.colorText.value = '#fff'
+      newState.invert = true
+      newState.colorBg = '#000'
+      newState.colorText = '#fff'
     }
 
     db.update({ }, newState)

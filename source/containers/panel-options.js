@@ -1,6 +1,5 @@
 const h = require('choo/html')
 const sf = require('sheetify')
-const ov = require('object.values')
 const x = require('xtend')
 
 const inputText = require('../components/input-text')
@@ -54,8 +53,8 @@ const templateOption = (state, prev, send, option) => {
     case 'range':
       return inputRange({
         name: option.name,
-        value: state.options.design[option.key].value,
-        handleInput: value => send('options:design', {
+        value: state.options.values[option.key],
+        handleInput: value => send('options:values', {
           key: option.key,
           value: value
         })
@@ -63,7 +62,7 @@ const templateOption = (state, prev, send, option) => {
     case 'dropdown':
       return font.view({
         local: state[namespace].font,
-        current: state.options.design.font,
+        current: state.options.values.font,
         options: state.options.typography
       }, prev, send)
     default:
@@ -93,6 +92,10 @@ const handleInvertClick = (event, send) => {
   send('options:invert')
 }
 
+const handleLoginClick = (event, send) => {
+  alert('Soon')
+}
+
 exports.view = (state, prev, send) => {
   return h`
     <div class="
@@ -116,7 +119,7 @@ exports.view = (state, prev, send) => {
           <div class="c6 opt-br curp" onclick=${e => handleInvertClick(e, send)}>
             Invert
           </div>
-          <div class="c6 opt-bl fwb curp">
+          <div class="c6 opt-bl fwb curp" onclick=${e => handleLoginClick(e)}>
             Login
           </div>
         </div>
@@ -124,10 +127,10 @@ exports.view = (state, prev, send) => {
       <div class="c4 opt-bl x xjc xac psr">
         <a href="#log" class="psa t0 l0 r0 b0 z2"></a>
         <div class="lh1-5 tac">
-          <div>Currently beta</div>
-          <div class="fs0-7">Visit the log for updates</div>
+          <div>Currently in Beta</div>
+          <div class="fs0-7">Visit the log for info & updates</div>
         </div>
-        <div class="psa t0 r0 p0-5 lh1">
+        <div class="dn psa t0 r0 p0-5 lh1">
           <span class="r45">→</span>
         </div>
       </div>

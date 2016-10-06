@@ -9,18 +9,27 @@ an attention & time focused bookmarking app
 - db
   - hook up to firebase
     - email list
-
 - promo
   - mailchimp or something?
 - release
   - migration tool
+- usage guide
+  - if no entries, show add entries text
 
 ## monetization
-- ask fg about the deck intro for ad in free v
-- monthly sponsorship slots
+- monthly sponsorship slot
 
 ## release
 - only open to first 100 signups
+
+## hello
+- q&a
+  - ask people for a list of links
+  - little description for each
+    - each day
+    - each week
+    - each month
+    - each century
 
 ## future
 - archive

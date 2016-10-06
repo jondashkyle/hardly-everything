@@ -30,6 +30,11 @@ a {
   text-decoration: none;
 }
 
+.bbu {
+  border-bottom: 2px solid;
+  padding-bottom: 2px;
+}
+
 /**
  * Lists
  */

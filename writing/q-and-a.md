@@ -1,16 +1,16 @@
 ## what is asdf?
 
-you add links to a feed and assign a period of rest which passes between when you click it and when it is next appears.
+you add links to a feed and assign a period of time to each. when you click a link, it dissapears. After that time passes the link appears again.
+
+## something like a hybrid bookmarking tool and feed aggregator.
+
+yeah kind of. bookmarking with less hunting around. if you want to check it each morning set it to 20 hours. could be once a week. maybe you don’t need to see it for another 100 years.
 
 ## why would you want that?
 
 i follow things in different places to keep up with what they’re doing. things which post most often appear most frequently in my feeds and get more of my attention. they drown out the quieter things.
 
 i want to control how often they appear based on how meanginful they are to me.
-
-## something like a hybrid bookmarking tool and feed aggirgator.
-
-yeah kind of. bookmarking with less hunting around. if you want to check it each morning set it to 20 hours. could be once a week. maybe you don’t need to see it for another 100 years.
 
 ## what led to making it?
 
@@ -20,7 +20,7 @@ those were a-line-moving-across-a-window-once-every-year.com and bgcolor-fading-
 
 i see this as being closer to early video art or something than an app or whatever, which is how i thought about line moving and background fading.
 
-## facebook and twitter have introduced non-linear feeds to prioritize content you will probably like. does that address some of this feed-overload?
+## facebook and twitter have introduced non-linear feeds to prioritize content you’ll probably like. does that address some of this feed-overload?
 
 right. computers are good at recognizing patterns, and our behavior follows patterns.
 
@@ -34,9 +34,7 @@ i don’t doubt the algorithms ability to function efficiently, but i am skeptic
 
 well, there is so much money tied up in services and apps. you know the obvious ones… it’s hard for an open standard to survive when the big players are essentially branded proprietary rss readers.
 
-rss readers also had that “unread count” which grows and grows as new posts are pulled in. little anxiety producing.
-
-honestly, i wasn’t a huge fan of rss. i want to see content in context of the site. this is obvious when considering design.
+rss readers also had that “unread count” which grows and grows as new posts are pulled in. little anxiety producing. honestly, i wasn’t a huge fan of rss. i want to see content in context of the site. this is obvious when considering design.
 
 a decision like the choice of typography can inject words with new meaning and all that. if it were just about content, then yeah, a homogenous feed is fine, but it’s real important to keep the context intact.
 
