@@ -35,9 +35,12 @@ const emptyEl = h`<div class="fs2">
   👌
 </div>`
 
-const elEntriesNone = h`<div class="fs2 lh1-5">
-  There aren’t any entries;<br>
-  go ahead and <span class="curp bbu">add one</span>?
+const elEntriesNone = (state, prev, send) => h`<div class="fs2 lh1-5">
+  There aren’t any entries,<br>
+  go ahead and
+  <span class="curp bbu" onclick=${e => send('ui:update', {
+    stagingActive: !state.ui.stagingActive
+  })}>add one</span>?
 </div>`
 
 module.exports = (state, prev, send) => {
@@ -47,7 +50,7 @@ module.exports = (state, prev, send) => {
   const elContent =
       isEntriesAll && elsEntries.length ? elsEntries
     : isEntriesAll && !elsEntries.length ? emptyEl
-    : elEntriesNone
+    : elEntriesNone(state, prev, send)
 
   return h`
     <div

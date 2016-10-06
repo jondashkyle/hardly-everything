@@ -39,7 +39,7 @@ module.exports = (state, prev, send) => {
         class="py1 fs2 curp bg-black tc-white tac"
         onclick=${el => resetEntries(send)}
       >
-        Reset Ontries
+        Reset Entries
       </div>
     </div>
   </div>`
@@ -49,10 +49,7 @@ module.exports = (state, prev, send) => {
   </div>`
 
   return h`<div> 
-    ${elContainer(Object.keys(state.entries.all).length === 0
-      ? elConfirmation
-      : elReset
-    )}
+    ${elContainer(elReset)}
     ${css(state, prev, send)}
   </div>`
 }
