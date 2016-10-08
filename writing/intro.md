@@ -1,12 +1,12 @@
-this project is a progression of three projects of mine from the past few years which exist in browser windows:
+this project grew out of three of my projects from the past few years:
 
-- asdf.cool
 - a-line-moving-across-a-window-once-every-year.com
 - bgcolor-fading-from-black-to-white-every-century.com
+- asdf.cool
 
-a-line-moving and bgcolor-fading are about time, while asdf.cool is about memory.
+*a-line-moving* and *bgcolor-fading* are about time. *asdf* is about memory.
 
-on the surface, a-line-moving and bgcolor-fading are conceptual pieces, while asdf is a functional tool, but really i think about them as the same. part of this is due to context—browser windows, another is by means of production—a single person.
+~~on the surface, a-line-moving and bgcolor-fading are conceptual pieces, while asdf is a functional tool, but really i think about them as the same. part of this is due to context—browser windows, another is by means of production—a single person.~~
 
 
 

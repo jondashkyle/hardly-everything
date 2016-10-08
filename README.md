@@ -5,7 +5,6 @@ an attention & time focused bookmarking app
 - link form
   - validation
     - is a url
-    - duration and interval
 - db
   - hook up to firebase
     - email list
@@ -21,15 +20,16 @@ an attention & time focused bookmarking app
 
 ## release
 - only open to first 100 signups
+- vito like intro page
 
 ## hello
 - q&a
-  - ask people for a list of links
-  - little description for each
-    - each day
-    - each week
-    - each month
-    - each century
+- ask people for a list of links
+- little description for each
+  - each day
+  - each week
+  - each month
+  - each century
 
 ## future
 - archive
