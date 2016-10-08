@@ -15,7 +15,8 @@ const templateEntries = (state, prev, send) => {
       if (!state.ui.entriesViewAll &&
         entry.dateDismissed &&
         entry.duration &&
-        entry.interval
+        entry.interval &&
+        entry.visited >= 1
       ) {
         const dismissed = getDismissedDate(entry)
         return dismissed < now

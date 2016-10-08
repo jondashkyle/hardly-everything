@@ -1,5 +1,4 @@
 const x = require('xtend')
-const clone = require('clone-deep')
 
 const db = require('../db/user')
 const namespace = 'user'

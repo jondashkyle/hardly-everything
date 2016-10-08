@@ -22,12 +22,12 @@
     "clone-deep": "^0.2.4",
     "firebase": "^3.4.1",
     "gr8": "github:folderstudio/gr8",
-    "is-url": "^1.2.2",
     "moment": "^2.14.1",
     "node-uuid": "^1.4.7",
     "normalize-url": "^1.6.1",
     "object.values": "^1.0.3",
     "sheetify": "^5.0.3",
+    "valid-url": "^1.0.9",
     "webfontloader": "^1.6.26",
     "xtend": "^4.0.1"
   }

@@ -4,7 +4,7 @@ const clone = require('clone-deep')
 const moment = require('moment')
 const uuid = require('node-uuid')
 const normalizeUrl = require('normalize-url')
-const isUrl = require('is-url')
+const validUrl = require('valid-url')
 
 const namespace = 'entries'
 
@@ -19,7 +19,7 @@ const formatEntry = data => {
   for (let key in result) {
     switch (key) {
       case 'url':
-        result.url = normalizeUrl(result.url)
+        result.url = result.url ? normalizeUrl(result.url) : ''
         break
     }
   }
@@ -28,11 +28,12 @@ const formatEntry = data => {
 }
 
 const validateEntry = data => {
+  console.log(data.url)
   if (data.title === '') {
     return 'Please enter a title'
   } else if (data.url === '') {
     return 'Please enter a URL'
-  } else if (!isUrl(data.url)) {
+  } else if (!validUrl.isUri(data.url)) {
     return 'Please enter a valid url'
   } else if (isNaN(data.duration)) {
     return 'Please enter a valid duration'
