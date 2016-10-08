@@ -38,9 +38,6 @@ module.exports = (state, prev, send, event) => {
         <div class="fs1 sans fwn">
           ${messages[position].map(line => h`<div>${line}</div>`)}
         </div>
-        <div class="psf b0 r0 p1 fs2 lh1">
-          →
-        </div>
       </div>`
     : h`<div class="psf t0 l0 r0 b0 x xjc xac bg-black">
         <form
