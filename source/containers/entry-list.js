@@ -28,17 +28,17 @@ const templateEntries = (state, prev, send) => {
     })
     .map(entry => Entry.view(state, prev, send, entry))
 
-  return entries ? entries : ''
+  return entries
 }
 
 const emptyEl = h`<div class="fs2">
   👌
 </div>`
 
-const elEntriesNone = (state, prev, send) => h`<div class="fs2 lh1-5">
+const elEntriesNone = (state, prev, send) => h`<div class="fs2 lh1-5 sans fwn">
   There aren’t any entries,<br>
   go ahead and
-  <span class="curp bbu" onclick=${e => send('ui:update', {
+  <span class="curp fwb" onclick=${e => send('ui:update', {
     stagingActive: !state.ui.stagingActive
   })}>add one</span>?
 </div>`

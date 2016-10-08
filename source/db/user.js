@@ -1,4 +1,5 @@
 const fb = require('firebase')
+const ls = require('./localstorage')
 
 const auth = fb.auth()
 const namespace = 'user'
@@ -22,10 +23,25 @@ const signOut = () => auth
     .signOut()
     .then(success, error)
 
+const get = cb => {
+  ls.get(namespace, cb)
+}
+
+const save = (data, state) => {
+  ls.save(namespace, state)
+}
+
+const analytics = (data, state) => {
+  ls.save(namespace, state)
+}
+
 const onStateChange = cb => auth.onAuthStateChanged(cb)
 const currentUser = () => auth.currentUser
 
 module.exports = {
+  get,
+  save,
+  analytics,
   create,
   signIn,
   signOut,

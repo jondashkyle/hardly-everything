@@ -5,10 +5,12 @@ const css = require('../components/css')
 const resetAll = (send) => {
   send('entries:reset')
   send('options:reset')
+  send('user:reset')
 }
 
 const resetEntries = (send) => send('entries:reset')
 const resetOptions = (send) => send('options:reset')
+const resetUser = (send) => send('user:reset')
 
 module.exports = (state, prev, send) => {
   const elContainer = content => h`<div
@@ -40,6 +42,15 @@ module.exports = (state, prev, send) => {
         onclick=${el => resetEntries(send)}
       >
         Reset Entries
+      </div>
+    </div>
+
+    <div class="p0-5">
+      <div
+        class="py1 fs2 curp bg-black tc-white tac"
+        onclick=${el => resetUser(send)}
+      >
+        Reset Account
       </div>
     </div>
   </div>`
