@@ -32,11 +32,14 @@ module.exports = (state, prev, send, event) => {
 
   return messages.length > position
     ? h`<div
-        class="psf t0 l0 r0 b0 x xac p2 curp usn"
+        class="psf t0 l0 r0 b0 x xac xjc tac p2 curp usn bg-black tc-white"
         onclick=${e => handleContainerClick(state, prev, send, e)}
       >
         <div class="fs1 sans fwn">
-          ${messages[position].map(line => h`<div>${line}</div>`)}
+          ${messages[position].map(line => h`<div class="p0-5">${line}</div>`)}
+        </div>
+        <div class="psa b0 r0 p1 lh1">
+          →
         </div>
       </div>`
     : h`<div class="psf t0 l0 r0 b0 x xjc xac bg-black">
@@ -46,8 +49,8 @@ module.exports = (state, prev, send, event) => {
         >
           <input
             autofocus
-            class="tac sans fwn bg-white tc-black fs2 p1 c12"
-            style="outline: none; border: 0;"
+            class="tac sans fwn bg-black tc-white p0 c12"
+            style="outline: none; border: 0; font-size: 4rem"
             type="password"
             placeholder="••••••••"
             value=${state[namespace].intro.value}

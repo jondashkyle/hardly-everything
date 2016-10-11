@@ -2,6 +2,8 @@ const h = require('choo/html')
 const x = require('xtend')
 const ov = require('object.values')
 
+const typography = require('../css/typography')
+
 const Dropdown = opts => {
   const o = x({
     namespace: 'dropdown',
@@ -49,13 +51,24 @@ const Dropdown = opts => {
 
   const elOption = (state, send) => h`
     <div
-      class="px1 curp"
+      class="px1 curp fs1-5"
       onclick=${e => handle.clickOption(e, state, send)}
+      style="
+        font-family: ${state.value}, sans-serif;
+        font-weight: ${state.weight || 400};
+      "
     >${state.name}</div> 
   `
 
   const view = (state, prev, send) => {
     const options = ov(state.options)
+
+    state.local.active
+      ? options.filter(opt =>
+          !opt.active &&
+          !opt.host !== 'local'
+        ).forEach(opt => typography.load(opt, send))
+      : ''
 
     const elOptions = elContainer(
       state,
@@ -63,26 +76,22 @@ const Dropdown = opts => {
       options.map(option => elOption(option, send))
     )
 
-    const elCurrent = h`
-      <div
-        class="psr c12 curp x xje"
-        onclick=${e => handle.clickCurrent(event, state, send)}
-      >
-        <label class="psa t0 l0 px1">
-          Font
-        </label>
-        <div class="px1">
-          ${state.current.name}
-        </div>
+    const elCurrent = h`<div
+      class="psr c12 curp x xje"
+      onclick=${e => handle.clickCurrent(event, state, send)}
+    >
+      <label class="psa t0 l0 px1">
+        Font
+      </label>
+      <div class="px1">
+        ${state.current.name}
       </div>
-    `
+    </div>`
 
-    return h`
-      <div class="usn c12 psr">
-        ${elCurrent}
-        ${elOptions}
-      </div>
-    `
+    return h`<div class="usn c12 psr">
+      ${elCurrent}
+      ${elOptions}
+    </div>`
   }
 
   return { model, view }

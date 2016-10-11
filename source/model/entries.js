@@ -28,7 +28,6 @@ const formatEntry = data => {
 }
 
 const validateEntry = data => {
-  console.log(data.url)
   if (data.title === '') {
     return 'Please enter a title'
   } else if (data.url === '') {

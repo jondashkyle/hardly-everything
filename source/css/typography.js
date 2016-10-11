@@ -7,8 +7,8 @@ webfontloader.load({
   }
 })
 
-exports.load = (data) => {
-  switch(data.host) {
+exports.load = (data, send, done) => {
+  switch (data.host) {
     case 'google':
       const value = data.weight
         ? data.value + ':' + data.weight
@@ -16,6 +16,12 @@ exports.load = (data) => {
       return webfontloader.load({
         google: {
           families: [value]
+        },
+        active: () => {
+          send('options:typography', {
+            key: data.key,
+            value: { active: true }
+          }, done)
         }
       })
     default:

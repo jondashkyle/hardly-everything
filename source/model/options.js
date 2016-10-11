@@ -11,12 +11,14 @@ const optionsTypography = {
     name: 'Moderat',
     key: 'moderat',
     host: 'local',
+    active: true,
     value: 'Moderat'
   },
   moderatBold: {
     name: 'Moderat Bold',
     key: 'moderatBold',
     host: 'local',
+    active: true,
     weight: '700',
     value: 'Moderat'
   },
@@ -82,6 +84,7 @@ const optionsTypography = {
     name: 'Space Mono',
     key: 'spaceMono',
     host: 'google',
+    active: true,
     value: 'Space Mono'
   },
   workSans: {
@@ -163,12 +166,17 @@ exports.subscriptions = [
   (send, done) => {
     db.get(data => {
       send('options:update', data, done)
-      typography.load(data.font)
+      typography.load(data.font, send, done)
     })
   }
 ]
 
 exports.reducers = {
+  typography: (data, state) => ({
+    typography: x(state.typography, {
+      [data.key]: x(state.typography[data.key], data.value)
+    })
+  }),
   update: (data, state) => ({
     values: x(state.values, data)
   })
@@ -184,7 +192,7 @@ exports.effects = {
     newState[data.key] = data.value
 
     if (data.key === 'font') {
-      typography.load(data.value)
+      typography.load(data.value, send, done)
     }
 
     db.update(data, newState)

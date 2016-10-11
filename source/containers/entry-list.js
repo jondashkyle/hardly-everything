@@ -37,7 +37,7 @@ const emptyEl = h`<div class="fs2">
 </div>`
 
 const elEntriesNone = (state, prev, send) => h`<div class="fs2 lh1-5 sans fwn">
-  There aren’t any entries,<br>
+  There aren’t any links,<br>
   go ahead and
   <span class="curp fwb" onclick=${e => send('ui:update', {
     stagingActive: !state.ui.stagingActive
