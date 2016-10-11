@@ -1,6 +1,6 @@
 ## what is asdf?
 
-you add links to a feed and assign a period of time to each. when you click a link, it dissapears. After that time passes the link appears again.
+you add links to a feed. when you click a link, it dissapears. you can choose how long that time lasts when adding a link. after that time passes the link appears again.
 
 ## something like a hybrid bookmarking tool and feed aggregator.
 

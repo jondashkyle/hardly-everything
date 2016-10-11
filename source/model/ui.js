@@ -16,23 +16,23 @@ exports.state = {
       first: [
         'this is your feed',
         'your feed contains links',
-        'your links are visible'
+        'the links are visible'
       ],
       second: [
-        'you click a link, and it opens',
-        'it’s also hidden from your list',
+        'now you click a link',
+        'your link opens',
+        'it’s hidden from your feed',
       ],
       third: [
-        'you’ve clicked all your links',
-        'now nothing is visible'
+        'now you’ve clicked all your links',
+        'nothing is visible in your feed'
       ],
       fourth: [
         'time passes, and slowly your links reappear',
-        'you told them how long to dissapear for when you added them',
-        'some are more important than others so they appear more often'
+        'you told them how long to dissapear for when you added them'
       ],
       fifth: [
-        'because you set the cadence',
+        'because you choose the cadence of your feed',
         'loud things aren’t loud',
         'and quiet things aren’t forgotten'
       ]

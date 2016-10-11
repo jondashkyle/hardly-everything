@@ -15,6 +15,7 @@ this project grew out of three of my projects from the past few years:
 ---
 
 - less about scheduling, more about intervals
+- cadence and volume
 - the utility of sculptural furniture, memphis, etc…
 - growth and capital
 - facebook, google, and twitter as being the big-box stores of the internet
