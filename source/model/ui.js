@@ -14,30 +14,27 @@ exports.state = {
     value: '',
     messages: {
       first: [
-        'this is your list',
-        'your list contains links',
+        'this is your feed',
+        'your feed contains links',
         'your links are visible'
       ],
       second: [
         'you click a link, and it opens',
-        'it also dissapears from your list',
-        'your  link is now hidden'
+        'it’s also hidden from your list',
       ],
       third: [
         'you’ve clicked all your links',
-        'now none are visible'
+        'now nothing is visible'
       ],
       fourth: [
-        'time passes, and slowly your links re-appear',
+        'time passes, and slowly your links reappear',
         'you told them how long to dissapear for when you added them',
-        'some are more important than others so they appear more often',
-        'others, maybe not'
+        'some are more important than others so they appear more often'
       ],
       fifth: [
-        'your links are a feed',
         'because you set the cadence',
-        'loud things can’t be loud',
-        'and quiet things don’t get forgotten'
+        'loud things aren’t loud',
+        'and quiet things aren’t forgotten'
       ]
     }
   }

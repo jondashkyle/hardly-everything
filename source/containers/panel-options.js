@@ -54,6 +54,7 @@ const templateOption = (state, prev, send, option) => {
       return inputRange({
         name: option.name,
         value: state.options.values[option.key],
+        valueShow: option.valueShow,
         handleInput: value => send('options:values', {
           key: option.key,
           value: value

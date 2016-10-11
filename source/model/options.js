@@ -135,6 +135,7 @@ exports.state = {
       type: 'range',
       min: 5,
       max: 72,
+      valueShow: false,
       visible: true
     },
     spacing: {
@@ -143,6 +144,7 @@ exports.state = {
       type: 'range',
       min: 0,
       max: 25,
+      valueShow: false,
       visible: true
     },
     invert: {
