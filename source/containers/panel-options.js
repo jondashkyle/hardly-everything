@@ -28,22 +28,6 @@ const style = sf`
     outline: 0;
     width: 100%;
   }
-
-  .opt-bl {
-    border-left: 1px solid rgba(127, 127, 127, 0.33);
-  }
-
-  .opt-br {
-    border-right: 1px solid rgba(127, 127, 127, 0.33);
-  }
-
-  .opt-bt {
-    border-top: 1px solid rgba(127, 127, 127, 0.33);
-  }
-
-  .opt-bb {
-    border-bottom: 1px solid rgba(127, 127, 127, 0.33);
-  }
 `
 
 const templateOption = (state, prev, send, option) => {

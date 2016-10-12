@@ -12,16 +12,16 @@ const error = err => {
   throw new Error(namespace, err)
 }
 
-const create = (email, password) =>
-  auth.createUserWithEmailAndPassword(email, password)
+const create = (email, password) => auth
+  .createUserWithEmailAndPassword(email, password)
 
 const signIn = (email, password) => auth
-    .signInWithEmailAndPassword(email, password)
-    .then(success, error)
+  .signInWithEmailAndPassword(email, password)
+  .then(success, error)
 
 const signOut = () => auth
-    .signOut()
-    .then(success, error)
+  .signOut()
+  .then(success, error)
 
 const get = cb => {
   ls.get(namespace, cb)

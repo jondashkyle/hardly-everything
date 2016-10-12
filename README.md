@@ -5,6 +5,9 @@ an attention & time focused bookmarking app
 - recollection
 
 ## todo
+- general
+  - db load
+  - data import/export
 - db
   - hook up to firebase
 - promo

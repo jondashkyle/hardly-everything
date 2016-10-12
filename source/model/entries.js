@@ -129,8 +129,9 @@ const effects = {
     send('entries:all', data, done)
   },
   reset: (data, state, send, done) => {
-    send('entries:all', { }, done)
-    db.update({ }, { })
+    const newState = data ? data : { }
+    send('entries:all', newState, done)
+    db.update(newState, newState)
   }
 }
 
