@@ -33,6 +33,7 @@ const view = (state, prev, send) =>
     css(state, prev, send)
   ]
 
-module.exports = (state, prev, send) => h`
-  <div>${view(state, prev, send)}</div>
-`
+module.exports = (state, prev, send) => {
+  console.log(new Date(), state.user)
+  return h`<div>${view(state, prev, send)}</div>`
+}
