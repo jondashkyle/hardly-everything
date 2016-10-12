@@ -1,5 +1,6 @@
 const h = require('choo/html')
 const x = require('xtend')
+const ov = require('object.values')
 const sf = require('sheetify')
 
 const css = require('../components/css')
@@ -28,6 +29,21 @@ const style = sf`
   }
 `
 
+const navigationOpts = {
+  import: {
+    key: 'import',
+    text: 'Import'
+  },
+  export: {
+    key: 'export',
+    text: 'Export'
+  }
+}
+
+const getCommand = command => command
+  ? command
+  : 'export'
+
 const handleImportClick = (send, event) => {
   const input = event.target.parentNode.querySelector('textarea')
 
@@ -41,12 +57,33 @@ const handleImportClick = (send, event) => {
 }
 
 const elNavigation = (state, prev, send) => {
+  const command = getCommand(state.params.command)
+  const opts = ov(navigationOpts)
+
+  const elsOpts = opts.map((opt, i) => h`
+    <a
+      href="/data/${opt.key}"
+      class="
+        xx tc-white tac px1 opt-br
+        ${i > 0 ? 'opt-bl' : ''}
+      "
+    >
+      <span class="${opt.key === command ? 'op100' : 'op50'}">
+        ${opt.text}
+      </span>
+    </a>
+  `)
+
   return h`<div
     class="x bg-black tc-white psf t0 l0 r0 z2"
     style="line-height: 3rem"
   >
-    <a href="/data/import" class="tc-white tac xx px1 opt-br">Import</a>
-    <a href="/data/export" class="tc-white tac xx px1 opt-bl">Export</a>
+    ${elsOpts}
+    <a
+      href="/" 
+      class="tac opt-bl tc-white fs1-5"
+      style="width: 3rem; height: 3rem"
+    >×</a>
   </div>`
 }
 
@@ -74,9 +111,7 @@ const elExport = (state, prev, send) => {
 }
 
 const view = (state, prev, send) => {
-  const command = state.params.command
-    ? state.params.command
-    : 'export'
+  const command = getCommand(state.params.command)
 
   const elContent = command === 'import'
     ? elImport
