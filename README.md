@@ -1,26 +1,22 @@
 # asdf
 an attention & time focused bookmarking app
 
+## names
+- recollection
+
 ## todo
-- link form
-  - validation
-    - is a url
 - db
   - hook up to firebase
-    - email list
 - promo
   - mailchimp or something?
 - release
   - migration tool
-- usage guide
-  - if no entries, show add entries text
 
 ## monetization
 - monthly sponsorship slot
 
 ## release
 - only open to first 100 signups
-- vito like intro page
 
 ## hello
 - q&a
@@ -37,3 +33,8 @@ an attention & time focused bookmarking app
   - one time links which auto-move to the archive
 - typography
   - http://www.new-letters.de/
+
+
+## release
+- unfollow everyone on twitter
+- write an essay about internet shit

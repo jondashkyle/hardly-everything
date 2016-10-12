@@ -8,14 +8,11 @@ this project grew out of three of my projects from the past few years:
 
 ~~on the surface, a-line-moving and bgcolor-fading are conceptual pieces, while asdf is a functional tool, but really i think about them as the same. part of this is due to context—browser windows, another is by means of production—a single person.~~
 
-
-
-
-
 ---
 
 - less about scheduling, more about intervals
 - cadence and volume
+- less about “i want to see this every day” and more about “i probably only need to check this every couple days”
 - the utility of sculptural furniture, memphis, etc…
 - growth and capital
 - facebook, google, and twitter as being the big-box stores of the internet
@@ -23,3 +20,5 @@ this project grew out of three of my projects from the past few years:
 - a call for more fully functional, specific-use niche projects
 - tools and services which don’t have the primary objective of increasing the number of engagements, but serve a humanistic purpose.
 
+
+- https://thecreativeindependent.com/people/anohni-on-art-corporations-and-the-music-industry/
