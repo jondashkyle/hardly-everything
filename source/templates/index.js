@@ -34,6 +34,5 @@ const view = (state, prev, send) =>
   ]
 
 module.exports = (state, prev, send) => {
-  console.log(new Date(), state.user)
   return h`<div>${view(state, prev, send)}</div>`
 }
