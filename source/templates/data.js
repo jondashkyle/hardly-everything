@@ -47,7 +47,7 @@ const handleImportClick = (send, event) => {
   const value = input.value
 
   try {
-    const result = JSON.parse()
+    const result = JSON.parse(value)
     send('entries:reset', result)
   } catch (err) {
     alert('Please enter valid JSON')
