@@ -4,7 +4,9 @@ const moment = require('moment')
 const Entry = require('../components/entry')
 
 const getDismissedDate = entry => {
-  return moment(entry.dateDismissed).add(entry.duration, entry.interval).toDate()
+  return moment(entry.dateDismissed)
+    .add(entry.duration, entry.interval)
+    .toDate()
 }
 
 const templateEntries = (state, prev, send) => {
@@ -12,7 +14,8 @@ const templateEntries = (state, prev, send) => {
 
   const entries = ov(state.entries.all)
     .filter(entry => {
-      if (!state.ui.entriesViewAll &&
+      if (
+        !state.ui.entriesViewAll &&
         entry.dateDismissed &&
         entry.duration &&
         entry.interval &&
@@ -32,7 +35,7 @@ const templateEntries = (state, prev, send) => {
   return entries
 }
 
-const emptyEl = h`<div class="fs2">
+const emptyEl = () => h`<div class="fs2">
   👌
 </div>`
 
@@ -50,8 +53,10 @@ module.exports = (state, prev, send) => {
 
   const elContent =
       isEntriesAll && elsEntries.length ? elsEntries
-    : isEntriesAll && !elsEntries.length ? emptyEl
+    : isEntriesAll && !elsEntries.length ? emptyEl()
     : elEntriesNone(state, prev, send)
+
+  console.log(elContent)
 
   return h`
     <div
