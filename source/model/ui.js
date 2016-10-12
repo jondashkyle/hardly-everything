@@ -28,13 +28,9 @@ exports.state = {
         'your link opens,',
         'it’s hidden from your feed,',
       ],
-      third: [
-        'now you’ve clicked all your links,',
-        'nothing is visible in your feed,'
-      ],
       fourth: [
-        'time passes, and slowly your links reappear,',
-        'you told them how long to dissapear for when you added them,'
+        'time passes, and slowly your link reappears,',
+        'you told it how long to dissapear for when adding it,'
       ],
       fifth: [
         'because you choose the cadence of your feed,',
