@@ -161,14 +161,19 @@ exports.state = {
     spacing: 5,
     invert: false
   },
-  typography: optionsTypography
+  typography: optionsTypography,
+  loaded: false
 }
 
 exports.subscriptions = [
   (send, done) => {
     db.get(data => {
       send('options:update', data, done)
+      send('options:loaded', true, done)
       typography.load(data.font, send, done)
+    }, data => {
+      typography.load(exports.state.values.font, send, done)
+      send('options:loaded', true, done)
     })
   }
 ]
@@ -181,7 +186,8 @@ exports.reducers = {
   }),
   update: (data, state) => ({
     values: x(state.values, data)
-  })
+  }),
+  loaded: (data, state) => ({ loaded: data })
 }
 
 exports.effects = {

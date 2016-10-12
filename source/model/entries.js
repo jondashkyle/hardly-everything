@@ -44,6 +44,7 @@ const validateEntry = data => {
 }
 
 const state = {
+  loaded: false,
   all: { },
   archive: { }
 }
@@ -52,6 +53,8 @@ const subscriptions = [
   (send, done) => {
     db.get(data => {
       send('entries:init', data, done)
+    }, () => {
+      send('entries:loaded', true, done)
     })
   },
   (send, done) => {
@@ -61,7 +64,8 @@ const subscriptions = [
 
 const reducers = {
   all: (data, state) => ({ all: data }),
-  refresh: (data, state) => (state)
+  refresh: (data, state) => (state),
+  loaded: (data, state) => ({ loaded: data })
 }
 
 const effects = {
@@ -127,6 +131,7 @@ const effects = {
   },
   init: (data, state, send, done) => {
     send('entries:all', data, done)
+    send('entries:loaded', true, done)
   },
   reset: (data, state, send, done) => {
     const newState = data ? data : { }

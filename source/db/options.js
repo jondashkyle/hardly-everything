@@ -7,8 +7,8 @@ const update = (data, state) => {
   ls.save(namespace, state)
 }
 
-const get = (cb) => {
-  ls.get(namespace, cb)
+const get = (cb, fb) => {
+  ls.get(namespace, cb, fb)
 }
 
 module.exports = {
