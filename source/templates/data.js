@@ -57,7 +57,7 @@ const elImport = (state, prev, send) => {
       placeholder="Must be valid entry JSON"
     ></textarea>
     <div
-      class="psf b0 r0 z2 bg-black tc-white p1 curp"
+      class="psf b0 r0 z2 bg-black tc-white py1 px2 curp"
       onclick=${e => handleImportClick(send, event)}
     >
       Submit
