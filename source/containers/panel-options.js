@@ -77,10 +77,6 @@ const handleInvertClick = (event, send) => {
   send('options:invert')
 }
 
-const handleLoginClick = (event, send) => {
-  alert('Soon')
-}
-
 exports.view = (state, prev, send) => {
   return h`
     <div class="
@@ -90,22 +86,24 @@ exports.view = (state, prev, send) => {
     ">
       <div class="c4 opt-br">
         <div class="opt-bb">
-          ${templateOption(state, state, send, state.options.design.scale)}
+          ${templateOption(state, prev, send, state.options.design.scale)}
         </div>
         <div class="opt-bt">
-          ${templateOption(state, state, send, state.options.design.font)}
+          ${templateOption(state, prev, send, state.options.design.font)}
         </div>
       </div>
       <div class="c4 opt-bl opt-br">
         <div class="opt-bb">
-          ${templateOption(state, state, send, state.options.design.spacing)}
+          ${templateOption(state, prev, send, state.options.design.spacing)}
         </div>
         <div class="opt-bt x tac">
           <div class="c6 opt-br curp" onclick=${e => handleInvertClick(e, send)}>
             Invert
           </div>
-          <div class="c6 opt-bl fwb curp" onclick=${e => handleLoginClick(e)}>
-            Login
+          <div class="c6 opt-bl curp">
+            <a href="/data/" class="db tc-white">
+              Data
+            </a>
           </div>
         </div>
       </div>

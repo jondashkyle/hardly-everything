@@ -40,15 +40,14 @@ const navigationOpts = {
   }
 }
 
-const getCommand = command => command
-  ? command
-  : 'export'
+const getCommand = command => command || 'export'
 
 const handleImportClick = (send, event) => {
   const input = event.target.parentNode.querySelector('textarea')
+  const value = input.value
 
   try {
-    const result = JSON.parse(input.value)
+    const result = JSON.parse()
     send('entries:reset', result)
   } catch (err) {
     alert('Please enter valid JSON')
@@ -64,7 +63,7 @@ const elNavigation = (state, prev, send) => {
     <a
       href="/data/${opt.key}"
       class="
-        xx tc-white tac px1 opt-br
+        xx tc-white px1 opt-br
         ${i > 0 ? 'opt-bl' : ''}
       "
     >
@@ -91,11 +90,11 @@ const elImport = (state, prev, send) => {
   return h`<div class="${style}">
     <textarea
       class="mono bg-white tc-black p2 fs1 lh1-5"
-      placeholder="Must be valid entry JSON"
+      placeholder="Must be valid link JSON"
     ></textarea>
     <div
       class="psf b0 r0 z2 bg-black tc-white py1 px2 curp"
-      onclick=${e => handleImportClick(send, event)}
+      onclick=${e => handleImportClick(send, e)}
     >
       Submit
     </div>
