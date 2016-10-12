@@ -63,6 +63,7 @@ a {
 
 .pen { pointer-events: none }
 .cur-ewr { cursor: ew-resize }
+.curt { cursor: text }
 
 .bro { border-radius: 4px }
 

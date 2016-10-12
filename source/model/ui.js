@@ -13,28 +13,33 @@ exports.state = {
     password: 'yucca',
     value: '',
     messages: {
+      preface: [
+        'thanks for checking out the beta,',
+        'some things might be broken,',
+        'what you should know is…'
+      ],
       first: [
-        'this is your feed',
-        'your feed contains links',
-        'the links are visible'
+        'this is your feed,',
+        'your feed contains links,',
+        'the links are visible,'
       ],
       second: [
-        'now you click a link',
-        'your link opens',
-        'it’s hidden from your feed',
+        'now you click a link,',
+        'your link opens,',
+        'it’s hidden from your feed,',
       ],
       third: [
-        'now you’ve clicked all your links',
-        'nothing is visible in your feed'
+        'now you’ve clicked all your links,',
+        'nothing is visible in your feed,'
       ],
       fourth: [
-        'time passes, and slowly your links reappear',
-        'you told them how long to dissapear for when you added them'
+        'time passes, and slowly your links reappear,',
+        'you told them how long to dissapear for when you added them,'
       ],
       fifth: [
-        'because you choose the cadence of your feed',
-        'loud things aren’t loud',
-        'and quiet things aren’t forgotten'
+        'because you choose the cadence of your feed,',
+        'loud things aren’t loud,',
+        'and quiet things aren’t forgotten.'
       ]
     }
   }
