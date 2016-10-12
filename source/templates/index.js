@@ -12,13 +12,14 @@ const css = require('../components/css')
 
 const view = (state, prev, send) =>
   !state.entries.loaded ||
-  !state.options.loaded
-  ? ''
+  !state.options.loaded ||
+  !state.user.loaded
+    ? ''
   : !state.user.analytics.authenticated
-  ? [
-    introduction(state, prev, send),
-    css(state, prev, send)
-  ]
+    ? [
+      introduction(state, prev, send),
+      css(state, prev, send)
+    ]
   : [
     entryList(state, prev, send),
     entryNavigation(state, prev, send),

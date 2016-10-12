@@ -13,6 +13,7 @@ exports.state = {
     authenticated: false,
     visits: 0
   },
+  loaded: false,
   signedIn: false
 }
 
@@ -25,6 +26,9 @@ exports.subscriptions = [
   (send, done) => {
     db.get(data => {
       send(namespace + ':init', data, done)
+      send(namespace + ':loaded', true, done)
+    }, () => {
+      send(namespace + ':loaded', true, done)
     })
 
     db.onStateChange(user => {
@@ -34,6 +38,7 @@ exports.subscriptions = [
           photoURL: user.photoURL,
           uuid: user.uuid
         }, done)
+        send(namespace + ':loaded', true, done)
       } else {
         send(namespace + ':credentials', { }, done)
       }
@@ -43,7 +48,8 @@ exports.subscriptions = [
 
 exports.reducers = {
   credentials: (data, state) => ({ credentials: data }),
-  update: (data, state) => (data)
+  update: (data, state) => (data),
+  loaded: (data, state) => ({ loaded: data })
 }
 
 exports.effects = {
