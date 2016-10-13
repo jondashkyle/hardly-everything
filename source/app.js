@@ -1,10 +1,10 @@
 const choo = require('choo')
-const log = require('choo-log')
-
 require('./db')
 
 const app = choo()
-app.use(log())
+
+// const log = require('choo-log')
+// app.use(log())
 
 app.model(require('./model/user'))
 app.model(require('./model/entries'))

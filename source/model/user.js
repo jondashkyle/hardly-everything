@@ -13,37 +13,37 @@ exports.state = {
     authenticated: false,
     visits: 0
   },
+  loaded: false,
   signedIn: false
 }
 
 exports.subscriptions = [
   (send, done) => {
-    // FOR TESTING USER ACCOUNTS
-    // db.create('jkmohr@gmail.com', 'testing')
-    // db.signIn('jkmohr@gmail.com', 'testing')
-  },
-  (send, done) => {
     db.get(data => {
       send(namespace + ':init', data, done)
+    }, () => {
+      send(namespace + ':loaded', true, done)
     })
 
-    db.onStateChange(user => {
-      if (user) {
-        send(namespace + ':credentials', {
-          email: user.email,
-          photoURL: user.photoURL,
-          uuid: user.uuid
-        }, done)
-      } else {
-        send(namespace + ':credentials', { }, done)
-      }
-    })
+    // db.onStateChange(user => {
+    //   if (user) {
+    //     send(namespace + ':credentials', {
+    //       email: user.email,
+    //       photoURL: user.photoURL,
+    //       uuid: user.uuid
+    //     }, done)
+    //     send(namespace + ':loaded', true, done)
+    //   } else {
+    //     send(namespace + ':credentials', { }, done)
+    //   }
+    // })
   }
 ]
 
 exports.reducers = {
   credentials: (data, state) => ({ credentials: data }),
-  update: (data, state) => (data)
+  update: (data, state) => (data),
+  loaded: (data, state) => ({ loaded: data })
 }
 
 exports.effects = {
@@ -59,6 +59,7 @@ exports.effects = {
   init: (data, state, send, done) => {
     const newState = x(state, data)
     send(namespace + ':update', newState, done)
+    send(namespace + ':loaded', true, done)
     send(namespace + ':analytics', {
       visits: newState.analytics.visits + 1
     }, done)
