@@ -23,5 +23,4 @@ this project evolved out of three projects from the past few years:
 - a call for more fully functional, specific-use niche projects
 - tools and services which don’t have the primary objective of increasing the number of engagements, but serve a humanistic purpose.
 
-
 - https://thecreativeindependent.com/people/anohni-on-art-corporations-and-the-music-industry/
