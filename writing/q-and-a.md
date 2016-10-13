@@ -4,7 +4,7 @@ you add links to a feed. when you click a link, it dissapears. you can choose ho
 
 ## something like a hybrid bookmarking tool and feed aggregator.
 
-yeah kind of. bookmarking with less hunting around. if you want to check it each morning set it to 20 hours. could be once a week. maybe you don’t need to see it for another 100 years.
+yeah kind of. bookmarking with less hunting around. if you want to check a link each morning set it to 20 hours or so. could be once a week. maybe you don’t need to see it for another 100 years.
 
 ## why would you want that?
 
@@ -14,7 +14,7 @@ i want to control how often they appear based on how meanginful they are to me.
 
 ## what led to making it?
 
-a few years ago i made two sites which placed extreme time scales in the browser, where attention is typically thought to be scarce.
+a few years ago i made two sites which placed extreme time scales in the browser, where attention is typically scarce.
 
 those were a-line-moving-across-a-window-once-every-year.com and bgcolor-fading-from-black-to-white-every-century.com. this is the natural progression of those gestures.
 
@@ -32,12 +32,8 @@ i don’t doubt the algorithms ability to function efficiently, but i am skeptic
 
 ## where does rss fit into this?
 
-well, there is so much money tied up in services and apps. you know the obvious ones… it’s hard for an open standard to survive when the big players are essentially branded proprietary rss readers.
+well, there is so much money tied up in services and apps. it’s hard for an open standard to survive when the big players are essentially branded proprietary rss readers.
 
 rss readers also had that “unread count” which grows and grows as new posts are pulled in. little anxiety producing. honestly, i wasn’t a huge fan of rss. i want to see content in context of the site. this is obvious when considering design.
 
 a decision like the choice of typography can inject words with new meaning and all that. if it were just about content, then yeah, a homogenous feed is fine, but it’s real important to keep the context intact.
-
-## what’s in the future for asdf?
-
-dunno. lots of ideas. i’m almost done with adding accounts. right now everything saves locally. with accounts you’ll be able to back them up and sync across machines. more typography options maybe.

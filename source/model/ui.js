@@ -34,8 +34,7 @@ exports.state = {
       ],
       fifth: [
         'because you choose the cadence of your feed,',
-        'loud things aren’t loud,',
-        'and quiet things aren’t forgotten.'
+        'loud things aren’t loud, and quiet things aren’t forgotten.'
       ]
     }
   }

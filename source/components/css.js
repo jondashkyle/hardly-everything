@@ -45,6 +45,14 @@ module.exports = (state, prev, send) => {
         background: ${state.options.values.colorBg};
       }
 
+      .fill-black {
+        fill:  ${state.options.values.colorText};
+      }
+
+      .fill-white {
+        fill:  ${state.options.values.colorBg};
+      }
+
       .design-color-entry,
       .design-color-entry a, {
         color: ${state.options.values.colorText};

@@ -36,7 +36,7 @@ const templateEntries = (state, prev, send) => {
 }
 
 const emptyEl = () => h`<div class="fs2">
-  👌
+  <svg height="50" width="50" viewBox="0 0 100 100"><path d="M50 100C22.386 100 0 77.614 0 50S22.386 0 50 0s50 22.386 50 50-22.386 50-50 50zM20 50.105C20 66.615 33.43 80 50 80s30-13.384 30-29.895c0-.14-60-.14-60 0zM35 41c5.523 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10 4.477 10 10 10zm30 0c5.523 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10 4.477 10 10 10z" class="fill-black" fill-rule="evenodd"/></svg>
 </div>`
 
 const elEntriesNone = (state, prev, send) => h`<div class="fs2 lh1-5 sans fwn">

@@ -39,7 +39,7 @@ const elPassword = (state, prev, send) => h`
         autofocus
         class="tac sans fwn bg-black tc-white p0 c12 fs1"
         style="outline: none; border: 0;"
-        placeholder="password"
+        placeholder="beta password"
         value=${state[namespace].intro.value}
         oninput=${e => handlePasswordInput(state, prev, send, e)}
       />

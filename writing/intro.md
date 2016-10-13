@@ -1,4 +1,4 @@
-this project grew out of three of my projects from the past few years:
+this project evolved out of three projects from the past few years:
 
 - a-line-moving-across-a-window-once-every-year.com
 - bgcolor-fading-from-black-to-white-every-century.com
@@ -11,6 +11,9 @@ this project grew out of three of my projects from the past few years:
 ---
 
 - less about scheduling, more about intervals
+- the cyclical nature of habits, the internet, feeds, etc...
+- thinking about music as the period of time between notes,
+  not thinking about the specific times when notes happen.
 - cadence and volume
 - less about “i want to see this every day” and more about “i probably only need to check this every couple days”
 - the utility of sculptural furniture, memphis, etc…
