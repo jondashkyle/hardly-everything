@@ -14,7 +14,7 @@ exports.state = {
     value: '',
     messages: {
       preface: [
-        'thanks for checking out the beta,',
+        'thanks for checking the beta,',
         'some things might be broken,',
         'what you should know is…'
       ],
@@ -26,7 +26,7 @@ exports.state = {
       second: [
         'now you click a link,',
         'your link opens,',
-        'it’s hidden from your feed,',
+        'it’s hidden from your feed,'
       ],
       fourth: [
         'time passes, and slowly your link reappears,',

@@ -30,13 +30,13 @@ const style = sf`
 `
 
 const navigationOpts = {
-  import: {
-    key: 'import',
-    text: 'Import'
-  },
   export: {
     key: 'export',
     text: 'Export'
+  },
+  import: {
+    key: 'import',
+    text: 'Import'
   }
 }
 
