@@ -56,8 +56,6 @@ module.exports = (state, prev, send) => {
     : isEntriesAll && !elsEntries.length ? emptyEl()
     : elEntriesNone(state, prev, send)
 
-  console.log(elContent)
-
   return h`
     <div
       class="
