@@ -38,12 +38,22 @@ const elPassword = (state, prev, send) => h`
       <input
         autofocus
         class="tac sans fwn bg-black tc-white p0 c12 fs1"
+        sm="fs2"
         style="outline: none; border: 0;"
         placeholder="beta password"
         value=${state[namespace].intro.value}
         oninput=${e => handlePasswordInput(state, prev, send, e)}
       />
     </form>
+    <div class="psf b0 l0 r0 xjc x p1">
+      <a
+        href="http://twitter.com/hardlyevrythng"
+        class="tc-white fs0-7"
+        sm="fs1"
+      >
+        request access
+      </a>
+    </div>
   </div>
 `
 
@@ -55,7 +65,7 @@ module.exports = (state, prev, send) => {
     class="psf t0 l0 r0 b0 x xac xjc p2 curp usn bg-black tc-white"
     onclick=${e => handleContainerClick(state, prev, send, e)}
   >
-    <div class="fs1 sans fwn">
+    <div class="fs1 sans fwn" sm="fs2">
       ${messages[position].map(line => h`<div>${line}</div>`)}
     </div>
     <div class="psf b0 l0 r0 p0-5 x xjc fs2 lh1">
