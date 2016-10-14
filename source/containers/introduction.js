@@ -47,7 +47,7 @@ const elPassword = (state, prev, send) => h`
     </form>
     <div class="psf b0 l0 r0 xjc x p1">
       <a
-        href="http://twitter.com/hardlyevrythng"
+        href="mailto:hardlyeverything@jon-kyle.com"
         class="tc-white fs0-7"
         sm="fs1"
       >
