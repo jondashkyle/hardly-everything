@@ -79,7 +79,9 @@ input, select {
   vertical-align: middle;
 }
 
-
+input {
+  border-radius: 0;
+}
 
 input[type="radio"] {vertical-align: text-bottom;}
 input[type="checkbox"] {vertical-align: bottom;}
