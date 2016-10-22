@@ -9,6 +9,14 @@ const panelEntry = require('../containers/panel-entry')
 
 const css = require('../components/css')
 
+let loaded = false
+
+const init = () => {
+  loaded = true
+  const el = document.querySelector('[data-load]')
+  return el ? document.body.removeChild(el) : ''
+}
+
 const view = (state, prev, send) => {
   if (
     !state.entries.loaded ||
@@ -19,7 +27,7 @@ const view = (state, prev, send) => {
     return ''
   }
 
-  document.body.removeChild(document.querySelector('[data-load]'))
+  loaded ? '' : init()
 
   return [
     entryList(state, prev, send),
