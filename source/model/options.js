@@ -162,18 +162,23 @@ exports.state = {
     invert: false
   },
   typography: optionsTypography,
-  loaded: false
+  loaded: {
+    type: false,
+    data: false
+  }
 }
 
 exports.subscriptions = [
   (send, done) => {
+    typography.local(send, done)
+
     db.get(data => {
       send('options:update', data, done)
-      send('options:loaded', true, done)
+      send('options:loaded', { data: true }, done)
       typography.load(data.font, send, done)
     }, data => {
       typography.load(exports.state.values.font, send, done)
-      send('options:loaded', true, done)
+      send('options:loaded', { data: true }, done)
     })
   }
 ]
@@ -187,7 +192,7 @@ exports.reducers = {
   update: (data, state) => ({
     values: x(state.values, data)
   }),
-  loaded: (data, state) => ({ loaded: data })
+  loaded: (data, state) => ({ loaded: x(state.loaded, data) })
 }
 
 exports.effects = {

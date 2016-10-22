@@ -130,3 +130,27 @@ a {
 .opt-bb {
   border-bottom: 1px solid rgba(127, 127, 127, 0.33);
 }
+
+/**
+ * Loading
+ */
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 6rem;
+  height: 6rem;
+  border: solid 5px white;
+  border-top-color: #000;
+  border-left-color: #000;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 100;
+  animation: spinner 800ms linear infinite;
+}
