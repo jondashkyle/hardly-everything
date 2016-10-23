@@ -163,7 +163,8 @@ exports.state = {
   },
   typography: optionsTypography,
   loaded: {
-    type: false,
+    typeLocal: false,
+    typeCustom: false,
     data: false
   }
 }

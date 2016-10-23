@@ -7,7 +7,7 @@ exports.local = (send, done) => {
       urls: ['/assets/fonts/fonts.css']
     },
     active: () => {
-      send('options:loaded', { type: true }, done)
+      send('options:loaded', { typeLocal: true }, done)
     }
   })
 }
@@ -22,7 +22,8 @@ exports.load = (data, send, done) => {
         google: {
           families: [value]
         },
-        active: () => {
+        fontactive: () => {
+          send('options:loaded', { typeCustom: true }, done)
           send('options:typography', {
             key: data.key,
             value: { active: true }
@@ -30,6 +31,7 @@ exports.load = (data, send, done) => {
         }
       })
     default:
+      send('options:loaded', { typeCustom: true }, done)
       return false
   }
 }

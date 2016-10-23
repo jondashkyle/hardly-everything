@@ -18,9 +18,11 @@ const init = () => {
 }
 
 const view = (state, prev, send) => {
+  console.log(state.options.loaded)
   if (
     !state.entries.loaded ||
-    !state.options.loaded.type ||
+    !state.options.loaded.typeCustom ||
+    !state.options.loaded.typeLocal ||
     !state.options.loaded.data ||
     !state.user.loaded
   ) {
