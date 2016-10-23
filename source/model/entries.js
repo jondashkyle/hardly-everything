@@ -74,8 +74,10 @@ const effects = {
     const staging = x({
       id: id,
       dateAdded: moment().toISOString(),
+      dateUpdated: moment().toISOString(),
       dateDismissed: moment().subtract(10, 'years').toISOString()
     }, data)
+
     const entry = formatEntry(staging)
     const validation = validateEntry(entry)
 
@@ -103,6 +105,8 @@ const effects = {
     const entry = formatEntry(data)
     const validation = validateEntry(entry)
 
+    entry.dateUpdated = moment().toISOString()
+
     if (validation === true) {
       const newState = clone(state.all)
       newState[data.id] = entry
@@ -121,6 +125,7 @@ const effects = {
     const curEntry = newState[data.id]
     const newEntry = x(curEntry, {
       visited: curEntry.visited + 1,
+      dateUpdated: moment().toISOString(),
       dateDismissed: moment().toISOString()
     })
 
