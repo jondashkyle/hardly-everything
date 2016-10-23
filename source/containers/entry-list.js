@@ -50,6 +50,9 @@ const elEntriesNone = (state, prev, send) => h`<div class="fs2 lh1-5 sans fwn">
 module.exports = (state, prev, send) => {
   const elsEntries = templateEntries(state, prev, send)
   const isEntriesAll = Object.keys(state.entries.all).length > 0
+  const containerStyle = state.ui.panelActive
+    ? 'margin-top: 6rem; min-height: calc(100vh - 6rem);'
+    : 'min-height: 100vh;'
 
   const elContent =
       isEntriesAll && elsEntries.length ? elsEntries
@@ -63,9 +66,8 @@ module.exports = (state, prev, send) => {
         design-font design-background design-color-entry design-block-padding
       "
       style="
-        min-height: 100vh;
         line-height: 1.2;
-        ${state.ui.panelActive ? 'margin-top: 6rem' : ''}
+        ${containerStyle}
       "
     >${elContent}</div>
   `
