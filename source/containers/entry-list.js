@@ -62,7 +62,11 @@ module.exports = (state, prev, send) => {
         x xw xac xjc tac
         design-font design-background design-color-entry design-block-padding
       "
-      style="min-height: 100vh; line-height: 1.2"
+      style="
+        min-height: 100vh;
+        line-height: 1.2;
+        ${state.ui.panelActive ? 'margin-top: 6rem' : ''}
+      "
     >${elContent}</div>
   `
 }
