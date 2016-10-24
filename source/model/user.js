@@ -10,7 +10,6 @@ exports.state = {
     uuid: ''
   },
   analytics: {
-    authenticated: false,
     visits: 0
   },
   loaded: false,
