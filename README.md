@@ -1,9 +1,6 @@
 # asdf
 an attention & time focused bookmarking app
 
-## names
-- recollection
-
 ## todo
 - general
   - db load
@@ -12,23 +9,14 @@ an attention & time focused bookmarking app
   - hook up to firebase
 - promo
   - mailchimp or something?
-- release
-  - migration tool
+- options
+  - open links in new tab
 
 ## monetization
 - monthly sponsorship slot
 
 ## release
 - only open to first 100 signups
-
-## hello
-- q&a
-- ask people for a list of links
-- little description for each
-  - each day
-  - each week
-  - each month
-  - each century
 
 ## future
 - archive
