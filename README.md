@@ -6,20 +6,13 @@ an attention & time focused bookmarking app
 
 ## todo
 - general
-  - db load
+  - db load & accounts
   - data import/export
-- db
-  - hook up to firebase
 - promo
-  - mailchimp or something?
-- release
-  - migration tool
+  - mailchimp or something?l
 
 ## monetization
 - monthly sponsorship slot
-
-## release
-- only open to first 100 signups
 
 ## hello
 - q&a
@@ -34,9 +27,10 @@ an attention & time focused bookmarking app
 - archive
   - dismiss links to the archive
   - one time links which auto-move to the archive
-- typography
-  - http://www.new-letters.de/
-
+- entry types
+  - link
+  - image
+  - video
 
 ## release
 - unfollow everyone on twitter
