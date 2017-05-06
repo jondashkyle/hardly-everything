@@ -1,20 +1,20 @@
-const db = require('../db/entries')
-const x = require('xtend')
-const clone = require('clone-deep')
-const moment = require('moment')
-const uuid = require('node-uuid')
-const normalizeUrl = require('normalize-url')
-const validUrl = require('valid-url')
+var db = require('../db/entries')
+var x = require('xtend')
+var clone = require('clone-deep')
+var moment = require('moment')
+var uuid = require('node-uuid')
+var normalizeUrl = require('normalize-url')
+var validUrl = require('valid-url')
 
-const namespace = 'entries'
+var namespace = 'entries'
 
-const intervals = ['minute', 'minutes', 'hour', 'hours', 'day', 'days', 'week', 'weeks', 'month', 'months', 'year', 'years']
+var intervals = ['minute', 'minutes', 'hour', 'hours', 'day', 'days', 'week', 'weeks', 'month', 'months', 'year', 'years']
 
-const formatTags = tag =>
+var formatTags = tag =>
   tag.replace(/^\s+|\s+$/g, '').split(/\s*,\s*/)
 
-const formatEntry = data => {
-  const result = clone(data)
+var formatEntry = data => {
+  var result = clone(data)
 
   for (let key in result) {
     switch (key) {
@@ -27,7 +27,7 @@ const formatEntry = data => {
   return result
 }
 
-const validateEntry = data => {
+var validateEntry = data => {
   if (data.title === '') {
     return 'Please enter a title'
   } else if (data.url === '') {
@@ -43,13 +43,13 @@ const validateEntry = data => {
   }
 }
 
-const state = {
+var state = {
   loaded: false,
   all: { },
   archive: { }
 }
 
-const subscriptions = [
+var subscriptions = [
   (send, done) => {
     db.get(data => {
       send('entries:init', data, done)
@@ -62,27 +62,27 @@ const subscriptions = [
   }
 ]
 
-const reducers = {
+var reducers = {
   all: (data, state) => ({ all: data }),
   refresh: (data, state) => (state),
   loaded: (data, state) => ({ loaded: data })
 }
 
-const effects = {
+var effects = {
   add: (data, state, send, done) => {
-    const id = uuid.v4()
-    const staging = x({
+    var id = uuid.v4()
+    var staging = x({
       id: id,
       dateAdded: moment().toISOString(),
       dateUpdated: moment().toISOString(),
       dateDismissed: moment().subtract(10, 'years').toISOString()
     }, data)
 
-    const entry = formatEntry(staging)
-    const validation = validateEntry(entry)
+    var entry = formatEntry(staging)
+    var validation = validateEntry(entry)
 
     if (validation === true) {
-      const newState = clone(state.all)
+      var newState = clone(state.all)
       newState[id] = entry
 
       send('staging:reset', { }, done)
@@ -95,20 +95,20 @@ const effects = {
     }
   },
   remove: (data, state, send, done) => {
-    const newState = clone(state.all)
+    var newState = clone(state.all)
     delete newState[data.id]
 
     send('entries:all', newState, done)
     db.remove(data, newState, done)
   },
   update: (data, state, send, done) => {
-    const entry = formatEntry(data)
-    const validation = validateEntry(entry)
+    var entry = formatEntry(data)
+    var validation = validateEntry(entry)
 
     entry.dateUpdated = moment().toISOString()
 
     if (validation === true) {
-      const newState = clone(state.all)
+      var newState = clone(state.all)
       newState[data.id] = entry
 
       send('staging:reset', { }, done)
@@ -121,9 +121,9 @@ const effects = {
     }
   },
   dismiss: (data, state, send, done) => {
-    const newState = clone(state.all)
-    const curEntry = newState[data.id]
-    const newEntry = x(curEntry, {
+    var newState = clone(state.all)
+    var curEntry = newState[data.id]
+    var newEntry = x(curEntry, {
       visited: curEntry.visited + 1,
       dateUpdated: moment().toISOString(),
       dateDismissed: moment().toISOString()
@@ -139,7 +139,7 @@ const effects = {
     send('entries:loaded', true, done)
   },
   reset: (data, state, send, done) => {
-    const newState = data ? data : { }
+    var newState = data ? data : { }
     send('entries:all', newState, done)
     db.update(newState, newState)
   }

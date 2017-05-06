@@ -1,5 +1,4 @@
 const app = require('./app')
-
 require('./css')
 
 const tree = app.start()

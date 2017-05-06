@@ -4,15 +4,13 @@ const STORAGE_ID = 'asdf_'
 /**
  * Get
  */
-exports.get = (namespace, cb, fb) => {
+exports.get = (namespace, cb) => {
   try {
     cb
       ? cb(JSON.parse(window.localStorage[STORAGE_ID + namespace]))
       : ''
   } catch (err) {
-    fb
-      ? fb()
-      : ''
+    
   }
 }
 

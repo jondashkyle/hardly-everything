@@ -1,15 +1,7 @@
 const webfontloader = require('webfontloader')
 
 exports.local = (send, done) => {
-  webfontloader.load({
-    custom: {
-      families: ['Moderat', 'Space Mono'],
-      urls: ['/assets/fonts/fonts.css']
-    },
-    active: () => {
-      send('options:loaded', { typeLocal: true }, done)
-    }
-  })
+  send('options:loaded', { typeLocal: true }, done)
 }
 
 exports.load = (data, send, done) => {

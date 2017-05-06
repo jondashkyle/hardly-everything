@@ -14,21 +14,6 @@ const optionsTypography = {
     active: true,
     value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
   },
-  moderat: {
-    name: 'Moderat',
-    key: 'moderat',
-    host: 'local',
-    active: true,
-    value: 'Moderat'
-  },
-  moderatBold: {
-    name: 'Moderat Bold',
-    key: 'moderatBold',
-    host: 'local',
-    active: true,
-    weight: '700',
-    value: 'Moderat'
-  },
   cabin: {
     name: 'Cabin',
     key: 'cabin',
@@ -91,7 +76,6 @@ const optionsTypography = {
     name: 'Space Mono',
     key: 'spaceMono',
     host: 'google',
-    active: true,
     value: 'Space Mono'
   },
   workSans: {
@@ -163,7 +147,7 @@ exports.state = {
   values: {
     colorBg: '#fff',
     colorText: '#000',
-    font: optionsTypography.moderatBold,
+    font: optionsTypography.system,
     scale: 35,
     spacing: 5,
     invert: false

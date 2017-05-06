@@ -1,12 +1,12 @@
-const choo = require('choo')
+var choo = require('choo')
 require('./db')
 
-const app = choo()
+var app = choo()
 
 // const log = require('choo-log')
 // app.use(log())
 
-app.model(require('./model/user'))
+// app.model(require('./model/user'))
 app.model(require('./model/entries'))
 app.model(require('./model/options'))
 app.model(require('./model/staging'))

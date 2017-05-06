@@ -116,7 +116,7 @@ const view = (state, prev, send) => {
     ? elImport
     : elExport
 
-  return h`<div>
+  return h`<div class="sans">
     ${elNavigation(state, prev, send)}
     ${elContent(state, prev, send)}
     ${css(state, prev, send)}

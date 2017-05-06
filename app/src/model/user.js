@@ -1,5 +1,4 @@
 const x = require('xtend')
-const db = require('../db/user')
 const namespace = 'user'
 
 exports.state = {
@@ -23,19 +22,6 @@ exports.subscriptions = [
     }, () => {
       send(namespace + ':loaded', true, done)
     })
-
-    // db.onStateChange(user => {
-    //   if (user) {
-    //     send(namespace + ':credentials', {
-    //       email: user.email,
-    //       photoURL: user.photoURL,
-    //       uuid: user.uuid
-    //     }, done)
-    //     send(namespace + ':loaded', true, done)
-    //   } else {
-    //     send(namespace + ':credentials', { }, done)
-    //   }
-    // })
   }
 ]
 

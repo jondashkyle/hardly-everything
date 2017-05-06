@@ -80,7 +80,7 @@ const handleInvertClick = (event, send) => {
 exports.view = (state, prev, send) => {
   return h`
     <div class="
-      bg-black tc-white psf t0 l0 r0 z3 usn
+      bg-black tc-white psf t0 l0 r0 z3 sans usn
       ${style}
       ${state.ui.panelActive ? 'x' : 'dn'}
     ">

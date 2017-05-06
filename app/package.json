@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "budo source/index.js:bundle.js --dir public --live --pushstate -- -t [ sheetify/transform ]",
-    "build": "browserify source/index.js -o public/bundle.js -t [ sheetify/transform ] -g es2040"
+    "start": "budo src/index.js:bundle.js --dir public --live --pushstate -- -t [ sheetify/transform ]",
+    "build": "browserify src/index.js -o dist/bundle.js -t [ sheetify/transform ] -g es2040"
   },
   "author": "",
   "license": "ISC",
@@ -22,7 +22,7 @@
     "choo-log": "^1.4.1",
     "clone-deep": "^0.2.4",
     "firebase": "^3.4.1",
-    "gr8": "github:folderstudio/gr8",
+    "gr8": "^2.1.7",
     "moment": "^2.14.1",
     "node-uuid": "^1.4.7",
     "normalize-url": "^1.6.1",

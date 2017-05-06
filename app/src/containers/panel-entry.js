@@ -76,7 +76,7 @@ const form = (state, prev, send) => {
   return h`
     <form
       autocomplete="off"
-      class="${style} x xw bg-black bro"
+      class="${style} x xw bg-black sans bro"
       onload=${element => handleLoad(state, prev, send, element)}
       onsubmit=${event => handleSubmit(state, prev, send, event)}
     >
