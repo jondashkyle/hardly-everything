@@ -117,7 +117,6 @@ exports.view = (state, prev, send) => {
           <span class="r45">→</span>
         </div>
       </div>
-      
     </div>
   `
 }

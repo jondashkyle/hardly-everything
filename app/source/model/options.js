@@ -7,6 +7,13 @@ const typography = require('../css/typography')
 const namespace = 'options'
 
 const optionsTypography = {
+  system: {
+    name: 'System',
+    key: 'sans',
+    host: 'local',
+    active: true,
+    value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+  },
   moderat: {
     name: 'Moderat',
     key: 'moderat',

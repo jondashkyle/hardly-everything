@@ -3,15 +3,16 @@ an attention & time focused bookmarking app
 
 ## todo
 - general
-  - db load & accounts
-  - data import/export
+  - remove sheetify
+  - switch to rooch
+  - update build system
+  - move from firebase to digital ocean
 - promo
-  - mailchimp or something?
 - options
   - open links in new tab
 
 ## monetization
-- monthly sponsorship slot
+- weekly sponsorship slot
 
 ## hello
 - q&a
@@ -21,18 +22,14 @@ an attention & time focused bookmarking app
   - each week
   - each month
   - each century
+
 ## release
 - only open to first 100 signups
 
 ## future
 - archive
   - dismiss links to the archive
-  - one time links which auto-move to the archive
 - entry types
   - link
   - image
   - video
-
-## release
-- unfollow everyone on twitter
-- write an essay about internet shit

@@ -4,36 +4,16 @@ const intToRest = opts => {
   const options = x({
     min: 1,
     max: 100,
-    value: 50,
+    value: 4,
     breakpoints: [{
-      interval: 'minutes',
-      result: {
-        min: 1,
-        max: 60
-      },
-      range: {
-        min: 0,
-        max: 0.2
-      }
-    }, {
-      interval: 'hours',
-      result: {
-        min: 1,
-        max: 24
-      },
-      range: {
-        min: 0.2,
-        max: 0.4
-      }
-    }, {
       interval: 'days',
       result: {
         min: 1,
         max: 30
       },
       range: {
-        min: 0.4,
-        max: 0.8
+        min: 0,
+        max: 0.6
       }
     }, {
       interval: 'weeks',
@@ -42,17 +22,17 @@ const intToRest = opts => {
         max: 10
       },
       range: {
-        min: 0.8,
-        max: 1
+        min: 0.6,
+        max: 0.8
       }
     }, {
-      interval: 'years',
+      interval: 'months',
       result: {
-        min: 100,
-        max: 100
+        min: 1,
+        max: 12
       },
       range: {
-        min: 0.9,
+        min: 0.8,
         max: 1
       }
     }]
