@@ -1,15 +1,14 @@
 # asdf
 an attention & time focused bookmarking app
 
-## names
-- recollection
-
 ## todo
 - general
   - db load & accounts
   - data import/export
 - promo
-  - mailchimp or something?l
+  - mailchimp or something?
+- options
+  - open links in new tab
 
 ## monetization
 - monthly sponsorship slot
@@ -22,6 +21,8 @@ an attention & time focused bookmarking app
   - each week
   - each month
   - each century
+## release
+- only open to first 100 signups
 
 ## future
 - archive

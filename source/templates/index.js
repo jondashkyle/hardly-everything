@@ -2,7 +2,6 @@ const h = require('choo/html')
 
 const entryList = require('../containers/entry-list')
 const entryNavigation = require('../containers/entry-navigation')
-const introduction = require('../containers/introduction')
 
 const panelOverlay = require('../components/overlay-edit')
 const panelOptions = require('../containers/panel-options')
@@ -10,17 +9,29 @@ const panelEntry = require('../containers/panel-entry')
 
 const css = require('../components/css')
 
-const view = (state, prev, send) =>
-  !state.entries.loaded ||
-  !state.options.loaded ||
-  !state.user.loaded
-    ? ''
-  : !state.user.analytics.authenticated
-    ? [
-      introduction(state, prev, send),
-      css(state, prev, send)
-    ]
-  : [
+let loaded = false
+
+const init = () => {
+  loaded = true
+  const el = document.querySelector('[data-load]')
+  return el ? document.body.removeChild(el) : ''
+}
+
+const view = (state, prev, send) => {
+  console.log(state.options.loaded)
+  if (
+    !state.entries.loaded ||
+    !state.options.loaded.typeCustom ||
+    !state.options.loaded.typeLocal ||
+    !state.options.loaded.data ||
+    !state.user.loaded
+  ) {
+    return ''
+  }
+
+  loaded ? '' : init()
+
+  return [
     entryList(state, prev, send),
     entryNavigation(state, prev, send),
     panelOptions.view(state, prev, send),
@@ -32,6 +43,7 @@ const view = (state, prev, send) =>
       : '',
     css(state, prev, send)
   ]
+}
 
 module.exports = (state, prev, send) => {
   return h`<div>${view(state, prev, send)}</div>`

@@ -1,11 +1,16 @@
 const webfontloader = require('webfontloader')
 
-webfontloader.load({
-  custom: {
-    families: ['Moderat', 'Space Mono'],
-    urls: ['/assets/fonts/fonts.css']
-  }
-})
+exports.local = (send, done) => {
+  webfontloader.load({
+    custom: {
+      families: ['Moderat', 'Space Mono'],
+      urls: ['/assets/fonts/fonts.css']
+    },
+    active: () => {
+      send('options:loaded', { typeLocal: true }, done)
+    }
+  })
+}
 
 exports.load = (data, send, done) => {
   switch (data.host) {
@@ -17,7 +22,8 @@ exports.load = (data, send, done) => {
         google: {
           families: [value]
         },
-        active: () => {
+        fontactive: () => {
+          send('options:loaded', { typeCustom: true }, done)
           send('options:typography', {
             key: data.key,
             value: { active: true }
@@ -25,6 +31,7 @@ exports.load = (data, send, done) => {
         }
       })
     default:
+      send('options:loaded', { typeCustom: true }, done)
       return false
   }
 }
