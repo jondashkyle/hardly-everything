@@ -1,6 +1,11 @@
 # asdf
 an attention & time focused bookmarking app
 
+## list
+
+### refactor
+before starting to revisit the project, some time was spent looking into using vue.js. while it is promising, and provides a number of affordances (a very solid build process, etc), it does require a pretty total rewrite, which would take too much time. instead, switching to using rooch, and cleaning up the existing codebase is likely time better spent.
+
 ## todo
 - general
   - remove sheetify

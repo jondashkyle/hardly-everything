@@ -1,11 +1,11 @@
-const h = require('choo/html')
-const x = require('xtend')
-const ov = require('object.values')
-const sf = require('sheetify')
+var h = require('choo/html')
+var x = require('xtend')
+var ov = require('object.values')
+var sf = require('sheetify')
 
-const css = require('../components/css')
+var css = require('../components/css')
 
-const style = sf`
+var style = sf`
   :host {
     min-height: calc(100vh - 3rem);
     margin-top: 3rem;
@@ -29,7 +29,7 @@ const style = sf`
   }
 `
 
-const navigationOpts = {
+var navigationOpts = {
   export: {
     key: 'export',
     text: 'Export'
@@ -40,14 +40,14 @@ const navigationOpts = {
   }
 }
 
-const getCommand = command => command || 'export'
+var getCommand = command => command || 'export'
 
-const handleImportClick = (send, event) => {
-  const input = event.target.parentNode.querySelector('textarea')
-  const value = input.value
+var handleImportClick = (send, event) => {
+  var input = event.target.parentNode.querySelector('textarea')
+  var value = input.value
 
   try {
-    const result = JSON.parse(value)
+    var result = JSON.parse(value)
     send('entries:reset', result)
   } catch (err) {
     alert('Please enter valid JSON')
@@ -55,11 +55,11 @@ const handleImportClick = (send, event) => {
   }
 }
 
-const elNavigation = (state, prev, send) => {
-  const command = getCommand(state.params.command)
-  const opts = ov(navigationOpts)
+var elNavigation = (state, prev, send) => {
+  var command = getCommand(state.params.command)
+  var opts = ov(navigationOpts)
 
-  const elsOpts = opts.map((opt, i) => h`
+  var elsOpts = opts.map((opt, i) => h`
     <a
       href="/data/${opt.key}"
       class="
@@ -86,7 +86,7 @@ const elNavigation = (state, prev, send) => {
   </div>`
 }
 
-const elImport = (state, prev, send) => {
+var elImport = (state, prev, send) => {
   return h`<div class="${style}">
     <textarea
       class="mono bg-white tc-black p2 fs1 lh1-5"
@@ -101,18 +101,18 @@ const elImport = (state, prev, send) => {
   </div>`
 }
 
-const elExport = (state, prev, send) => {
-  const entries = state.entries.all
+var elExport = (state, prev, send) => {
+  var entries = state.entries.all
 
   return h`<div class="${style}">
     <pre class="mono bg-white tc-black p2" contenteditable="true"><code>${JSON.stringify(entries, null, 2)}</code></pre>
   </div>`
 }
 
-const view = (state, prev, send) => {
-  const command = getCommand(state.params.command)
+var view = (state, prev, send) => {
+  var command = getCommand(state.params.command)
 
-  const elContent = command === 'import'
+  var elContent = command === 'import'
     ? elImport
     : elExport
 
