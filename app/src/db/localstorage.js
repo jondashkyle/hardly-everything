@@ -7,9 +7,13 @@ const STORAGE_ID = 'asdf_'
 exports.get = (namespace, cb) => {
   try {
     var result = JSON.parse(window.localStorage[STORAGE_ID + namespace])
-    cb ? cb(result) : ''
+    if (cb && typeof cb === 'function') {
+      cb(result)
+    }
   } catch (err) {
-    cb({ }) 
+    if (cb && typeof cb === 'function') {
+      cb({ })
+    }
   }
 }
 

@@ -1,3 +1,4 @@
+var html = require('rooch/html')
 var rooch = require('rooch')
 require('./css')
 

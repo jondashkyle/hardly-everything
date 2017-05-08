@@ -1,7 +1,9 @@
 var webfontloader = require('webfontloader')
 
 exports.local = (cb) => {
-  cb()
+  if (cb && typeof cb === 'function') {
+    cb()
+  }
 }
 
 exports.load = (data, emit) => {

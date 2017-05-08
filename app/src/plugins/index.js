@@ -1,4 +1,5 @@
 module.exports = [
+  require('./logger'),
   require('./entries'),
   require('./loaded'),
   require('./options'),
