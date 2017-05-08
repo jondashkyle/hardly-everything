@@ -14,12 +14,12 @@ function view (state, emit) {
     entryList(state, emit),
     entryNavigation(state, emit),
     panelOptions.view(state, emit),
-    // state.ui.stagingActive
-    //   ? panelEntry(state, emit)
-    //   : '',
-    // state.ui.panelActive
-    //   ? panelOverlay
-    //   : '',
+    state.ui.stagingActive
+      ? panelEntry(state, emit)
+      : '',
+    state.ui.panelActive
+      ? panelOverlay
+      : '',
     css(state, emit)
   ]
 }

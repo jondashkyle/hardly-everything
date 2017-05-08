@@ -1,4 +1,4 @@
-const html = require('choo/html')
+const html = require('rooch/html')
 const sf = require('sheetify')
 const x = require('xtend')
 
@@ -43,11 +43,11 @@ const style = sf`
 /**
  * Submit
  */
-const handleSubmit = (state, prev, send, event) => {
+const handleSubmit = (state, event, emit) => {
   if (state.panel.staging.id) {
-    send('entries:update', state.panel.staging)
+    emit('entries:update', state.panel.staging)
   } else {
-    send('entries:add', state.panel.staging)
+    emit('entries:add', state.panel.staging)
   }
   event.preventDefault()
 }
@@ -55,15 +55,15 @@ const handleSubmit = (state, prev, send, event) => {
 /**
  * Load
  */
-const handleLoad = (state, prev, send, element) => {
-  const title = element.querySelector('[name="title"]')
-  title.focus()
+const handleLoad = (state, element, emit) => {
+  // const title = element.querySelector('[name="title"]')
+  // title.focus()
 }
 
 /**
  * View
  */
-module.exports = (state, prev, send) => {
+module.exports = (state, emit) => {
   const checkInterval = interval => {
     return state.panel.staging.interval === interval ? 'selected' : ''
   }
@@ -76,8 +76,8 @@ module.exports = (state, prev, send) => {
     <form
       autocomplete="off"
       class="${style} x xw bg-black bro"
-      onload=${element => handleLoad(state, prev, send, element)}
-      onsubmit=${event => handleSubmit(state, prev, send, event)}
+      onload=${element => handleLoad(state, element, emit)}
+      onsubmit=${event => handleSubmit(state, event, emit)}
     >
       <div class="p1px">
         <input

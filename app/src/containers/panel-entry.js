@@ -1,4 +1,4 @@
-const h = require('choo/html')
+const html = require('rooch/html')
 const sf = require('sheetify')
 const x = require('xtend')
 
@@ -43,49 +43,49 @@ const style = sf`
 /**
  * Submit
  */
-const handleSubmit = (state, prev, send, event) => {
+const handleSubmit = (state, event, emit) => {
   if (state.staging.entry.id) {
-    send('entries:update', state.staging.entry)
+    emit('entries:update', state.staging.entry)
   } else {
-    send('entries:add', state.staging.entry)
+    emit('entries:add', state.staging.entry)
   }
 
   event.preventDefault()
 }
 
-const handleLoad = (state, prev, send, element) => {
-  const title = element.querySelector('[name="title"]')
-  title.focus()
+const handleLoad = (state, element, emit) => {
+  // const title = element.querySelector('[name="title"]')
+  // title.focus()
 }
 
-const reset = send => {
-  send('ui:update', { stagingActive: false })
-  send('staging:reset')
+const reset = emit => {
+  emit('ui:update', { stagingActive: false })
+  emit('staging:reset')
 }
 
-const remove = (id, send) => {
-  reset(send)
-  send('entries:remove', { id: id })
+const remove = (id, emit) => {
+  reset(emit)
+  emit('entries:remove', { id: id })
 }
 
-const form = (state, prev, send) => {
+const form = (state, emit) => {
   const getTime = value => intToRest({
     value: value
   })
 
-  return h`
+  return html`
     <form
       autocomplete="off"
       class="${style} x xw bg-black sans bro"
-      onload=${element => handleLoad(state, prev, send, element)}
-      onsubmit=${event => handleSubmit(state, prev, send, event)}
+      onload=${element => handleLoad(state, element, emit)}
+      onsubmit=${event => handleSubmit(state, event, emit)}
     >
       <div class="p1px">
         <input
           name="title"
           placeholder="Title"
           value="${state.staging.entry.title}"
-          oninput=${e => send('staging:entry', { title: e.target.value })}
+          oninput=${e => emit('staging:entry', { title: e.target.value })}
           type="text"
           class="c12 sans bg-white tc-black px1 brit"
         />
@@ -95,7 +95,7 @@ const form = (state, prev, send) => {
           name="url"
           placeholder="http://"
           value="${state.staging.entry.url}"
-          oninput=${e => send('staging:entry', { url: e.target.value })}
+          oninput=${e => emit('staging:entry', { url: e.target.value })}
           type="text"
           class="c12 sans bg-white tc-black px1"
         />
@@ -107,7 +107,7 @@ const form = (state, prev, send) => {
               name: 'Rest',
               value: state.staging.entry.timeRange,
               valueShow: false,
-              handleInput: value => send('staging:entry', x(getTime(value), {
+              handleInput: value => emit('staging:entry', x(getTime(value), {
                 timeRange: value
               }))
             })}
@@ -116,7 +116,7 @@ const form = (state, prev, send) => {
         <div class="c2 p1px">
           <input
             value=${state.staging.entry.duration}
-            oninput=${e => send('staging:entry', {
+            oninput=${e => emit('staging:entry', {
               timeRange: 0,
               duration: parseInt(e.target.value || 0)
             })}
@@ -127,7 +127,7 @@ const form = (state, prev, send) => {
         <div class="c2 p1px">
           <input
             value=${state.staging.entry.interval}
-            oninput=${e => send('staging:entry', {
+            oninput=${e => emit('staging:entry', {
               timeRange: 0,
               interval: e.target.value
             })}
@@ -143,7 +143,7 @@ const form = (state, prev, send) => {
             value="Delete"
             tabindex="-1"
             class="c12 tc-black bg-white sans bribl"
-            onclick=${e => remove(state.staging.entry.id, send)}
+            onclick=${e => remove(state.staging.entry.id, emit)}
             type="button"
           />
         </div>
@@ -153,7 +153,7 @@ const form = (state, prev, send) => {
             value="Cancel"
             tabindex="-1"
             class="c12 tc-black bg-white sans bribl"
-            onclick=${e => reset(send)}
+            onclick=${e => reset(emit)}
             type="button"
           />
         </div>
@@ -171,19 +171,19 @@ const form = (state, prev, send) => {
   `
 }
 
-const handleContainerClick = (event, send) => {
+const handleContainerClick = (event, emit) => {
   if (event.target.hasAttribute('data-entry-panel')) {
-    reset(send)
+    reset(emit)
   }
 }
 
-module.exports = (state, prev, send) => {
-  return h`
+module.exports = (state, emit) => {
+  return html`
     <div
       data-entry-panel
       class="psf t0 l0 r0 b0 xjc xac z2 x"
-      onclick=${event => handleContainerClick(event, send)}>
-      ${form(state, prev, send)}
+      onclick=${event => handleContainerClick(event, emit)}>
+      ${form(state, emit)}
     </div>
   `
 }

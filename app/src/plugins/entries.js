@@ -80,27 +80,27 @@ function Entries (state, emitter) {
 
   // add
   emitter.on('entries:add', function (data) {
-    add(state, data, emitter.emit) 
+    add(state, data, () => emitter.emit) 
   })
 
   // update
   emitter.on('entries:update', function (data) {
-    update(state, data, emitter.emit)
+    update(state, data, () => emitter.emit)
   })
 
   // dismiss
   emitter.on('entries:dismiss', function (data) {
-    dismiss(state, data, emitter.emit)
+    dismiss(state, data, () => emitter.emit)
   })
 
   // remove
   emitter.on('entries:remove', function (data) {
-    remove(state, data, emitter.emit)
+    remove(state, data, () => emitter.emit)
   })
 
   // reset
   emitter.on('entries:reset', function (data) {
-    reset(state, data, emitter.emit)
+    reset(state, data, () => emitter.emit)
   })
 
   // refresh
@@ -114,7 +114,7 @@ function Entries (state, emitter) {
     emitter.emit('entries:loaded', true)
     emitter.emit('render')
   }, () => {
-    emitter.emit('entries:loaded', true, done)
+    emitter.emit('entries:loaded', true)
   })
 
   // refresh
@@ -139,15 +139,15 @@ function add (state, data, emit) {
   var validation = validateEntry(entry)
 
   if (validation === true) {
-    var newState = clone(state.all)
+    var newState = clone(state.entries.all)
     newState[id] = entry
 
-    emit('staging:reset', { }, done)
-    emit('ui:update', { stagingActive: false }, done)
-    emit('entries:all', newState, done)
+    emit('staging:reset', { })
+    emit('ui:update', { stagingActive: false })
+    emit('entries:all', newState)
     emit('render')
 
-    db.add(entry, newState, done)
+    db.add(entry, newState)
   } else {
     alert(validation)
   }
@@ -157,13 +157,13 @@ function add (state, data, emit) {
  * Remove
  */
 function remove (state, data, emit) {
-  var newState = clone(state.all)
+  var newState = clone(state.entries.all)
   delete newState[data.id]
 
-  emit('entries:all', newState, done)
+  emit('entries:all', newState)
   emit('render')
 
-  db.remove(data, newState, done) 
+  db.remove(data, newState) 
 }
 
 /**
@@ -176,15 +176,15 @@ function update (state, data, emit) {
   entry.dateUpdated = moment().toISOString()
 
   if (validation === true) {
-    var newState = clone(state.all)
+    var newState = clone(state.entries.all)
     newState[data.id] = entry
 
-    emit('staging:reset', { }, done)
-    emit('ui:update', { stagingActive: false }, done)
-    emit('entries:all', newState, done)
+    emit('staging:reset', { })
+    emit('ui:update', { stagingActive: false })
+    emit('entries:all', newState)
     emit('render')
 
-    db.update(data, newState, done)
+    db.update(data, newState)
   } else {
     alert(validation)
   } 
@@ -194,7 +194,7 @@ function update (state, data, emit) {
  * Dismiss
  */
 function dismiss (state, data, emit) {
-  var newState = clone(state.all)
+  var newState = clone(state.entries.all)
   var curEntry = newState[data.id]
   var newEntry = x(curEntry, {
     visited: curEntry.visited + 1,
@@ -204,7 +204,7 @@ function dismiss (state, data, emit) {
 
   newState[data.id] = newEntry
 
-  emit('entries:all', newState, done)
+  emit('entries:all', newState)
   emit('render')
   db.update(newEntry, newState) 
 }
@@ -214,7 +214,7 @@ function dismiss (state, data, emit) {
  */
 function reset (state, data, emit) {
   var newState = data ? data : { }
-  emit('entries:all', newState, done)
+  emit('entries:all', newState)
   emit('render')
   db.update(newState, newState) 
 }

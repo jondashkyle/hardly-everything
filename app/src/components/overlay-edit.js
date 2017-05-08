@@ -1,4 +1,4 @@
-const h = require('choo/html')
+const html = require('rooch/html')
 const sf = require('sheetify')
 
 const style = sf`
@@ -9,7 +9,7 @@ const style = sf`
   }
 `
 
-module.exports = h`<div
+module.exports = html`<div
   class="psf t0 l0 b0 r0 pen ${style}"
   style="z-index: -1;"
 ></div>`
