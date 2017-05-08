@@ -21,7 +21,7 @@ function Ui (state, emitter) {
   })
 
   emitter.on('ui:update', function (data) {
-    state.ui = x(state, data)
+    state.ui = x(state.ui, data)
     emitter.emit('render')
   })
 }

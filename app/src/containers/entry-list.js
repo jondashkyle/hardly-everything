@@ -59,7 +59,7 @@ function EntryList (state, emit) {
   const elContent =
       isEntriesAll && elsEntries.length ? elsEntries
     : isEntriesAll && !elsEntries.length ? emptyEl()
-    : elEntriesNone(state, prev, send)
+    : elEntriesNone(state, emit)
 
   return html`
     <div

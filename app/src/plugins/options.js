@@ -232,12 +232,13 @@ function Options (state, emitter) {
 
   // init
   db.get(function (data) {
+    if (data.font) {
+      typography.load(data.font, () => emitter.emit)
+    } else {
+      typography.load(state.options.values.font, () => emitter.emit)
+    }
+
     emitter.emit('options:update', data)
-    emitter.emit('options:loaded', { data: true })
-    emitter.emit('render')
-    typography.load(data.font, emitter.emit)
-  }, function (data) {
-    typography.load(exports.state.values.font, emitter.emit)
     emitter.emit('options:loaded', { data: true })
     emitter.emit('render')
   })

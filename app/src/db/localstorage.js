@@ -6,11 +6,10 @@ const STORAGE_ID = 'asdf_'
  */
 exports.get = (namespace, cb) => {
   try {
-    cb
-      ? cb(JSON.parse(window.localStorage[STORAGE_ID + namespace]))
-      : ''
+    var result = JSON.parse(window.localStorage[STORAGE_ID + namespace])
+    cb ? cb(result) : ''
   } catch (err) {
-    
+    cb({ }) 
   }
 }
 

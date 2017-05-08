@@ -4,7 +4,7 @@ exports.local = (cb) => {
   cb()
 }
 
-exports.load = (data, send, done) => {
+exports.load = (data, emit) => {
   switch (data.host) {
     case 'google':
       var value = data.weight
@@ -14,16 +14,18 @@ exports.load = (data, send, done) => {
         google: {
           families: [value]
         },
-        fontactive: () => {
-          send('options:loaded', { typeCustom: true }, done)
-          send('options:typography', {
+        fontactive: function () {
+          emit('options:loaded', { typeCustom: true })
+          emit('options:typography', {
             key: data.key,
             value: { active: true }
-          }, done)
+          })
+          emit('render')
         }
       })
     default:
-      send('options:loaded', { typeCustom: true }, done)
+      emit('options:loaded', { typeCustom: true })
+      emit('render')
       return false
   }
 }

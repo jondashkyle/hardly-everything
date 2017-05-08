@@ -25,6 +25,7 @@ function view (state, emit) {
 }
 
 module.exports = (state, emit) => {
+  console.log(state.options)
   return state.app.loaded
     ? html`<div>${view(state, emit)}</div>`
     : html`<div>nah</div>`
