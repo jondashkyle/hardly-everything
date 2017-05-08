@@ -1,19 +1,19 @@
-const h = require('choo/html')
-const sf = require('sheetify')
-const x = require('xtend')
+var html = require('rooch/html')
+var sf = require('sheetify')
+var x = require('xtend')
 
-const inputText = require('../components/input-text')
-const inputRange = require('../components/input-range')
-const inputDropdown = require('../components/input-dropdown')
+var inputText = require('../components/input-text')
+var inputRange = require('../components/input-range')
+var inputDropdown = require('../components/input-dropdown')
 
-const namespace = 'panelOptions'
+var namespace = 'panelOptions'
 
-const font = inputDropdown({
+var font = inputDropdown({
   namespace: 'font',
   parent: namespace
 })
 
-const style = sf`
+var style = sf`
   :host {
     line-height: 3rem;
   }
@@ -30,32 +30,32 @@ const style = sf`
   }
 `
 
-const templateOption = (state, prev, send, option) => {
+var templateOption = (state, option, emit) => {
   switch (option.type) {
     case 'text':
-      return inputText.view(option, state, send)
+      return inputText(state, option, emit)
     case 'range':
       return inputRange({
         name: option.name,
         value: state.options.values[option.key],
         valueShow: option.valueShow,
-        handleInput: value => send('options:values', {
+        handleInput: value => emit('options:values', {
           key: option.key,
           value: value
         })
       })
     case 'dropdown':
-      return font.view({
-        local: state[namespace].font,
-        current: state.options.values.font,
-        options: state.options.typography
-      }, prev, send)
+      // return font.view({
+      //   local: state[namespace].font,
+      //   current: state.options.values.font,
+      //   options: state.options.typography
+      // }, emit)
     default:
       return
   }
 }
 
-const model = {
+var model = {
   state: {
     font: font.model.state
   },
@@ -73,12 +73,12 @@ exports.model = {
   )
 }
 
-const handleInvertClick = (event, send) => {
-  send('options:invert')
+var handleInvertClick = (event, emit) => {
+  emit('options:invert')
 }
 
-exports.view = (state, prev, send) => {
-  return h`
+exports.view = (state, emit) => {
+  return html`
     <div class="
       bg-black tc-white psf t0 l0 r0 z3 sans usn
       ${style}
@@ -86,18 +86,18 @@ exports.view = (state, prev, send) => {
     ">
       <div class="c4 opt-br">
         <div class="opt-bb">
-          ${templateOption(state, prev, send, state.options.design.scale)}
+          ${templateOption(state, state.options.design.scale, emit)}
         </div>
         <div class="opt-bt">
-          ${templateOption(state, prev, send, state.options.design.font)}
+          ${templateOption(state, state.options.design.font, emit)}
         </div>
       </div>
       <div class="c4 opt-bl opt-br">
         <div class="opt-bb">
-          ${templateOption(state, prev, send, state.options.design.spacing)}
+          ${templateOption(state, state.options.design.spacing, emit)}
         </div>
         <div class="opt-bt x tac">
-          <div class="c6 opt-br curp" onclick=${e => handleInvertClick(e, send)}>
+          <div class="c6 opt-br curp" onclick=${e => handleInvertClick(e, emit)}>
             Invert
           </div>
           <div class="c6 opt-bl curp">

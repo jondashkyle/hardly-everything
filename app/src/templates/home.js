@@ -1,19 +1,19 @@
-const html = require('rooch/html')
+var html = require('rooch/html')
 
-const entryList = require('../containers/entry-list')
-const entryNavigation = require('../containers/entry-navigation')
+var entryList = require('../containers/entry-list')
+var entryNavigation = require('../containers/entry-navigation')
 
-const panelOverlay = require('../components/overlay-edit')
-const panelOptions = require('../containers/panel-options')
-const panelEntry = require('../containers/panel-entry')
+var panelOverlay = require('../components/overlay-edit')
+var panelOptions = require('../containers/panel-options')
+var panelEntry = require('../containers/panel-entry')
 
-const css = require('../components/css')
+var css = require('../components/css')
 
 function view (state, emit) {
   return [
     entryList(state, emit),
     entryNavigation(state, emit),
-    // panelOptions.view(state, emit),
+    panelOptions.view(state, emit),
     // state.ui.stagingActive
     //   ? panelEntry(state, emit)
     //   : '',

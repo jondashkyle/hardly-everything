@@ -1,5 +1,4 @@
-const x = require('xtend')
-const clone = require('clone-deep')
+var x = require('xtend')
 
 module.exports = Ui
 

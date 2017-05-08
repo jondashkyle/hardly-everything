@@ -1,4 +1,4 @@
-const h = require('choo/html')
+const html = require('rooch/html')
 const x = require('xtend')
 
 const inputRange = (opts) => {
@@ -11,13 +11,13 @@ const inputRange = (opts) => {
     handleInput: e => { }
   }, opts)
 
-  const valueEl = h`
+  const valueEl = html`
     <div class="psa t0 r0 pen px1 mono">
       ${options.value}
     </div>
   `
 
-  return h`
+  return html`
     <div
       class="psr oh cur-ewr c12"
       style="height: ${options.height}; line-height: ${options.height}"

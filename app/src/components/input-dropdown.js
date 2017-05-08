@@ -1,4 +1,4 @@
-const h = require('choo/html')
+const html = require('rooch/html')
 const x = require('xtend')
 const ov = require('object.values')
 
@@ -40,7 +40,7 @@ const Dropdown = opts => {
     }
   }
 
-  const elContainer = (state, send, content) => h`
+  const elContainer = (state, send, content) => html`
     <div class="
       bg-white tc-black input-dropdown-options
       ${state.local.active ? 'db' : 'dn'}
@@ -49,7 +49,7 @@ const Dropdown = opts => {
     </div>
   `
 
-  const elOption = (state, send) => h`
+  const elOption = (state, send) => html`
     <div
       class="px1 curp fs1-5"
       onclick=${e => handle.clickOption(e, state, send)}
@@ -76,7 +76,7 @@ const Dropdown = opts => {
       options.map(option => elOption(option, send))
     )
 
-    const elCurrent = h`<div
+    const elCurrent = html`<div
       class="psr c12 curp x xje"
       onclick=${e => handle.clickCurrent(event, state, send)}
     >
@@ -88,7 +88,7 @@ const Dropdown = opts => {
       </div>
     </div>`
 
-    return h`<div class="usn c12 psr">
+    return html`<div class="usn c12 psr">
       ${elCurrent}
       ${elOptions}
     </div>`

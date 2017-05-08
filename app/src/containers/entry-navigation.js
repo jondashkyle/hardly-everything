@@ -1,7 +1,7 @@
-const html = require('rooch/html')
-const sf = require('sheetify')
+var html = require('rooch/html')
+var sf = require('sheetify')
 
-const styles = sf`
+var styles = sf`
   :host {
     font-size: 14px;
   }
@@ -20,7 +20,7 @@ const styles = sf`
   }
 `
 
-const newClick = (state, emit) => ({ open: !state.panel.open })
+var newClick = (state, emit) => ({ open: !state.panel.open })
 
 module.exports = (state, emit) => {
   return html`
