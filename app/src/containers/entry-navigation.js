@@ -1,4 +1,4 @@
-const h = require('choo/html')
+const html = require('rooch/html')
 const sf = require('sheetify')
 
 const styles = sf`
@@ -20,24 +20,24 @@ const styles = sf`
   }
 `
 
-const newClick = (state, send) => ({ open: !state.panel.open })
+const newClick = (state, emit) => ({ open: !state.panel.open })
 
-module.exports = (state, prev, send) => {
-  return h`
+module.exports = (state, emit) => {
+  return html`
     <div class="psf b0 r0 p0-5 lh1 x z2 usn sans ttu fwb ${styles}">
       <div
         class="
           p0-5 curp
           ${state.ui.stagingActive ? 'strike' : ''}
         "
-        onclick=${e => send('ui:update', {
+        onclick=${e => emit('ui:update', {
           stagingActive: !state.ui.stagingActive
         })}>
         add
       </div> 
       <div
         class="p0-5 curp ${state.ui.panelActive ? 'strike' : ''}"
-        onclick=${e => send('ui:update', {
+        onclick=${e => emit('ui:update', {
           panelActive: !state.ui.panelActive
         })}>
         edit
@@ -47,7 +47,7 @@ module.exports = (state, prev, send) => {
           p0-5 curp
           ${state.ui.entriesViewAll ? 'strike' : ''} 
         "
-        onclick=${e => send('ui:update', {
+        onclick=${e => emit('ui:update', {
           entriesViewAll: !state.ui.entriesViewAll
         })}>
         all

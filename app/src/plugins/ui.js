@@ -18,9 +18,11 @@ function Ui (state, emitter) {
 
   emitter.on('ui:intro', function (data) {
     state.ui.intro = x(state.intro, data)
+    emitter.emit('render')
   })
 
   emitter.on('ui:update', function (data) {
     state.ui = x(state, data)
+    emitter.emit('render')
   })
 }

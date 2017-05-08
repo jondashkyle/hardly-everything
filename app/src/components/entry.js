@@ -1,4 +1,4 @@
-const html = require('choo/html')
+const html = require('rooch/html')
 
 /**
  * Tags
@@ -10,34 +10,34 @@ const templateTags = (tags) => tags.map(tag => html`
 /**
  * Handle Click
  */
-const handleClick = (state, prev, send, event) => {
+const handleClick = (state, event, emit) => {
   const parent = event.target.closest('[data-id]')
   const id = parent.getAttribute('data-id')
 
   if (state.ui.panelActive) {
     const staging = state.entries.all[id]
     if (id !== undefined && staging !== undefined) {
-      send('staging:entry', staging)
-      send('ui:update', { stagingActive: true })
+      emit('staging:entry', staging)
+      emit('ui:update', { stagingActive: true })
     }
 
     event.preventDefault()
   } else {
-    send('entries:dismiss', { id: id })
+    emit('entries:dismiss', { id: id })
   }
 }
 
-const view = (state, prev, send, entry) => {
+module.exports = Entry
+
+function Entry (state, data, emit) {
   return html`
-    <div class="component-entry c12" data-id="${entry.id}">
+    <div class="component-entry c12" data-id="${data.id}">
       <a
-        href="${entry.url}"
+        href="${data.url}"
         class="dib design-block-padding tc-black"
-        onclick=${e => handleClick(state, prev, send, event)}>
-        ${entry.title}
+        onclick=${e => handleClick(state, event, emit)}>
+        ${data.title}
       </a>
     </div>
   `
 }
-
-module.exports = { view }

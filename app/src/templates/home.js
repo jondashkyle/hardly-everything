@@ -12,7 +12,7 @@ const css = require('../components/css')
 function view (state, emit) {
   return [
     entryList(state, emit),
-    // entryNavigation(state, emit),
+    entryNavigation(state, emit),
     // panelOptions.view(state, emit),
     // state.ui.stagingActive
     //   ? panelEntry(state, emit)

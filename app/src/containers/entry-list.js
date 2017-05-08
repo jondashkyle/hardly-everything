@@ -30,7 +30,7 @@ const templateEntries = (state, emit) => {
     .sort((a, b) => {
       return getDismissedDate(a) - getDismissedDate(b)
     })
-    .map(entry => Entry.view(state, emit, entry))
+    .map(entry => Entry(state, entry, emit))
 
   return entries
 }
