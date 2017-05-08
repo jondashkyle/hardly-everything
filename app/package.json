@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "budo src/index.js:bundle.js --dir public --live --pushstate -- -t [ sheetify/transform ]",
+    "start": "budo src/index.js:bundle.js --dir dist --live --pushstate -- -t [ sheetify/transform ]",
     "build": "browserify src/index.js -o dist/bundle.js -t [ sheetify/transform ] -g es2040"
   },
   "author": "",
@@ -27,6 +27,7 @@
     "node-uuid": "^1.4.7",
     "normalize-url": "^1.6.1",
     "object.values": "^1.0.3",
+    "rooch": "^2.2.0",
     "sheetify": "^5.0.3",
     "valid-url": "^1.0.9",
     "webfontloader": "^1.6.26",

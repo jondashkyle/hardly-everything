@@ -12,6 +12,7 @@ before starting to revisit the project, some time was spent looking into using v
   - switch to rooch
   - update build system
   - move from firebase to digital ocean
+  - move loaded check from main view to plugin
 - promo
 - options
   - open links in new tab

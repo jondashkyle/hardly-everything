@@ -1,9 +1,11 @@
-const html = require('choo/html')
+var html = require('rooch/html')
 
-const { linearConversion } = require('../helpers/scale')
+var { linearConversion } = require('../helpers/scale')
 
-module.exports = (state, prev, send) => {
-  const blockPadding = linearConversion({
+module.exports = Css
+
+function Css (state, emit) {
+  var blockPadding = linearConversion({
     value: state.options.values.spacing,
     out: {
       min: 0.5,
@@ -11,7 +13,7 @@ module.exports = (state, prev, send) => {
     }
   })
 
-  const fontSize = linearConversion({
+  var fontSize = linearConversion({
     value: state.options.values.scale,
     out: {
       min: 0.5,

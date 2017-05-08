@@ -1,13 +1,13 @@
-const webfontloader = require('webfontloader')
+var webfontloader = require('webfontloader')
 
-exports.local = (send, done) => {
-  send('options:loaded', { typeLocal: true }, done)
+exports.local = (cb) => {
+  cb()
 }
 
 exports.load = (data, send, done) => {
   switch (data.host) {
     case 'google':
-      const value = data.weight
+      var value = data.weight
         ? data.value + ':' + data.weight
         : data.value
       return webfontloader.load({
