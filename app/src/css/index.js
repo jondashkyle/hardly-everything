@@ -14,8 +14,6 @@ var options = {
   responsive: true
 }
 
-console.log(options.fontSize)
-
 var gr8css = gr8(options)
 
 sf('./reset.css', { global: true })
