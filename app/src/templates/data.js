@@ -7,15 +7,14 @@ var css = require('../components/css')
 
 var style = sf`
   :host {
-    min-height: calc(100vh - 3rem);
-    margin-top: 3rem;
+    min-height: calc(100vh - 4.5rem);
+    margin-top: 4.5rem;
     position: relative;
     width: 100%;
   }
 
   pre,
   textarea {
-    font-size: 1rem;
     border: 0;
     line-height: 1.5;
     display: block;
@@ -74,14 +73,14 @@ var elNavigation = (state, emit) => {
   `)
 
   return html`<div
-    class="x bg-black tc-white psf t0 l0 r0 z2"
-    style="line-height: 3rem"
+    class="x fs1 bg-black tc-white psf t0 l0 r0 z2"
+    style="line-height: 4.5rem"
   >
     ${elsOpts}
     <a
       href="/" 
-      class="tac opt-bl tc-white fs1-5"
-      style="width: 3rem; height: 3rem"
+      class="tac opt-bl tc-white fs1-4"
+      style="width: 4.5rem; height: 4.5rem"
     >×</a>
   </div>`
 }
@@ -89,11 +88,11 @@ var elNavigation = (state, emit) => {
 var elImport = (state,emit) => {
   return html`<div class="${style}">
     <textarea
-      class="mono bg-white tc-black p2 fs1 lh1-5"
+      class="mono bg-white tc-black p1 fs1 lh1-5"
       placeholder="Must be valid link JSON"
     ></textarea>
     <div
-      class="psf b0 r0 z2 bg-black tc-white py1 px2 curp"
+      class="fs1 psf b0 r0 z2 bg-black tc-white py1 px2 curp"
       onclick=${event => handleImportClick(event, emit)}
     >
       Submit
@@ -105,13 +104,12 @@ var elExport = (state, emit) => {
   var entries = state.entries.all
 
   return html`<div class="${style}">
-    <pre class="mono bg-white tc-black p2" contenteditable="true"><code>${JSON.stringify(entries, null, 2)}</code></pre>
+    <pre class="fs1 mono bg-white tc-black p1" contenteditable="true"><code>${JSON.stringify(entries, null, 2)}</code></pre>
   </div>`
 }
 
 var view = (state, emit) => {
   var command = getCommand(state.params.command)
-  console.log(state)
 
   var elContent = command === 'import'
     ? elImport

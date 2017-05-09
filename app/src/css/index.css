@@ -1,5 +1,5 @@
 html {
-  font-size: 2.5vmin;
+  font-size: 62.50%;
 }
 
 body {
@@ -45,6 +45,13 @@ a {
  */
 .list-comma-seperated > span:not(:last-child):after {
   content: ', '
+}
+
+/**
+ * Design
+ */
+.design-container {
+  font-size: 2.5vmin;
 }
 
 /**

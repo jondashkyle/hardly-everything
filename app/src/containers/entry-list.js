@@ -62,15 +62,19 @@ function EntryList (state, emit) {
     : elEntriesNone(state, emit)
 
   return html`
-    <div
-      class="
-        x xw xac xjc tac
-        design-font design-background design-color-entry design-block-padding
-      "
-      style="
-        line-height: 1.2;
-        ${containerStyle}
-      "
-    >${elContent}</div>
+    <div class="design-container">
+      <div
+        class="
+          x xw xac xjc tac
+          design-font design-background design-color-entry design-block-padding
+        "
+        style="
+          line-height: 1.2;
+          ${containerStyle}
+        "
+      >
+        ${elContent}
+      </div>
+    </div>
   `
 }

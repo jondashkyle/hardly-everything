@@ -71,7 +71,7 @@ function Css (state, emit) {
       .design-font {
         font-family: ${state.options.values.font.value}, sans-serif;
         font-weight: ${state.options.values.font.weight || 400};
-        font-size: ${fontSize}rem;
+        font-size: ${fontSize}em;
       }
     </style>
   `

@@ -4,7 +4,7 @@ const x = require('xtend')
 const inputRange = (opts) => {
   const options = x({
     name: 'Range',
-    height: '3rem',
+    height: '4.5rem',
     slideBg: 'rgba(127, 127, 127, 0.165)',
     value: 20,
     valueShow: true,

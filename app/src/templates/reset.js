@@ -1,4 +1,4 @@
-const h = require('choo/html')
+const html = require('rooch/html')
 
 const css = require('../components/css')
 
@@ -8,20 +8,20 @@ const resetAll = (send) => {
   send('user:reset')
 }
 
-const resetEntries = (send) => send('entries:reset')
-const resetOptions = (send) => send('options:reset')
-const resetUser = (send) => send('user:reset')
+const resetEntries = (emit) => emit('entries:reset')
+const resetOptions = (emit) => emit('options:reset')
+const resetUser = (emit) => emit('user:reset')
 
-module.exports = (state, prev, send) => {
-  const elContainer = content => h`<div
+module.exports = (state, emit) => {
+  const elContainer = content => html`<div
     class="psf t0 r0 b0 l0 x xjc xac fs2"
   >${content}</div>`
 
-  const elReset = h`<div class="c6">
+  const elReset = html`<div class="c6">
     <div class="p0-5">
       <div
         class="py1 fs2 curp bg-black tc-white tac"
-        onclick=${el => resetAll(send)}
+        onclick=${el => resetAll(emit)}
       >
         Reset Everything
       </div>
@@ -30,7 +30,7 @@ module.exports = (state, prev, send) => {
     <div class="p0-5">
       <div
         class="py1 fs2 curp bg-black tc-white tac"
-        onclick=${el => resetOptions(send)}
+        onclick=${el => resetOptions(emit)}
       >
         Reset Options
       </div>
@@ -39,28 +39,19 @@ module.exports = (state, prev, send) => {
     <div class="p0-5">
       <div
         class="py1 fs2 curp bg-black tc-white tac"
-        onclick=${el => resetEntries(send)}
+        onclick=${el => resetEntries(emit)}
       >
         Reset Entries
       </div>
     </div>
-
-    <div class="p0-5">
-      <div
-        class="py1 fs2 curp bg-black tc-white tac"
-        onclick=${el => resetUser(send)}
-      >
-        Reset Account
-      </div>
-    </div>
   </div>`
 
-  const elConfirmation = h`<div>
+  const elConfirmation = html`<div>
     Your local data has been reset
   </div>`
 
-  return h`<div> 
+  return html`<div> 
     ${elContainer(elReset)}
-    ${css(state, prev, send)}
+    ${css(state, emit)}
   </div>`
 }

@@ -9,16 +9,15 @@ var inputTypography = require('../components/input-typography')
 
 var style = sf`
   :host {
-    line-height: 3rem;
+    line-height: 4.5rem;
   }
 
   input {
     text-align: right;
     border: 0;
-    height: 3rem;
-    line-height: 3rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
     padding: 0 1rem;
-    font-size: 1rem;
     outline: 0;
     width: 100%;
   }
@@ -87,8 +86,8 @@ exports.view = (state, emit) => {
       <div class="c4 opt-bl x xjc xac psr">
         <a href="http://hello.hardlyeverything.com" class="psa t0 l0 r0 b0 z2"></a>
         <div class="lh1-5 tac">
-          <div>Currently in Beta</div>
-          <div class="fs0-7">Visit the log for info & updates</div>
+          <div class="fs1-4">Currently in Beta</div>
+          <div class="fs1">Visit the log for info & updates</div>
         </div>
         <div class="dn psa t0 r0 p0-5 lh1">
           <span class="r45">→</span>

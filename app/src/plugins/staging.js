@@ -25,7 +25,7 @@ function getEmptyState () {
       duration: 7,
       interval: 'days',
       visited: 0,
-      timeRange: 50,
+      timeRange: 20,
       url: ''
     }
   }

@@ -86,7 +86,7 @@ module.exports = (state, emit) => {
           value="${state.panel.staging.title}"
           oninput=${e => send('panel:updateStaging', { title: e.target.value })}
           type="text"
-          class="c12 sans bg-white px1 brit"
+          class="fs1 c12 sans bg-white px1 brit"
         />
       </div>
       <div class="p1px">
@@ -96,7 +96,7 @@ module.exports = (state, emit) => {
           value="${state.panel.staging.url}"
           oninput=${e => send('panel:updateStaging', { url: e.target.value })}
           type="text"
-          class="c12 sans bg-white px1"
+          class="fs1 c12 sans bg-white px1"
         />
       </div>
       <div class="c12 x" style="line-height: 3rem">
@@ -120,7 +120,7 @@ module.exports = (state, emit) => {
               duration: parseInt(e.target.value || 0)
             })}
             type="text"
-            class="p0 c12 tac fs1 mono bg-white tc-black"
+            class="fs1 p0 c12 tac fs1 mono bg-white tc-black"
           />
         </div>
         <div class="c2 p1px">
@@ -131,7 +131,7 @@ module.exports = (state, emit) => {
               interval: e.target.value
             })}
             type="text"
-            class="p0 c12 tac fs1 sans bg-white tc-black"
+            class="fs1 p0 c12 tac fs1 sans bg-white tc-black"
           />
         </div>
       </div>
@@ -141,7 +141,7 @@ module.exports = (state, emit) => {
             name="delete"
             value="Delete"
             tabindex="-1"
-            class="c12 tc-black bg-white sans bribl"
+            class="fs1 c12 tc-black bg-white sans bribl"
             onclick=${e => send('entries:remove', { id: state.panel.staging.id })}
             type="button"
           />
@@ -151,7 +151,7 @@ module.exports = (state, emit) => {
             name="cancel"
             value="Cancel"
             tabindex="-1"
-            class="c12 tc-black bg-white sans bribl"
+            class="fs1 c12 tc-black bg-white sans bribl"
             onclick=${e => send('panel:open', { open: false })}
             type="button"
           />
@@ -161,7 +161,7 @@ module.exports = (state, emit) => {
             type="submit"
             value="Save"
             tabindex="-1"
-            class="c12 bg-white tc-black sans bribr"
+            class="fs1 c12 bg-white tc-black sans bribr"
           />
         </div>
         

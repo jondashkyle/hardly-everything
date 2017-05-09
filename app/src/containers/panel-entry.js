@@ -19,9 +19,8 @@ const style = sf`
   }
 
   input {
-    font-size: 1rem;
-    height: 3rem;
-    line-height: 3rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
     outline: 0;
   }
 
@@ -87,7 +86,7 @@ const form = (state, emit) => {
           value="${state.staging.entry.title}"
           oninput=${e => emit('staging:entry', { title: e.target.value })}
           type="text"
-          class="c12 sans bg-white tc-black px1 brit"
+          class="fs1 c12 sans bg-white tc-black px1 brit"
         />
       </div>
       <div class="p1px">
@@ -97,12 +96,12 @@ const form = (state, emit) => {
           value="${state.staging.entry.url}"
           oninput=${e => emit('staging:entry', { url: e.target.value })}
           type="text"
-          class="c12 sans bg-white tc-black px1"
+          class="fs1 c12 sans bg-white tc-black px1"
         />
       </div>
       <div class="c12 x" style="line-height: 3rem">
         <div class="c8 p1px">
-          <div class="c12 bg-white tc-black">
+          <div class="fs1 c12 bg-white tc-black">
             ${inputRange({
               name: 'Rest',
               value: state.staging.entry.timeRange,
@@ -142,7 +141,7 @@ const form = (state, emit) => {
             name="delete"
             value="Delete"
             tabindex="-1"
-            class="c12 tc-black bg-white sans bribl"
+            class="fs1 c12 tc-black bg-white sans bribl"
             onclick=${e => remove(state.staging.entry.id, emit)}
             type="button"
           />
@@ -152,7 +151,7 @@ const form = (state, emit) => {
             name="cancel"
             value="Cancel"
             tabindex="-1"
-            class="c12 tc-black bg-white sans bribl"
+            class="fs1 c12 tc-black bg-white sans bribl"
             onclick=${e => reset(emit)}
             type="button"
           />
@@ -162,10 +161,9 @@ const form = (state, emit) => {
             type="submit"
             value="Save"
             tabindex="-1"
-            class="c12 bg-white tc-black sans bribr"
+            class="fs1 c12 bg-white tc-black sans bribr"
           />
         </div>
-        
       </div>
     </form>
   `

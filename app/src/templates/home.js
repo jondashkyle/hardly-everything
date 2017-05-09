@@ -26,6 +26,6 @@ function view (state, emit) {
 
 module.exports = (state, emit) => {
   return state.app.loaded
-    ? html`<div>${view(state, emit)}</div>`
-    : html`<div>nah</div>`
+    ? html`<div class="fs1">${view(state, emit)}</div>`
+    : html`<div class="fs1">nah</div>`
 }
