@@ -28,7 +28,9 @@ const templateEntries = (state, emit) => {
       }
     })
     .sort((a, b) => {
-      return getDismissedDate(a) - getDismissedDate(b)
+      return state.ui.entriesViewAll
+        ? getDismissedDate(b) - getDismissedDate(a)
+        : getDismissedDate(a) - getDismissedDate(b)
     })
     .map(entry => Entry(state, entry, emit))
 
