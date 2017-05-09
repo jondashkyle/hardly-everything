@@ -98,58 +98,92 @@ var optionsTypography = {
   }
 }
 
-// exports.reducers = {
-//   typography: (data, state) => ({
-//     typography: x(state.typography, {
-//       [data.key]: x(state.typography[data.key], data.value)
-//     })
-//   }),
-//   update: (data, state) => ({
-//     values: x(state.values, data)
-//   }),
-//   loaded: (data, state) => ({ loaded: x(state.loaded, data) })
-// }
-
-// exports.effects = {
-//   reset: (data, state, send, done) => {
-//     db.update({ }, exports.state.values)
-//     send('options:update', exports.state.values, done)
-//   },
-//   values: (data, state, send, done) => {
-//     var newState = clone(state.values)
-//     newState[data.key] = data.value
-
-//     if (data.key === 'font') {
-//       typography.load(data.value, send, done)
-//     }
-
-//     db.update(data, newState)
-//     send('options:update', newState, done)
-//   },
-//   invert: (data, state, send, done) => {
-//     var newState = clone(state.values)
-
-//     if (state.values.invert) {
-//       newState.invert = false
-//       newState.colorBg = '#fff'
-//       newState.colorText = '#000'
-//     } else {
-//       newState.invert = true
-//       newState.colorBg = '#000'
-//       newState.colorText = '#fff'
-//     }
-
-//     db.update({ }, newState)
-//     send('options:update', newState, done)
-//   }
-// }
-
-// exports.namespace = namespace
-
 module.exports = Options
 
 function Options (state, emitter) {
-  state.options = {
+  state.options = getDefaultState()
+
+  // typography
+  emitter.on('options:typography', function (data) {
+    // not sure how this was used before
+    // state.options.typography = x(state.typography, {
+    //   [data.key]: x(state.options.typography[data.key], data.value)
+    // })
+  })
+
+  // values
+  emitter.on('options:values', function (data) {
+    var newState = clone(state.options.values)
+    newState[data.key] = data.value
+
+    if (data.key === 'font') {
+      typography.load(data.value, function (event, _data) {
+        emitter.emit(event, _data)
+      })
+    }
+
+    db.update(data, newState)
+    emitter.emit('options:update', newState)
+  })
+
+  // update
+  emitter.on('options:update', function (data) {
+    state.options.values = x(state.options.values, data)
+    emitter.emit('render')
+  })
+
+  // reset
+  emitter.on('reset', function (data) {
+    var defaults = getDefaultState().values
+    db.update({ }, defaults)
+    emitter.emit('options:update', defaults)
+  })
+
+  // loaded
+  emitter.on('options:loaded', function (data) {
+    state.options.loaded = x(state.options.loaded, data)
+    emitter.emit('render')
+  })
+
+  emitter.on('options:invert', function (data) {
+    var newState = clone(state.options.values)
+
+    if (state.options.values.invert) {
+      newState.invert = false
+      newState.colorBg = '#fff'
+      newState.colorText = '#000'
+    } else {
+      newState.invert = true
+      newState.colorBg = '#000'
+      newState.colorText = '#fff'
+    }
+
+    db.update({ }, newState)
+    emitter.emit('options:update', newState)
+  })
+
+  // type
+  typography.local(function () {
+    emitter.emit('options:loaded', { typeLocal: true })
+    emitter.emit('render')
+  })
+
+  // init
+  db.get(function (data) {
+    if (data.font) {
+      typography.load(data.font, () => emitter.emit)
+    } else {
+      typography.load(state.options.values.font, () => emitter.emit)
+    }
+
+    emitter.emit('options:update', data)
+    emitter.emit('options:loaded', { data: true })
+    emitter.emit('render')
+  })
+}
+
+function getDefaultState () {
+ return {
     design: {
       colorBg: {
         name: 'Background',
@@ -166,7 +200,7 @@ function Options (state, emitter) {
       font: {
         name: 'Font',
         key: 'font',
-        type: 'dropdown',
+        type: 'typography',
         visible: true
       },
       scale: {
@@ -207,53 +241,5 @@ function Options (state, emitter) {
       data: false
     },
     typography: optionsTypography
-  }
-
-  // typography
-  emitter.on('options:typography', function (data) {
-    typography(data, state, emitter.emit)
-  })
-
-  // update
-  emitter.on('options:update', function (data) {
-    update(data, state, emitter.emit)
-  })
-
-  // loaded
-  emitter.on('options:loaded', function (data) {
-    loaded(data, state, emitter.emit)
-  })
-
-  // type
-  typography.local(function () {
-    emitter.emit('options:loaded', { typeLocal: true })
-    emitter.emit('render')
-  })
-
-  // init
-  db.get(function (data) {
-    if (data.font) {
-      typography.load(data.font, () => emitter.emit)
-    } else {
-      typography.load(state.options.values.font, () => emitter.emit)
-    }
-
-    emitter.emit('options:update', data)
-    emitter.emit('options:loaded', { data: true })
-    emitter.emit('render')
-  })
-}
-
-function typography (data, state, emit) {
-  state.options.typography = x(state.typography, {
-    [data.key]: x(state.typography[data.key], data.value)
-  })
-}
-
-function update (data, state, emit) {
-  state.options.values = x(state.options.values, data)
-}
-
-function loaded (data, state, emit) {
-  state.options.loaded = x(state.options.loaded, data)
+  } 
 }

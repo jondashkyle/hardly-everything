@@ -9,6 +9,8 @@ require('./plugins').forEach(plugin => app.use(plugin))
 
 // routes
 app.route('/', require('./templates/home'))
+app.route('/data', require('./templates/data'))
+app.route('/data/:command', require('./templates/data'))
 
 // app.model(require('./model/entries'))
 // app.model(require('./model/options'))

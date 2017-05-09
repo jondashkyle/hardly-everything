@@ -80,27 +80,88 @@ function Entries (state, emitter) {
 
   // add
   emitter.on('entries:add', function (data) {
-    add(state, data, () => emitter.emit) 
+    var id = uuid.v4()
+    var staging = x({
+      id: id,
+      dateAdded: moment().toISOString(),
+      dateUpdated: moment().toISOString(),
+      dateDismissed: moment().subtract(10, 'years').toISOString()
+    }, data)
+
+    var entry = formatEntry(staging)
+    var validation = validateEntry(entry)
+
+    if (validation === true) {
+      var newState = clone(state.entries.all)
+      newState[id] = entry
+
+      emitter.emit('staging:reset', { })
+      emitter.emit('ui:update', { stagingActive: false })
+      emitter.emit('entries:all', newState)
+      emitter.emit('render')
+
+      db.add(entry, newState)
+    } else {
+      alert(validation)
+    }
   })
 
   // update
   emitter.on('entries:update', function (data) {
-    update(state, data, () => emitter.emit)
+    var entry = formatEntry(data)
+    var validation = validateEntry(entry)
+
+    entry.dateUpdated = moment().toISOString()
+
+    if (validation === true) {
+      var newState = clone(state.entries.all)
+      newState[data.id] = entry
+
+      emitter.emit('staging:reset', { })
+      emitter.emit('ui:update', { stagingActive: false })
+      emitter.emit('entries:all', newState)
+      emitter.emit('render')
+
+      db.update(data, newState)
+    } else {
+      alert(validation)
+    }
   })
 
   // dismiss
   emitter.on('entries:dismiss', function (data) {
-    dismiss(state, data, () => emitter.emit)
+    var newState = clone(state.entries.all)
+    var curEntry = newState[data.id]
+    var newEntry = x(curEntry, {
+      visited: curEntry.visited + 1,
+      dateUpdated: moment().toISOString(),
+      dateDismissed: moment().toISOString()
+    })
+
+    newState[data.id] = newEntry
+
+    emitter.emit('entries:all', newState)
+    emitter.emit('render')
+    db.update(newEntry, newState)
   })
 
   // remove
   emitter.on('entries:remove', function (data) {
-    remove(state, data, () => emitter.emit)
+    var newState = clone(state.entries.all)
+    delete newState[data.id]
+
+    emit('entries:all', newState)
+    emit('render')
+
+    db.remove(data, newState)
   })
 
   // reset
   emitter.on('entries:reset', function (data) {
-    reset(state, data, () => emitter.emit)
+    var newState = data ? data : { }
+    emitter.emit('entries:all', newState)
+    emitter.emit('render')
+    db.update(newState, newState) 
   })
 
   // refresh
@@ -121,100 +182,4 @@ function Entries (state, emitter) {
   setInterval(function () {
     emitter.emit('entries:refresh')
   }, 1000 * 61)
-}
-
-/**
- * Add
- */
-function add (state, data, emit) {
- var id = uuid.v4()
-  var staging = x({
-    id: id,
-    dateAdded: moment().toISOString(),
-    dateUpdated: moment().toISOString(),
-    dateDismissed: moment().subtract(10, 'years').toISOString()
-  }, data)
-
-  var entry = formatEntry(staging)
-  var validation = validateEntry(entry)
-
-  if (validation === true) {
-    var newState = clone(state.entries.all)
-    newState[id] = entry
-
-    emit('staging:reset', { })
-    emit('ui:update', { stagingActive: false })
-    emit('entries:all', newState)
-    emit('render')
-
-    db.add(entry, newState)
-  } else {
-    alert(validation)
-  }
-}
-
-/**
- * Remove
- */
-function remove (state, data, emit) {
-  var newState = clone(state.entries.all)
-  delete newState[data.id]
-
-  emit('entries:all', newState)
-  emit('render')
-
-  db.remove(data, newState) 
-}
-
-/**
- * Update
- */
-function update (state, data, emit) {
-  var entry = formatEntry(data)
-  var validation = validateEntry(entry)
-
-  entry.dateUpdated = moment().toISOString()
-
-  if (validation === true) {
-    var newState = clone(state.entries.all)
-    newState[data.id] = entry
-
-    emit('staging:reset', { })
-    emit('ui:update', { stagingActive: false })
-    emit('entries:all', newState)
-    emit('render')
-
-    db.update(data, newState)
-  } else {
-    alert(validation)
-  } 
-}
-
-/**
- * Dismiss
- */
-function dismiss (state, data, emit) {
-  var newState = clone(state.entries.all)
-  var curEntry = newState[data.id]
-  var newEntry = x(curEntry, {
-    visited: curEntry.visited + 1,
-    dateUpdated: moment().toISOString(),
-    dateDismissed: moment().toISOString()
-  })
-
-  newState[data.id] = newEntry
-
-  emit('entries:all', newState)
-  emit('render')
-  db.update(newEntry, newState) 
-}
-
-/**
- * Reset
- */
-function reset (state, data, emit) {
-  var newState = data ? data : { }
-  emit('entries:all', newState)
-  emit('render')
-  db.update(newState, newState) 
 }

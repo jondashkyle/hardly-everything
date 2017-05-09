@@ -1,17 +1,11 @@
+var h = require('rooch/h')
 var html = require('rooch/html')
 var sf = require('sheetify')
 var x = require('xtend')
 
 var inputText = require('../components/input-text')
 var inputRange = require('../components/input-range')
-var inputDropdown = require('../components/input-dropdown')
-
-var namespace = 'panelOptions'
-
-var font = inputDropdown({
-  namespace: 'font',
-  parent: namespace
-})
+var inputTypography = require('../components/input-typography')
 
 var style = sf`
   :host {
@@ -39,38 +33,21 @@ var templateOption = (state, option, emit) => {
         name: option.name,
         value: state.options.values[option.key],
         valueShow: option.valueShow,
-        handleInput: value => emit('options:values', {
-          key: option.key,
-          value: value
-        })
+        handleInput: function (value) {
+          emit('options:values', {
+            key: option.key,
+            value: value
+          })
+        }
       })
-    case 'dropdown':
-      // return font.view({
-      //   local: state[namespace].font,
-      //   current: state.options.values.font,
-      //   options: state.options.typography
-      // }, emit)
+    case 'typography':
+      return h(inputTypography, {
+        current: state.options.values.font,
+        options: state.options.typography
+      })
     default:
-      return
+      return ''
   }
-}
-
-var model = {
-  state: {
-    font: font.model.state
-  },
-  reducers: {
-
-  }
-}
-
-exports.model = {
-  namespace: namespace,
-  state: model.state,
-  reducers: x(
-    font.model.reducers,
-    model.reducers
-  )
 }
 
 var handleInvertClick = (event, emit) => {

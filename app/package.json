@@ -26,6 +26,7 @@
     "moment": "^2.14.1",
     "node-uuid": "^1.4.7",
     "normalize-url": "^1.6.1",
+    "object-values": "^1.0.0",
     "object.values": "^1.0.3",
     "rooch": "^2.2.0",
     "sheetify": "^5.0.3",

@@ -1,4 +1,4 @@
-var h = require('choo/html')
+var html = require('rooch/html')
 var x = require('xtend')
 var ov = require('object.values')
 var sf = require('sheetify')
@@ -42,24 +42,24 @@ var navigationOpts = {
 
 var getCommand = command => command || 'export'
 
-var handleImportClick = (send, event) => {
+var handleImportClick = (event, emit) => {
   var input = event.target.parentNode.querySelector('textarea')
   var value = input.value
 
   try {
     var result = JSON.parse(value)
-    send('entries:reset', result)
+    emit('entries:reset', result)
   } catch (err) {
     alert('Please enter valid JSON')
     console.warn(err)
   }
 }
 
-var elNavigation = (state, prev, send) => {
+var elNavigation = (state, emit) => {
   var command = getCommand(state.params.command)
   var opts = ov(navigationOpts)
 
-  var elsOpts = opts.map((opt, i) => h`
+  var elsOpts = opts.map((opt, i) => html`
     <a
       href="/data/${opt.key}"
       class="
@@ -73,7 +73,7 @@ var elNavigation = (state, prev, send) => {
     </a>
   `)
 
-  return h`<div
+  return html`<div
     class="x bg-black tc-white psf t0 l0 r0 z2"
     style="line-height: 3rem"
   >
@@ -86,40 +86,41 @@ var elNavigation = (state, prev, send) => {
   </div>`
 }
 
-var elImport = (state, prev, send) => {
-  return h`<div class="${style}">
+var elImport = (state,emit) => {
+  return html`<div class="${style}">
     <textarea
       class="mono bg-white tc-black p2 fs1 lh1-5"
       placeholder="Must be valid link JSON"
     ></textarea>
     <div
       class="psf b0 r0 z2 bg-black tc-white py1 px2 curp"
-      onclick=${e => handleImportClick(send, e)}
+      onclick=${event => handleImportClick(event, emit)}
     >
       Submit
     </div>
   </div>`
 }
 
-var elExport = (state, prev, send) => {
+var elExport = (state, emit) => {
   var entries = state.entries.all
 
-  return h`<div class="${style}">
+  return html`<div class="${style}">
     <pre class="mono bg-white tc-black p2" contenteditable="true"><code>${JSON.stringify(entries, null, 2)}</code></pre>
   </div>`
 }
 
-var view = (state, prev, send) => {
+var view = (state, emit) => {
   var command = getCommand(state.params.command)
+  console.log(state)
 
   var elContent = command === 'import'
     ? elImport
     : elExport
 
-  return h`<div class="sans">
-    ${elNavigation(state, prev, send)}
-    ${elContent(state, prev, send)}
-    ${css(state, prev, send)}
+  return html`<div class="sans">
+    ${elNavigation(state, emit)}
+    ${elContent(state, emit)}
+    ${css(state, emit)}
   </div>`
 }
 
