@@ -40,7 +40,7 @@ module.exports = (state, emit) => {
         onclick=${e => emit('ui:update', {
           panelActive: !state.ui.panelActive
         })}>
-        edit
+        options
       </div>
       <div
         class="

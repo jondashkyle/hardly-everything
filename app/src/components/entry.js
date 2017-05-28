@@ -1,43 +1,36 @@
-const html = require('rooch/html')
-
-/**
- * Tags
- */
-const templateTags = (tags) => tags.map(tag => html`
-  <span><a href="/tags/${tag}">${tag}</a></span>
-`)
-
-/**
- * Handle Click
- */
-const handleClick = (state, event, emit) => {
-  const parent = event.target.closest('[data-id]')
-  const id = parent.getAttribute('data-id')
-
-  if (state.ui.panelActive) {
-    const staging = state.entries.all[id]
-    if (id !== undefined && staging !== undefined) {
-      emit('staging:entry', staging)
-      emit('ui:update', { stagingActive: true })
-    }
-
-    event.preventDefault()
-  } else {
-    emit('entries:dismiss', { id: id })
-  }
-}
+var html = require('rooch/html')
 
 module.exports = Entry
 
 function Entry (state, data, emit) {
   return html`
-    <div class="component-entry c12" data-id="${data.id}">
-      <a
-        href="${data.url}"
-        class="dib design-block-padding tc-black"
-        onclick=${e => handleClick(state, event, emit)}>
-        ${data.title}
-      </a>
+    <div class="component-entry c12">
+      <div class="dib psr design-block-padding">
+        <a
+          href="${data.url}"
+          class="tc-black"
+          onclick=${handleClick}
+        >${data.title}</a>
+        <span
+          class="psa t0 r0 curp oph100"
+          style="font-size: 11px"
+          onclick=${handleClickEdit}
+        >EDIT</span>
+      </div>
     </div>
   `
+
+  function handleClick (event) {
+    emit('entries:dismiss', { id: data.id })
+  }
+
+  function handleClickEdit () {
+    var staging = state.entries.all[data.id]
+    if (data.id !== undefined && staging !== undefined) {
+      emit('staging:entry', staging)
+      emit('ui:update', { stagingActive: true })
+    }
+
+    event.preventDefault()
+  }
 }

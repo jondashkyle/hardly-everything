@@ -1,48 +1,13 @@
-const html = require('rooch/html')
-const sf = require('sheetify')
-const x = require('xtend')
+var html = require('rooch/html')
+var sf = require('sheetify')
+var x = require('xtend')
 
-const { intToRest } = require('../helpers/time')
-const inputRange = require('../components/input-range')
+var { intToRest } = require('../helpers/time')
+var inputRange = require('../components/input-range')
 
-/**
- * Style
- */
-const style = sf`
-  :host {
-    padding: 1px;
-    width: 50%;
-  }
+module.exports = view
 
-  :host > div {
-    width: 100%;
-  }
-
-  input {
-    height: 4.5rem;
-    line-height: 4.5rem;
-    outline: 0;
-  }
-
-  input[type="text"] {
-    border: 0;
-    outline: 0;
-    margin: 0;
-  }
-
-  input[type="submit"] {
-    border: 0;
-  }
-
-  input[type="button"] {
-    border: 0;
-  }
-`
-
-/**
- * Submit
- */
-const handleSubmit = (state, event, emit) => {
+function handleSubmit (state, event, emit) {
   if (state.staging.entry.id) {
     emit('entries:update', state.staging.entry)
   } else {
@@ -52,30 +17,21 @@ const handleSubmit = (state, event, emit) => {
   event.preventDefault()
 }
 
-const handleLoad = (state, element, emit) => {
-  // const title = element.querySelector('[name="title"]')
-  // title.focus()
-}
-
-const reset = emit => {
+function reset (emit) {
   emit('ui:update', { stagingActive: false })
   emit('staging:reset')
 }
 
-const remove = (id, emit) => {
+function remove (id, emit) {
   reset(emit)
   emit('entries:remove', { id: id })
 }
 
-const form = (state, emit) => {
-  const getTime = value => intToRest({
-    value: value
-  })
-
+function view (state, emit) {
   return html`
     <form
       autocomplete="off"
-      class="${style} x xw bg-black sans bro"
+      class="x xw bg-black sans bro"
       onload=${element => handleLoad(state, element, emit)}
       onsubmit=${event => handleSubmit(state, event, emit)}
     >
@@ -167,21 +123,16 @@ const form = (state, emit) => {
       </div>
     </form>
   `
-}
 
-const handleContainerClick = (event, emit) => {
-  if (event.target.hasAttribute('data-entry-panel')) {
-    reset(emit)
+  function getTime (value) {
+    return intToRest({
+      value: value
+    })
   }
 }
 
-module.exports = (state, emit) => {
-  return html`
-    <div
-      data-entry-panel
-      class="psf t0 l0 r0 b0 xjc xac z2 x"
-      onclick=${event => handleContainerClick(event, emit)}>
-      ${form(state, emit)}
-    </div>
-  `
+function handleContainerClick (event, emit) {
+  if (event.target.hasAttribute('data-entry-panel')) {
+    reset(emit)
+  }
 }

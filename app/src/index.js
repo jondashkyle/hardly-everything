@@ -2,23 +2,18 @@ var html = require('rooch/html')
 var rooch = require('rooch')
 require('./css')
 
+var wrapper = require('./containers/wrapper')
 var app = rooch()
 
 // plugins
 require('./plugins').forEach(plugin => app.use(plugin))
 
 // routes
-app.route('/', require('./templates/home'))
-app.route('/data', require('./templates/data'))
-app.route('/data/:command', require('./templates/data'))
-app.route('/reset', require('./templates/reset'))
-
-// app.model(require('./model/entries'))
-// app.model(require('./model/options'))
-// app.model(require('./model/staging'))
-// app.model(require('./model/ui'))
-
-// app.model(require('./containers/panel-options').model)
+app.route('/', wrapper(require('./templates/home')))
+app.route('/panel', wrapper(require('./templates/panel')))
+app.route('/data', wrapper(require('./templates/data')))
+app.route('/data/:command', wrapper(require('./templates/data')))
+app.route('/reset', wrapper(require('./templates/reset')))
 
 // app.router((route) => [
 //   route('/', require('./templates/index')),

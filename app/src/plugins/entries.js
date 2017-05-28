@@ -177,9 +177,4 @@ function Entries (state, emitter) {
   }, () => {
     emitter.emit('entries:loaded', true)
   })
-
-  // refresh
-  setInterval(function () {
-    emitter.emit('entries:refresh')
-  }, 1000 * 61)
 }
