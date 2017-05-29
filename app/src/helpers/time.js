@@ -19,7 +19,7 @@ const intToRest = opts => {
       interval: 'weeks',
       result: {
         min: 1,
-        max: 10
+        max: 6
       },
       range: {
         min: 0.6,

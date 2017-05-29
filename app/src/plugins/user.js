@@ -1,54 +1,57 @@
-const x = require('xtend')
-const namespace = 'user'
+var x = require('xtend')
+var clone = require('clone-deep')
+var moment = require('moment')
 
-exports.state = {
-  credentials: {
-    email: '',
-    photoURL: '',
-    uuid: ''
-  },
-  analytics: {
-    authenticated: true,
-    visits: 0
-  },
-  loaded: false,
-  signedIn: false
-}
+var db = require('../db/user')
 
-exports.subscriptions = [
-  (send, done) => {
-    db.get(data => {
-      send(namespace + ':init', data, done)
-    }, () => {
-      send(namespace + ':loaded', true, done)
+module.exports = user
+
+function user (state, emitter) {
+  state.user = getState()
+
+  emitter.on('DOMContentLoaded', function () {
+    db.get(function (data) {
+      emitter.emit('user:load', data)
+    }, function () {
+      emitter.emit('user:loaded', data)
     })
-  }
-]
+  })
 
-exports.reducers = {
-  credentials: (data, state) => ({ credentials: data }),
-  update: (data, state) => (data),
-  loaded: (data, state) => ({ loaded: data })
+  emitter.on('user:loaded', function (data) {
+    state.user.analytics.visits += 1
+    state.user.analytics.lastvisit = moment().toISOString()
+    emitter.emit('user:update')
+  })
+
+  emitter.on('user:load', function (data) {
+    state.user = x(state.user, data)
+    emitter.emit('user:loaded', data)
+  })
+
+  emitter.on('user:update', function (data) {
+    db.update(data, state.user)
+    emitter.emit('render')
+  })
+
+  emitter.on('user:reset', function (data) {
+    state.user = getState()
+    emitter.emit('user:update')
+  })
 }
 
-exports.effects = {
-  analytics: (data, state, send, done) => {
-    const newState = { analytics: x(state.analytics, data) }
-    send(namespace + ':update', newState, done)
-    db.analytics(data, newState)
-  },
-  reset: (data, state, send, done) => {
-    send(namespace + ':update', { }, done)
-    db.save({ }, exports.state)
-  },
-  init: (data, state, send, done) => {
-    const newState = x(state, data)
-    send(namespace + ':update', newState, done)
-    send(namespace + ':loaded', true, done)
-    send(namespace + ':analytics', {
-      visits: newState.analytics.visits + 1
-    }, done)
+function getState () {
+  return {
+    credentials: {
+      email: '',
+      photoURL: '',
+      uuid: ''
+    },
+    analytics: {
+      authenticated: true,
+      visits: 0,
+      lastvisit: undefined
+    },
+    loaded: false,
+    signedIn: false
   }
 }
-
-exports.namespace = namespace

@@ -1,15 +1,32 @@
 var db = require('../db/options')
 var clone = require('clone-deep')
+var ov = require('object-values')
 var x = require('xtend')
 
 var typography = require('../css/typography')
 
 var optionsTypography = {
+  systemLight: {
+    name: 'System Light',
+    key: 'sans',
+    host: 'local',
+    active: true,
+    weight: 200,
+    value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+  },
   system: {
     name: 'System',
     key: 'sans',
     host: 'local',
     active: true,
+    value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+  },
+  systemBold: {
+    name: 'System Bold',
+    key: 'sans',
+    host: 'local',
+    active: true,
+    weight: 700,
     value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
   },
   cabin: {
@@ -103,14 +120,6 @@ module.exports = Options
 function Options (state, emitter) {
   state.options = getDefaultState()
 
-  // typography
-  emitter.on('options:typography', function (data) {
-    // not sure how this was used before
-    // state.options.typography = x(state.typography, {
-    //   [data.key]: x(state.options.typography[data.key], data.value)
-    // })
-  })
-
   // values
   emitter.on('options:values', function (data) {
     var newState = clone(state.options.values)
@@ -162,23 +171,35 @@ function Options (state, emitter) {
     emitter.emit('options:update', newState)
   })
 
-  // type
-  typography.local(function () {
-    emitter.emit('options:loaded', { typeLocal: true })
-    emitter.emit('render')
+  emitter.on('options:typography', function () {
+    ov(state.options.typography).forEach((data) => {
+      typography.load(data, () => emitter.emit)
+    })
   })
 
-  // init
-  db.get(function (data) {
-    if (data.font) {
-      typography.load(data.font, () => emitter.emit)
-    } else {
-      typography.load(state.options.values.font, () => emitter.emit)
-    }
+  // type
+  emitter.on('DOMContentLoaded', function () {
+    typography.local(function () {
+      emitter.emit('options:loaded', { typeLocal: true })
+      emitter.emit('render')
+    })
 
-    emitter.emit('options:update', data)
-    emitter.emit('options:loaded', { data: true })
-    emitter.emit('render')
+    // init
+    db.get(function (data) {
+      if (data.font) {
+        typography.load(data.font, function () {
+          emitter.emit('options:loaded', { typeCustom: true })
+        })
+      } else {
+        typography.load(state.options.values.font, function () {
+          emitter.emit('options:loaded', { typeCustom: true })
+        })
+      }
+
+      emitter.emit('options:update', data)
+      emitter.emit('options:loaded', { data: true })
+      emitter.emit('render')
+    })
   })
 }
 
@@ -225,6 +246,12 @@ function getDefaultState () {
         name: 'Invert',
         key: 'invert',
         visible: false
+      },
+      autoDismiss: {
+        name: 'Auto Hide Entries',
+        key: 'autoDismiss',
+        type: 'checkbox',
+        visible: true
       }
     },
     values: {
@@ -233,7 +260,8 @@ function getDefaultState () {
       font: optionsTypography.system,
       scale: 35,
       spacing: 5,
-      invert: false
+      invert: false,
+      autoDismiss: true
     },
     loaded: {
       typeLocal: false,

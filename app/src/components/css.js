@@ -31,6 +31,10 @@ function Css (state, emit) {
         padding: ${blockPadding * 0.8}rem ${blockPadding}rem;
       }
 
+      .design-block-margin {
+        margin: ${blockPadding * 0.8}rem ${blockPadding}rem;
+      }
+
       .tc-black {
         color: ${state.options.values.colorText};
       }
@@ -48,16 +52,28 @@ function Css (state, emit) {
       }
 
       .fill-black {
-        fill:  ${state.options.values.colorText};
+        fill: ${state.options.values.colorText};
       }
 
       .fill-white {
-        fill:  ${state.options.values.colorBg};
+        fill: ${state.options.values.colorBg};
+      }
+
+      .stroke-black {
+        stroke: ${state.options.values.colorText};
+      }
+
+      .stroke-white {
+        stroke: ${state.options.values.colorBg};
       }
 
       .design-color-entry,
       .design-color-entry a, {
         color: ${state.options.values.colorText};
+      }
+
+      .arrow-bottom:before {
+        border-bottom: 4px solid ${state.options.values.colorText};
       }
 
       .strike:before {
@@ -71,6 +87,9 @@ function Css (state, emit) {
       .design-font {
         font-family: ${state.options.values.font.value}, sans-serif;
         font-weight: ${state.options.values.font.weight || 400};
+      }
+
+      .design-font-size {
         font-size: ${fontSize}em;
       }
     </style>

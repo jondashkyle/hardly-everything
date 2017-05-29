@@ -7,35 +7,14 @@ var inputRange = require('../components/input-range')
 
 module.exports = view
 
-function handleSubmit (state, event, emit) {
-  if (state.staging.entry.id) {
-    emit('entries:update', state.staging.entry)
-  } else {
-    emit('entries:add', state.staging.entry)
-  }
-
-  event.preventDefault()
-}
-
-function reset (emit) {
-  emit('ui:update', { stagingActive: false })
-  emit('staging:reset')
-}
-
-function remove (id, emit) {
-  reset(emit)
-  emit('entries:remove', { id: id })
-}
-
 function view (state, emit) {
   return html`
     <form
       autocomplete="off"
-      class="x xw bg-black sans bro"
-      onload=${element => handleLoad(state, element, emit)}
-      onsubmit=${event => handleSubmit(state, event, emit)}
+      class="x xw bg-black bro p1px"
+      onsubmit=${handleSubmit}
     >
-      <div class="p1px">
+      <div class="c12 p1px">
         <input
           name="title"
           placeholder="Title"
@@ -45,7 +24,7 @@ function view (state, emit) {
           class="fs1 c12 sans bg-white tc-black px1 brit"
         />
       </div>
-      <div class="p1px">
+      <div class="c12 p1px">
         <input
           name="url"
           placeholder="http://"
@@ -56,7 +35,7 @@ function view (state, emit) {
         />
       </div>
       <div class="c12 x" style="line-height: 3rem">
-        <div class="c8 p1px">
+        <div class="xx p1px">
           <div class="fs1 c12 bg-white tc-black">
             ${inputRange({
               name: 'Rest',
@@ -98,26 +77,16 @@ function view (state, emit) {
             value="Delete"
             tabindex="-1"
             class="fs1 c12 tc-black bg-white sans bribl"
-            onclick=${e => remove(state.staging.entry.id, emit)}
-            type="button"
-          />
-        </div>
-        <div class="${!state.staging.entry.id ? 'x c4' : 'dn'} p1px">
-          <input
-            name="cancel"
-            value="Cancel"
-            tabindex="-1"
-            class="fs1 c12 tc-black bg-white sans bribl"
-            onclick=${e => reset(emit)}
+            onclick=${e => remove(state.staging.entry.id)}
             type="button"
           />
         </div>
         <div class="xa p1px">
           <input
             type="submit"
-            value="Save"
+            value="${!state.staging.entry.id ? 'Add' : 'Save'}"
             tabindex="-1"
-            class="fs1 c12 bg-white tc-black sans bribr"
+            class="fs1 c12 bg-white tc-black sans fwb ${state.staging.entry.id ? 'bribr' : 'brib'}"
           />
         </div>
       </div>
@@ -129,10 +98,24 @@ function view (state, emit) {
       value: value
     })
   }
-}
 
-function handleContainerClick (event, emit) {
-  if (event.target.hasAttribute('data-entry-panel')) {
-    reset(emit)
+  function handleSubmit (event) {
+    if (state.staging.entry.id) {
+      emit('entries:update', state.staging.entry)
+    } else {
+      emit('entries:add', state.staging.entry)
+    }
+
+    event.preventDefault()
+  }
+
+  function reset () {
+    emit('staging:reset')
+    emit('pushState', '/')
+  }
+
+  function remove (id) {
+    reset()
+    emit('entries:remove', { id: id })
   }
 }

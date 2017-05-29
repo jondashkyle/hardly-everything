@@ -38,19 +38,19 @@ function templateEntries (state, emit) {
 }
 
 function emptyEl () {
-  return html`<div class="fs2">
-    <svg height="50" width="50" viewBox="0 0 100 100"><path d="M50 100C22.386 100 0 77.614 0 50S22.386 0 50 0s50 22.386 50 50-22.386 50-50 50zM20 50.105C20 66.615 33.43 80 50 80s30-13.384 30-29.895c0-.14-60-.14-60 0zM35 41c5.523 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10 4.477 10 10 10zm30 0c5.523 0 10-4.477 10-10s-4.477-10-10-10-10 4.477-10 10 4.477 10 10 10z" class="fill-black" fill-rule="evenodd"/></svg>
-  </div>`
+  return html`
+    <div class="fs2 sans fwn">
+      Nothing more for today
+    </div>
+  `
 }
 
 function elEntriesNone (state, emit) {
   return html`
     <div class="fs2 lh1-5 sans fwn">
-      There aren’t any links,<br>
+      There aren’t any entries,<br>
       go ahead and
-      <span class="curp fwb" onclick=${e => emit('ui:update', {
-        stagingActive: !state.ui.stagingActive
-      })}>add one</span>?
+      <a href="/panel/entry" class="tc-black fwb">add one</span>?
     </div>
   `
 }
@@ -71,7 +71,7 @@ function EntryList (state, emit) {
       <div
         class="
           x xw xac xjc tac
-          design-font design-background design-color-entry design-block-padding
+          design-font design-font-size design-background design-color-entry design-block-padding
         "
         style="
           line-height: 1.2;

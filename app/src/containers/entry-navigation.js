@@ -1,57 +1,23 @@
 var html = require('rooch/html')
 var sf = require('sheetify')
 
-var styles = sf`
-  :host {
-    font-size: 14px;
-  }
+module.exports = view
 
-  .strike {
-    position: relative;
-  }
-
-  .strike:before {
-    content: '';
-    position: absolute;
-    left: 0.5rem;
-    right: 0.5rem;
-    bottom: 2px;
-    height: 2px;
-  }
-`
-
-var newClick = (state, emit) => ({ open: !state.panel.open })
-
-module.exports = (state, emit) => {
+function view (state, emit) {
   return html`
-    <div class="psf b0 r0 p0-5 lh1 x z2 usn sans ttu fwb ${styles}">
+    <div class="psf t0 r0 px0-5 lh1 x z2 usn sans fs1">
       <div
         class="
-          p0-5 curp
-          ${state.ui.stagingActive ? 'strike' : ''}
-        "
-        onclick=${e => emit('ui:update', {
-          stagingActive: !state.ui.stagingActive
-        })}>
-        add
-      </div> 
-      <div
-        class="p0-5 curp ${state.ui.panelActive ? 'strike' : ''}"
-        onclick=${e => emit('ui:update', {
-          panelActive: !state.ui.panelActive
-        })}>
-        options
-      </div>
-      <div
-        class="
-          p0-5 curp
-          ${state.ui.entriesViewAll ? 'strike' : ''} 
+          px0-5 curp oph100 line
+          ${state.ui.entriesViewAll ? 'op100' : 'op25'} 
         "
         onclick=${e => emit('ui:update', {
           entriesViewAll: !state.ui.entriesViewAll
         })}>
-        all
+        All
       </div>
+      <div class="dn px0-5 line op25 oph100">Search</div>
+      <div class="dn px0-5 line op25 oph100">Tags</div>
     </div>
   `
 }

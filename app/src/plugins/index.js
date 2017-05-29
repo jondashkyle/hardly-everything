@@ -5,6 +5,6 @@ module.exports = [
   require('./loaded'),
   require('./options'),
   require('./ui'),
-  require('./staging')
-  // require('./user')
+  require('./staging'),
+  require('./user')
 ]

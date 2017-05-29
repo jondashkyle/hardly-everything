@@ -12,9 +12,9 @@ function view (state, data, emit) {
         type="text"
         class="bg-black tc-white"
         value="${state.options.design[data.key].value}"
-        oninput=${e => send('options:design', {
+        oninput=${e => emit('options:values', {
           key: data.key,
-          value: e.target.value 
+          value: e.target.value
         })}
       >
     </div>

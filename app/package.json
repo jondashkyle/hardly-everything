@@ -18,7 +18,6 @@
     "array-from": "^2.1.1",
     "axios": "^0.14.0",
     "budo": "^9.0.0",
-    "choo": "^3.2.2",
     "choo-log": "^1.4.1",
     "clone-deep": "^0.2.4",
     "firebase": "^3.4.1",

@@ -17,6 +17,7 @@ body {
  */
 .lh1 { line-height: 1 }
 .fwl { font-weight: 200 }
+.fwn { font-weight: normal }
 .fw-800 { font-weight: 800 }
 
 .sans {
@@ -24,7 +25,16 @@ body {
 }
 
 .mono {
-  font-family: "Space Mono", menlo, monaco, monospace;
+  font-family: menlo, monaco, monospace;
+}
+
+/**
+ * Sizes
+ */
+ 
+.line {
+  height: 4.5rem;
+  line-height: 4.5rem;
 }
 
 /**
@@ -78,6 +88,7 @@ a {
 .curt { cursor: text }
 
 .bro { border-radius: 4px }
+.bror { border-bottom-right-radius: 4px }
 
 .brit {
   border-top-left-radius: 2px;
@@ -99,6 +110,13 @@ a {
 }
 
 /**
+ * Hovers
+ */
+.ophc:hover .ophc100 { opacity: 1 }
+.ophc:hover .ophc100 { opacity: 1 }
+.oph100:hover { opacity: 1 }
+
+/**
  * Placeholder
  */
 ::-webkit-input-placeholder { color: rgba(127, 127, 127, 0.5); }
@@ -113,15 +131,12 @@ a {
   border-top: 0;
   border-left: 0;
   overflow-y: auto;
-  max-height: 50vh;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0px;
+  max-height: 16rem;
+  border-top: 2px solid rgba(127, 127, 127, 0.33);
 }
 
 .input-dropdown-options > div:not(:last-child) {
-  border-bottom: 1px dashed rgba(127, 127, 127, 0.33);
+  border-bottom: 1px solid rgba(127, 127, 127, 0.33);
 }
 
 /**
@@ -165,4 +180,20 @@ a {
   overflow: hidden;
   z-index: 100;
   animation: spinner 800ms linear infinite;
+}
+
+/**
+ * Arrow
+ */
+.arrow-bottom:before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  width: 0; 
+  height: 0; 
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
 }

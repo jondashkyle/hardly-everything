@@ -4,29 +4,16 @@ var sf = require('sheetify')
 var x = require('xtend')
 
 var inputText = require('../components/input-text')
+var inputCheckbox = require('../components/input-checkbox')
 var inputRange = require('../components/input-range')
 var inputTypography = require('../components/input-typography')
-
-var style = sf`
-  :host {
-    line-height: 4.5rem;
-  }
-
-  input {
-    text-align: right;
-    border: 0;
-    height: 4.5rem;
-    line-height: 4.5rem;
-    padding: 0 1rem;
-    outline: 0;
-    width: 100%;
-  }
-`
 
 var templateOption = (state, option, emit) => {
   switch (option.type) {
     case 'text':
       return inputText(state, option, emit)
+    case 'checkbox':
+      return inputCheckbox(state, option, emit)
     case 'range':
       return inputRange({
         name: option.name,
@@ -49,50 +36,49 @@ var templateOption = (state, option, emit) => {
   }
 }
 
-var handleInvertClick = (event, emit) => {
-  emit('options:invert')
-}
+module.exports = view
 
-exports.view = (state, emit) => {
+function view (state, emit) {
   return html`
-    <div class="
-      bg-black tc-white psf t0 l0 r0 z3 sans usn
-      ${style}
-      ${state.ui.panelActive ? 'x' : 'dn'}
-    ">
-      <div class="c4 opt-br">
-        <div class="opt-bb">
-          ${templateOption(state, state.options.design.scale, emit)}
-        </div>
-        <div class="opt-bt">
+    <div class="x xw c12 p1px bro bg-black tc-white sans usn">
+      <div class="c12 p1px">
+        <div class="tc-black bg-white brit psr z1">
           ${templateOption(state, state.options.design.font, emit)}
         </div>
       </div>
-      <div class="c4 opt-bl opt-br">
-        <div class="opt-bb">
+      <div class="c12 p1px">
+        <div class="tc-black bg-white">
+          ${templateOption(state, state.options.design.scale, emit)}
+        </div>
+      </div>
+      <div class="c12 p1px">
+        <div class="tc-black bg-white">
           ${templateOption(state, state.options.design.spacing, emit)}
         </div>
-        <div class="opt-bt x tac">
-          <div class="c6 opt-br curp" onclick=${e => handleInvertClick(e, emit)}>
-            Invert
+      </div>
+      <div class="c12">
+        <div class="x tac">
+          <div class="c6 curp p1px" onclick=${handleInvertClick}>
+            <div class="bg-white line tc-black">
+              Invert
+            </div>
           </div>
-          <div class="c6 opt-bl curp">
-            <a href="/data/" class="db tc-white">
+          <div class="c6 p1px curp">
+            <a href="/data/" class="line bg-white db tc-black">
               Data
             </a>
           </div>
         </div>
       </div>
-      <div class="c4 opt-bl x xjc xac psr">
-        <a href="http://hello.hardlyeverything.com" class="psa t0 l0 r0 b0 z2"></a>
-        <div class="lh1-5 tac">
-          <div class="fs1-4">Currently in Beta</div>
-          <div class="fs1">Visit the log for info & updates</div>
-        </div>
-        <div class="dn psa t0 r0 p0-5 lh1">
-          <span class="r45">→</span>
+      <div class="c12 p1px">
+        <div class="tc-black bg-white brib line">
+          ${templateOption(state, state.options.design.autoDismiss, emit)}
         </div>
       </div>
     </div>
   `
+
+  function handleInvertClick () {
+    emit('options:invert')
+  }
 }

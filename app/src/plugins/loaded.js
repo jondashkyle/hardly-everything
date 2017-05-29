@@ -8,10 +8,17 @@ function loaded (state, emitter) {
 
   emitter.on('*', checkLoad)
 
+  emitter.on('DOMContentLoaded', function () {
+    // fallback
+    setTimeout(() => {
+      state.app.loaded = true
+    }, 5000)
+  })
+
   function checkLoad (data) {
     if (
       state.entries.loaded &&
-      // state.options.loaded.typeCustom &&
+      state.options.loaded.typeCustom &&
       state.options.loaded.typeLocal &&
       state.options.loaded.data &&
       !state.app.loaded

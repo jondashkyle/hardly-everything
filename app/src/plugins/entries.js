@@ -83,6 +83,7 @@ function Entries (state, emitter) {
     var id = uuid.v4()
     var staging = x({
       id: id,
+      content: { },
       dateAdded: moment().toISOString(),
       dateUpdated: moment().toISOString(),
       dateDismissed: moment().subtract(10, 'years').toISOString()
@@ -150,8 +151,8 @@ function Entries (state, emitter) {
     var newState = clone(state.entries.all)
     delete newState[data.id]
 
-    emit('entries:all', newState)
-    emit('render')
+    emitter.emit('entries:all', newState)
+    emitter.emit('render')
 
     db.remove(data, newState)
   })
