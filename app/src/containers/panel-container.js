@@ -28,7 +28,12 @@ function view (state, emit) {
 
   var view = views[state.params.view]
   var content = view && view.view && typeof view.view === 'function'
-    ? view.view()
+    ? html`
+        <div class="pea psr">
+          <div class="psa t0 l0 r0 b0 bro b2b pen z2"></div>
+          <div class="p1px">${view.view()}</div>
+        </div>
+      `
     : ''
 
 
@@ -38,9 +43,9 @@ function view (state, emit) {
       onclick=${handleContainerClick}
       data-panel
     >
-      <div class="wrem40 p1px sans fs1 pen" sm="c12">
+      <div class="panel wrem40 p1px sans fs1 pen" sm="c12">
         ${navigation()} 
-        <div class="pea">${content}</div>
+        ${content}
       </div>
     </div>
   `

@@ -10,7 +10,7 @@ function view (state, emit) {
   return html`
     <form
       autocomplete="off"
-      class="x xw bg-black bro p1px"
+      class="x xw bg-black"
       onsubmit=${handleSubmit}
     >
       <div class="c12 p1px">

@@ -20,7 +20,6 @@ class Typography extends Component {
   }
 
   handleOptionClick (data, event) {
-    this.setState({ active: false })
     this.emit('options:values', {
       key: 'font',
       value: data

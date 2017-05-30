@@ -132,7 +132,7 @@ a {
 }
 
 .input-dropdown-options > div:last-child) {
-  border-bottom: 0;
+  border-bottom: 0 !important;
 }
 
 /**
@@ -197,6 +197,12 @@ a {
 /**
  * Panel
  */
+
+.panel-content {
+  overflow: auto;
+  max-height: 80vh;
+}
+
 input {
   font-size: 1rem;
   height: 3rem;
@@ -210,12 +216,11 @@ input[type="text"] {
   margin: 0;
 }
 
+
+input[type="button"],
 input[type="submit"] {
   border: 0;
-}
-
-input[type="button"] {
-  border: 0;
+  cursor: pointer;
 }
 
 /**
