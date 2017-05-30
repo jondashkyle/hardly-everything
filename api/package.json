@@ -1,16 +1,16 @@
 {
-  "name": "hardly-a-server",
+  "name": "hardly-an-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "",
     "start": "node ."
   },
   "author": "Jon-Kyle <contact@jon-kyle.com> (http://jon-kyle.com)",
   "license": "ISC",
   "dependencies": {
-    "compression": "^1.6.2",
     "express": "^4.15.3",
-    "serve-static": "^1.12.3"
+    "merry": "^4.7.2"
   }
 }

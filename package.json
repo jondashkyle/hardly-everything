@@ -1,0 +1,21 @@
+{
+  "name": "hardly-everything",
+  "version": "1.0.0",
+  "description": "an attention & time focused bookmarking app",
+  "main": "index.js",
+  "scripts": {
+    "build-app": "cd app && npm run build",
+    "build-api": "cd api && npm run build",
+    "build": "npm run build-api && npm run build-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jondashkyle/asdf.git"
+  },
+  "author": "Jon-Kyle <contact@jon-kyle.com> (http://jon-kyle.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jondashkyle/asdf/issues"
+  },
+  "homepage": "https://github.com/jondashkyle/asdf#readme"
+}

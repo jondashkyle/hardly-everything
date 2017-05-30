@@ -52,11 +52,22 @@ function view (state, emit) {
 
   function navigation () {
     return html`
-      <div class="x line c12 tc-black fs1 pen">
+      <div class="x line c12 tc-black fs1 pen usn">
         ${ov(views)
           .filter(view => view.active !== false)
           .map(navigationLink)
         }
+        <div class="mr1"></div> 
+        <div
+          class="
+            mr1 curp oph100 line pea
+            ${state.ui.entriesViewAll ? 'op100' : 'op33'} 
+          "
+          onclick=${e => emit('ui:update', {
+            entriesViewAll: !state.ui.entriesViewAll
+          })}>
+          All
+        </div>
       </div>
     `
   }

@@ -5,16 +5,12 @@ module.exports = view
 function view (state, emit) {
   return html`
     <div class="psf t0 r0 px0-5 lh1 x z2 usn sans fs1">
-      <div
-        class="
-          px0-5 curp oph100 line
-          ${state.ui.entriesViewAll ? 'op100' : 'op33'} 
-        "
-        onclick=${e => emit('ui:update', {
-          entriesViewAll: !state.ui.entriesViewAll
-        })}>
-        All
-      </div>
+      <a
+        href="http://hello.hardlyeverything.com"
+        class="px0-5 curp oph100 line pea op33 tc-black"
+      >
+        Hello
+      </a>
       <div class="px0-5 line">
         ${state.ui.date}
       </div>
