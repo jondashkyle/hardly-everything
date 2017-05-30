@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run build-css && npm run build-js",
-    "build-css": "node ./src/design | postcss --use autoprefixer --use postcss-clean > dist/bundle.css",
-    "watch-css": "watch 'node ./src/design > dist/bundle.css' ./src",
-    "build-js": "browserify src/index.js -t envify -g aliasify -t brfs -t [ babelify --presets [ babel-preset-es2015 babel-preset-react ] ] -g uglifyify > dist/bundle.js",
-    "watch-js": "budo src/index.js:bundle.js --dir dist --pushstate --live -- -t [ envify --NODE_ENV development ] -g aliasify -t brfs",
+    "build-css": "node ./src/design | postcss --use autoprefixer --use postcss-clean > dist/bundles/bundle.css",
+    "watch-css": "watch 'node ./src/design > dist/bundles/bundle.css' ./src",
+    "build-js": "browserify src/index.js -t envify -g aliasify -t brfs -t [ babelify --presets [ babel-preset-es2015 babel-preset-react ] ] -g uglifyify > dist/bundles/bundle.js",
+    "watch-js": "budo src/index.js:bundles/bundle.js --dir dist --pushstate --live -- -t [ envify --NODE_ENV development ] -g aliasify -t brfs",
     "start": "concurrently --kill-others \"npm run watch-js\" \"npm run watch-css\""
   },
   "author": "",
