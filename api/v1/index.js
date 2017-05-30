@@ -1,6 +1,6 @@
 var merry = require('merry')
 var github = require('github-webhook-handler')
-var { execFile } = require('child_process')
+var { spawn } = require('child_process')
 var credentials = require('./credentials')
 
 var hook = github({
@@ -25,13 +25,22 @@ function handleHook (req, res, ctx) {
 
   hook.once('push', function (event) {
     ctx.send(200, { msg: 'deploying' })
-    execFile('sh', ['deploy.sh'], function (error, stdout, stderr) {
-      if (error) {
-        console.log('nah 2')
-        ctx.log.warn('deployment failed')
-      } else {
-        ctx.log.log('deployment complete')
-      }
+
+    var deploy = spawn('sh', ['./deploy.sh'], {
+      cwd: __dirname,
+      env: process.env
+    })
+
+    deploy.stdout.on('data', function(data) {
+      console.log(data.toString())
+    })
+
+    deploy.stdout.on('error', function(data) {
+      ctx.log.warn('deployment failed')
+    })
+
+    deploy.on('close', function(code) {
+      ctx.log.info('deployment successful')
     })
   })
 }
