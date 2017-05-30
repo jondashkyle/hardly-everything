@@ -38,7 +38,6 @@
     "lilcss": "0.0.0",
     "lodash.throttle": "^4.1.1",
     "moment": "^2.14.1",
-    "node-uuid": "^1.4.7",
     "normalize-url": "^1.6.1",
     "object-values": "^1.0.0",
     "preact": "^8.1.0",
@@ -46,6 +45,7 @@
     "recsst": "^1.1.2",
     "rooch": "^2.2.0",
     "tinycolor2": "^1.4.1",
+    "uuid": "^3.0.1",
     "valid-url": "^1.0.9",
     "webfontloader": "^1.6.26",
     "xtend": "^4.0.1"

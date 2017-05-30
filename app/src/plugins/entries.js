@@ -2,7 +2,7 @@ var db = require('../db/entries')
 var x = require('xtend')
 var clone = require('clone-deep')
 var moment = require('moment')
-var uuid = require('node-uuid')
+var uuid = require('uuid')
 var normalizeUrl = require('normalize-url')
 var validUrl = require('valid-url')
 
