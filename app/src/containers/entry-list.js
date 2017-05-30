@@ -23,7 +23,7 @@ function templateEntries (state, emit) {
         entry.visited >= 1
       ) {
         var dismissed = getDismissedDate(entry)
-        return dismissed < now
+        return dismissed <= now
       } else {
         return true
       }
