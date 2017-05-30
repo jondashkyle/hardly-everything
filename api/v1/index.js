@@ -27,6 +27,7 @@ function handleHook (req, res, ctx) {
     ctx.send(200, { msg: 'deploying' })
     execFile('sh', ['deploy.sh'], function (error, stdout, stderr) {
       if (error) {
+        console.log('nah')
         ctx.log.warn('deployment failed')
       } else {
         ctx.log.log('deployment complete')
