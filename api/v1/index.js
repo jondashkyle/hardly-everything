@@ -4,7 +4,7 @@ var http = require('http')
 var notFound = merry.notFound
 var error = merry.error
 
-var env = merry.env({ PORT: 80 })
+var env = merry.env({ PORT: 8081 })
 var app = merry()
 
 app.router([
