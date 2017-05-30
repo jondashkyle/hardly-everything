@@ -1,5 +1,4 @@
 var html = require('rooch/html')
-var sf = require('sheetify')
 
 module.exports = view
 
@@ -9,15 +8,18 @@ function view (state, emit) {
       <div
         class="
           px0-5 curp oph100 line
-          ${state.ui.entriesViewAll ? 'op100' : 'op25'} 
+          ${state.ui.entriesViewAll ? 'op100' : 'op33'} 
         "
         onclick=${e => emit('ui:update', {
           entriesViewAll: !state.ui.entriesViewAll
         })}>
         All
       </div>
-      <div class="dn px0-5 line op25 oph100">Search</div>
-      <div class="dn px0-5 line op25 oph100">Tags</div>
+      <div class="px0-5 line">
+        ${state.ui.date}
+      </div>
+      <div class="dn px0-5 line op33 oph100">Search</div>
+      <div class="dn px0-5 line op33 oph100">Tags</div>
     </div>
   `
 }

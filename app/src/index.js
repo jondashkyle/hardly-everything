@@ -1,6 +1,5 @@
 var html = require('rooch/html')
 var rooch = require('rooch')
-require('./css')
 
 var wrapper = require('./containers/wrapper')
 var app = rooch()
@@ -18,12 +17,5 @@ app.route('/panel/:view/:id', wrapper(require('./templates/panel')))
 
 app.route('/data', wrapper(require('./templates/data')))
 app.route('/data/:command', wrapper(require('./templates/data')))
-
-// app.router((route) => [
-//   route('/', require('./templates/index')),
-//   route('/data', require('./templates/data')),
-//   route('/data/:command', require('./templates/data')),
-//   route('/reset', require('./templates/reset'))
-// ])
 
 app.mount('main')

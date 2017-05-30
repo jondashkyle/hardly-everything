@@ -1,9 +1,11 @@
 var x = require('xtend')
+var moment = require('moment')
 
 module.exports = Ui
 
 function Ui (state, emitter) {
   state.ui = {
+    date: moment().format('MMM Mo'),
     loaded: false,
     panelActive: false,
     stagingActive: false,

@@ -1,35 +1,8 @@
 var html = require('rooch/html')
-var sf = require('sheetify')
 var ov = require('object-values')
 
 var panelEntry = require('../containers/panel-entry')
 var panelOptions = require('../containers/panel-options')
-
-var style = sf`
-  :host {
-    width: 40rem;
-  }
-
-  input {
-    height: 4.5rem;
-    line-height: 4.5rem;
-    outline: 0;
-  }
-
-  input[type="text"] {
-    border: 0;
-    outline: 0;
-    margin: 0;
-  }
-
-  input[type="submit"] {
-    border: 0;
-  }
-
-  input[type="button"] {
-    border: 0;
-  }
-`
 
 module.exports = view
 
@@ -65,7 +38,7 @@ function view (state, emit) {
       onclick=${handleContainerClick}
       data-panel
     >
-      <div class="${style} sans fs1 pen">
+      <div class="wrem40 p1px sans fs1 pen" sm="c12">
         ${navigation()} 
         <div class="pea">${content}</div>
       </div>
@@ -89,7 +62,7 @@ function view (state, emit) {
       <a
         href="${active ? '/' : '/panel/' + view.path}"
         class="
-          ${active ? 'op100 arrow-bottom' : 'op25'}
+          ${active ? 'op100 arrow-bottom' : 'op33'}
           psr db oph100 mr1 tc-black pea
         "
       >

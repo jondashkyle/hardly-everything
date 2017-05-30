@@ -5,7 +5,6 @@ const inputRange = (opts) => {
   const options = x({
     name: 'Range',
     height: '4.5rem',
-    slideBg: 'rgba(127, 127, 127, 0.165)',
     value: 20,
     valueShow: true,
     handleInput: e => { }
@@ -37,9 +36,8 @@ const inputRange = (opts) => {
         oninput=${e => options.handleInput(Math.floor(parseInt(e.target.value) / 10))}
       >
       <div
-        class="psa t0 b0 range-position"
+        class="psa t0 b0 range-position bg-black-lighter"
         style="
-          background: ${options.slideBg};
           pointer-events: none;
           transform: translate3d(${options.value}%, 0, 0);
           width: 100%;

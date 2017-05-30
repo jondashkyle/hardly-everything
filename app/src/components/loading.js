@@ -1,5 +1,4 @@
 const html = require('rooch/html')
-const sf = require('sheetify')
 
 const icon = () => h`
   <div class="spinner"></div>

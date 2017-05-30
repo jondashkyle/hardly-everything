@@ -1,5 +1,4 @@
 var html = require('rooch/html')
-var sf = require('sheetify')
 var x = require('xtend')
 
 var { intToRest } = require('../helpers/time')
@@ -21,7 +20,7 @@ function view (state, emit) {
           value="${state.staging.entry.title}"
           oninput=${e => emit('staging:entry', { title: e.target.value })}
           type="text"
-          class="fs1 c12 sans bg-white tc-black px1 brit"
+          class="fs1 c12 sans bg-white tc-black px1 brit line"
         />
       </div>
       <div class="c12 p1px">
@@ -31,12 +30,12 @@ function view (state, emit) {
           value="${state.staging.entry.url}"
           oninput=${e => emit('staging:entry', { url: e.target.value })}
           type="text"
-          class="fs1 c12 sans bg-white tc-black px1"
+          class="fs1 c12 sans bg-white tc-black px1 line"
         />
       </div>
       <div class="c12 x" style="line-height: 3rem">
         <div class="xx p1px">
-          <div class="fs1 c12 bg-white tc-black">
+          <div class="fs1 c12 bg-white tc-black line">
             ${inputRange({
               name: 'Rest',
               value: state.staging.entry.timeRange,
@@ -55,7 +54,7 @@ function view (state, emit) {
               duration: parseInt(e.target.value || 0)
             })}
             type="text"
-            class="p0 c12 tac fs1 mono bg-white tc-black"
+            class="p0 c12 tac fs1 mono bg-white tc-black line"
           />
         </div>
         <div class="c2 p1px">
@@ -66,7 +65,7 @@ function view (state, emit) {
               interval: e.target.value
             })}
             type="text"
-            class="p0 c12 tac fs1 sans bg-white tc-black"
+            class="p0 c12 tac fs1 sans bg-white tc-black line"
           />
         </div>
       </div>
@@ -76,7 +75,7 @@ function view (state, emit) {
             name="delete"
             value="Delete"
             tabindex="-1"
-            class="fs1 c12 tc-black bg-white sans bribl"
+            class="fs1 c12 tc-black bg-white sans bribl line"
             onclick=${e => remove(state.staging.entry.id)}
             type="button"
           />
@@ -86,7 +85,7 @@ function view (state, emit) {
             type="submit"
             value="${!state.staging.entry.id ? 'Add' : 'Save'}"
             tabindex="-1"
-            class="fs1 c12 bg-white tc-black sans fwb ${state.staging.entry.id ? 'bribr' : 'brib'}"
+            class="fs1 c12 bg-white tc-black sans fwb line ${state.staging.entry.id ? 'bribr' : 'brib'}"
           />
         </div>
       </div>

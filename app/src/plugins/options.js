@@ -3,7 +3,7 @@ var clone = require('clone-deep')
 var ov = require('object-values')
 var x = require('xtend')
 
-var typography = require('../css/typography')
+var typography = require('../design/typography')
 
 var optionsTypography = {
   systemLight: {
@@ -42,6 +42,12 @@ var optionsTypography = {
     weight: 700,
     value: 'Cabin'
   },
+  cardo: {
+    name: 'Cardo',
+    key: 'cardo',
+    host: 'google',
+    value: 'Cardo'
+  },
   garamond: {
     name: 'Cormorant Garamond',
     key: 'garamond',
@@ -73,6 +79,12 @@ var optionsTypography = {
     host: 'google',
     value: 'Karla'
   },
+  notoSerif: {
+    name: 'Noto Serif',
+    key: 'notoSerif',
+    host: 'google',
+    value: 'Noto Serif'
+  },
   openSansLight: {
     name: 'Open Sans Light',
     key: 'openSansLight',
@@ -86,6 +98,19 @@ var optionsTypography = {
     host: 'google',
     weight: 700,
     value: 'Open Sans'
+  },
+  playfairDisplay: {
+    name: 'Playfair Display',
+    key: 'playfairDisplay',
+    host: 'google',
+    value: 'Playfair Display'
+  },
+  playfairDisplayBold: {
+    name: 'Playfair Display Bold',
+    key: 'playfairDisplaybold',
+    host: 'google',
+    weight: 700,
+    value: 'Playfair Display'
   },
   spaceMono: {
     name: 'Space Mono',
@@ -157,15 +182,9 @@ function Options (state, emitter) {
   emitter.on('options:invert', function (data) {
     var newState = clone(state.options.values)
 
-    if (state.options.values.invert) {
-      newState.invert = false
-      newState.colorBg = '#fff'
-      newState.colorText = '#000'
-    } else {
-      newState.invert = true
-      newState.colorBg = '#000'
-      newState.colorText = '#fff'
-    }
+    newState.invert = !state.options.values.invert
+    newState.colorBg = state.options.values.colorText
+    newState.colorText = state.options.values.colorBg
 
     db.update({ }, newState)
     emitter.emit('options:update', newState)
@@ -179,6 +198,8 @@ function Options (state, emitter) {
 
   // type
   emitter.on('DOMContentLoaded', function () {
+    var defaults = getDefaultState()
+
     typography.local(function () {
       emitter.emit('options:loaded', { typeLocal: true })
       emitter.emit('render')
@@ -196,6 +217,14 @@ function Options (state, emitter) {
         })
       }
 
+      if (typeof data.colorBg !== 'object') {
+        data.colorBg = defaults.values.colorBg
+      }
+
+      if (typeof data.colorText !== 'object') {
+        data.colorText = defaults.values.colorText
+      }
+
       emitter.emit('options:update', data)
       emitter.emit('options:loaded', { data: true })
       emitter.emit('render')
@@ -207,16 +236,16 @@ function getDefaultState () {
  return {
     design: {
       colorBg: {
-        name: 'Background',
+        name: 'Background color',
         key: 'colorBg',
-        type: 'text',
-        visible: false
+        type: 'color',
+        visible: true
       },
       colorText: {
-        name: 'Text',
+        name: 'Text color',
         key: 'colorText',
-        type: 'text',
-        visible: false
+        type: 'color',
+        visible: true
       },
       font: {
         name: 'Font',
@@ -251,12 +280,12 @@ function getDefaultState () {
         name: 'Auto Hide Entries',
         key: 'autoDismiss',
         type: 'checkbox',
-        visible: true
+        visible: false
       }
     },
     values: {
-      colorBg: '#fff',
-      colorText: '#000',
+      colorBg: { r: 255, g: 255, b: 255 },
+      colorText: { r: 0, g: 0, b: 0 },
       font: optionsTypography.system,
       scale: 35,
       spacing: 5,

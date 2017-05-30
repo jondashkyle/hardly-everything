@@ -4,7 +4,7 @@ var html = require('rooch/html')
 var x = require('xtend')
 var objectValues = require('object-values')
 
-var typography = require('../css/typography')
+var typography = require('../design/typography')
 
 class Typography extends Component {
   constructor () {
@@ -39,7 +39,7 @@ class Typography extends Component {
   elOption (data) {
     return html`
       <div
-        class="px1 curp fs1-5 line"
+        class="px1 curp fs1-5 line bb1-lighter"
         onclick=${event => this.handleOptionClick(data, event)}
         style="
           font-family: ${data.value}, sans-serif;
@@ -54,7 +54,7 @@ class Typography extends Component {
     return html`
       <div
         class="
-          bg-white tc-black input-dropdown-options
+          bg-white tc-black bt2-lighter input-dropdown-options
           ${this.state.active ? 'db' : 'dn'}
         "
         onscroll=${this.handleScroll}

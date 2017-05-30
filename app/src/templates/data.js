@@ -1,32 +1,8 @@
 var html = require('rooch/html')
 var x = require('xtend')
-var ov = require('object.values')
-var sf = require('sheetify')
+var ov = require('object-values')
 
 var css = require('../components/css')
-
-var style = sf`
-  :host {
-    min-height: calc(100vh - 4.5rem);
-    margin-top: 4.5rem;
-    position: relative;
-    width: 100%;
-  }
-
-  pre,
-  textarea {
-    border: 0;
-    line-height: 1.5;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    outline: 0;
-    width: 100%;
-  }
-`
 
 var navigationOpts = {
   export: {
@@ -86,7 +62,7 @@ var elNavigation = (state, emit) => {
 }
 
 var elImport = (state,emit) => {
-  return html`<div class="${style}">
+  return html`<div class="data">
     <textarea
       class="mono bg-white tc-black p1 fs1 lh1-5"
       placeholder="Must be valid link JSON"
@@ -103,7 +79,7 @@ var elImport = (state,emit) => {
 var elExport = (state, emit) => {
   var entries = state.entries.all
 
-  return html`<div class="${style}">
+  return html`<div class="data">
     <pre class="fs1 mono bg-white tc-black p1" contenteditable="true"><code>${JSON.stringify(entries, null, 2)}</code></pre>
   </div>`
 }

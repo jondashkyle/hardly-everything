@@ -1,5 +1,5 @@
 const h = require('choo/html')
-const ov = require('object.values')
+const ov = require('object-values')
 
 const namespace = 'ui'
 

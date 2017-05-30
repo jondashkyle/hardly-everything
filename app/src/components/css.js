@@ -21,10 +21,20 @@ function Css (state, emit) {
     }
   })
 
+  var colors = {
+    bg: state.options.values.colorBg,
+    fg: state.options.values.colorText
+  }
+
+  var colorBg = `rgb(${colors.bg.r}, ${colors.bg.g}, ${colors.bg.b})`
+  var colorFg = `rgb(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b})`
+  var colorFgLight = `rgba(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b}, 0.33)`
+  var colorFgLighter = `rgba(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b}, 0.165)`
+
   return html`
     <style>
       body {
-        background: ${state.options.values.colorBg};
+        background: ${colorBg};
       }
 
       .design-block-padding {
@@ -36,52 +46,77 @@ function Css (state, emit) {
       }
 
       .tc-black {
-        color: ${state.options.values.colorText};
+        color: ${colorFg};
       }
 
       .tc-white {
-        color: ${state.options.values.colorBg};
+        color: ${colorBg};
       }
 
+      ::-webkit-input-placeholder { color: ${colorFgLight} }
+      ::-moz-placeholder { color: ${colorFgLight} }
+      :-ms-input-placeholder { color: ${colorFgLight} }
+      :-moz-placeholder { color: ${colorFgLight} }
+
       .bg-black {
-        background: ${state.options.values.colorText};
+        background: ${colorFg};
       }
 
       .bg-white {
-        background: ${state.options.values.colorBg};
+        background: ${colorBg};
+      }
+
+      .bg-black-light {
+        background: ${colorFgLight};
+      }
+
+      .bg-black-lighter {
+        background: ${colorFgLighter};
       }
 
       .fill-black {
-        fill: ${state.options.values.colorText};
+        fill: ${colorFg};
       }
 
       .fill-white {
-        fill: ${state.options.values.colorBg};
+        fill: ${colorBg};
       }
 
       .stroke-black {
-        stroke: ${state.options.values.colorText};
+        stroke: ${colorFg};
       }
 
       .stroke-white {
-        stroke: ${state.options.values.colorBg};
+        stroke: ${colorBg};
       }
 
       .design-color-entry,
       .design-color-entry a, {
-        color: ${state.options.values.colorText};
+        color: ${colorFg};
       }
 
       .arrow-bottom:before {
-        border-bottom: 4px solid ${state.options.values.colorText};
-      }
-
-      .strike:before {
-        background: ${state.options.values.colorText};
+        border-bottom: 4px solid ${colorFg};
       }
 
       .bbu {
-        border-bottom-color: ${state.options.values.colorText};
+        border-bottom-color: ${colorFg};
+      }
+
+      .b1b {
+        border: 1px solid ${colorFg};
+      }
+
+      .b2b {
+        border: 2px solid ${colorFg};
+      }
+
+      .bt2-lighter {
+        border-top: 2px solid ${colorFgLighter};
+      }
+
+      .bb1-lighter {
+        border-bottom: 1px solid ${colorFgLighter};
       }
 
       .design-font {

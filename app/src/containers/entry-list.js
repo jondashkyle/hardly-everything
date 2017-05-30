@@ -1,16 +1,17 @@
 var html = require('rooch/html')
-var ov = require('object.values')
+var ov = require('object-values')
 var moment = require('moment')
 var Entry = require('../components/entry')
 
 function getDismissedDate (entry) {
   return moment(entry.dateDismissed)
     .add(entry.duration, entry.interval)
+    .startOf('day')
     .toDate()
 }
 
 function templateEntries (state, emit) {
-  var now = moment().toDate()
+  var now = moment().startOf('day').toDate()
 
   var entries = ov(state.entries.all)
     .filter(entry => {
