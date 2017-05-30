@@ -11,7 +11,6 @@ function view (state, emit) {
       >
         Hello
       </a>
-      <div>test</div>
       <div class="px0-5 line">
         ${state.ui.date}
       </div>
