@@ -1,25 +1,28 @@
 var merry = require('merry')
-var github = require('github-webhook-middleware')
+var github = require('github-webhook-handler')
+var credentials = require('./credentials')
+
+var hook = github({
+  path: '/v1/hardly-a-hook',
+  secret: credentials.github.secret
+}) 
 
 var mw = merry.middleware
 
-module.exports = [
-  [ '/v1/error', errorPath ],
-  [ '/v1/api', {
-    put: apiPutPath,
-    get: apiGetPath
-  } ]
-]
+module.exports = v1
 
-
-function errorPath (req, res, ctx, done) {
-  done(null, 'hello world')
+function v1 (app) {
+  app.route('POST', '/v1/hardly-a-hook', handleHook) 
 }
 
-function apiGetPath (req, res, ctx, done) {
-  done(null, 'hello HTTP GET')
+function handleHook (req, res, ctx) {
+  hook(req, res, function (err) {
+    ctx.send(401, { error: err })
+  })
 }
 
-function apiPutPath (req, res, ctx, done) {
-  done(null, 'hello HTTP PUT')
-}
+hook.on('push', function (event) {
+  console.log('Received a push event for %s to %s',
+    event.payload.repository.name,
+    event.payload.ref)
+})
