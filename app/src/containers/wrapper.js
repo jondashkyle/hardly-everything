@@ -5,13 +5,15 @@ module.exports = wrapper
 
 function wrapper (view) {
   return function (state, emit) {
-    return html`
-      <div>
-        ${[
-          css(state, emit),
-          view(state, emit)
-        ]}
-      </div>
-    `
+    return state.app.loaded
+    ? html`
+        <div>
+          ${[
+            css(state, emit),
+            view(state, emit)
+          ]}
+        </div>
+      `
+    : ''
   }
 }
