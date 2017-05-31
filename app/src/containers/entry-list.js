@@ -79,7 +79,9 @@ function EntryList (state, emit) {
           min-height: 100vh;
         "
       >
-        ${elContent}
+        <div>
+          ${elContent}
+        </div>
       </div>
     </div>
   `
