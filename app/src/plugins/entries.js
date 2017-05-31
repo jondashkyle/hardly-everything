@@ -97,9 +97,8 @@ function Entries (state, emitter) {
       newState[id] = entry
 
       emitter.emit('staging:reset', { })
-      emitter.emit('ui:update', { stagingActive: false })
       emitter.emit('entries:all', newState)
-      emitter.emit('render')
+      emitter.emit('pushState', '/')
 
       db.add(entry, newState)
     } else {
