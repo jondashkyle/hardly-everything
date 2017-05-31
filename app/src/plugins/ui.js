@@ -9,10 +9,13 @@ function Ui (state, emitter) {
   state.ui = {
     date: moment().format("MMM Do"),
     loaded: false,
-    panelActive: false,
     stagingActive: false,
     entriesViewAll: false,
     mobile: false,
+    panel: {
+      active: false,
+      view: ''
+    },
     intro: {
       position: 0,
       password: 'yucca',
