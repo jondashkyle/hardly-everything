@@ -9,7 +9,7 @@ module.exports = view
 function view (state, emit) {
   return [
     panel(state, emit),
-    entryList(state, emit),
+    !state.ui.mobile ? entryList(state, emit) : '',
     entryNavigation(state, emit)
   ]
 }
