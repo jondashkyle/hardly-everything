@@ -49,13 +49,15 @@ function view (state, emit) {
       onclick=${handleContainerClick}
       data-panel
     >
-      <div
-        class="psf t0 l0 px1 z3 ${state.ui.mobile ? 'bg-white bb2b' : ''}"
-        sm="r0"
-      >
-        ${navigation()} 
+      <div class="wrem40" onmouseleave=${() => !state.ui.mobile ? emit('pushState', '/') : ''}>
+        <div
+          class="psf t0 l0 px1 z3 ${state.ui.mobile ? 'bg-white bb2b' : ''}"
+          sm="r0"
+        >
+          ${navigation()} 
+        </div>
+        ${content}
       </div>
-      ${content}
     </div>
   `
 
@@ -95,6 +97,7 @@ function view (state, emit) {
           ${active ? 'op100 arrow-bottom' : 'op33'}
           psr db oph100 mr1 tc-black pea
         "
+        onmouseenter=${() => emit('pushState', '/panel/' + view.path)}
       >
         ${view.title}
       </a>
