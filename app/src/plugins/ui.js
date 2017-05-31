@@ -7,7 +7,7 @@ var resizeFrame
 
 function Ui (state, emitter) {
   state.ui = {
-    date: moment().format('MMM Mo'),
+    date: moment().format("MMM Do"),
     loaded: false,
     panelActive: false,
     stagingActive: false,
@@ -19,6 +19,8 @@ function Ui (state, emitter) {
       value: '',
     }
   }
+
+  console.log(state.ui.date)
 
   emitter.on('ui:intro', function (data) {
     state.ui.intro = x(state.ui.intro, data)
