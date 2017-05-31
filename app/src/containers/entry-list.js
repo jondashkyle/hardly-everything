@@ -67,6 +67,10 @@ function EntryList (state, emit) {
     : isEntriesAll && !elsEntries.length ? emptyEl()
     : elEntriesNone(state, emit)
 
+  var styleMobile = state.ui.mobile
+    ? 'margin-top: 4.5rem; min-height: calc(100vh - 4.5rem);'
+    : 'min-height: 100vh;'
+
   return html`
     <div class="design-container">
       <div
@@ -76,10 +80,12 @@ function EntryList (state, emit) {
         "
         style="
           line-height: 1.2;
-          min-height: 100vh;
+          ${styleMobile}
         "
       >
-        ${elContent}
+        <div>
+          ${elContent}
+        </div>
       </div>
     </div>
   `
