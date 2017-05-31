@@ -29,26 +29,39 @@ function view (state, emit) {
   var view = views[state.params.view]
   var content = view && view.view && typeof view.view === 'function'
     ? html`
+      <div
+        class="panel psr wrem40 sans fs1 pen pb1"
+        sm="c12 pt1 mtpx2"
+        style="top: 4.5rem"
+      >
         <div class="pea psr">
           <div class="psa t0 l0 r0 b0 bro b2b pen z2"></div>
           <div class="p1px">${view.view()}</div>
         </div>
+      </div>
       `
     : ''
 
 
   return html`
     <div
-      class="psf t0 l0 ${view ? 'r0 b0' : ''} px1 z3"
+      class="${view && !state.ui.mobile ? 'psf t0 l0 r0 b0 z3' : ''} px1"
       onclick=${handleContainerClick}
       data-panel
     >
-      <div class="panel wrem40 p1px sans fs1 pen" sm="c12">
+      <div
+        class="psf t0 l0 px1 z3 ${state.ui.mobile ? 'bg-white bb2b' : ''}"
+        sm="r0"
+      >
         ${navigation()} 
-        ${content}
       </div>
+      ${content}
     </div>
   `
+
+  function wrapper (content) {
+
+  }
 
   function navigation () {
     return html`
@@ -63,6 +76,7 @@ function view (state, emit) {
             mr1 curp oph100 line pea
             ${state.ui.entriesViewAll ? 'op100' : 'op33'} 
           "
+          sm="${view ? 'dn' : ''}"
           onclick=${e => emit('ui:update', {
             entriesViewAll: !state.ui.entriesViewAll
           })}>

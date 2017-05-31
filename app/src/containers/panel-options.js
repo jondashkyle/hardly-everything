@@ -53,7 +53,7 @@ module.exports = view
 
 function view (state, emit) {
   return html`
-    <div class="panel-content x xw c12 bg-black tc-white sans usn">
+    <div class="${state.ui.mobile ? '' : 'panel-content'} x xw c12 bg-black tc-white sans usn">
       <div class="c12 p1px">
         <div class="tc-black bg-white brit psr z1">
           ${templateOption(state, state.options.design.font, emit)}

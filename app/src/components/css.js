@@ -107,8 +107,10 @@ function Css (state, emit) {
         border: 1px solid ${colorFg};
       }
 
-      .b2b {
-        border: 2px solid ${colorFg};
+      .b2b { border: 2px solid ${colorFg} }
+
+      .bb2b {
+        border-bottom: 2px solid ${colorFg};
       }
 
       .bt2-lighter {

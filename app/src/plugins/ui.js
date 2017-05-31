@@ -3,6 +3,8 @@ var moment = require('moment')
 
 module.exports = Ui
 
+var resizeFrame
+
 function Ui (state, emitter) {
   state.ui = {
     date: moment().format('MMM Mo'),
@@ -10,6 +12,7 @@ function Ui (state, emitter) {
     panelActive: false,
     stagingActive: false,
     entriesViewAll: false,
+    mobile: false,
     intro: {
       position: 0,
       password: 'yucca',
@@ -26,4 +29,17 @@ function Ui (state, emitter) {
     state.ui = x(state.ui, data)
     emitter.emit('render')
   })
+
+  emitter.on('DOMContentLoaded', function () {
+    setMobile()
+    window.addEventListener('resize', setMobile)
+  })
+
+  function setMobile () {
+    clearTimeout(resizeFrame)
+    resizeFrame = setTimeout(function () {
+      state.ui.mobile = window.innerWidth <= 500
+      emitter.emit('render')
+    }, 100)
+  }
 }
