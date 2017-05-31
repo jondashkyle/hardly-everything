@@ -3,6 +3,7 @@ var x = require('xtend')
 var clone = require('clone-deep')
 var moment = require('moment')
 var uuid = require('uuid')
+var ov = require('object-values')
 var normalizeUrl = require('normalize-url')
 var validUrl = require('valid-url')
 
@@ -63,6 +64,7 @@ module.exports = Entries
 function Entries (state, emitter) {
   state.entries = {
     loaded: false,
+    amount: 0,
     all: { },
     archive: { }
   }
@@ -70,6 +72,7 @@ function Entries (state, emitter) {
   // all
   emitter.on('entries:all', function (data) {
     state.entries.all = data
+    state.entries.amount = ov(state.entries.all).length
     emitter.emit('render')
   })
 

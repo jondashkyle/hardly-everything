@@ -76,6 +76,7 @@ function view (state, emit) {
         <div
           class="
             mr1 curp oph100 line pea
+            ${state.entries.amount ? '' : 'dn'}
             ${state.ui.entriesViewAll ? 'op100' : 'op33'} 
           "
           sm="${view ? 'dn' : ''}"

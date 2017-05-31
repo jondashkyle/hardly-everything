@@ -20,8 +20,6 @@ function Ui (state, emitter) {
     }
   }
 
-  console.log(state.ui.date)
-
   emitter.on('ui:intro', function (data) {
     state.ui.intro = x(state.ui.intro, data)
     emitter.emit('render')
