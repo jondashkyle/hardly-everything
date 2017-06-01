@@ -5,8 +5,9 @@ a feed for you
 
 ## todo
 
-
 ### introduction
+- finish copy
+- add timer
 
 ### panel
 - mouseenter/leave to hide and show views
