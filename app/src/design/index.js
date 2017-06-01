@@ -15,7 +15,7 @@ var gr8css = gr8({
     .map(function (size) {
       return { [size.toString().replace('.', '-')]: size * 1.5 }
     }),
-  spacing: [0, 0.25, 0.5, 1, 1.5, 2, 3]
+  spacing: [0, 0.25, 0.5, 1, 1.5, 2, 3, 4.5]
     .map(function (size) {
       return { [size.toString().replace('.', '-')]: size * 1.25 }
     }),
@@ -36,9 +36,23 @@ gr8css.add({
 })
 
 gr8css.add({
+  prop: 'max-width',
+  prefix: 'mwrem',
+  unit: 'rem',
+  vals: [43]
+})
+
+gr8css.add({
   prop: 'opacity',
   prefix: 'op',
   vals: [{ 33: 0.3 }]
+})
+
+gr8css.add({
+  prop: 'padding-top',
+  prefix: 'ptvh',
+  unit: 'vh',
+  vals: [25, 50, 75, 100]
 })
 
 gr8css.add({

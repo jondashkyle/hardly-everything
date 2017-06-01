@@ -15,11 +15,20 @@ function user (state, emitter) {
     }, function () {
       emitter.emit('user:loaded', data)
     })
+
+    if (!state.user.waited) {
+      window.addEventListener('scroll', handleScroll, false)
+    }
   })
 
   emitter.on('user:loaded', function (data) {
     state.user.analytics.visits += 1
     state.user.analytics.lastvisit = moment().toISOString()
+    emitter.emit('user:update')
+  })
+
+  emitter.on('user:analytics', function (data) {
+    state.user.analytics = x(state.user.analytics, data)
     emitter.emit('user:update')
   })
 
@@ -37,6 +46,13 @@ function user (state, emitter) {
     state.user = getState()
     emitter.emit('user:update')
   })
+
+  function handleScroll (event) {
+    setTimeout(() => {
+      state.user.waited = true
+    }, 60 * 1000)
+    window.removeEventListener('scroll', handleScroll, false)
+  }
 }
 
 function getState () {
@@ -47,11 +63,11 @@ function getState () {
       uuid: ''
     },
     analytics: {
-      authenticated: true,
+      authenticated: false,
       visits: 0,
       lastvisit: undefined
     },
-    loaded: false,
-    signedIn: false
+    waited: false,
+    signedIn: false,
   }
 }
