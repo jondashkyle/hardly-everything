@@ -5,15 +5,18 @@ a feed for you
 
 ### phase one
 **june 5th, 2017**
-- [ ] introductory text
+- [x] introductory text
 - [x] updated ui
 - [ ] updated hello
+  - self-host archive
 - [x] new server env
 
 ### phase two
 **june 20th, 2017**
 - [ ] pouchdb
 - [ ] ui improvements
+- [ ] search
+- [ ] tags
 
 ### phase three
 **july 1st, 2017**
@@ -26,6 +29,7 @@ a feed for you
 
 ## queue
 - subtle transitions
+- goff light
 
 # features
 

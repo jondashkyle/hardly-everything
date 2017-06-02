@@ -78,7 +78,7 @@ function intro (state, emit) {
 
             <p>The notion of a rest is borrowed from musical notation—an extended period of time between notes. Just as music has a cadence, consider your attention’s cadence and rythym while consuming a feed. This is why your feed has a pulse, or a pace, defined by you.</p>
 
-            <p>After clicking an entry, it dissapears from your feed for the duration of it’s rest. Your feed updates once per day, there is never something new until tomorrow, a natural cycle, partitioned by a period of rest—the sleep cycle.</p>
+            <p>After clicking an entry, it dissapears from your feed for the duration of it’s rest. Your feed updates once per day, there is never something new until tomorrow, a natural cycle, partitioned by a period of another kind of rest.</p>
 
             <p>Your entries can rest anywhere from a day to a year. Link to a page you like to revisit often, or a page you want to remember in a few months.</p>
 
@@ -91,12 +91,12 @@ function intro (state, emit) {
             <p>
               ${state.intro.status === 'waiting'
                 ? 'Just a bit more waiting, now…'
-                : 'Click anywhere to get started.'
+                : html`<span>Click anywhere to get started. I’m interested to hear any <a href="mailto:contact@jon-kyle.com">thoughts you have</a>.</span>`
               }
             </p>
 
             <p>
-              <a href="/" class="op25 oph100 tc-black">Permalink to this text</a>
+              <a href="/" class="op25 oph100">Permalink to this text</a>
             </p>
           </div>
         </div>
