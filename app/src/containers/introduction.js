@@ -64,17 +64,19 @@ function intro (state, emit) {
           <div class="p1 copy">
             <p><em>Currently Beta: There are no invites, accounts, or mailing lists to subscribe to. Instead, you must wait on this page a full minute before proceeding. Below is some reading material, as the time passes…</em></p>
 
-            <p>The prominent apps and sites often share a common element today; <em>the feed</em>. It looks like Facebook’s timeline, or Buzzfeed’s homepage—an endlessly updating stream of content, catering to the loudest, designed to keep you returning, and spending more time.</p>
+            <p>The prominent apps and sites often share a common element today; <em>the feed</em>. It looks like Facebook’s timeline, or Buzzfeed’s homepage—an endlessly updating stream of content, designed to keep you returning, and spending more time.</p>
 
-            <p>A lot of us feel burnt out by this “<em>drinking from a firehose</em>.” Of course, these services know that, and have implemented algorithms to filter what you see and what you don’t based in part on what keeps you returning—a perpetual mix of what has become known as <em>the filter bubble</em> and <em>FOMO</em>.</p>
+            <p>It’s common to hear of us feeling burnt out by this “<em>drinking from a firehose</em>.” Of course, these services know that, and have implemented algorithms to filter what you see and what you don’t based in part on what keeps you returning—a perpetually shifting mix which results in what has become known as <em>the filter bubble</em>, <em>FOMO</em>, and other things.</p>
 
             <p><strong>Hardly Everything</strong> attempts to circumnavigate these corperate feeds by supplying you with an <em>anti-feed</em>.</p>
 
-            <div style="height: 26rem" class="x xjc xac tc-white bg-black">Your<br>Feed</div>
+            <div style="height: 26rem" class="x xjc xac bg-black tc-black">
+              Yes, this has fully loaded
+            </div>
 
             <p>Your feed closely resembles those already familiar—a scrolling list, at essence. You add things to this list, but when doing so prioritize their importance to you by defining a period of <strong>rest</strong>.</p>
 
-            <p>The notion of a rest is borrowed from musical notation—an extended period of time between notes. Just as music has a cadence, imagine your attention’s cadence and rythym when consuming a feed. This is why your feed has a pulse, or a pace, defined by you.</p>
+            <p>The notion of a rest is borrowed from musical notation—an extended period of time between notes. Just as music has a cadence, consider your attention’s cadence and rythym while consuming a feed. This is why your feed has a pulse, or a pace, defined by you.</p>
 
             <p>After clicking an entry, it dissapears from your feed for the duration of it’s rest. Your feed updates once per day, there is never something new until tomorrow, a natural cycle, partitioned by a period of rest—the sleep cycle.</p>
 
@@ -84,13 +86,18 @@ function intro (state, emit) {
 
             <p>Link to something once ever year, to free you from the impulse, if you’d like.</p>
 
-            <p>This tool is meant to be both useful, and to prompt a line of questioning about your habitual behaviour.</p>
-          </div>
-          <div class="p1  ? 'db' : 'dn'}">
-            ${state.intro.status === 'waiting'
-              ? 'Just a bit more waiting, now…'
-              : 'Click anywhere to get started.'
-            }
+            <p>This tool is not a rejection of an interface, but a prompt to question who the interface serves, what for, and why. It is also meant to be immediately useful, and hopefuly you will find it that way, too.</p>
+
+            <p>
+              ${state.intro.status === 'waiting'
+                ? 'Just a bit more waiting, now…'
+                : 'Click anywhere to get started.'
+              }
+            </p>
+
+            <p>
+              <a href="/" class="op25 oph100 tc-black">Permalink to this text</a>
+            </p>
           </div>
         </div>
       </div>
