@@ -24,6 +24,9 @@ a feed for you
 ### phase four
 - [ ] additional entry types
 
+## queue
+- subtle transitions
+
 # features
 
 ## introduction

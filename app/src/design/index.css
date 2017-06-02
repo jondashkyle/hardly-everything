@@ -283,3 +283,12 @@ input[type="submit"] {
   margin-left: -50% !important;
   width: 100% !important
 }
+
+.navigation {
+  animation: navigation 2s ease
+}
+
+@keyframes navigation {
+  from { transform: translateY(-2rem); opacity: 0; }
+  to { transform: translateY(0rem); opacity: 1; }
+}
