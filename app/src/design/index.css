@@ -22,7 +22,7 @@ body {
 }
 
 .mono {
-  font-family: menlo, monaco, monospace;
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
 }
 
 .copy > * { margin-top: 1.5rem; margin-bottom 1.5rem; }
@@ -180,6 +180,24 @@ a {
   overflow: hidden;
   z-index: 100;
   animation: spinner 800ms linear infinite;
+}
+
+/**
+ * Countdown
+ */
+
+.countdown {
+  border: 2px solid #000;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  background: rgba(0, 0, 0, 1);
+  animation: countdown 60s linear;
+}
+
+@keyframes countdown {
+  0% { background: rgba(0, 0, 0, 1) }
+  100% { background: rgba(0, 0, 0, 0) }
 }
 
 /**

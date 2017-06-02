@@ -15,10 +15,6 @@ function user (state, emitter) {
     }, function () {
       emitter.emit('user:loaded', data)
     })
-
-    if (!state.user.waited) {
-      window.addEventListener('scroll', handleScroll, false)
-    }
   })
 
   emitter.on('user:loaded', function (data) {
@@ -46,13 +42,6 @@ function user (state, emitter) {
     state.user = getState()
     emitter.emit('user:update')
   })
-
-  function handleScroll (event) {
-    setTimeout(() => {
-      state.user.waited = true
-    }, 60 * 1000)
-    window.removeEventListener('scroll', handleScroll, false)
-  }
 }
 
 function getState () {
@@ -67,7 +56,6 @@ function getState () {
       visits: 0,
       lastvisit: undefined
     },
-    waited: false,
     signedIn: false,
   }
 }
