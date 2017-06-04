@@ -1,26 +1,5 @@
 const h = require('choo/html')
-const sf = require('sheetify')
-const ov = require('object.values')
-
-const style = sf`
-  :host {
-    height: 50vh
-  }
-
-  .active {
-    position: relative;
-  }
-
-  .active:before {
-    content: '';
-    position: absolute;
-    bottom: -0.5rem;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #000;
-  }
-`
+const ov = require('object-values')
 
 const checkActive = (page, slug) => {
   return page === slug ||
@@ -37,9 +16,9 @@ const view = (state, prev, send) => {
       >${page.title}</a>
     </div>`)
 
-  return h`<div class="x p1 ${style}">
+  return h`<div class="x p1">
     <div class="p1 c4">
-      <a href="http://hardlyeverything.com">${state.title}</a>
+      <a href="http://hardlyeverything.com">${state.app.title}</a>
     </div>
     <div class="x c8">
       ${elsNav}

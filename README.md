@@ -29,8 +29,9 @@ a feed for you
 - [ ] additional entry types
 
 ## queue
-- subtle transitions
-- goff light
+- [ ] subtle transitions
+- [ ] goff light / app fonts
+- [ ] cache bust nginx
 
 # features
 

@@ -2,12 +2,10 @@ const choo = require('choo')
 
 const app = choo()
 
-app.model(require('./model/pages'))
-app.model(require('./model/app'))
+app.use(require('./plugins/pages'))
+app.use(require('./plugins/app'))
 
-app.router((route) => [
-  route('/', require('./templates/page')),
-  route('/:page', require('./templates/page'))
-])
+app.route('/', require('./templates/page'))
+app.route('/:page', require('./templates/page'))
 
 module.exports = app
