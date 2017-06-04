@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "budo src/index.js:bundle.js --dir dist/bundles --live --pushstate -- -t sheetify/transform -t brfs",
+    "start": "budo src/index.js:bundles/bundle.js --dir dist --live --pushstate -- -t sheetify/transform -t brfs",
     "build": "browserify src/index.js -o dist/bundles/bundle.js -t sheetify/transform -t brfs -g es2040"
   },
   "author": "Jon-Kyle <contact@jon-kyle.com> (http://jon-kyle.com)",
