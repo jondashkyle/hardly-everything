@@ -1,0 +1,73 @@
+html {
+  font-size: 62.50%;
+}
+
+body {
+  line-height: 1.5;
+  margin: 0;
+}
+
+body > div {
+  margin: 0 auto;
+  max-width: 100rem;
+}
+
+/**
+ * Typography
+ */
+.lh1 { line-height: 1 }
+.fwl { font-weight: 200 }
+.fw-800 { font-weight: 800 }
+
+.sans {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.mono {
+  font-family: menlo, monaco, monospace;
+}
+
+li,
+p {
+  margin: 1rem 0;
+}
+
+li:first-child,
+p:first-child {
+  margin-top: 0;
+}
+
+li-last-child,
+p:last-child {
+  margin: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+li {
+  position: relative;
+}
+
+li:before {
+  border: 2px solid #000;
+  content: '';
+  display: block;
+  height: 1rem;
+  width: 1rem;
+  position: absolute;
+  top: 0.35rem;
+  left: -2rem;
+  border-radius: 50%;
+}
+
+/**
+ * RESPOND
+ */
+@media (max-width: 767px) {
+  html { font-size: 2vw }
+  li:before { left: -1.5rem }
+}

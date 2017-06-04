@@ -1,0 +1,30 @@
+{
+  "name": "hardly-hello",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo src/index.js:bundle.js --dir dist --live --pushstate -- -t sheetify/transform -t brfs",
+    "build": "browserify src/index.js -o dist/bundle.js -t sheetify/transform -t brfs -g es2040"
+  },
+  "author": "Jon-Kyle <contact@jon-kyle.com> (http://jon-kyle.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "brfs": "^1.4.3",
+    "browserify": "^13.1.0",
+    "budo": "^9.2.1",
+    "es2040": "^1.2.4",
+    "marked": "^0.3.6"
+  },
+  "dependencies": {
+    "choo": "^3.3.0",
+    "gr8": "^2.1.7",
+    "js-yaml": "^3.6.1",
+    "marked": "^0.3.6",
+    "micromarkdown": "^0.3.4-a",
+    "object.values": "^1.0.3",
+    "sheetify": "^5.1.1",
+    "webfontloader": "^1.6.26",
+    "xtend": "^4.0.1"
+  }
+}

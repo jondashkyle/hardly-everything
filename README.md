@@ -17,6 +17,7 @@ a feed for you
 - [ ] ui improvements
 - [ ] search
 - [ ] tags
+- [ ] service workers / cache
 
 ### phase three
 **july 1st, 2017**
