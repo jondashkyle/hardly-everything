@@ -1,0 +1,27 @@
+this project evolved out of three projects from the past few years:
+
+- a-line-moving-across-a-window-once-every-year.com
+- bgcolor-fading-from-black-to-white-every-century.com
+- asdf.cool
+
+*a-line-moving* and *bgcolor-fading* are about time. *asdf* is about memory.
+
+~~on the surface, a-line-moving and bgcolor-fading are conceptual pieces, while asdf is a functional tool, but really i think about them as the same. part of this is due to context—browser windows, another is by means of production—a single person.~~
+
+---
+
+- less about scheduling, more about intervals
+- the cyclical nature of habits, the internet, feeds, etc...
+- thinking about music as the period of time between notes,
+  not thinking about the specific times when notes happen.
+- cadence and volume
+- less about “i want to see this every day” and more about “i probably only need to check this every couple days”
+- the utility of sculptural furniture, memphis, etc…
+- this being kind of a punk gesture towards big-box internet companies. fuck you, i’ll look at things when i want to.
+- facebook, google, and twitter as being the big-box stores of the internet
+- there is a need for more professionally produced niche projects, or a single persons’s interpritation of how something works.
+- a call for more fully functional, specific-use niche projects
+- tools and services which don’t have the primary objective of increasing the number of engagements, but serve a humanistic purpose.
+
+- steady-state economics
+- https://thecreativeindependent.com/people/anohni-on-art-corporations-and-the-music-industry/
