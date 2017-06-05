@@ -26,17 +26,20 @@ body {
   font-family: menlo, monaco, monospace;
 }
 
+h3,
 li,
 p {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
+h3:first-child,
 li:first-child,
 p:first-child {
   margin-top: 0;
 }
 
-li-last-child,
+h3:last-child,
+li:last-child,
 p:last-child {
   margin: 0;
 }
@@ -46,20 +49,38 @@ a {
   text-decoration: none;
 }
 
+.copy a {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 0.2rem;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+h3:not(:first-child) { margin-top: 3rem }
+
 li {
   position: relative;
+  list-style: none;
 }
 
 li:before {
-  border: 2px solid #000;
+  border: 1px solid #fff;
   content: '';
   display: block;
   height: 1rem;
   width: 1rem;
   position: absolute;
-  top: 0.35rem;
-  left: -2rem;
+  top: 0.75rem;
+  left: -2.5rem;
   border-radius: 50%;
+}
+
+
+@media (max-width: 500px) {
+  ul { margin-left: 2.5rem }
 }
 
 .mxa {
@@ -75,9 +96,17 @@ li:before {
 .oph100:hover { opacity: 1 }
 
 /**
+ * Dev
+ */
+.dev{outline:1px solid #912eff}
+.dev > *{outline:1px solid #5497ff}
+.dev > * > *{outline:1px solid #51feff}
+.dev > * > * > *{outline:1px solid #ff0000}
+.dev > * > * > * *{outline:1px solid #00ff00}
+
+/**
  * RESPOND
  */
 @media (max-width: 500px) {
   html { font-size: 2vw }
-  li:before { left: -1.5rem }
 }
