@@ -1,5 +1,6 @@
 var x = require('xtend')
 var moment = require('moment')
+var attachFastClick = require('fastclick')
 
 module.exports = Ui
 
@@ -35,6 +36,7 @@ function Ui (state, emitter) {
 
   emitter.on('DOMContentLoaded', function () {
     setMobile()
+    attachFastClick(document.body)
     window.addEventListener('resize', setMobile)
   })
 

@@ -127,6 +127,12 @@ a {
 /**
  * Placeholder
  */
+
+input {
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
 ::-webkit-input-placeholder { color: rgba(127, 127, 127, 0.5); }
 :-moz-placeholder { color: rgba(127, 127, 127, 0.5); }
 ::-moz-placeholder { color: rgba(127, 127, 127, 0.5); }

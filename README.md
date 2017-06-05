@@ -9,6 +9,7 @@ a feed for you
 - [x] updated ui
 - [x] updated hello
 - [x] new server env
+- [ ] mobile styles
 
 ### phase two
 **june 20th, 2017**
