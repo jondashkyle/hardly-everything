@@ -23,6 +23,12 @@ var gr8css = gr8({
 })
 
 gr8css.add({
+  prop: 'position',
+  prefix: 'ps',
+  vals: { st: 'sticky' }
+})
+
+gr8css.add({
   prop: 'width',
   unit: '%',
   vals: [50]
