@@ -1,92 +1,120 @@
-const h = require('choo/html')
-const ov = require('object-values')
-const md = require('marked')
+var h = require('choo/html')
+var ov = require('object-values')
+var md = require('marked')
 
-const content = require('../content/log')
+var content = require('../content/log')
 
-const formatContent = content => {
-  const el = h`<div></div>`
+var formatContent = content => {
+  var el = h`<div></div>`
   el.innerHTML = md(content)
   return el
 }
 
-const elList = (entry, send) => h`
-  <div class="p1 x xw">
+var elList = (entry, send) => h`
+  <div class="p1 x xw" sm="p0">
     <div class="c4 p1" sm="c11">
-      <a href=${entry.url}>${entry.title}</a>
-    </div>
-    <div class="c8 p1" sm="c12">
-      ${entry.text}
-    </div>
-    <div class="c2" sm="dn"></div>
-    <div class="c2 p1" sm="c2">
-      day
-    </div>
-    <div class="c7 p1" sm="c10">
       <div>
-        <a href="http://${entry.day.url}">${entry.day.url}</a>
+        <a href=${entry.url}>${entry.title}</a>
       </div>
       <div>
-        ${entry.day.text}
+        ${formatDate(entry.date)}
       </div>
     </div>
-    <div class="c2" sm="dn"></div>
-    <div class="c2 p1" sm="c2">
-      week
-    </div>
-    <div class="c8 p1" sm="c10">
-      <div>
-        <a href="http://${entry.week.url}">${entry.week.url}</a>
+    <div class="c8 x xw" sm="c12">
+      <div class="p1 ${entry.text ? '' : 'dn'}">
+        ${entry.text}
       </div>
-      <div>
-        ${entry.week.text}
+      <div class="c4 p1" sm="c2">
+        Day
       </div>
-    </div>
-    <div class="c2" sm="dn"></div>
-    <div class="c2 p1" sm="c2">
-      month
-    </div>
-    <div class="c8 p1" sm="c10">
-      <div>
-        <a href="http://${entry.month.url}">${entry.month.url}</a>
+      <div class="c8 p1" sm="c10">
+        <div>
+          <a href="http://${entry.day.url}">${entry.day.url}</a>
+        </div>
+        <div>
+          ${entry.day.text}
+        </div>
       </div>
-      <div>
-        ${entry.month.text}
+      <div class="c4 p1" sm="c2">
+        Week
       </div>
-    </div>
-    <div class="c2" sm="dn"></div>
-    <div class="c2 p1" sm="c2">
-      century
-    </div>
-    <div class="c8 p1" sm="c10">
-      <div>
-        <a href="http://${entry.century.url}">${entry.century.url}</a>
+      <div class="c8 p1" sm="c10">
+        <div>
+          <a href="http://${entry.week.url}">${entry.week.url}</a>
+        </div>
+        <div>
+          ${entry.week.text}
+        </div>
       </div>
-      <div>
-        ${entry.century.text}
+      <div class="c4 p1" sm="c2">
+        Month
+      </div>
+      <div class="c8 p1" sm="c10">
+        <div>
+          <a href="http://${entry.month.url}">${entry.month.url}</a>
+        </div>
+        <div>
+          ${entry.month.text}
+        </div>
+      </div>
+      <div class="c4 p1" sm="c2">
+        Century
+      </div>
+      <div class="c8 p1" sm="c10">
+        <div>
+          <a href="http://${entry.century.url}">${entry.century.url}</a>
+        </div>
+        <div>
+          ${entry.century.text}
+        </div>
       </div>
     </div>
   </div>
 `
 
-const elEntry = (entry, send) => h`
+var elEntry = (entry, send) => h`
   <div class="p1 x xw">
-    <div class="p1 c3" sm="c12">
-      ${entry.title}
+    <div class="p1 c4" sm="c12">
+      <div>
+        ${entry.title}
+      </div>
+      <div>
+        ${formatDate(entry.date)}
+      </div>
     </div>
-    <div class="p1 c9" sm="c12">
+    <div class="p1 c8" sm="c12">
       ${formatContent(entry.text)}
     </div>
   </div>
 `
 
-const view = (state, prev, send) => {
+var view = (state, prev, send) => {
   return elsContent = ov(content)
-    .map(entry => {
-      return entry.type === 'list'
-        ? elList(entry, send)
-        : elEntry(entry, send)
+    .map(function (entry) {
+      return h`
+        <div class="mb4">
+          ${entry.type === 'list'
+            ? elList(entry, send)
+            : elEntry(entry, send)
+          }
+        </div>
+      `
     })
 }
 
 module.exports = view
+
+function formatDate (date) {
+  var monthNames = [
+    'January', 'February', 'March',
+    'April', 'May', 'June', 'July',
+    'August', 'September', 'October',
+    'November', 'December'
+  ]
+
+  var day = date.getDate()
+  var monthIndex = date.getMonth()
+  var year = date.getFullYear()
+
+  return `${monthNames[monthIndex]} ${day}, ${year}`
+}

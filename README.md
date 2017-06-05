@@ -7,8 +7,7 @@ a feed for you
 **june 5th, 2017**
 - [x] introductory text
 - [x] updated ui
-- [ ] updated hello
-  - self-host archive
+- [x] updated hello
 - [x] new server env
 
 ### phase two
@@ -32,6 +31,8 @@ a feed for you
 - [ ] subtle transitions
 - [ ] goff light / app fonts
 - [ ] cache bust nginx
+- [ ] restructure hello content
+- [ ] self-hosted version
 
 # features
 

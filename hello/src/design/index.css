@@ -7,9 +7,9 @@ body {
   margin: 0;
 }
 
-body > div {
-  margin: 0 auto;
-  max-width: 100rem;
+.line {
+  height: 4.5rem;
+  line-height: 4.5rem;
 }
 
 /**
@@ -42,9 +42,8 @@ p:last-child {
 }
 
 a {
-  color: #000;
+  color: #fff;
   text-decoration: none;
-  font-weight: bold;
 }
 
 li {
@@ -63,10 +62,22 @@ li:before {
   border-radius: 50%;
 }
 
+.mxa {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * Hovers
+ */
+.ophc:hover .ophc100 { opacity: 1 }
+.ophc:hover .ophc100 { opacity: 1 }
+.oph100:hover { opacity: 1 }
+
 /**
  * RESPOND
  */
-@media (max-width: 767px) {
+@media (max-width: 500px) {
   html { font-size: 2vw }
   li:before { left: -1.5rem }
 }

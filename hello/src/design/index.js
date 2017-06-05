@@ -15,17 +15,43 @@ var gr8css = gr8({
     .map(function (size) {
       return { [size.toString().replace('.', '-')]: size * 1.5 }
     }),
-  spacing: [0, 0.25, 0.5, 1, 1.5, 2, 3, 4.5]
+  spacing: [0, 0.25, 0.5, 1, 1.5, 2, 3, 4, 4.5]
     .map(function (size) {
       return { [size.toString().replace('.', '-')]: size * 1.25 }
     }),
   responsive: true
 })
 
+var colors = {
+  black: '#000',
+  white: '#fff'
+}
+
 gr8css.add({
   prop: 'width',
   unit: '%',
   vals: [50]
+})
+
+gr8css.add({
+  prop: 'max-width',
+  prefix: 'wmx',
+  unit: 'rem',
+  vals: [100]
+})
+
+gr8css.add({
+  prop: 'background-color',
+  prefix: 'bg',
+  hyphenate: true,
+  vals: colors
+})
+
+gr8css.add({
+  prop: 'color',
+  prefix: 'tc',
+  hyphenate: true,
+  vals: colors
 })
 
 gr8css.add({
@@ -70,14 +96,14 @@ var lilsrc = [
 ].map(p => 'src/' + p)
 
 var lilopts = {
-  ignore: ['psa', 'psr', 't0', 'b0', 'l0', 'r0']
+  ignore: ['bg', 'tc', 'psa', 'psr', 't0', 'b0', 'l0', 'r0']
 }
 
 var lilgr8 = lilcss(gr8css.toString(), lilsrc, lilopts)
 
 var built = [
-  custom,
   recsst.toString(),
+  custom,
   lilgr8,
 ].join(' ')
 

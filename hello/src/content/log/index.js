@@ -1,16 +1,17 @@
-const fs = require('fs')
-const yaml = require('js-yaml')
+var fs = require('fs')
+var yaml = require('js-yaml')
 
-const content = [
-  fs.readFileSync(__dirname + '/01-jon-kyle.md', 'utf8')
+var content = [
+  fs.readFileSync(__dirname + '/17-06-02-testing.md', 'utf8'),
+  fs.readFileSync(__dirname + '/17-06-01-jon-kyle.md', 'utf8')
 ]
 
-const result = { }
+var result = { }
 
 content
   .reverse()
   .forEach(entry => {
-    const formatted = yaml.safeLoad(entry)
+    var formatted = yaml.safeLoad(entry)
     result[formatted.slug] = formatted
   })
 

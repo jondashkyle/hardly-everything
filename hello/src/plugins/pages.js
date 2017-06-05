@@ -2,9 +2,14 @@ module.exports = pages
 
 function pages (state, emitter) {
   state.pages = {
+    log: {
+      title: 'Log',
+      slug: '/',
+      content: require('../content/log')
+    },
     about: {
       title: 'About',
-      slug: '/',
+      slug: 'about',
       content: require('../content/q-and-a')
     },
     tips: {

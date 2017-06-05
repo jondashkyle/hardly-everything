@@ -1,24 +1,24 @@
-## what is asdf?
+## What is asdf?
 
-you add links to a feed. when you click a link, it dissapears. you can choose how long that time lasts when adding a link. after that time passes the link appears again.
+You add links to a feed. when you click a link, it disappears. You can choose how long that time lasts when adding a link. After that time passes the link appears again.
 
-## something like a hybrid bookmarking tool and feed aggregator.
+## Something like a hybrid bookmarking tool and feed aggregator.
 
-yeah kind of. bookmarking with less hunting around. if you want to check a link each morning set it to 20 hours or so. could be once a week. maybe you don’t need to see it for another 100 years.
+Yeah kind of. Bookmarking with less hunting around. If you want to check a link each morning set it to 20 hours or so. Could be once a week. Maybe you don’t need to see it for another 100 years.
 
-## why would you want that?
+## Why would you want that?
 
-i follow things in different places to keep up with what they’re doing. things which post most often appear most frequently in my feeds and get more of my attention. they drown out the quieter things.
+I follow things in different places to keep up with what they’re doing. Things which post most often appear most frequently in my feeds and get more of my attention. They drown out the quieter things.
 
-i want to control how often they appear based on how meanginful they are to me.
+I want to control how often they appear based on how meaningful they are to me.
 
-## what led to making it?
+## What led to making it?
 
-a few years ago i made two sites which placed extreme time scales in the browser, where attention is typically scarce.
+A few years ago I made two sites which placed extreme time scales in the browser, where attention is typically scarce.
 
-those were a-line-moving-across-a-window-once-every-year.com and bgcolor-fading-from-black-to-white-every-century.com. this is the natural progression of those gestures.
+Those were a-line-moving-across-a-window-once-every-year.com and bgcolor-fading-from-black-to-white-every-century.com. This is the natural progression of those projects.
 
-i see this as being closer to early video art or something than an app or whatever, which is how i thought about line moving and background fading.
+I see this as being closer to early video art or something than an app or whatever, which is how I thought about line moving and background fading.
 
 ## facebook and twitter have introduced non-linear feeds to prioritize content you’ll probably like. does that address some of this feed-overload?
 
