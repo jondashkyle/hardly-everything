@@ -16,7 +16,7 @@ function elList (entry, send){
   return h`
     <div class="p1 x xw" sm="p0">
       <div class="c4 p1" sm="c11">
-        <div>
+        <div class="fwb">
           <a href=${entry.url}>${entry.title}</a>
         </div>
         <div>
@@ -80,7 +80,7 @@ function elEntry  (entry, send) {
   return h`
     <div class="p1 x xw">
       <div class="p1 c4" sm="c12">
-        <div>
+        <div class="fwb">
           ${entry.title}
         </div>
         <div>
