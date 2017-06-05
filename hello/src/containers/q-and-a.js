@@ -11,18 +11,12 @@ var getContent = content => {
 var elEntry = (entry, send) => h`
   <div>
     <div class="x">
-      <div class="c1 p1 fwb">
-        Q
-      </div>
-      <div class="c7 p1" md="c11">
+      <div class="c8 p1 pt1-75 fwb" md="c11">
         ${entry.question}
       </div>
     </div>
     <div class="x xje">
-      <div class="c1 p1 fwb" style="margin-right: auto">
-        A
-      </div> 
-      <div class="c7 p1 xje" md="c12">
+      <div class="c8 p1 pt1-75 xje copy" md="c12">
         ${getContent(entry.answer)}
       </div>
     </div>
@@ -34,17 +28,11 @@ var view = (state, prev, send) => {
   var elsContent = ov(page.content)
     .map(entry => elEntry(entry, send))
 
-  return h`<div>
-    <div class="x">
-      <div class="c5 p1" md="c1">
-
-      </div>
-      <div class="c7 p1">
-        Questions & answers w/ <a href="http://jon-kyle.com">Jon-Kyle</a>
-      </div>
+  return h`
+    <div>
+      ${elsContent}
     </div>
-    ${elsContent}
-  </div>`
+  `
 }
 
 module.exports = view

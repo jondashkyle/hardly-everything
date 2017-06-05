@@ -1,19 +1,19 @@
-const h = require('choo/html')
-const ov = require('object-values')
-const md = require('marked')
+var h = require('choo/html')
+var ov = require('object-values')
+var md = require('marked')
 
-const content = require('../content/tips')
+var content = require('../content/tips')
 
-const elEntry = entry => {
-  const text = h`<p></p>`
+var elEntry = entry => {
+  var text = h`<p></p>`
   text.innerHTML = md(entry.text)
 
   return h`
-    <div class="x xw p1" sm="p0">
-      <div class="p1 c4" md="c12">
+    <div class="x xw copy" sm="p0">
+      <div class="p1 pt1-75 pb2 c4 fwb" md="c12">
         ${entry.title}
       </div>
-      <div class="p1 c8" md="c12">
+      <div class="p1 pt1-75 c8" md="c12">
         ${text}
       </div>
     </div>
@@ -21,11 +21,11 @@ const elEntry = entry => {
 }
 
 module.exports = (state, prev, send) => {
-  const page = state.pages.tips
-  const elsEntries = ov(page.content)
+  var page = state.pages.tips
+  var elsEntries = ov(page.content)
     .map(entry => elEntry(entry))
 
-  return  h`
+  return h`
     <div>
       ${elsEntries} 
     </div>
