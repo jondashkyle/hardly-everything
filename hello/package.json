@@ -4,27 +4,44 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "budo src/index.js:bundles/bundle.js --dir dist --live --pushstate -- -t sheetify/transform -t brfs",
-    "build": "browserify src/index.js -o dist/bundles/bundle.js -t sheetify/transform -t brfs -g es2040"
+    "build": "npm run build-css && npm run build-js",
+    "bust-cache": "break-cache -i ./dist/index.html -m 'bundle.js|bundle.css' -o ./dist/index.html",
+    "build-css": "node ./src/design | postcss --use autoprefixer --use postcss-clean > dist/bundles/bundle.css",
+    "watch-css": "watch 'node ./src/design > dist/bundles/bundle.css' ./src",
+    "build-js": "browserify src/index.js -t envify -g aliasify -t brfs -t [ babelify --presets [ babel-preset-es2015 babel-preset-react ] ] -g uglifyify > dist/bundles/bundle.js",
+    "watch-js": "budo src/index.js:bundles/bundle.js --dir dist --pushstate --live -- -t [ envify --NODE_ENV development ] -g aliasify -t brfs",
+    "start": "concurrently --kill-others \"npm run watch-js\" \"npm run watch-css\""
   },
   "author": "Jon-Kyle <contact@jon-kyle.com> (http://jon-kyle.com)",
   "license": "ISC",
   "devDependencies": {
+    "aliasify": "^2.1.0",
+    "autoprefixer": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^7.3.0",
     "brfs": "^1.4.3",
     "browserify": "^13.1.0",
     "budo": "^9.2.1",
+    "concurrently": "^3.4.0",
+    "envify": "^4.0.0",
     "es2040": "^1.2.4",
-    "marked": "^0.3.6"
+    "lilcss": "0.0.0",
+    "marked": "^0.3.6",
+    "postcss-clean": "^1.0.2",
+    "postcss-cli": "^4.0.0",
+    "uglifyify": "^3.0.4",
+    "watch": "^1.0.2"
   },
   "dependencies": {
-    "choo": "^3.3.0",
+    "choo": "^5.6.2",
     "gr8": "^2.1.7",
     "js-yaml": "^3.6.1",
     "marked": "^0.3.6",
     "micromarkdown": "^0.3.4-a",
-    "object.values": "^1.0.3",
+    "object-values": "^1.0.0",
+    "recsst": "^1.1.2",
     "sheetify": "^5.1.1",
-    "webfontloader": "^1.6.26",
     "xtend": "^4.0.1"
   }
 }

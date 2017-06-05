@@ -1,9 +1,12 @@
-const app = require('./app')
-require('./styles')
+var choo = require('choo')
+var wrapper = require('./containers/wrapper')
 
-const tree = app.start()
-document.body.appendChild(tree)
+var app = choo()
 
-// temporary loading fix
-var loader = document.querySelector('[data-load]')
-loader.parentNode.removeChild(loader)
+app.use(require('./plugins/pages'))
+app.use(require('./plugins/app'))
+
+app.route('/', wrapper(require('./templates/page')))
+app.route('/:page', wrapper(require('./templates/page')))
+
+app.mount('main')

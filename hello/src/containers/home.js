@@ -1,5 +1,5 @@
 const h = require('choo/html')
-const ov = require('object.values')
+const ov = require('object-values')
 const md = require('marked')
 
 const getContent = content => {
@@ -11,9 +11,7 @@ const getContent = content => {
 const view = (state, prev, send) => {
   const page = state.pages.home
 
-  return h`<div>
-    yo
-  </div>`
+  return h`<div class="bg-black tc-white">yo</div>`
 }
 
 module.exports = view

@@ -1,7 +1,9 @@
 title: Jon-Kyle Mohr
-slug: 01-jon-kyle
+slug: 17-06-10-jon-kyle
 date: 2017-05-01
 type: list
+text: Lorem ipsum neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+url: http://jon-kyle.com
 
 day:
   title: Testing
