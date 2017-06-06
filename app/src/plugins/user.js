@@ -34,8 +34,8 @@ function user (state, emitter) {
       window.ga &&
       typeof window.ga === 'function'
     ) {
-      ga('set', 'page', window.location.pathname)
-      ga('send', 'pageview')
+      window.ga('set', 'page', window.location.pathname)
+      window.ga('send', 'pageview')
     }
   })
 
