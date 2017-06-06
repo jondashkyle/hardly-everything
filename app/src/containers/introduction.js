@@ -66,13 +66,13 @@ function intro (state, emit) {
 
             <p>The prominent apps and sites often share a common element today; <em>the feed</em>. It looks like Facebook’s timeline, or Buzzfeed’s homepage—an endlessly updating stream of content, designed to keep you returning, and spending more time.</p>
 
-            <p>You frequently hear of us feeling burnt out by this “<em>drinking from a firehose</em>.” Of course, these services know that, and are increasingly implimenting steps to filter what you see and what you don’t based in part on what keeps you returning—a perpetually shifting mix which results in what has become known as <em>the filter bubble</em>, <em>FOMO</em>, and other things.</p>
+            <p>You frequently hear of us feeling burnt out by this “<em>drinking from a firehose</em>.” Of course, these products know that, and are increasingly implementing steps to filter what you see and what you don’t based in part on what keeps you returning—a perpetually shifting mix, resulting in what has become known as <em>the filter bubble</em>, <em>FOMO</em>, and other things.</p>
 
             <p class="mb3"><strong>Hardly Everything</strong> attempts to circumnavigate these corporate feeds by supplying you with an <em>anti-feed</em>.</p>
 
             <p>Your feed closely resembles those already familiar—a scrolling list, at essence. You add things to this list, but when doing so prioritize their importance to you by defining a period of <strong>rest</strong>.</p>
 
-            <p>The notion of a rest is borrowed from musical notation—an extended period of time between notes. Just as music has a cadence, consider your attention’s cadence and rhythm while consuming a feed. This is why your feed has a pulse, or a pace, defined by you.</p>
+            <p>The notion of a rest is borrowed from musical notation—an extended period of time between notes. Just as music has a cadence, consider your attention’s rhythm while consuming a feed. This is why your feed has a pulse, or a pace, defined by you.</p>
 
             <p>After clicking an entry, it disappears from your feed for the duration of it’s rest. Your feed updates once per day, there is never something new until tomorrow, a natural cycle, partitioned by a period of another kind of rest.</p>
 
@@ -91,7 +91,7 @@ function intro (state, emit) {
             <div
               class="
                 ${!state.intro.status ? 'curp' : 'op33 pen curd'}
-                mt4 p1 tac bg-black tc-white 
+                mt4 p1 tac bg-black tc-white bro
               "
             >
               Get started
