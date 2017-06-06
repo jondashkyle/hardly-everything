@@ -12,9 +12,9 @@ function pages (state, emitter) {
       slug: 'about',
       content: require('../content/about')
     },
-    tips: {
-      title: 'Tips',
-      slug: 'tips',
+    faq: {
+      title: 'FAQ',
+      slug: 'faq',
       content: require('../content/tips')
     }
   }
