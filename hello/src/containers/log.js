@@ -15,15 +15,15 @@ function formatContent (content) {
 function elList (entry, send){
   return h`
     <div class="x xw" sm="p0" md="p1">
-      <div class="c4 p1" sm="c11">
-        <div class="fwb">
-          <a href=${entry.url}>${entry.title}</a>
+      <div class="c8 x xw copy co2" sm="c12" md="c10 co1">
+        <div class="p1">
+          <div class="fwb">
+            <a href=${entry.url}>${entry.title}</a>
+          </div>
+          <div>
+            ${formatDate(entry.date)}
+          </div>
         </div>
-        <div>
-          ${formatDate(entry.date)}
-        </div>
-      </div>
-      <div class="c8 x xw copy" sm="c12">
         <div class="p1 ${entry.text ? '' : 'dn'}">
           ${entry.text}
         </div>
@@ -78,19 +78,19 @@ function elList (entry, send){
 
 function elEntry  (entry, send) {
   return h`
-    <div class="x xw" sm="p0">
-      <div class="c4" sm="c12">
-        <div class="psst t0 p1" sm="pss">
-          <div class="fwb fs1-5 pb1-5">
-            ${entry.title}
+    <div class="x xw p1">
+      <div class="c8 x xw co2" sm="c12 co0" md="c10 co1">
+        <div class="pb2">
+          <div class="fwb fs1-5">
+            <a href=${entry.url}>${entry.title}</a>
           </div>
           <div>
             ${formatDate(entry.date)}
           </div>
         </div>
-      </div>
-      <div class="p1 pt1-75 c8 copy" sm="c12">
-        ${formatContent(entry.text)}
+        <div class="copy">
+          ${formatContent(entry.text)}
+        </div>
       </div>
     </div>
   `

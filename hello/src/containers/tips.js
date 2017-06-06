@@ -10,10 +10,10 @@ var elEntry = entry => {
 
   return h`
     <div class="x xw copy" sm="p0">
-      <div class="p1 pt1-75 pb2 c4 fwb" md="c12">
+      <div class="p1 pb2 c4 fwb" md="c12">
         ${entry.title}
       </div>
-      <div class="p1 pt1-75 c8" md="c12">
+      <div class="p1 c8" md="c12">
         ${text}
       </div>
     </div>
