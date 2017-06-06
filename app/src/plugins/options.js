@@ -42,6 +42,12 @@ var optionsTypography = {
     style: 'italic',
     value: 'Alegreya'
   },
+  anonymous: {
+    name: 'Anonymous',
+    key: 'anonymous',
+    host: 'google', 
+    value: 'Anonymous Pro'
+  },
   cabin: {
     name: 'Cabin',
     key: 'cabin',
@@ -112,6 +118,12 @@ var optionsTypography = {
     weight: 700,
     value: 'Open Sans'
   },
+  pathway: {
+    name: 'Pathway Gothic',
+    key: 'pathway',
+    host: 'google',
+    value: 'Pathway Gothic One'
+  },
   playfairDisplay: {
     name: 'Playfair Display',
     key: 'playfairDisplay',
@@ -120,10 +132,30 @@ var optionsTypography = {
   },
   playfairDisplayBold: {
     name: 'Playfair Display Bold',
-    key: 'playfairDisplaybold',
+    key: 'playfairDisplayBold',
     host: 'google',
     weight: 700,
     value: 'Playfair Display'
+  },
+  rubikLight: {
+    name: 'Rubik Light',
+    key: 'rubikLight',
+    host: 'google',
+    weight: 300,
+    value: 'Rubik'
+  },
+  rubik: {
+    name: 'Rubik',
+    key: 'rubik',
+    host: 'google',
+    value: 'Rubik'
+  },
+  rubikBlack: {
+    name: 'Rubik Black',
+    key: 'rubikBlack',
+    host: 'google',
+    weight: 900,
+    value: 'Rubik'
   },
   spaceMono: {
     name: 'Space Mono',

@@ -6,13 +6,14 @@ function loaded (state, emitter) {
     loaded: false
   }
 
+  // check
   emitter.on('*', checkLoad)
 
+  // fallback
   emitter.on('DOMContentLoaded', function () {
-    // fallback
     setTimeout(() => {
-      state.app.loaded = true
-    }, 5000)
+      handleLoad()
+    }, 3000)
   })
 
   function checkLoad (data) {
@@ -22,11 +23,13 @@ function loaded (state, emitter) {
       state.options.loaded.typeLocal &&
       state.options.loaded.data &&
       !state.app.loaded
-    ) {
-      state.app.loaded = true
-      removeLoader()
-      emitter.emit('render')
-    }
+    ) handleLoad();
+  }
+
+  function handleLoad () {
+    state.app.loaded = true
+    removeLoader()
+    emitter.emit('render')
   }
 }
 

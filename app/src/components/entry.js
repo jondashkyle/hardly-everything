@@ -11,7 +11,7 @@ function Entry (state, data, emit) {
           class="tc-black"
           onclick=${handleClick}
         >${data.title}</a>
-        <div class="psa l0 r0 x xjc op0 ophc100 fs1 fwn sans" style="top: 100%">
+        <div class="usn psa l0 r0 x xjc op0 ophc100 fs1 fwn sans" style="top: 100%">
           <div class="x">
             <div
               class="curp p0-5 op25 oph100 ${state.ui.entriesViewAll ? 'dn' : 'db'}"
