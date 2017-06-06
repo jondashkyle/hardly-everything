@@ -321,6 +321,12 @@ function getDefaultState () {
         key: 'invert',
         visible: false
       },
+      newTab: {
+        name: 'Open entries in new tab',
+        key: 'newTab',
+        type: 'checkbox',
+        visible: true
+      },
       autoDismiss: {
         name: 'Auto Hide Entries',
         key: 'autoDismiss',
@@ -335,6 +341,7 @@ function getDefaultState () {
       scale: 35,
       spacing: 5,
       invert: false,
+      newTab: false,
       autoDismiss: true
     },
     loaded: {

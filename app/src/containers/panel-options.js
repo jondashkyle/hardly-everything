@@ -69,19 +69,28 @@ function view (state, emit) {
           ${templateOption(state, state.options.design.spacing, emit)}
         </div>
       </div>
-      <div class="c12 p1px">
-        ${templateOption(state, state.options.design.colorBg, emit)}
-      </div>
-      <div class="c12 p1px">
-        ${templateOption(state, state.options.design.colorText, emit)}
-      </div>
       <div class="c12 x">
-        <div class="c6 p1px tac">
-          <div class="bg-white line tc-black px1 curp" onclick=${handleInvertClick}>
+        <div class="xx">
+          <div class="c12 p1px">
+            ${templateOption(state, state.options.design.colorBg, emit)}
+          </div>
+          <div class="c12 p1px">
+            ${templateOption(state, state.options.design.colorText, emit)}
+          </div>
+        </div>
+        <div class="x p1px" style="width: 9.2rem">
+          <div class="x xac xjc c12 bg-white tc-black px1 curp" onclick=${handleInvertClick}>
             Invert
           </div>
         </div>
-        <div class="c6 p1px curp tac">
+      </div>
+      <div class="c12 p1px">
+        <div class="tc-black bg-white line">
+          ${templateOption(state, state.options.design.newTab, emit)}
+        </div>
+      </div>
+      <div class="c12">
+        <div class="c12 p1px curp tac">
           <a href="/data/" class="line bg-white db bribr tc-black">
             Data
           </a>

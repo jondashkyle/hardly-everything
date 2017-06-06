@@ -150,7 +150,7 @@ input {
   max-height: 16rem;
 }
 
-.input-dropdown-options > div:last-child) {
+.input-dropdown-options > div:last-child {
   border-bottom: 0 !important;
 }
 

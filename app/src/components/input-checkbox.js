@@ -4,7 +4,7 @@ module.exports = view
 
 function view (state, data, emit) {
   return html`
-    <div class="psr">
+    <div class="psr line">
       <div class="psa t0 l0 px1 pen">
         ${data.name}
       </div>
@@ -18,9 +18,8 @@ function view (state, data, emit) {
         })}
       >
       <label
-        class="pen x xjc xac psa t0 r0"
+        class="pen x xjc xac psa t0 r0 bg-black-lighter"
         style="
-          background: rgba(127, 127, 127, 0.165);
           height: 4.5rem;
           width: 4.5rem;
         "

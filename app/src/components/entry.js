@@ -8,6 +8,7 @@ function Entry (state, data, emit) {
       <div class="ophc dib psr design-block-margin">
         <a
           href="${data.url}"
+          target="${state.options.values.newTab ? '_blank' : '_self'}"
           class="tc-black"
           onclick=${handleClick}
         >${data.title}</a>
