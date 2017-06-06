@@ -53,6 +53,11 @@ function Css (state, emit) {
         color: ${colorBg};
       }
 
+      .copy a {
+        color: ${colorFg};
+        border-bottom: 1px solid ${colorFg};
+      }
+
       ::-webkit-input-placeholder { color: ${colorFgLight} }
       ::-moz-placeholder { color: ${colorFgLight} }
       :-ms-input-placeholder { color: ${colorFgLight} }

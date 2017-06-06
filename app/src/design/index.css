@@ -32,9 +32,7 @@ body {
 .copy > *:last-child { margin-bottom: 0 }
 
 .copy a {
-  color: #000;
   text-decoration: none;
-  border-bottom: 1px solid #000;
   padding-bottom: 0.2em;
 }
 
