@@ -28,6 +28,17 @@ function user (state, emitter) {
     emitter.emit('user:update')
   })
 
+  emitter.on('pushState', function (data) {
+    if (
+      process.env.NODE_ENV === 'production' &&
+      window.ga &&
+      typeof window.ga === 'function'
+    ) {
+      ga('set', 'page', window.location.pathname)
+      ga('send', 'pageview')
+    }
+  })
+
   emitter.on('user:load', function (data) {
     state.user = x(state.user, data)
     emitter.emit('user:loaded', data)
