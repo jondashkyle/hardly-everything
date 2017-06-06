@@ -1,8 +1,8 @@
 {
   "name": "hardly-an-app",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "npm run build-css && npm run build-js",
     "bust-cache": "break-cache -i ./dist/index.html -m 'bundle.js|bundle.css' -o ./dist/index.html",

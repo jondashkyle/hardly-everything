@@ -2,7 +2,7 @@
   "name": "hardly-an-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "v1/index.js",
   "scripts": {
     "build": "",
     "start": "node ."
