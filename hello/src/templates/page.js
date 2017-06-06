@@ -2,8 +2,9 @@ const h = require('choo/html')
 
 const pages = {
   about: require('../containers/about'),
-  tips: require('../containers/tips'),
-  log: require('../containers/log')
+  faq: require('../containers/tips'),
+  log: require('../containers/log'),
+  error: require('./error')
 }
 
 module.exports = (state, emit) => {
@@ -11,7 +12,7 @@ module.exports = (state, emit) => {
     state.params.page &&
     typeof pages[state.params.page] === 'function'
       ? pages[state.params.page]
-      : pages['log']
+      : pages.error
 
   return content(state, emit)
 }

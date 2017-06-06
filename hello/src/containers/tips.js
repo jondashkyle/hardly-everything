@@ -21,7 +21,7 @@ var elEntry = entry => {
 }
 
 module.exports = (state, prev, send) => {
-  var page = state.pages.tips
+  var page = state.pages.faq
   var elsEntries = ov(page.content)
     .map(entry => elEntry(entry))
 

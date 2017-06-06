@@ -18,3 +18,7 @@ text: |
   Link to something once ever year, to free you from the impulse, if you’d like.
 
   This tool is not a rejection of an interface, but a prompt to question who the interface serves, and why. It is also meant to be immediately useful, and hopefully you will find it that way, too.
+
+  ### Contact
+
+  [contact@jon-kyle.com](mailto:contact@jon-kyle.com)

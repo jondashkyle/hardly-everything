@@ -23,6 +23,22 @@ function user (state, emitter) {
     emitter.emit('user:update')
   })
 
+  emitter.on('user:analytics', function (data) {
+    state.user.analytics = x(state.user.analytics, data)
+    emitter.emit('user:update')
+  })
+
+  emitter.on('pushState', function (data) {
+    if (
+      process.env.NODE_ENV === 'production' &&
+      window.ga &&
+      typeof window.ga === 'function'
+    ) {
+      window.ga('set', 'page', window.location.pathname)
+      window.ga('send', 'pageview')
+    }
+  })
+
   emitter.on('user:load', function (data) {
     state.user = x(state.user, data)
     emitter.emit('user:loaded', data)
@@ -47,11 +63,10 @@ function getState () {
       uuid: ''
     },
     analytics: {
-      authenticated: true,
+      authenticated: false,
       visits: 0,
       lastvisit: undefined
     },
-    loaded: false,
-    signedIn: false
+    signedIn: false,
   }
 }

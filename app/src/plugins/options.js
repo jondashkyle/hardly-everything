@@ -29,6 +29,25 @@ var optionsTypography = {
     weight: 700,
     value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
   },
+  alegreya: {
+    name: 'Alegreya',
+    key: 'alegreya',
+    host: 'google', 
+    value: 'Alegreya'
+  },
+  alegreyaItalic: {
+    name: 'Alegreya Italic',
+    key: 'alegreyaItalic',
+    host: 'google', 
+    style: 'italic',
+    value: 'Alegreya'
+  },
+  anonymous: {
+    name: 'Anonymous',
+    key: 'anonymous',
+    host: 'google', 
+    value: 'Anonymous Pro'
+  },
   cabin: {
     name: 'Cabin',
     key: 'cabin',
@@ -99,6 +118,12 @@ var optionsTypography = {
     weight: 700,
     value: 'Open Sans'
   },
+  pathway: {
+    name: 'Pathway Gothic',
+    key: 'pathway',
+    host: 'google',
+    value: 'Pathway Gothic One'
+  },
   playfairDisplay: {
     name: 'Playfair Display',
     key: 'playfairDisplay',
@@ -107,10 +132,30 @@ var optionsTypography = {
   },
   playfairDisplayBold: {
     name: 'Playfair Display Bold',
-    key: 'playfairDisplaybold',
+    key: 'playfairDisplayBold',
     host: 'google',
     weight: 700,
     value: 'Playfair Display'
+  },
+  rubikLight: {
+    name: 'Rubik Light',
+    key: 'rubikLight',
+    host: 'google',
+    weight: 300,
+    value: 'Rubik'
+  },
+  rubik: {
+    name: 'Rubik',
+    key: 'rubik',
+    host: 'google',
+    value: 'Rubik'
+  },
+  rubikBlack: {
+    name: 'Rubik Black',
+    key: 'rubikBlack',
+    host: 'google',
+    weight: 900,
+    value: 'Rubik'
   },
   spaceMono: {
     name: 'Space Mono',
@@ -276,6 +321,12 @@ function getDefaultState () {
         key: 'invert',
         visible: false
       },
+      newTab: {
+        name: 'Open entries in new tab',
+        key: 'newTab',
+        type: 'checkbox',
+        visible: true
+      },
       autoDismiss: {
         name: 'Auto Hide Entries',
         key: 'autoDismiss',
@@ -290,6 +341,7 @@ function getDefaultState () {
       scale: 35,
       spacing: 5,
       invert: false,
+      newTab: false,
       autoDismiss: true
     },
     loaded: {

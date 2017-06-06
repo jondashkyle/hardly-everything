@@ -1,81 +1,116 @@
-const h = require('choo/html')
-const ov = require('object-values')
+var html = require('rooch/html')
+var h = require('rooch/h')
+var Component = require('rooch/component')
+var ov = require('object-values')
 
-const namespace = 'ui'
+module.exports = intro
 
-const handleContainerClick = (state, prev, send, event) => {
-  const position = state[namespace].intro.position + 1
-  send(namespace + ':intro', { position: position })
-}
-
-const handlePasswordInput = (state, prev, send, event) => {
-  send(namespace + ':intro', { value: event.target.value })
-}
-
-const handlePasswordSubmit = (state, prev, send, event) => {
-  const isCorrect =
-    state[namespace].intro.value ===
-    state[namespace].intro.password
-
-  if (isCorrect) {
-    send('user:analytics', { authenticated: true })
-  } else {
-    send(namespace + ':intro', { value: '' })
+class Countdown extends Component {
+  constructor () {
+    super()
+    this.state = {
+      count: 60
+    }
   }
 
-  event.preventDefault()
+  componentDidMount () {
+    this.frame = setInterval(() => {
+      this.tick()
+    }, 1000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.frame) 
+  }
+
+  handleFinished () {
+    if (this.props.finished && typeof this.props.finished === 'function') {
+      clearInterval(this.frame)
+      this.props.finished()
+    }
+  }
+
+  tick () {
+    if (this.state.count > 0) {
+      this.setState({ count: this.state.count - 1 }) 
+    } else {
+      this.handleFinished()
+    }
+  }
+
+  render () {
+    return html`
+      <div class="mono">
+        0:${('0' + this.state.count).slice(-2)}
+      </div>
+    `
+  }
 }
 
-const elPassword = (state, prev, send) => h`
-  <div
-    class="psf t0 l0 r0 b0 x xjc xac bg-black curt"
-    onclick=${e => e.currentTarget.querySelector('input').focus()}
-  >
-    <form
-      class="c6"
-      onsubmit=${e => handlePasswordSubmit(state, prev, send, e)}
-    >
-      <input
-        autofocus
-        class="tac sans fwn bg-black tc-white p0 c12 fs1"
-        sm="fs2"
-        style="outline: none; border: 0;"
-        placeholder="beta password"
-        value=${state[namespace].intro.value}
-        oninput=${e => handlePasswordInput(state, prev, send, e)}
-      />
-    </form>
-    <div class="psf b0 l0 r0 xjc x p1">
-      <a
-        href="mailto:hardlyeverything@jon-kyle.com"
-        class="tc-white fs0-7"
-        sm="fs1"
-      >
-        request access
-      </a>
-    </div>
-  </div>
-`
+function intro (state, emit) {
+  return html`
+    <div class="fs1 lh1-5">
+      <div class="psf t0 l0 line px1 ${!state.intro.status ? 'dn' : ''}">
+        Hardly Everything
+      </div>
+      <div class="psf t0 r0 line px1">
+        ${state.ui.date}
+      </div>
+      <div class="psf b0 r0">
+        ${state.intro.status === 'waiting' ? elProceed() : ''}
+      </div>
+      <div class="x xjc ptvh25 pb4-5" sm="pt4-5">
+        <div class="mwrem43">
+          <div class="p1 copy">
+            <p class="mb3 op33"><span class="fwb">Currently Beta</span>: There are no invites, accounts, or mailing lists to subscribe to. Instead, you must wait on this page a full minute before proceeding. Below is some reading material, as the time passes…</p>
 
-module.exports = (state, prev, send) => {
-  const messages = ov(state[namespace].intro.messages)
-  const position = state[namespace].intro.position
-  
-  const elMessages = () => h`<div
-    class="psf t0 l0 r0 b0 x xac xjc p2 curp usn bg-black tc-white"
-    onclick=${e => handleContainerClick(state, prev, send, e)}
-  >
-    <div class="fs1 sans fwn" sm="fs2">
-      ${messages[position].map(line => h`<div>${line}</div>`)}
-    </div>
-    <div class="psf b0 l0 r0 p0-5 x xjc fs2 lh1">
-      ${messages.map((message, i) => h`
-        <div class="${i === position ? 'op100' : 'op20'}">•</div>
-      `)}
-    </div>
-  </div>`
+            <p>The prominent apps and sites often share a common element today; <em>the feed</em>. It looks like Facebook’s timeline, or Buzzfeed’s homepage—an endlessly updating stream of content, designed to keep you returning, and spending more time.</p>
 
-  return messages.length > position
-    ? elMessages()
-    : elPassword(state, prev, send)
+            <p>You frequently hear of us feeling burnt out by this “<em>drinking from a firehose</em>.” Of course, these services know that, and are increasingly implimenting steps to filter what you see and what you don’t based in part on what keeps you returning—a perpetually shifting mix which results in what has become known as <em>the filter bubble</em>, <em>FOMO</em>, and other things.</p>
+
+            <p class="mb3"><strong>Hardly Everything</strong> attempts to circumnavigate these corporate feeds by supplying you with an <em>anti-feed</em>.</p>
+
+            <p>Your feed closely resembles those already familiar—a scrolling list, at essence. You add things to this list, but when doing so prioritize their importance to you by defining a period of <strong>rest</strong>.</p>
+
+            <p>The notion of a rest is borrowed from musical notation—an extended period of time between notes. Just as music has a cadence, consider your attention’s cadence and rhythm while consuming a feed. This is why your feed has a pulse, or a pace, defined by you.</p>
+
+            <p>After clicking an entry, it disappears from your feed for the duration of it’s rest. Your feed updates once per day, there is never something new until tomorrow, a natural cycle, partitioned by a period of another kind of rest.</p>
+
+            <p>Your entries can rest anywhere from a day to a year. Link to a page you like to revisit often, or a page you want to remember in a few months.</p>
+
+            <p>Link directly to someone’s Instagram page, instead of scrolling through Instagram’s feed, and be reminded of it once every two weeks.</p>
+
+            <p class="mb3">Link to something once ever year, to free you from the impulse, if you’d like.</p>
+
+            <p>This tool is not a rejection of an interface, but a prompt to question who the interface serves, and why. It is also meant to be immediately useful, and hopefully you will find it that way, too.</p>
+
+            <p>
+              <a href="http://hello.hardlyeverything.com/about" class="op25 oph100">Permalink</a>
+            </p>
+
+            <div
+              class="
+                ${!state.intro.status ? 'curp' : 'op33 pen curd'}
+                mt4 p1 tac bg-black tc-white 
+              "
+            >
+              Get started
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+
+  function elProceed () {
+    return html`
+      <div class="p1 lh1">
+        ${h(Countdown, {
+          finished: () => {
+            emit('intro:update', { status: false })
+          }
+        })}
+      </div>
+    `
+  }
 }
