@@ -29,6 +29,19 @@ var optionsTypography = {
     weight: 700,
     value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
   },
+  alegreya: {
+    name: 'Alegreya',
+    key: 'alegreya',
+    host: 'google', 
+    value: 'Alegreya'
+  },
+  alegreyaItalic: {
+    name: 'Alegreya Italic',
+    key: 'alegreyaItalic',
+    host: 'google', 
+    style: 'italic',
+    value: 'Alegreya'
+  },
   cabin: {
     name: 'Cabin',
     key: 'cabin',

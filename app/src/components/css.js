@@ -124,6 +124,7 @@ function Css (state, emit) {
       .design-font {
         font-family: ${state.options.values.font.value}, sans-serif;
         font-weight: ${state.options.values.font.weight || 400};
+        font-style: ${state.options.values.font.style || 'normal'};
       }
 
       .design-font-size {

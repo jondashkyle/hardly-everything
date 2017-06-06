@@ -10,7 +10,7 @@ exports.load = (data, emit) => {
   switch (data.host) {
     case 'google':
       var value = data.weight
-        ? data.value + ':' + data.weight
+        ? data.value + ':' + data.weight + (data.style === 'italic' ? 'i' : '')
         : data.value
       return webfontloader.load({
         google: {

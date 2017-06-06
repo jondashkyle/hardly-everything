@@ -43,6 +43,7 @@ class Typography extends Component {
         style="
           font-family: ${data.value}, sans-serif;
           font-weight: ${data.weight || 400};
+          font-style: ${data.style || 'normal'};
         "
       >${data.name}</div> 
     `
