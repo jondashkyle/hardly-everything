@@ -144,8 +144,9 @@ input {
 .input-dropdown-options {
   border-top: 0;
   border-left: 0;
-  overflow-y: auto;
+  overflow-y: scroll;
   max-height: 16rem;
+  -webkit-overflow-scrolling: touch;
 }
 
 .input-dropdown-options > div:last-child {
@@ -234,7 +235,8 @@ input {
  */
 
 .panel-content {
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   max-height: 80vh;
 }
 

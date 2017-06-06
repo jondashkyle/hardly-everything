@@ -34,6 +34,7 @@ a feed for you
 - [ ] cache bust nginx
 - [x] restructure hello content
 - [ ] self-hosted version
+- [ ] type dropdown ios scroll
 
 # features
 
