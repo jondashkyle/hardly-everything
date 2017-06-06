@@ -1,7 +1,7 @@
 const h = require('choo/html')
 
 const pages = {
-  about: require('../containers/q-and-a'),
+  about: require('../containers/about'),
   tips: require('../containers/tips'),
   log: require('../containers/log')
 }

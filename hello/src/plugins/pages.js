@@ -10,7 +10,7 @@ function pages (state, emitter) {
     about: {
       title: 'About',
       slug: 'about',
-      content: require('../content/q-and-a')
+      content: require('../content/about')
     },
     tips: {
       title: 'Tips',
