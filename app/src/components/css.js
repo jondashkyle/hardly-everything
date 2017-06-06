@@ -58,6 +58,9 @@ function Css (state, emit) {
         border-bottom: 1px solid ${colorFg};
       }
 
+      ::-moz-selection { background: ${colorFgLighter} }
+      ::selection { background: ${colorFgLighter} }
+
       ::-webkit-input-placeholder { color: ${colorFgLight} }
       ::-moz-placeholder { color: ${colorFgLight} }
       :-ms-input-placeholder { color: ${colorFgLight} }
