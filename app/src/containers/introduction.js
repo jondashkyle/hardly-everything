@@ -56,9 +56,6 @@ function intro (state, emit) {
       <div class="psf t0 r0 line px1">
         ${state.ui.date}
       </div>
-      <div class="psf b0 r0">
-        ${state.intro.status === 'waiting' ? elProceed() : ''}
-      </div>
       <div class="x xjc ptvh25 pb4-5" sm="pt4-5">
         <div class="mwrem43">
           <div class="p1 copy">
@@ -91,10 +88,10 @@ function intro (state, emit) {
             <div
               class="
                 ${!state.intro.status ? 'curp' : 'op33 pen curd'}
-                mt4 p1 tac bg-black tc-white bro
+                mt4 px1 tac bg-black tc-white bro line
               "
             >
-              Get started
+              ${state.intro.status === 'waiting' ? elProceed() : 'Get started'}
             </div>
           </div>
         </div>
@@ -103,14 +100,10 @@ function intro (state, emit) {
   `
 
   function elProceed () {
-    return html`
-      <div class="p1 lh1">
-        ${h(Countdown, {
-          finished: () => {
-            emit('intro:update', { status: false })
-          }
-        })}
-      </div>
-    `
+    return h(Countdown, {
+      finished: () => {
+        emit('intro:update', { status: false })
+      }
+    })
   }
 }
