@@ -1,9 +1,9 @@
 text: |
   The prominent apps and sites often share a common element today; *the feed*. It looks like Facebook’s timeline, or Buzzfeed’s homepage—an endlessly updating stream of content, designed to keep you returning, and spending more time.
 
-  It’s common to hear of us feeling burnt out by this “*drinking from a firehose*.” Of course, these services know that, and have implemented algorithms to filter what you see and what you don’t based in part on what keeps you returning—a perpetually shifting mix which results in what has become known as *the filter bubble*, *FOMO*, and other things.
+  You frequently hear of us feeling burnt out by this “*drinking from a firehose*.” Of course, these services know that, and have implemented algorithms to filter what you see and what you don’t based in part on what keeps you returning—a perpetually shifting mix which results in what has become known as *the filter bubble*, *FOMO*, and other things.
 
-  **Hardly Everything** attempts to circumnavigate these corporate feeds by supplying you with an *anti-feed*.</p>
+  **Hardly Everything** attempts to circumnavigate these corporate feeds by supplying you with an *anti-feed*.
 
   Your feed closely resembles those already familiar—a scrolling list, at essence. You add things to this list, but when doing so prioritize their importance to you by defining a period of **rest**.
 
@@ -17,4 +17,4 @@ text: |
 
   Link to something once ever year, to free you from the impulse, if you’d like.
 
-  This tool is not a rejection of an interface, but a prompt to question who the interface serves, what for, and why. It is also meant to be immediately useful, and hopefully you will find it that way, too
+  This tool is not a rejection of an interface, but a prompt to question who the interface serves, and why. It is also meant to be immediately useful, and hopefully you will find it that way, too.

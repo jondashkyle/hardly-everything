@@ -50,6 +50,9 @@ class Countdown extends Component {
 function intro (state, emit) {
   return html`
     <div class="fs1 lh1-5">
+      <div class="psf t0 l0 line px1 ${!state.intro.status ? 'dn' : ''}">
+        Hardly Everything
+      </div>
       <div class="psf t0 r0 line px1">
         ${state.ui.date}
       </div>
@@ -58,21 +61,14 @@ function intro (state, emit) {
       </div>
       <div class="x xjc ptvh25 pb4-5" sm="pt4-5">
         <div class="mwrem43">
-          <div class="tac fwb fs2 p1">
-            Hardly Everything
-          </div>
           <div class="p1 copy">
-            <p><em>Currently Beta: There are no invites, accounts, or mailing lists to subscribe to. Instead, you must wait on this page a full minute before proceeding. Below is some reading material, as the time passes…</em></p>
+            <p class="mb3 op33"><span class="fwb">Currently Beta</span>: There are no invites, accounts, or mailing lists to subscribe to. Instead, you must wait on this page a full minute before proceeding. Below is some reading material, as the time passes…</p>
 
             <p>The prominent apps and sites often share a common element today; <em>the feed</em>. It looks like Facebook’s timeline, or Buzzfeed’s homepage—an endlessly updating stream of content, designed to keep you returning, and spending more time.</p>
 
-            <p>It’s common to hear of us feeling burnt out by this “<em>drinking from a firehose</em>.” Of course, these services know that, and have implemented algorithms to filter what you see and what you don’t based in part on what keeps you returning—a perpetually shifting mix which results in what has become known as <em>the filter bubble</em>, <em>FOMO</em>, and other things.</p>
+            <p>You frequently hear of us feeling burnt out by this “<em>drinking from a firehose</em>.” Of course, these services know that, and are increasingly implimenting steps to filter what you see and what you don’t based in part on what keeps you returning—a perpetually shifting mix which results in what has become known as <em>the filter bubble</em>, <em>FOMO</em>, and other things.</p>
 
-            <p><strong>Hardly Everything</strong> attempts to circumnavigate these corporate feeds by supplying you with an <em>anti-feed</em>.</p>
-
-            <div style="height: 26rem" class="x xjc xac bg-black tc-black">
-              Yes, this has fully loaded
-            </div>
+            <p class="mb3"><strong>Hardly Everything</strong> attempts to circumnavigate these corporate feeds by supplying you with an <em>anti-feed</em>.</p>
 
             <p>Your feed closely resembles those already familiar—a scrolling list, at essence. You add things to this list, but when doing so prioritize their importance to you by defining a period of <strong>rest</strong>.</p>
 
@@ -84,20 +80,22 @@ function intro (state, emit) {
 
             <p>Link directly to someone’s Instagram page, instead of scrolling through Instagram’s feed, and be reminded of it once every two weeks.</p>
 
-            <p>Link to something once ever year, to free you from the impulse, if you’d like.</p>
+            <p class="mb3">Link to something once ever year, to free you from the impulse, if you’d like.</p>
 
-            <p>This tool is not a rejection of an interface, but a prompt to question who the interface serves, what for, and why. It is also meant to be immediately useful, and hopefully you will find it that way, too.</p>
-
-            <p>
-              ${state.intro.status === 'waiting'
-                ? 'Just a bit more waiting, now…'
-                : html`<span>Click anywhere to get started. I’m interested to hear any <a href="mailto:contact@jon-kyle.com">thoughts you have</a>.</span>`
-              }
-            </p>
+            <p>This tool is not a rejection of an interface, but a prompt to question who the interface serves, and why. It is also meant to be immediately useful, and hopefully you will find it that way, too.</p>
 
             <p>
-              <a href="http://hello.hardlyeverything.com/about" class="op25 oph100">Permalink to this text</a>
+              <a href="http://hello.hardlyeverything.com/about" class="op25 oph100">Permalink</a>
             </p>
+
+            <div
+              class="
+                ${!state.intro.status ? 'curp' : 'op33 pen curd'}
+                mt4 p1 tac bg-black tc-white 
+              "
+            >
+              Get started
+            </div>
           </div>
         </div>
       </div>
