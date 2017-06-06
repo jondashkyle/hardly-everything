@@ -59,7 +59,7 @@ function intro (state, emit) {
       <div class="x xjc ptvh25 pb4-5" sm="pt4-5">
         <div class="mwrem43">
           <div class="p1 copy">
-            <p class="mb3 op33"><span class="fwb">Currently Beta</span>: There are no invites, accounts, or mailing lists to subscribe to. Instead, you must wait on this page a full minute before proceeding. Below is some reading material, as the time passes…</p>
+            <p class="mb3 op33"><span class="fwb">Currently Beta</span>: There are no invites, accounts, or mailing lists to subscribe to. Instead, you must wait on this page a full minute before continuing. Below is some reading material, as the time passes…</p>
 
             <p>The prominent apps and sites often share a common element today; <em>the feed</em>. It looks like Facebook’s timeline, or Buzzfeed’s homepage—an endlessly updating stream of content, designed to keep you returning, and spending more time.</p>
 
