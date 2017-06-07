@@ -13,7 +13,6 @@ a feed for you
 
 ### phase two
 **june 20th, 2017**
-- [ ] pouchdb
 - [ ] ui improvements
 - [ ] search
 - [ ] tags
@@ -21,6 +20,7 @@ a feed for you
 
 ### phase three
 **july 1st, 2017**
+- [ ] pouchdb
 - [ ] couchdb
 - [ ] sync
 - [ ] support/upgrade
@@ -55,6 +55,12 @@ a feed for you
   - video
 
 ## data
-- switch to pouchdb
-- setup couchdb api
-- sync as premium feature
+- dat
+  - levelup/leveldown
+  - sync using dat/hyperdrive/hypercloud
+  - assign readable/memorable name to dat hash
+  - learn a set of tools, not a framework
+  - slightly immature
+- pouch
+  - switch to pouchdb
+  - setup couchdb api
