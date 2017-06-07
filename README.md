@@ -32,9 +32,8 @@ a feed for you
 - [ ] hit up people about log contributions
 - [ ] subtle transitions
 - [ ] cache bust nginx
-- [x] restructure hello content
 - [ ] self-hosted version
-- [ ] type dropdown ios scroll
+- [ ] arena integration
 
 # features
 
