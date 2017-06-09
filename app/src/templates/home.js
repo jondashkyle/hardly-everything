@@ -1,24 +1,29 @@
 var html = require('rooch/html')
 
-var intro = require('../containers/introduction')
-var panel = require('../containers/panel-container')
-var entryNavigation = require('../containers/entry-navigation')
-var entryList = require('../containers/entry-list')
+var Intro = require('../containers/introduction')
+var Panel = require('../containers/panel-container')
+var EntryNavigation = require('../containers/entry-navigation')
+var EntryList = require('../containers/entry-list')
 
 module.exports = view
 
 function view (state, emit) {
+  var panelProps = {
+    isHoverActive: true && !state.ui.mobile,
+    view: state.ui.panel.view
+  }
+
   return state.app.loaded
     ? html`<div>${content()}</div>`
     : ''
 
   function content () {
     return [
-      panel(state, emit),
+      Panel(state, panelProps, emit),
       state.user.analytics.authenticated
-        ? entryList(state, emit)
-        : intro(state, emit),
-      entryNavigation(state, emit)
+        ? EntryList(state, emit)
+        : Intro(state, emit),
+      EntryNavigation(state, emit)
     ]
   }
 }

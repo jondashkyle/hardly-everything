@@ -6,7 +6,9 @@ var panelOptions = require('../containers/panel-options')
 
 module.exports = view
 
-function view (state, emit) {
+function view (state, props, emit) {
+  props = props || { }
+  
   var views = {
     options: {
       title: 'Options', 
@@ -26,11 +28,11 @@ function view (state, emit) {
     }
   }
 
-  var view = views[state.params.view]
+  var view = views[props.view]
   var content = view && view.view && typeof view.view === 'function'
     ? html`
       <div
-        class="panel psr wrem40 sans fs1 pen pb1"
+        class="panel psr c12 sans fs1 pen pb1"
         sm="c12 pt1 mtpx2"
         style="top: 4.5rem"
       >
@@ -50,12 +52,18 @@ function view (state, emit) {
       data-panel
     >
       <div
-        class="psf t0 l0 px1 z3 ${state.ui.mobile ? 'bg-white bb2b' : ''}"
-        sm="r0"
+        class="wrem40"
+        sm="c12"
+        onmouseleave=${handlePanelLeave}
       >
-        ${navigation()} 
+        <div
+          class="psf t0 l0 px1 z3 ${state.ui.mobile ? 'bg-white bb2b' : ''}"
+          sm="r0"
+        >
+          ${navigation()} 
+        </div>
+        ${content}
       </div>
-      ${content}
     </div>
   `
 
@@ -88,24 +96,61 @@ function view (state, emit) {
   }
 
   function navigationLink (view) {
-    var active = view.path === state.params.view
-    return html` 
-      <a
-        href="${active ? '/' : '/panel/' + view.path}"
-        class="
-          ${active ? 'op100 arrow-bottom' : 'op33'}
-          psr db oph100 mr1 tc-black pea
-        "
-      >
-        ${view.title}
-      </a>
-    `
+    var active = view.path === props.view
+
+    if (props.isHoverActive) {
+      return html` 
+        <div
+          onmouseenter=${handleLinkEnter}
+          class="
+            ${active ? 'op100 arrow-bottom' : 'op33'}
+            curd psr db oph100 mr1 tc-black pea
+          "
+        >
+          ${view.title}
+        </div>
+      `
+    } else {
+      return html` 
+        <a
+          href="${active ? '/' : '/panel/' + view.path}"
+          onmouseenter=${handleLinkEnter}
+          class="
+            ${active ? 'op100 arrow-bottom' : 'op33'}
+            psr db oph100 mr1 tc-black pea
+          "
+        >
+          ${view.title}
+        </a>
+      `
+    }
+
+    function handleLinkEnter () {
+      if (
+        props.isHoverActive &&
+        view.path !== props.view
+      ) {
+        emit('ui:panel', { view: view.path })
+      }
+    }
   }
 
   function handleContainerClick (event) {
     if (event.target.hasAttribute('data-panel')) {
-      emit('pushState', '/')
       emit('staging:reset')
+      if (props.isHoverActive) {
+        emit('ui:panel', { view: '' })
+      } else {
+        emit('pushState', '/')
+      }
     }
   }
+
+  function handlePanelLeave (event) {
+    if (props.isHoverActive && props.view) {
+      emit('staging:reset')
+      emit('ui:panel', { view: '' })
+    }
+  }
+
 }

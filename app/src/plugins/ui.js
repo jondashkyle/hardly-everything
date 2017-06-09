@@ -24,6 +24,12 @@ function Ui (state, emitter) {
     emitter.emit('render')
   })
 
+  emitter.on('ui:panel', function (data) {
+    var render = state.ui.panel.view !== data.view
+    state.ui.panel = xtend(state.ui.panel, data)
+    if (render) emitter.emit('render', 'ui:panel');
+  })
+
   emitter.on('DOMContentLoaded', function () {
     setMobile()
     attachFastClick(document.body)
