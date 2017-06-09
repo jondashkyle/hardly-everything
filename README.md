@@ -11,6 +11,10 @@ a feed for you
 - [x] new server env
 - [x] mobile styles
 
+### phase one point five
+- [ ] spend time w/ data
+- [ ] restructure component/props (panel)
+
 ### phase two
 **june 20th, 2017**
 - [ ] ui improvements
@@ -55,6 +59,7 @@ a feed for you
   - video
 
 ## data
+- hardly everything app class constructor and `use` plugin for database
 - dat
   - levelup/leveldown
   - sync using dat/hyperdrive/hypercloud

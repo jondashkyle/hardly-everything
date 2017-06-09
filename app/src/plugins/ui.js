@@ -1,4 +1,4 @@
-var x = require('xtend')
+var xtend = require('xtend')
 var moment = require('moment')
 var attachFastClick = require('fastclick')
 
@@ -16,21 +16,11 @@ function Ui (state, emitter) {
     panel: {
       active: false,
       view: ''
-    },
-    intro: {
-      position: 0,
-      password: 'yucca',
-      value: '',
     }
   }
 
-  emitter.on('ui:intro', function (data) {
-    state.ui.intro = x(state.ui.intro, data)
-    emitter.emit('render')
-  })
-
   emitter.on('ui:update', function (data) {
-    state.ui = x(state.ui, data)
+    state.ui = xtend(state.ui, data)
     emitter.emit('render')
   })
 
