@@ -13,7 +13,7 @@ a feed for you
 
 ### phase one point five
 - [ ] spend time w/ data
-- [ ] restructure component/props (panel)
+- [ ] hovers from panel
 
 ### phase two
 **june 20th, 2017**
@@ -41,22 +41,23 @@ a feed for you
 
 # features
 
-## introduction
-- finish copy
-- add timer
-
 ## panel
 
 ### ui
-- mouseenter/leave to hide and show views
-- decouple from router
-- router supports by passing props
+- [ ] mouseenter/leave to hide and show views
+- [ ] decouple from router
+- [ ] router supports by passing props
 
 ### functionality
 - different entry types
   - link
   - photo
   - video
+
+## refactor
+- design by isolating the pure functions for templates
+- create a sandbox for viewing the templates
+- use that as a way of determining structure
 
 ## data
 - hardly everything app class constructor and `use` plugin for database
