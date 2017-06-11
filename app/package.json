@@ -29,10 +29,12 @@
     "postcss-clean": "^1.0.2",
     "postcss-cli": "^4.0.0",
     "preact-compat": "^3.16.0",
+    "tape": "^4.6.3",
     "uglifyify": "^3.0.4",
     "watch": "^1.0.2"
   },
   "dependencies": {
+    "assert": "^1.4.1",
     "axios": "^0.14.0",
     "budo": "^9.0.0",
     "clone-deep": "^0.2.4",

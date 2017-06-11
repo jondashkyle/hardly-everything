@@ -13,7 +13,7 @@ a feed for you
 
 ### phase one point five
 - [ ] spend time w/ data
-- [ ] hovers from panel
+- [x] hovers from panel
 
 ### phase two
 **june 20th, 2017**

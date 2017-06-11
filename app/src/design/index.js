@@ -72,6 +72,7 @@ var lilsrc = [
   'containers/*.js',
   'components/*.js',
   'templates/*.js',
+  'sandbox/*.js',
   'index.js'
 ].map(p => 'src/' + p)
 

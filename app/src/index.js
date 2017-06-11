@@ -18,4 +18,10 @@ app.route('/panel/:view/:id', wrapper(require('./templates/panel')))
 app.route('/data', wrapper(require('./templates/data')))
 app.route('/data/:command', wrapper(require('./templates/data')))
 
+// dev sandbox
+if (process.env.NODE_ENV === 'development') {
+  app.route('/sandbox', wrapper(require('./sandbox')))
+  app.route('/sandbox/:component', wrapper(require('./sandbox')))
+}
+
 app.mount('main')
