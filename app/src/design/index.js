@@ -70,7 +70,7 @@ gr8css.add({
 
 var lilsrc = [
   'containers/*.js',
-  'components/*.js',
+  'components/**/*.js',
   'templates/*.js',
   'sandbox/*.js',
   'index.js'

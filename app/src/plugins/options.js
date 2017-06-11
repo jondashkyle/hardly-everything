@@ -304,7 +304,7 @@ function getDefaultState () {
         type: 'range',
         min: 5,
         max: 72,
-        valueShow: false,
+        showValue: false,
         visible: true
       },
       spacing: {

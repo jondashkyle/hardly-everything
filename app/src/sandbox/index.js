@@ -15,10 +15,14 @@ function Sandbox (state, emit) {
 
   var navigationComponents = ov(components)
     .map(function (component) {
+      var active = state.params.component === component.key
       return html`
         <a
           href="/sandbox/${component.key}"
-          class="db line px1 tc-black bb1-lighter"
+          class="
+            db line px1 tc-black bb1-lighter
+            ${active ? 'fwb' : ''}
+          "
         >${component.name}</a>
       `
     })

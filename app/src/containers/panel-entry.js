@@ -1,8 +1,9 @@
 var html = require('rooch/html')
+var h = require('rooch/h')
 var x = require('xtend')
 
 var { intToRest } = require('../helpers/time')
-var inputRange = require('../components/input-range')
+var inputRange = require('../components/input/range')
 
 module.exports = view
 
@@ -36,13 +37,15 @@ function view (state, emit) {
       <div class="c12 x" style="line-height: 3rem">
         <div class="xx p1px">
           <div class="fs1 c12 bg-white tc-black line">
-            ${inputRange({
+            ${h(inputRange, {
               name: 'Rest',
               value: state.staging.entry.timeRange,
               valueShow: false,
-              handleInput: value => emit('staging:entry', x(getTime(value), {
-                timeRange: value
-              }))
+              onInput: function (data) {
+                emit('staging:entry', x(getTime(data.value), {
+                  timeRange: data.value
+                }))
+              }
             })}
           </div>
         </div>

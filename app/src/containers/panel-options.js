@@ -6,7 +6,7 @@ var x = require('xtend')
 var inputColor = require('../components/input-color')
 var inputText = require('../components/input-text')
 var inputCheckbox = require('../components/input/checkbox')
-var inputRange = require('../components/input-range')
+var inputRange = require('../components/input/range')
 var inputTypography = require('../components/input-typography')
 
 module.exports = view
@@ -93,14 +93,14 @@ function view (state, emit) {
           }
         })
       case 'range':
-        return inputRange({
+        return h(inputRange, {
           name: option.name,
           value: state.options.values[option.key],
-          valueShow: option.valueShow,
-          handleInput: function (value) {
+          showValue: option.showValue,
+          onInput: function (data) {
             emit('options:values', {
               key: option.key,
-              value: value
+              value: data.value
             })
           }
         })
