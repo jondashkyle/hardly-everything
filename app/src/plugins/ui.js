@@ -39,7 +39,7 @@ function Ui (state, emitter) {
   function setMobile () {
     clearTimeout(resizeFrame)
     resizeFrame = setTimeout(function () {
-      state.ui.mobile = window.innerWidth <= 500
+      state.ui.mobile = window.innerWidth <= 600
       emitter.emit('render')
     }, 100)
   }

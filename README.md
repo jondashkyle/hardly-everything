@@ -12,12 +12,14 @@ a feed for you
 - [x] mobile styles
 
 ### phase one point five
-- [ ] spend time w/ data
-- [x] hovers from panel
+- [x] data: look into it
+- [x] panel: hovers
+- [ ] panel: autofocus title
 
 ### phase two
 **june 20th, 2017**
-- [ ] ui improvements
+- [x] ui improvements
+- [x] sandbox
 - [ ] search
 - [ ] tags
 - [ ] service workers / cache
@@ -36,17 +38,22 @@ a feed for you
 - [ ] hit up people about log contributions
 - [ ] subtle transitions
 - [ ] cache bust nginx
-- [ ] self-hosted version
 - [ ] arena integration
+- [ ] auto hide nav (mousemove)
+- [ ] replace google analytics
+- [ ] locally serve fonts
 
 # features
 
-## panel
+## sandbox
+- [ ] inputs
+  - [x] range
+  - [ ] color
+  - [x] checkbox
+  - [ ] dropdown
+  - [ ] typography
 
-### ui
-- [ ] mouseenter/leave to hide and show views
-- [ ] decouple from router
-- [ ] router supports by passing props
+## panel
 
 ### functionality
 - different entry types
@@ -56,17 +63,10 @@ a feed for you
 
 ## refactor
 - design by isolating the pure functions for templates
-- create a sandbox for viewing the templates
-- use that as a way of determining structure
 
 ## data
 - hardly everything app class constructor and `use` plugin for database
-- dat
-  - levelup/leveldown
-  - sync using dat/hyperdrive/hypercloud
-  - assign readable/memorable name to dat hash
-  - learn a set of tools, not a framework
-  - slightly immature
-- pouch
-  - switch to pouchdb
-  - setup couchdb api
+- sync using dat/hyperdrive/hypercloud
+- assign readable/memorable name to dat hash
+- learn a set of tools, not a framework
+- slightly immature

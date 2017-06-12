@@ -1,13 +1,15 @@
-const html = require('rooch/html')
-
-const icon = () => h`
-  <div class="spinner"></div>
-`
-
-const container = () => html`
-  <div class="psf t0 l0 r0 b0 x xjc xac">
-    ${icon()}
-  </div>
-`
+var html = require('rooch/html')
 
 module.exports = { icon, container }
+
+function icon () {
+  return html`<div class="spinner"></div>`
+}
+
+function container () {
+  return html`
+    <div class="psf t0 l0 r0 b0 x xjc xac">
+      ${icon()}
+    </div>
+  `
+}

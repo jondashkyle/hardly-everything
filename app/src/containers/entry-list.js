@@ -68,7 +68,7 @@ function EntryList (state, emit) {
     : elEntriesNone(state, emit)
 
   var styleMobile = state.ui.mobile
-    ? 'margin-top: 4.5rem; min-height: calc(100vh - 4.5rem);'
+    ? 'margin-top: 4.5rem;'
     : 'min-height: 100vh;'
 
   return html`

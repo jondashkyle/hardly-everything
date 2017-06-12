@@ -1,7 +1,8 @@
 
 module.exports = [
   checkbox,
-  range
+  range,
+  text
 ]
 
 function checkbox (state, emit) {
@@ -65,6 +66,41 @@ function range (state, emit) {
         name: 'Test',
         showValue: true,
         value: 10
+      }
+    }]
+  }
+}
+
+function text (state, emit) {
+  return {
+    key: 'text',
+    name: 'Text',
+    template: require('../components/input/text'),
+    variations: [{
+      name: 'Default',
+      props: {
+        key: 'one',
+        name: 'Test',
+        onInput: function(data) {
+          emit({
+            component: 'Text',
+            data: data
+          })
+        }
+      }
+    }, {
+      name: 'Value',
+      props: {
+        key: 'one',
+        name: 'Test',
+        value: 'This one has a value'
+      }
+    }, {
+      name: 'Autofocus',
+      props: {
+        key: 'one',
+        name: 'Autofocus example',
+        autofocus: true
       }
     }]
   }

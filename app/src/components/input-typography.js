@@ -69,7 +69,7 @@ class Typography extends Component {
       class="psr c12 curp x xje line"
       onclick=${event => this.handleCurrentClick({ }, event)}
     >
-      <label class="psa t0 l0 px1">
+      <label class="psa t0 l0 px1 pen">
         Font
       </label>
       <div class="px1 fs1-5 design-font">

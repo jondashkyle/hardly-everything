@@ -8,8 +8,8 @@ var custom = fs.readFileSync(__dirname + '/index.css', 'utf8')
 var gr8css = gr8({
   breakpoints: {
     lg: '1000px',
-    md: '767px',
-    sm: '500px'
+    md: '800px',
+    sm: '600px'
   },
   fontSize: [0.7, 0.8, 1, 1.2, 1.4, 1.5, 1.6, 1.8, 2]
     .map(function (size) {

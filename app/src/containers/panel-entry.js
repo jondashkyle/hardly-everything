@@ -4,6 +4,7 @@ var x = require('xtend')
 
 var { intToRest } = require('../helpers/time')
 var inputRange = require('../components/input/range')
+var inputText = require('../components/input/text')
 
 module.exports = view
 
@@ -15,14 +16,18 @@ function view (state, emit) {
       onsubmit=${handleSubmit}
     >
       <div class="c12 p1px">
-        <input
-          name="title"
-          placeholder="Title"
-          value="${state.staging.entry.title}"
-          oninput=${e => emit('staging:entry', { title: e.target.value })}
-          type="text"
-          class="fs1 c12 sans bg-white tc-black px1 brit line"
-        />
+        ${h(inputText, {
+          key: 'title',
+          name: 'Title',
+          value: state.staging.entry.title,
+          style: 'brit',
+          autofocus: true,
+          onInput: function (data) {
+            emit('staging:entry', {
+              title: data.value
+            })
+          }
+        })}
       </div>
       <div class="c12 p1px">
         <input
