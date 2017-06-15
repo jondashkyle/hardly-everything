@@ -4,7 +4,7 @@ var html = require('rooch/html')
 var x = require('xtend')
 
 var inputColor = require('../components/input-color')
-var inputText = require('../components/input-text')
+var inputText = require('../components/input/text')
 var inputCheckbox = require('../components/input/checkbox')
 var inputRange = require('../components/input/range')
 var inputTypography = require('../components/input-typography')
@@ -67,7 +67,17 @@ function view (state, emit) {
   function templateOption (option) {
     switch (option.type) {
       case 'text':
-        return inputText(state, option, emit)
+        return h(inputText, {
+          key: option.key,
+          name: option.name,
+          value: state.options.values[option.key],
+          onChange: function (data) {
+            emit('options:values', {
+              key: option.key,
+              value: data.value
+            })
+          }
+        })
       case 'checkbox':
         return h(inputCheckbox,{
           key: option.key,
