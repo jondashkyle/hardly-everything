@@ -80,7 +80,10 @@ var elExport = (state, emit) => {
   var entries = state.entries.all
 
   return html`<div class="data">
-    <pre class="fs1 mono bg-white tc-black p1" contenteditable="true"><code>${JSON.stringify(entries, null, 2)}</code></pre>
+    <textarea
+      class="mono bg-white tc-black p1 fs1 lh1-5"
+      placeholder="Must be valid link JSON"
+    >${JSON.stringify(entries, null, 2)}</textarea>
   </div>`
 }
 

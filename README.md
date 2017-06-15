@@ -14,7 +14,7 @@ a feed for you
 ### phase one point five
 - [x] data: look into it
 - [x] panel: hovers
-- [ ] panel: autofocus title
+- [x] panel: autofocus title
 
 ### phase two
 **june 20th, 2017**
@@ -22,7 +22,6 @@ a feed for you
 - [x] sandbox
 - [ ] search
 - [ ] tags
-- [ ] service workers / cache
 
 ### phase three
 **july 1st, 2017**

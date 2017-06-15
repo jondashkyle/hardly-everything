@@ -8,7 +8,7 @@
     "bust-cache": "break-cache -i ./dist/index.html -m 'bundle.js|bundle.css' -o ./dist/index.html",
     "build-css": "node ./src/design | postcss --use autoprefixer --use postcss-clean > dist/bundles/bundle.css",
     "watch-css": "watch 'node ./src/design > dist/bundles/bundle.css' ./src",
-    "build-js": "browserify src/index.js -t envify -g aliasify -t brfs -t [ babelify --presets [ babel-preset-es2015 babel-preset-react ] ] -g uglifyify > dist/bundles/bundle.js",
+    "build-js": "browserify src/index.js -t envify -g aliasify -t brfs -t rollupify -t [ babelify --presets [ babel-preset-es2015 babel-preset-react ] ] -g uglifyify > dist/bundles/bundle.js",
     "watch-js": "budo src/index.js:bundles/bundle.js --dir dist --pushstate --live -- -t [ envify --NODE_ENV development ] -g aliasify -t brfs",
     "start": "concurrently --kill-others \"npm run watch-js\" \"npm run watch-css\""
   },
@@ -29,6 +29,7 @@
     "postcss-clean": "^1.0.2",
     "postcss-cli": "^4.0.0",
     "preact-compat": "^3.16.0",
+    "rollupify": "^0.3.9",
     "tape": "^4.6.3",
     "uglifyify": "^3.0.4",
     "watch": "^1.0.2"

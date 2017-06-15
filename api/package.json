@@ -13,5 +13,8 @@
     "express": "^4.15.3",
     "github-webhook-handler": "^0.6.0",
     "merry": "^5.0.2"
+  },
+  "devDependencies": {
+    "merry": "^5.0.6"
   }
 }

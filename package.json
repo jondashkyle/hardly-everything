@@ -4,6 +4,9 @@
   "description": "an attention & time focused bookmarking app",
   "main": "index.js",
   "scripts": {
+    "start": "concurrently --kill-others \"npm run api\" \"npm run app\"",
+    "api": "cd api && npm run start",
+    "app": "cd app && npm run start",
     "build-app": "cd app && npm run build",
     "build-api": "cd api && npm run build",
     "build": "npm run build-api && npm run build-app"
@@ -17,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jondashkyle/asdf/issues"
   },
-  "homepage": "https://github.com/jondashkyle/asdf#readme"
+  "homepage": "https://github.com/jondashkyle/asdf#readme",
+  "devDependencies": {
+    "concurrently": "^3.4.0"
+  }
 }
