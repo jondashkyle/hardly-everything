@@ -3,30 +3,13 @@ a feed for you
 
 ## schedule
 
-### phase one
-**june 5th, 2017**
-- [x] introductory text
-- [x] updated ui
-- [x] updated hello
-- [x] new server env
-- [x] mobile styles
-
-### phase one point five
-- [x] data: look into it
-- [x] panel: hovers
-- [x] panel: autofocus title
-
-### phase two
-**june 20th, 2017**
+### june 20th, 2017
 - [x] ui improvements
 - [x] sandbox
 - [ ] search
 - [ ] tags
 
-### phase three
-**july 1st, 2017**
-- [ ] pouchdb
-- [ ] couchdb
+### july 1st, 2017
 - [ ] sync
 - [ ] support/upgrade
 

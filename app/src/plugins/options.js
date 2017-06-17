@@ -163,6 +163,27 @@ var optionsTypography = {
     host: 'google',
     value: 'Space Mono'
   },
+  spectralExtraLight: {
+    name: 'Spectral Extra-Light',
+    key: 'spectralExtraLight',
+    host: 'google',
+    weight: 200,
+    value: 'Spectral'
+  },
+  spectral: {
+    name: 'Spectral',
+    key: 'spectral',
+    host: 'google',
+    weight: 400,
+    value: 'Spectral'
+  },
+  spectralBold: {
+    name: 'Spectral Bold',
+    key: 'spectralBold',
+    host: 'google',
+    weight: 700,
+    value: 'Spectral'
+  },
   workSans: {
     name: 'Work Sans',
     key: 'workSans',
