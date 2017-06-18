@@ -9,7 +9,6 @@ some thoughts brainstorming w/ lily about directions. ended up circling back aro
 - build centralized to start, with the plan to become decentralized/distributed, and use as a case study on how to do the transition. (how to migrate from firebase to the distributed web)
 - write a “how to make hardly everything” series, promote choo
 - slow growth, project size, sustainability and how value informs decisions.
-- how the functionality could never be monetized at scale, and because of this can not become a “story” feature. questioning progress.
 - people’s general awareness that if you’re not paying for the product, you’re the product being sold
 - sorting options (dismissed, resurfaced, added)
 - instead of just links, you create “cards”
