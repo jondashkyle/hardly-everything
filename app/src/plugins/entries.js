@@ -184,7 +184,6 @@ function Entries (state, emitter) {
 
   function getActive () {
     var now = moment().startOf('day').toDate()
-    console.log(state.search.term)
     return ov(state.entries.all)
       .filter(entry => {
         if (

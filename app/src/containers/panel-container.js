@@ -172,7 +172,8 @@ function navigationSearch (props = { }) {
     <input
       type="text"
       placeholder="Search…"
-      class="fs1 ff-sans"
+      class="fs1 ff-sans tc-black"
+      style="background: none"
       oninput=${handleInput}
     />
   `
