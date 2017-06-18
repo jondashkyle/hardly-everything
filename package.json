@@ -23,8 +23,5 @@
   "homepage": "https://github.com/jondashkyle/asdf#readme",
   "devDependencies": {
     "concurrently": "^3.4.0"
-  },
-  "dependencies": {
-    "fuse.js": "^3.0.5"
   }
 }

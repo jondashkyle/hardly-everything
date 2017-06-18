@@ -1,5 +1,3 @@
-var Fuse = require('fuse.js')
-
 
 module.exports = search
 
