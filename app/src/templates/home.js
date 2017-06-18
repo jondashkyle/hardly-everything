@@ -13,17 +13,19 @@ function view (state, emit) {
     view: state.ui.panel.view
   }
 
-  return state.app.loaded
-    ? html`<div>${content()}</div>`
-    : ''
-
-  function content () {
-    return [
-      Panel(state, panelProps, emit),
-      state.user.analytics.authenticated
-        ? EntryList(state, emit)
-        : Intro(state, emit),
-      EntryNavigation(state, emit)
-    ]
+  // hide if nothing to load
+  if (!state.app.loaded) {
+    return ''
   }
+
+  // show the entry list if we’re logged in
+  var content = state.user.analytics.authenticated
+    ? EntryList(state, emit)
+    : Intro(state, emit)
+
+  return [
+    Panel(state, panelProps, emit),
+    content,
+    EntryNavigation(state, emit)
+  ]
 }

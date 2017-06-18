@@ -21,13 +21,13 @@ function Ui (state, emitter) {
 
   emitter.on('ui:update', function (data) {
     state.ui = xtend(state.ui, data)
-    emitter.emit('render')
+    emitter.emit('app:render')
   })
 
   emitter.on('ui:panel', function (data) {
     var render = state.ui.panel.view !== data.view
     state.ui.panel = xtend(state.ui.panel, data)
-    if (render) emitter.emit('render', 'ui:panel');
+    if (render) emitter.emit('app:render', 'ui:panel');
   })
 
   emitter.on('DOMContentLoaded', function () {
@@ -40,7 +40,7 @@ function Ui (state, emitter) {
     clearTimeout(resizeFrame)
     resizeFrame = setTimeout(function () {
       state.ui.mobile = window.innerWidth <= 600
-      emitter.emit('render')
+      emitter.emit('app:render')
     }, 100)
   }
 }

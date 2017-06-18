@@ -66,14 +66,15 @@ function Entries (state, emitter) {
     loaded: false,
     amount: 0,
     all: { },
-    archive: { }
+    active: [ ]
   }
 
   // all
   emitter.on('entries:all', function (data) {
     state.entries.all = data
     state.entries.amount = ov(state.entries.all).length
-    emitter.emit('render')
+    emitter.emit('entries:refresh')
+    emitter.emit('app:render')
   })
 
   // loaded
@@ -123,7 +124,7 @@ function Entries (state, emitter) {
       emitter.emit('staging:reset', { })
       emitter.emit('ui:update', { stagingActive: false })
       emitter.emit('entries:all', newState)
-      emitter.emit('render')
+      emitter.emit('app:render')
 
       db.update(data, newState)
     } else {
@@ -144,7 +145,7 @@ function Entries (state, emitter) {
     newState[data.id] = newEntry
 
     emitter.emit('entries:all', newState)
-    emitter.emit('render')
+    emitter.emit('app:render')
     db.update(newEntry, newState)
   })
 
@@ -154,7 +155,7 @@ function Entries (state, emitter) {
     delete newState[data.id]
 
     emitter.emit('entries:all', newState)
-    emitter.emit('render')
+    emitter.emit('app:render')
 
     db.remove(data, newState)
   })
@@ -163,21 +164,61 @@ function Entries (state, emitter) {
   emitter.on('entries:reset', function (data) {
     var newState = data ? data : { }
     emitter.emit('entries:all', newState)
-    emitter.emit('render')
+    emitter.emit('app:render')
     db.update(newState, newState) 
   })
 
-  // refresh
-  emitter.on('entries:refresh', function (data) {
-    emitter.emit('render')
+  // render
+  emitter.on('entries:render', function (data) {
+    state.entries.active = getActive()
   })
 
   // initialize
   db.get(data => {
     emitter.emit('entries:all', data)
     emitter.emit('entries:loaded', true)
-    emitter.emit('render')
+    emitter.emit('app:render')
   }, () => {
     emitter.emit('entries:loaded', true)
   })
+
+  function getActive () {
+    var now = moment().startOf('day').toDate()
+    console.log(state.search.term)
+    return ov(state.entries.all)
+      .filter(entry => {
+        if (
+          !state.ui.entriesViewAll &&
+          entry.dateDismissed &&
+          entry.duration &&
+          entry.interval &&
+          entry.visited >= 1
+        ) {
+          return getDismissedDate(entry) <= now
+        } else {
+          return true
+        }
+      })
+      .filter(entry => {
+        if (state.search.term) {
+          return entry.title
+            .toLowerCase()
+            .indexOf(state.search.term.toLowerCase()) >= 0
+        } else {
+          return true
+        }
+      })
+      .sort((a, b) => {
+        return state.ui.entriesViewAll
+          ? getDismissedDate(b) - getDismissedDate(a)
+          : getDismissedDate(a) - getDismissedDate(b)
+      })
+  }
+}
+
+function getDismissedDate (entry) {
+  return moment(entry.dateDismissed)
+    .add(entry.duration, entry.interval)
+    .startOf('day')
+    .toDate()
 }

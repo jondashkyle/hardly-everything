@@ -91,6 +91,18 @@ function view (state, props, emit) {
           })}>
           All
         </div>
+        <div class="pea">
+          ${navigationSearch({
+            onInput: function (data) {
+              emit('search:update', {
+                all: true,
+                value: data.value,
+                hidePanel: true,
+                render: true
+              })
+            }
+          })}
+        </div>
       </div>
     `
   }
@@ -153,4 +165,23 @@ function view (state, props, emit) {
     }
   }
 
+}
+
+function navigationSearch (props = { }) {
+  return html`
+    <input
+      type="text"
+      placeholder="Search…"
+      class="fs1 ff-sans"
+      oninput=${handleInput}
+    />
+  `
+
+  function handleInput () {
+    if (props.onInput) {
+      props.onInput({
+        value: event.target.value
+      })
+    }
+  }
 }

@@ -22,12 +22,12 @@ exports.load = (data, emit) => {
             key: data.key,
             value: { active: true }
           })
-          emit('render')
+          emit('app:render')
         }
       })
     default:
       emit('options:loaded', { typeCustom: true })
-      emit('render')
+      emit('app:render')
       return false
   }
 }

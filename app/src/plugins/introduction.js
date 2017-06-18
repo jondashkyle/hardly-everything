@@ -17,7 +17,7 @@ function intro (state, emitter) {
       window.addEventListener('click', handleClick, false)
     }
 
-    emitter.emit('render')
+    emitter.emit('app:render')
   })
 
   function handleClick () {
@@ -27,7 +27,7 @@ function intro (state, emitter) {
 
   function handleScroll (event) {
     state.intro.status = 'waiting'
-    emitter.emit('render')
+    emitter.emit('app:render')
 
     window.removeEventListener('scroll', handleScroll, false)
   }

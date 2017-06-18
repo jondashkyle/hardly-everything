@@ -4,11 +4,12 @@ var xd = require('xtend')
 var h = require('rooch/h')
 
 var input = require('./input')
+var interface = require('./interface')
 
 module.exports = Sandbox
 
 function Sandbox (state, emit) {
-  var components = [ ...input ]
+  var components = [ ...input, ...interface ]
     .map(function (component) {
       return component({ }, log)
     })

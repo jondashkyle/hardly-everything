@@ -229,7 +229,7 @@ function Options (state, emitter) {
   // update
   emitter.on('options:update', function (data) {
     state.options.values = x(state.options.values, data)
-    emitter.emit('render')
+    emitter.emit('app:render')
   })
 
   // reset
@@ -242,7 +242,7 @@ function Options (state, emitter) {
   // loaded
   emitter.on('options:loaded', function (data) {
     state.options.loaded = x(state.options.loaded, data)
-    emitter.emit('render')
+    emitter.emit('app:render')
   })
 
   emitter.on('options:invert', function (data) {
@@ -268,7 +268,7 @@ function Options (state, emitter) {
 
     typography.local(function () {
       emitter.emit('options:loaded', { typeLocal: true })
-      emitter.emit('render')
+      emitter.emit('app:render')
     })
 
     // init
@@ -293,7 +293,7 @@ function Options (state, emitter) {
 
       emitter.emit('options:update', data)
       emitter.emit('options:loaded', { data: true })
-      emitter.emit('render')
+      emitter.emit('app:render')
     })
   })
 }
@@ -362,7 +362,7 @@ function getDefaultState () {
       scale: 35,
       spacing: 5,
       invert: false,
-      newTab: false,
+      newTab: true,
       autoDismiss: true
     },
     loaded: {

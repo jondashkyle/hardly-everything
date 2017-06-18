@@ -10,7 +10,7 @@ function getDismissedDate (entry) {
     .toDate()
 }
 
-function templateEntries (state, emit) {
+function templateEntries2 (state, emit) {
   var now = moment().startOf('day').toDate()
 
   var entries = ov(state.entries.all)
@@ -46,6 +46,14 @@ function emptyEl () {
   `
 }
 
+function emptySearchEl () {
+  return html`
+    <div class="fs2 sans fwn">
+      No matching entries
+    </div>
+  `
+}
+
 function elEntriesNone (state, emit) {
   return html`
     <div class="fs2 lh1-5 sans fwn">
@@ -59,12 +67,13 @@ function elEntriesNone (state, emit) {
 module.exports = EntryList
 
 function EntryList (state, emit) {
-  var elsEntries = templateEntries(state, emit)
+  var elsEntries = entries()
   var isEntriesAll = Object.keys(state.entries.all).length > 0
 
   var elContent =
       isEntriesAll && elsEntries.length ? elsEntries
-    : isEntriesAll && !elsEntries.length ? emptyEl()
+    : isEntriesAll && !elsEntries.length && !state.search.term ? emptyEl()
+    : isEntriesAll && !elsEntries.length && state.search.term ? emptySearchEl()
     : elEntriesNone(state, emit)
 
   var styleMobile = state.ui.mobile
@@ -74,10 +83,10 @@ function EntryList (state, emit) {
   return html`
     <div class="design-container">
       <div
-        class="
-          x xw xac xjc tac
-          design-font design-font-size design-background design-color-entry design-block-padding
-        "
+        class="${[
+          'x xw xac xjc tac',
+          'design-font design-font-size design-background design-color-entry design-block-padding'
+        ].join(' ')}"
         style="
           line-height: 1.2;
           ${styleMobile}
@@ -89,4 +98,9 @@ function EntryList (state, emit) {
       </div>
     </div>
   `
+
+  function entries () {
+    return state.entries.active
+      .map(entry => Entry(state, entry, emit)) 
+  }
 }

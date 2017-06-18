@@ -117,7 +117,16 @@ function view (state, emit) {
       case 'typography':
         return h(inputTypography, {
           current: state.options.values.font,
-          options: state.options.typography
+          options: state.options.typography,
+          handleCurrentClick: function () {
+            emit('options:typography')
+          },
+          handleOptionClick: function (data) {
+            emit('options:values', {
+              key: option.key,
+              value: data
+            })
+          }
         })
       default:
         return ''

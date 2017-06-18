@@ -121,8 +121,9 @@ a {
  * Hovers
  */
 .ophc:hover .ophc100 { opacity: 1 }
-.ophc:hover .ophc100 { opacity: 1 }
-.oph100:hover { opacity: 1 }
+.ophc:hover .ophc33 { opacity: 0.33 }
+.ophc:hover .oph100:hover, .oph100:hover { opacity: 1 }
+.oph100:not(:hover) .op50 { opacity: 1 }
 
 /**
  * Placeholder

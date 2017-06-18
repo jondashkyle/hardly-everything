@@ -46,7 +46,7 @@ function user (state, emitter) {
 
   emitter.on('user:update', function (data) {
     db.update(data, state.user)
-    emitter.emit('render')
+    emitter.emit('app:render')
   })
 
   emitter.on('user:reset', function (data) {

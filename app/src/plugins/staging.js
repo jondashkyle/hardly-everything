@@ -7,12 +7,12 @@ function Staging (state, emitter) {
 
   emitter.on('staging:reset', function (data) {
     state.staging = getEmptyState()
-    emitter.emit('render')
+    emitter.emit('app:render')
   })
 
   emitter.on('staging:entry', function (data) {
     state.staging.entry = xtend(state.staging.entry, data)
-    emitter.emit('render')
+    emitter.emit('app:render')
   })
 }
 

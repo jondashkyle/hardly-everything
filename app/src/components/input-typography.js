@@ -20,14 +20,15 @@ class Typography extends Component {
   }
 
   handleOptionClick (data, event) {
-    this.emit('options:values', {
-      key: 'font',
-      value: data
-    })
+    if (this.props.handleOptionClick) {
+      this.props.handleOptionClick(data)
+    }
   }
 
   handleCurrentClick (data, event) {
-    this.emit('options:typography')
+    if (this.props.handleCurrentClick) {
+      this.props.handleCurrentClick()
+    }
     this.setState({ active: !this.state.active })
   }
 
