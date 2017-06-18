@@ -9,7 +9,8 @@
     "app": "cd app && npm run start",
     "build-app": "cd app && npm run build",
     "build-api": "cd api && npm run build",
-    "build": "npm run build-api && npm run build-app"
+    "build": "npm run build-api && npm run build-app",
+    "deploy": "npm run build && git push origin master"
   },
   "repository": {
     "type": "git",
