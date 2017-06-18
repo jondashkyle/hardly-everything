@@ -6,11 +6,14 @@ a feed for you
 ### june 20th, 2017
 - [x] ui improvements
 - [x] sandbox
+- [ ] update text
+- [ ] inline toolbar design
 - [ ] search
 - [ ] tags
+- [ ] design/sandbox: inline editor
 
 ### july 1st, 2017
-- [ ] sync
+- [ ] sync / data
 - [ ] support/upgrade
 
 ### phase four
@@ -48,7 +51,6 @@ a feed for you
 
 ## data
 - hardly everything app class constructor and `use` plugin for database
-- sync using dat/hyperdrive/hypercloud
-- assign readable/memorable name to dat hash
 - learn a set of tools, not a framework
-- slightly immature
+- while dat is a good project to support, it isn’t the right solution for hardly everything. rather, using level and having a very obvious data export option would make the most sense.
+- start with the forked substack login, and extend and make pull requests to that as required.
