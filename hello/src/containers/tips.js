@@ -1,6 +1,6 @@
 var h = require('choo/html')
 var ov = require('object-values')
-var md = require('marked')
+var md = require('nano-markdown')
 
 var content = require('../content/tips')
 

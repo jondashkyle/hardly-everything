@@ -1,6 +1,6 @@
 var h = require('choo/html')
 var ov = require('object-values')
-var md = require('marked')
+var md = require('nano-markdown')
 
 var content = require('../content/log')
 
@@ -8,7 +8,17 @@ module.exports = view
 
 function formatContent (content) {
   var el = h`<div></div>`
-  el.innerHTML = md(content)
+  var text = md(content)
+  el.innerHTML = text
+
+  el.querySelectorAll('img').forEach(function (img) {
+    var wrapper = h`<div class="psr" style="background: #333; height: 0; padding-bottom: 50%;"></div>`
+    img.parentNode.insertBefore(wrapper, img)
+    img.classList.add('db', 'psa', 't0', 'l0', 'h100', 'w100')
+    img.removeAttribute('alt')
+    wrapper.appendChild(img)
+  })
+
   return el
 }
 

@@ -1,16 +1,16 @@
-const h = require('choo/html')
-const ov = require('object-values')
-const md = require('marked')
+var h = require('choo/html')
+var ov = require('object-values')
+var md = require('nano-markdown')
 
-const getContent = content => {
-  const el = h`<div></div>`
-  el.innerHTML = md(content)
+var getContent = content => {
+  var el = h`<div></div>`
+  var text = md(content)
+  el.innerHTML = text
   return el
 }
 
-const view = (state, prev, send) => {
-  const page = state.pages.home
-
+var view = (state, prev, send) => {
+  var page = state.pages.home
   return h`<div class="bg-black tc-white">yo</div>`
 }
 
