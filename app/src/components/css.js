@@ -103,9 +103,8 @@ function Css (state, emit) {
         color: ${colorFg};
       }
 
-      .arrow-bottom:before {
-        border-bottom: 4px solid ${colorFg};
-      }
+      .arrow-bottom:before { border-bottom: 4px solid ${colorFg} }
+      .arrow-top:before { border-bottom: 4px solid ${colorFg} }
 
       .bbu {
         border-bottom-color: ${colorFg};
