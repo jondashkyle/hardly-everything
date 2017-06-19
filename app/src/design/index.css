@@ -36,6 +36,10 @@ body {
   padding-bottom: 0.2em;
 }
 
+.copy img {
+  max-width: 100%;
+}
+
 /**
  * Sizes
  */

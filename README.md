@@ -3,21 +3,23 @@ a feed for you
 
 ## schedule
 
-### june 20th, 2017
-- [x] ui improvements
-- [x] sandbox
-- [ ] update text
-- [ ] inline toolbar design
-- [ ] search
+### june 19
 - [ ] tags
-- [ ] design/sandbox: inline editor
 
-### july 1st, 2017
+### june 26
+- [ ] update homepage text
+- [ ] search reset
+- [ ] start auth/user/sync
 - [ ] sync / data
 - [ ] support/upgrade
+- [ ] switch to bloog for hello
+  - single feed
+  - filters
+- [ ] version zips
 
 ### phase four
 - [ ] additional entry types
+- [ ] public repo
 
 ## queue
 - [ ] hit up people about log contributions
