@@ -80,7 +80,7 @@ function elEntry  (entry, send) {
   return h`
     <div class="x xw p1">
       <div class="c8 x xw co2" sm="c12 co0" md="c10 co1">
-        <div class="pb2">
+        <div class="pb2 c12">
           <div class="fwb fs1-5">
             <a href=${entry.url}>${entry.title}</a>
           </div>

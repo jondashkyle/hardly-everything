@@ -54,6 +54,10 @@ a {
   padding-bottom: 0.2rem;
 }
 
+.copy img {
+  max-width: 100%;
+}
+
 h3 {
   font-size: 1.5em;
   font-weight: 300;
