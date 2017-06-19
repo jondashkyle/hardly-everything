@@ -33,8 +33,4 @@ function search (state, emitter) {
       emitter.emit('app:render')
     }
   })
-
-  emitter.on('search:reset', function () {
-
-  })
 }

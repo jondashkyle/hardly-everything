@@ -86,13 +86,19 @@ function view (state, props, emit) {
             ${state.ui.entriesViewAll ? 'op100' : 'op33'} 
           "
           sm="${view ? 'dn' : ''}"
-          onclick=${e => emit('ui:update', {
-            entriesViewAll: !state.ui.entriesViewAll
-          })}>
+          onclick=${function () {
+            emit('search:update', { value: '', render: false })
+            emit('ui:update', { entriesViewAll: !state.ui.entriesViewAll })
+          }}
+        >
           All
         </div>
-        <div class="pea">
+        <div
+          class="pea"
+          sm="dn"
+        >
           ${navigationSearch({
+            value: state.search.term,
             onInput: function (data) {
               emit('search:update', {
                 all: true,
@@ -172,6 +178,7 @@ function navigationSearch (props = { }) {
     <input
       type="text"
       placeholder="Search…"
+      value="${props.value || ''}"
       class="fs1 ff-sans tc-black"
       style="background: none"
       oninput=${handleInput}
