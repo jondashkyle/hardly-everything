@@ -1,5 +1,6 @@
 module.exports = [
   require('./logger'),
+  require('./features'),
   require('./entries'),
   require('./search'),
   require('./options'),

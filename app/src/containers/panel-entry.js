@@ -40,7 +40,7 @@ function view (state, emit) {
           class="fs1 c12 sans bg-white tc-black px1 line"
         />
       </div>
-      <div class="c12 p1px">
+      <div class="c12 p1px ${isTagsVisible() ? 'db' : 'dn'}">
         ${h(InputTags, {
           key: 'tags',
           name: 'Tags',
@@ -52,7 +52,7 @@ function view (state, emit) {
           }
         })}
       </div>
-      <div class="c12 x" style="line-height: 3rem">
+      <div class="c12 x">
         <div class="xx p1px">
           <div class="fs1 c12 bg-white tc-black line">
             ${h(InputRange, {
@@ -138,5 +138,9 @@ function view (state, emit) {
   function remove (id) {
     reset()
     emit('entries:remove', { id: id })
+  }
+
+  function isTagsVisible () {
+    return state.features && state.features.tags
   }
 }
