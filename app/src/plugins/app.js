@@ -17,7 +17,9 @@ function app (state, emitter) {
 
   // load fallback
   emitter.on('DOMContentLoaded', function () {
-    setTimeout(() => { handleLoad() }, 3000)
+    setTimeout(() => {
+      if (!state.app.loaded) handleLoad();
+    }, 3000)
   })
 
   // have we loaded?

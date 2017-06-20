@@ -11,6 +11,9 @@ function search (state, emitter) {
   }
 
   emitter.on('search:update', function (data = { }) {
+    // check if active
+    if (!isEnabled()) return;
+
     // search term
     if (data.value !== undefined) {
       state.search.term = data.value
@@ -33,4 +36,8 @@ function search (state, emitter) {
       emitter.emit('app:render')
     }
   })
+
+  function isEnabled () {
+    return state.features && state.features.search
+  }
 }
