@@ -15,7 +15,7 @@ a feed for you
 - [ ] switch to bloog for hello
   - single feed
   - filters
-- [ ] version zips
+- [ ] release zips
 
 ### phase four
 - [ ] additional entry types

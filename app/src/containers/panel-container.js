@@ -99,6 +99,11 @@ function view (state, props, emit) {
         >
           ${navigationSearch({
             value: state.search.term,
+            onFocus: function () {
+              emit('search:update', {
+                hidePanel: true
+              })
+            },
             onInput: function (data) {
               emit('search:update', {
                 all: true,
@@ -182,12 +187,21 @@ function navigationSearch (props = { }) {
       class="fs1 ff-sans tc-black"
       style="background: none"
       oninput=${handleInput}
+      onfocus=${handleFocus}
     />
   `
 
   function handleInput () {
     if (props.onInput) {
       props.onInput({
+        value: event.target.value
+      })
+    }
+  }
+
+  function handleFocus () {
+    if (props.onFocus) {
+      props.onFocus({
         value: event.target.value
       })
     }
