@@ -20,5 +20,8 @@
   "homepage": "https://github.com/jondashkyle/asdf#readme",
   "devDependencies": {
     "concurrently": "^3.4.0"
+  },
+  "dependencies": {
+    "react-tagsinput": "^3.17.0"
   }
 }
