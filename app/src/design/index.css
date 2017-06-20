@@ -303,6 +303,38 @@ input[type="submit"] {
 }
 
 /**
+ * Tags
+ */
+body .tags-input {
+  white-space: nowrap;
+}
+
+body .tags-input {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: 0;
+  padding: 0 1.25rem;
+  width: 100%;
+}
+
+body .tags-input .tag {
+  border: 0;
+  line-height: 1;
+  padding: 0.5rem 0.75rem;
+  margin: 0 0.5rem 0 0;
+  transition: none;
+}
+
+body .tags-input .tag.selected {
+
+}
+
+body .tags-input input {
+  padding: 0;
+}
+
+/**
  * Color Picker
  */
 .Slider {

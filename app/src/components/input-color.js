@@ -1,7 +1,6 @@
 var Component = require('rooch/component')
 var html = require('rooch/html')
 var H = require('rooch/h')
-var colorpicker = require('coloreact').default
 var tinycolor = require('tinycolor2')
 var throttle = require('lodash.throttle')
 var { Map, Slider } = require('coloreact')

@@ -3,8 +3,9 @@ var h = require('rooch/h')
 var x = require('xtend')
 
 var { intToRest } = require('../helpers/time')
-var inputRange = require('../components/input/range')
-var inputText = require('../components/input/text')
+var InputRange = require('../components/input/range')
+var InputText = require('../components/input/text')
+var InputTags = require('../components/input/tags')
 
 module.exports = view
 
@@ -16,7 +17,7 @@ function view (state, emit) {
       onsubmit=${handleSubmit}
     >
       <div class="c12 p1px">
-        ${h(inputText, {
+        ${h(InputText, {
           key: 'title',
           name: 'Title',
           value: state.staging.entry.title,
@@ -39,10 +40,22 @@ function view (state, emit) {
           class="fs1 c12 sans bg-white tc-black px1 line"
         />
       </div>
+      <div class="c12 p1px">
+        ${h(InputTags, {
+          key: 'tags',
+          name: 'Tags',
+          value: state.staging.entry.tags || [ ],
+          onChange: function (data) {
+            emit('staging:entry', {
+              tags: data.value
+            })
+          }
+        })}
+      </div>
       <div class="c12 x" style="line-height: 3rem">
         <div class="xx p1px">
           <div class="fs1 c12 bg-white tc-black line">
-            ${h(inputRange, {
+            ${h(InputRange, {
               name: 'Rest',
               value: state.staging.entry.timeRange,
               valueShow: false,
@@ -113,6 +126,7 @@ function view (state, emit) {
       emit('entries:add', state.staging.entry)
     }
 
+    emit('ui:panel', { view: '' })
     event.preventDefault()
   }
 

@@ -92,6 +92,21 @@ function Css (state, emit) {
       }
 
       .design-font-size { font-size: ${fontSize}em }
+
+      body .tags-input .tag {
+        background: ${colorFg};
+        color: ${colorBg};
+      }
+
+      body .tags-input .tag.selected {
+        background: none;
+        border: 2px solid ${colorFg};
+        color: ${colorFg};
+      }
+
+      body .tags-input input {
+        color: ${colorFg};
+      }
     </style>
   `
 }
