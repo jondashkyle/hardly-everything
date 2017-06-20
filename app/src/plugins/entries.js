@@ -200,9 +200,12 @@ function Entries (state, emitter) {
       })
       .filter(entry => {
         if (state.search.term) {
-          return entry.title
-            .toLowerCase()
-            .indexOf(state.search.term.toLowerCase()) >= 0
+          var term = state.search.term.toLowerCase()
+          var title = entry.title.toLowerCase().indexOf(term) >= 0
+          var tags = entry.tags
+            ? entry.tags.toString().indexOf(term) >= 0
+            : false
+          return title || tags
         } else {
           return true
         }

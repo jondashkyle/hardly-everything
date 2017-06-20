@@ -49,6 +49,17 @@ function user (state, emitter) {
     emitter.emit('app:render')
   })
 
+  // user prefs for features
+  emitter.on('user:feature', function (data) {
+    if (typeof data === 'object') {
+      state.user.features = x(state.user.features, data)
+    }
+
+    if (data.render !== false) {
+      emitter.emit('app:render')
+    }
+  })
+
   emitter.on('user:reset', function (data) {
     state.user = getState()
     emitter.emit('user:update')
@@ -61,6 +72,9 @@ function getState () {
       email: '',
       photoURL: '',
       uuid: ''
+    },
+    features: {
+      search: true
     },
     analytics: {
       authenticated: false,

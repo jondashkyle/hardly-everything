@@ -93,7 +93,16 @@ function view (state, props, emit) {
         >
           All
         </div>
-        <div
+        ${elSearch()} 
+      </div>
+    `
+
+    function elSearch () {
+      if (!state.features.search) {
+        return ''
+      }
+
+      return html`<div
           class="pea"
           sm="dn"
         >
@@ -114,8 +123,8 @@ function view (state, props, emit) {
             }
           })}
         </div>
-      </div>
-    `
+      `
+    }
   }
 
   function navigationLink (view) {

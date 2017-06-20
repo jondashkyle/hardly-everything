@@ -18,36 +18,26 @@ function view (state, emit) {
     >
       <div class="c12 p1px">
         ${h(InputText, {
-          key: 'title',
-          name: 'Title',
-          value: state.staging.entry.title,
+          key: 'url',
+          name: 'http://',
+          value: state.staging.entry.url,
           style: 'brit',
           autofocus: true,
           onInput: function (data) {
             emit('staging:entry', {
-              title: data.value
+              url: data.value
             })
           }
         })}
       </div>
       <div class="c12 p1px">
-        <input
-          name="url"
-          placeholder="http://"
-          value="${state.staging.entry.url}"
-          oninput=${e => emit('staging:entry', { url: e.target.value })}
-          type="text"
-          class="fs1 c12 sans bg-white tc-black px1 line"
-        />
-      </div>
-      <div class="c12 p1px ${isTagsVisible() ? 'db' : 'dn'}">
-        ${h(InputTags, {
-          key: 'tags',
-          name: 'Tags',
-          value: state.staging.entry.tags || [ ],
-          onChange: function (data) {
+        ${h(InputText, {
+          key: 'title',
+          name: 'Title',
+          value: state.staging.entry.title,
+          onInput: function (data) {
             emit('staging:entry', {
-              tags: data.value
+              title: data.value
             })
           }
         })}
@@ -88,6 +78,20 @@ function view (state, emit) {
             type="text"
             class="p0 c12 tac fs1 sans bg-white tc-black line"
           />
+        </div>
+      </div>
+      <div class="c12 p1px ${isTagsVisible() && isStepThree() ? 'db' : 'dn'}">
+        <div class="bg-white oxs">
+          ${h(InputTags, {
+            key: 'tags',
+            name: 'Tags',
+            value: state.staging.entry.tags || [ ],
+            onChange: function (data) {
+              emit('staging:entry', {
+                tags: data.value
+              })
+            }
+          })}
         </div>
       </div>
       <div class="c12 x">
@@ -142,5 +146,13 @@ function view (state, emit) {
 
   function isTagsVisible () {
     return state.features && state.features.tags
+  }
+
+  function isStepTwo () {
+    return state.staging.entry.url
+  }
+
+  function isStepThree () {
+    return state.staging.entry.url && state.staging.entry.title
   }
 }

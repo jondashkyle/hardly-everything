@@ -4,7 +4,8 @@ var beta = process.env.NODE_ENV === 'development'
 
 function features (state, emitter) {
   state.features = {
-    tags: beta
+    tags: beta,
+    search: true
   }
 
   emitter.on('feature:enable', function (data) {
