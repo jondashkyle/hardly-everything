@@ -4,6 +4,8 @@ var ov = require('object-values')
 var panelEntry = require('../containers/panel-entry')
 var panelOptions = require('../containers/panel-options')
 
+var hideFrame
+
 module.exports = view
 
 function view (state, props, emit) {
@@ -35,6 +37,7 @@ function view (state, props, emit) {
         class="panel psr c12 sans fs1 pen pb1"
         sm="c12 pt1 mtpx2"
         style="top: 4.5rem"
+        onmouseenter=${handleContainerEnter}
       >
         <div class="pea psr">
           <div class="psa t0 l0 r0 b0 bro b2b pen z2"></div>
@@ -158,6 +161,7 @@ function view (state, props, emit) {
     }
 
     function handleLinkEnter () {
+      clearTimeout(hideFrame)
       if (
         props.isHoverActive &&
         view.path !== props.view
@@ -165,6 +169,10 @@ function view (state, props, emit) {
         emit('ui:panel', { view: view.path })
       }
     }
+  }
+
+  function handleContainerEnter () {
+    clearTimeout(hideFrame)
   }
 
   function handleContainerClick (event) {
@@ -180,11 +188,15 @@ function view (state, props, emit) {
 
   function handlePanelLeave (event) {
     if (props.isHoverActive && props.view) {
-      emit('staging:reset')
-      emit('ui:panel', { view: '' })
+      clearTimeout(hideFrame)
+      hideFrame = setTimeout(() => hide(), 750)
     }
   }
 
+  function hide () {
+    emit('staging:reset')
+    emit('ui:panel', { view: '' })
+  }
 }
 
 function navigationSearch (props = { }) {
