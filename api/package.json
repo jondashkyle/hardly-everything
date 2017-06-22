@@ -14,7 +14,7 @@
     "github-webhook-handler": "^0.6.0",
     "level": "^1.7.0",
     "level-sublevel": "^6.6.1",
-    "merry": "^5.0.2"
+    "merry": "^5.3.1"
   },
   "devDependencies": {
     "merry": "^5.0.6"
