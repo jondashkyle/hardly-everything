@@ -3,21 +3,19 @@ a feed for you
 
 ## schedule
 
-### june 19
-- [ ] tags
-
 ### june 26
+- [x] tags
 - [ ] update homepage text
 - [ ] search reset
 - [ ] start auth/user/sync
 - [ ] sync / data
-- [ ] support/upgrade
 - [ ] switch to bloog for hello
   - single feed
   - filters
 - [ ] release zips
 
 ### phase four
+- [ ] support/upgrade
 - [ ] additional entry types
 - [ ] public repo
 
