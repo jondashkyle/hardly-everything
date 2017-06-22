@@ -1,4 +1,5 @@
 var merry = require('merry')
+var db = require('./db')
 var app = merry()
 
 // v1
