@@ -1,9 +1,8 @@
 var merry = require('merry')
 var app = merry()
 
-// v1
-var v1 = require('./v1')
-v1(app)
+var db = require('./db')
+var v1 = require('./v1')(app)
 
 app.route('default', function (req, res, ctx) {
   ctx.log.info('Route doesnt exist')

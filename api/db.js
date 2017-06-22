@@ -1,7 +1,7 @@
 var level = require('level')
 var sublevel = require('level-sublevel')
 
-var db = require('../.db', {
+var db = level('../.db', {
   valueEncoding: 'json'
 })
 

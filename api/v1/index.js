@@ -1,15 +1,17 @@
 var merry = require('merry')
 var credentials = require('./credentials')
 
-module.exports = v1
-
-var handleHook =  require('./deploy')({
+var handleHook = require('./deploy')({
   secret: credentials.github.secret 
 })
 
+module.exports = v1
+
 function v1 (app) {
   app.route('POST', '/v1/hardly-a-hook', handleHook) 
-  app.route('get', '/v1/test', handleTest) 
+  app.route('GET', '/v1/test', handleTest) 
+  
+  return this
 }
 
 function handleTest (req, res, ctx) {
