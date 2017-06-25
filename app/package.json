@@ -29,6 +29,7 @@
     "postcss-clean": "^1.0.2",
     "postcss-cli": "^4.0.0",
     "preact-compat": "^3.16.0",
+    "preact-token-input": "^0.3.0",
     "rollupify": "^0.3.9",
     "tape": "^4.6.3",
     "uglifyify": "^3.0.4",
