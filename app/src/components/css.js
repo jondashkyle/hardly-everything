@@ -33,9 +33,7 @@ function Css (state, emit) {
 
   return html`
     <style>
-      body {
-        background: ${colorBg};
-      }
+      body { background: ${colorBg} }
 
       .design-block-padding {
         padding: ${blockPadding * 0.8}rem ${blockPadding}rem;
@@ -45,17 +43,12 @@ function Css (state, emit) {
         margin: ${blockPadding * 0.8}rem ${blockPadding}rem;
       }
 
-      .tc-black {
-        color: ${colorFg};
-      }
-
-      .tc-white {
-        color: ${colorBg};
-      }
+      .tc-black { color: ${colorFg} }
+      .tc-white { color: ${colorBg} }
 
       .copy a {
         color: ${colorFg};
-        border-bottom: 1px solid ${colorFg};
+        border-bottom: .1rem solid ${colorFg};
       }
 
       ::-moz-selection { background: ${colorFgLighter} }
@@ -66,67 +59,31 @@ function Css (state, emit) {
       :-ms-input-placeholder { color: ${colorFgLight} }
       :-moz-placeholder { color: ${colorFgLight} }
 
-      .bg-black {
-        background: ${colorFg};
-      }
+      .bg-black { background: ${colorFg} }
+      .bg-white { background: ${colorBg} }
+      .bg-black-light { background: ${colorFgLight} }
+      .bg-black-lighter { background: ${colorFgLighter} }
 
-      .bg-white {
-        background: ${colorBg};
-      }
+      .fill-black { fill: ${colorFg} }
+      .fill-white { fill: ${colorBg} }
 
-      .bg-black-light {
-        background: ${colorFgLight};
-      }
-
-      .bg-black-lighter {
-        background: ${colorFgLighter};
-      }
-
-      .fill-black {
-        fill: ${colorFg};
-      }
-
-      .fill-white {
-        fill: ${colorBg};
-      }
-
-      .stroke-black {
-        stroke: ${colorFg};
-      }
-
-      .stroke-white {
-        stroke: ${colorBg};
-      }
+      .stroke-black { stroke: ${colorFg} }
+      .stroke-white { stroke: ${colorBg} }
 
       .design-color-entry,
       .design-color-entry a, {
         color: ${colorFg};
       }
 
-      .arrow-bottom:before { border-bottom: 4px solid ${colorFg} }
-      .arrow-top:before { border-bottom: 4px solid ${colorFg} }
+      .arrow-bottom:before { border-bottom: .4rem solid ${colorFg} }
+      .arrow-top:before { border-bottom: .4rem solid ${colorFg} }
 
-      .bbu {
-        border-bottom-color: ${colorFg};
-      }
-
-      .b1b {
-        border: 1px solid ${colorFg};
-      }
-
-      .b2b { border: 2px solid ${colorFg} }
-
-      .bb2b {
-        border-bottom: 2px solid ${colorFg};
-      }
-
-      .bt2-lighter {
-        border-top: 2px solid ${colorFgLighter};
-      }
-
-      .bb1-lighter {
-        border-bottom: 1px solid ${colorFgLighter};
-      }
+      .bbu { border-bottom-color: ${colorFg} }
+      .b1b { border: .1rem solid ${colorFg} }
+      .b2b { border: .2rem solid ${colorFg} }
+      .bb2b { border-bottom: .2rem solid ${colorFg} }
+      .bt2-lighter { border-top: .2rem solid ${colorFgLighter} }
+      .bb1-lighter { border-bottom: .1rem solid ${colorFgLighter} }
 
       .design-font {
         font-family: ${state.options.values.font.value}, sans-serif;
@@ -134,8 +91,21 @@ function Css (state, emit) {
         font-style: ${state.options.values.font.style || 'normal'};
       }
 
-      .design-font-size {
-        font-size: ${fontSize}em;
+      .design-font-size { font-size: ${fontSize}em }
+
+      body .tags-input .tag {
+        background: ${colorFg};
+        color: ${colorBg};
+      }
+
+      body .tags-input .tag.selected {
+        background: none;
+        border: .2rem solid ${colorFg};
+        color: ${colorFg};
+      }
+
+      body .tags-input input {
+        color: ${colorFg};
       }
     </style>
   `

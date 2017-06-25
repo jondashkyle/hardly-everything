@@ -3,8 +3,9 @@ var h = require('rooch/h')
 var x = require('xtend')
 
 var { intToRest } = require('../helpers/time')
-var inputRange = require('../components/input/range')
-var inputText = require('../components/input/text')
+var InputRange = require('../components/input/range')
+var InputText = require('../components/input/text')
+var InputTags = require('../components/input/tags')
 
 module.exports = view
 
@@ -16,12 +17,24 @@ function view (state, emit) {
       onsubmit=${handleSubmit}
     >
       <div class="c12 p1px">
-        ${h(inputText, {
+        ${h(InputText, {
+          key: 'url',
+          name: 'http://',
+          value: state.staging.entry.url,
+          style: 'brit',
+          autofocus: true,
+          onInput: function (data) {
+            emit('staging:entry', {
+              url: data.value
+            })
+          }
+        })}
+      </div>
+      <div class="c12 p1px">
+        ${h(InputText, {
           key: 'title',
           name: 'Title',
           value: state.staging.entry.title,
-          style: 'brit',
-          autofocus: true,
           onInput: function (data) {
             emit('staging:entry', {
               title: data.value
@@ -29,20 +42,10 @@ function view (state, emit) {
           }
         })}
       </div>
-      <div class="c12 p1px">
-        <input
-          name="url"
-          placeholder="http://"
-          value="${state.staging.entry.url}"
-          oninput=${e => emit('staging:entry', { url: e.target.value })}
-          type="text"
-          class="fs1 c12 sans bg-white tc-black px1 line"
-        />
-      </div>
-      <div class="c12 x" style="line-height: 3rem">
+      <div class="c12 x">
         <div class="xx p1px">
           <div class="fs1 c12 bg-white tc-black line">
-            ${h(inputRange, {
+            ${h(InputRange, {
               name: 'Rest',
               value: state.staging.entry.timeRange,
               valueShow: false,
@@ -75,6 +78,20 @@ function view (state, emit) {
             type="text"
             class="p0 c12 tac fs1 sans bg-white tc-black line"
           />
+        </div>
+      </div>
+      <div class="c12 p1px ${isTagsVisible() && isStepThree() ? 'db' : 'dn'}">
+        <div class="bg-white oxs">
+          ${h(InputTags, {
+            key: 'tags',
+            name: 'Tags',
+            value: state.staging.entry.tags || [ ],
+            onChange: function (data) {
+              emit('staging:entry', {
+                tags: data.value
+              })
+            }
+          })}
         </div>
       </div>
       <div class="c12 x">
@@ -113,6 +130,7 @@ function view (state, emit) {
       emit('entries:add', state.staging.entry)
     }
 
+    emit('ui:panel', { view: '' })
     event.preventDefault()
   }
 
@@ -124,5 +142,17 @@ function view (state, emit) {
   function remove (id) {
     reset()
     emit('entries:remove', { id: id })
+  }
+
+  function isTagsVisible () {
+    return state.features && state.features.tags
+  }
+
+  function isStepTwo () {
+    return state.staging.entry.url
+  }
+
+  function isStepThree () {
+    return state.staging.entry.url && state.staging.entry.title
   }
 }

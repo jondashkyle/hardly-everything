@@ -1,51 +1,53 @@
 var merry = require('merry')
-var github = require('github-webhook-handler')
-var { spawn } = require('child_process')
 var credentials = require('./credentials')
+var db = require('../db')
 
-var hook = github({
-  path: '/v1/hardly-a-hook',
-  secret: credentials.github.secret
-}) 
-
-var mw = merry.middleware
+var hook = require('./deploy')({
+  secret: credentials.github.secret 
+})
 
 module.exports = v1
 
 function v1 (app) {
-  app.route('POST', '/v1/hardly-a-hook', handleHook) 
-  app.route('get', '/v1/test', handleTest) 
+  app.route('POST', '/v1/hardly-a-hook', hook) 
+  app.route('GET', '/v1/test', test) 
+  app.route('GET', '/v1/add', add) 
+  app.route('GET', '/v1/show', show) 
+
+  return this
 }
 
-function handleTest (req, res, ctx) {
+function test (req, res, ctx) {
+  ctx.log.info('test')
   ctx.send(200, { message: 'it works!' })
 }
 
-function handleHook (req, res, ctx) {
-  ctx.log.info('deploying')
-  hook(req, res, function (err) {
-    ctx.send(401, { error: err })
-    ctx.log.warn('deployment failed')
-  })
+async function add (req, res, ctx) {
+  try {
+    var data = {
+      id: Math.random() * 1000,
+      name: 'What'
+    }
 
-  hook.once('push', function (event) {
-    ctx.send(200, { msg: 'deploying' })
+    await db.add(data)
 
-    var deploy = spawn('sh', ['./deploy.sh'], {
-      cwd: __dirname,
-      env: process.env
+    ctx.send(200, {
+      message: 'success',
+      value: data
     })
-
-    deploy.stdout.on('data', function(data) {
-      console.log(data.toString())
+  } catch (err) {
+    ctx.send(400, {
+      message: 'Must have an id'
     })
+    ctx.log.error(err)
+  }
+}
 
-    deploy.stdout.on('error', function(data) {
-      ctx.log.warn('deployment failed')
-    })
-
-    deploy.on('close', function(code) {
-      ctx.log.info('deployment successful')
-    })
-  })
+async function show (req, res, ctx) {
+  try {
+    var data = await db.show()
+    ctx.send(200, { value: data })
+  } catch (err) {
+    ctx.log.error(err)
+  }
 }

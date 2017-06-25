@@ -9,7 +9,10 @@ npm-debug.log*
 # Dependency directories
 node_modules
 
-node_modules/
+# Database
+.db
+
+# Build
 /bundles
 bundle.js
 bundle.css

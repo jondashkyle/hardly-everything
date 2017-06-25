@@ -20,5 +20,9 @@
   "homepage": "https://github.com/jondashkyle/asdf#readme",
   "devDependencies": {
     "concurrently": "^3.4.0"
+  },
+  "dependencies": {
+    "preact": "^8.1.0",
+    "preact-token-input": "^0.3.0"
   }
 }
