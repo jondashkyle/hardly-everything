@@ -58,8 +58,8 @@ a {
 }
 
 .bbu {
-  border-bottom: 2px solid;
-  padding-bottom: 2px;
+  border-bottom: .2rem solid;
+  padding-bottom: .2rem;
 }
 
 /**
@@ -93,27 +93,27 @@ a {
   transform: rotate(-45deg);
 }
 
-.p1px { padding: 1px }
+.p1px { padding: .1rem }
 
 .pen { pointer-events: none }
 .cur-ewr { cursor: ew-resize }
 .curt { cursor: text }
 
-.bro { border-radius: 4px }
-.bror { border-bottom-right-radius: 4px }
+.bro { border-radius: .4rem }
+.bror { border-bottom-right-radius: .4rem }
 
 .brit {
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+  border-top-left-radius: .2rem;
+  border-top-right-radius: .2rem;
 }
 
 .brib {
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: .2rem;
+  border-bottom-right-radius: .2rem;
 }
 
-.bribl { border-bottom-left-radius: 2px }
-.bribr { border-bottom-right-radius: 2px }
+.bribl { border-bottom-left-radius: .2rem }
+.bribr { border-bottom-right-radius: .2rem }
 
 .ofa { overflow: auto }
 
@@ -162,19 +162,19 @@ input {
  * Borders
  */
 .opt-bl {
-  border-left: 1px solid rgba(127, 127, 127, 0.33);
+  border-left: .1rem solid rgba(127, 127, 127, 0.33);
 }
 
 .opt-br {
-  border-right: 1px solid rgba(127, 127, 127, 0.33);
+  border-right: .1rem solid rgba(127, 127, 127, 0.33);
 }
 
 .opt-bt {
-  border-top: 1px solid rgba(127, 127, 127, 0.33);
+  border-top: .1rem solid rgba(127, 127, 127, 0.33);
 }
 
 .opt-bb {
-  border-bottom: 1px solid rgba(127, 127, 127, 0.33);
+  border-bottom: .1rem solid rgba(127, 127, 127, 0.33);
 }
 
 /**
@@ -192,7 +192,7 @@ input {
 .spinner {
   width: 6rem;
   height: 6rem;
-  border: solid 5px white;
+  border: solid .5rem white;
   border-top-color: #000;
   border-left-color: #000;
   border-radius: 50%;
@@ -206,7 +206,7 @@ input {
  */
 
 .countdown {
-  border: 2px solid #000;
+  border: .2rem solid #000;
   border-radius: 50%;
   height: 3rem;
   width: 3rem;
@@ -228,24 +228,24 @@ input {
   position: absolute;
   bottom: 0;
   left: 50%;
-  margin-left: -2px;
+  margin-left: -.2rem;
   width: 0; 
   height: 0; 
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
+  border-left: .4rem solid transparent;
+  border-right: .4rem solid transparent;
 }
 
 .arrow-top:before {
   content: '';
   display: block;
   position: absolute;
-  top: -4px;
+  top: -.4rem;
   left: 50%;
-  margin-left: -2px;
+  margin-left: -.2rem;
   width: 0; 
   height: 0; 
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
+  border-left: .4rem solid transparent;
+  border-right: .4rem solid transparent;
 }
 
 /**
@@ -324,6 +324,7 @@ body .tags-input .tag {
   padding: 0.5rem 0.75rem;
   margin: 0 0.5rem 0 0;
   transition: none;
+  border-radius: .2rem;
 }
 
 body .tags-input .tag.selected {
@@ -343,8 +344,8 @@ body .tags-input input {
 
 .Slider__Pointer {
   background: #000 !important;
-  height: 2px !important;
-  margin-bottom: -1px !important;
+  height: .2rem !important;
+  margin-bottom: -.1rem !important;
   margin-left: -50% !important;
   width: 100% !important
 }

@@ -105,7 +105,7 @@ class Picker extends Component {
   elPicker () {
     var { h, s, v, a } = this.state.color
     return html`
-      <div class="x psr c12 bg-white" style="margin-top: 2px; height: 15rem;">
+      <div class="x psr c12 bg-white" style="margin-top: .2rem; height: 15rem;">
         ${H(Map, {
           x: s,
           y: v,

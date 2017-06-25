@@ -13,8 +13,10 @@
     "express": "^4.15.3",
     "github-webhook-handler": "^0.6.0",
     "level": "^1.7.0",
+    "level-promise": "^2.1.1",
     "level-sublevel": "^6.6.1",
-    "merry": "^5.3.1"
+    "merry": "^5.3.1",
+    "nanoassert": "^1.0.0"
   },
   "devDependencies": {
     "merry": "^5.0.6"

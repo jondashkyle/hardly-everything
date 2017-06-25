@@ -64,8 +64,8 @@ gr8css.add({
 gr8css.add({
   prop: 'margin-top',
   prefix: 'mtpx',
-  unit: 'px',
-  vals: [0, 2]
+  unit: 'rem',
+  vals: [0, 2].map(function (size) { return { [size]: size / 10 }})
 })
 
 var lilsrc = [

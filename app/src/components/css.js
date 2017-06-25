@@ -48,7 +48,7 @@ function Css (state, emit) {
 
       .copy a {
         color: ${colorFg};
-        border-bottom: 1px solid ${colorFg};
+        border-bottom: .1rem solid ${colorFg};
       }
 
       ::-moz-selection { background: ${colorFgLighter} }
@@ -75,15 +75,15 @@ function Css (state, emit) {
         color: ${colorFg};
       }
 
-      .arrow-bottom:before { border-bottom: 4px solid ${colorFg} }
-      .arrow-top:before { border-bottom: 4px solid ${colorFg} }
+      .arrow-bottom:before { border-bottom: .4rem solid ${colorFg} }
+      .arrow-top:before { border-bottom: .4rem solid ${colorFg} }
 
       .bbu { border-bottom-color: ${colorFg} }
-      .b1b { border: 1px solid ${colorFg} }
-      .b2b { border: 2px solid ${colorFg} }
-      .bb2b { border-bottom: 2px solid ${colorFg} }
-      .bt2-lighter { border-top: 2px solid ${colorFgLighter} }
-      .bb1-lighter { border-bottom: 1px solid ${colorFgLighter} }
+      .b1b { border: .1rem solid ${colorFg} }
+      .b2b { border: .2rem solid ${colorFg} }
+      .bb2b { border-bottom: .2rem solid ${colorFg} }
+      .bt2-lighter { border-top: .2rem solid ${colorFgLighter} }
+      .bb1-lighter { border-bottom: .1rem solid ${colorFgLighter} }
 
       .design-font {
         font-family: ${state.options.values.font.value}, sans-serif;
@@ -100,7 +100,7 @@ function Css (state, emit) {
 
       body .tags-input .tag.selected {
         background: none;
-        border: 2px solid ${colorFg};
+        border: .2rem solid ${colorFg};
         color: ${colorFg};
       }
 
