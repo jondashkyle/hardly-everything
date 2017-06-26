@@ -6,7 +6,9 @@ a feed for you
 ### june 26
 - [x] tags
 - [ ] update homepage text
-- [ ] search reset
+- [x] search reset
+
+## phase four
 - [ ] start auth/user/sync
 - [ ] sync / data
 - [ ] switch to bloog for hello

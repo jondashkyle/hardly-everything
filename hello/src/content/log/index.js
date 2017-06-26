@@ -2,6 +2,7 @@ var fs = require('fs')
 var yaml = require('js-yaml')
 
 var content = [
+  fs.readFileSync(__dirname + '/17-06-26-update.md', 'utf8'),
   fs.readFileSync(__dirname + '/17-06-19-update.md', 'utf8'),
   fs.readFileSync(__dirname + '/17-06-05-update.md', 'utf8'),
   fs.readFileSync(__dirname + '/16-10-12-release.md', 'utf8')
