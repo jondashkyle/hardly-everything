@@ -21,7 +21,7 @@ function getEmptyState () {
     id: '',
     entry: {
       title: '',
-      tags: '',
+      tags: [ ],
       duration: 7,
       interval: 'days',
       visited: 0,

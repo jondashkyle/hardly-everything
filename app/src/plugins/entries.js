@@ -29,7 +29,7 @@ function formatTags (tag){
 function formatEntry (data) {
   var result = clone(data)
 
-  for (let key in result) {
+  for (var key in result) {
     switch (key) {
       case 'url':
         result.url = result.url ? normalizeUrl(result.url) : ''
@@ -58,9 +58,6 @@ function validateEntry (data) {
 
 module.exports = Entries
 
-/**
- * Entries
- */
 function Entries (state, emitter) {
   state.entries = {
     loaded: false,

@@ -22,6 +22,7 @@ a feed for you
 - [ ] public repo
 
 ## queue
+- [ ] service worker caching
 - [ ] hit up people about log contributions
 - [ ] subtle transitions
 - [ ] cache bust nginx
