@@ -1,6 +1,6 @@
 {
   "name": "hardly-everything",
-  "version": "1.0.0",
+  "version": "2.2.0",
   "description": "an attention & time focused bookmarking app",
   "main": "index.js",
   "scripts": {
