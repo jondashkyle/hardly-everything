@@ -9,7 +9,7 @@ a feed for you
 - [x] search reset
 
 ## phase four
-- [ ] start auth/user/sync
+- [ ] start auth/user/sync (auth0 https://github.com/dwyl/learn-json-web-tokens)
 - [ ] sync / data
 - [ ] switch to bloog for hello
   - single feed

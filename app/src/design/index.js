@@ -11,7 +11,7 @@ var gr8css = gr8({
     md: '800px',
     sm: '600px'
   },
-  fontSize: [0.7, 0.8, 1, 1.2, 1.4, 1.5, 1.6, 1.8, 2]
+  fontSize: [0.7, 0.8, 1, 1.2, 1.4, 1.5, 1.6, 1.8, 2, 3, 4]
     .map(function (size) {
       return { [size.toString().replace('.', '-')]: size * 1.5 }
     }),

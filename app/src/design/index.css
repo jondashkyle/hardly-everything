@@ -41,6 +41,18 @@ body {
 }
 
 /**
+ * FX
+ */
+.blink {
+  animation: blink 250ms steps(1, end) infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/**
  * Sizes
  */
  

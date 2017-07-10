@@ -1,5 +1,5 @@
 module.exports = [
-  require('./logger'),
+  // require('./logger'),
   require('./features'),
   require('./entries'),
   require('./search'),
