@@ -77,7 +77,7 @@ function intro (state, emit) {
 
             <p>Link directly to someone’s Instagram page, instead of scrolling through Instagram’s feed, and be reminded of it once every two weeks.</p>
 
-            <p class="mb3">Link to something once ever year, to free you from the impulse, if you’d like.</p>
+            <p class="mb3">Link to something once every year, to free you from the impulse, if you’d like.</p>
 
             <p>This tool is not a rejection of an interface, but a prompt to question who the interface serves, and why. It is also meant to be immediately useful, and hopefully you will find it that way, too.</p>
 
