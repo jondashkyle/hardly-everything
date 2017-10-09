@@ -26,4 +26,5 @@ if (process.env.NODE_ENV === 'development') {
   app.route('/sandbox/:component', wrapper(require('./sandbox')))
 }
 
+// start
 app.mount('main')

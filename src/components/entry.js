@@ -4,7 +4,10 @@ module.exports = Entry
 
 function Entry (state, data, emit) {
   return html`
-    <div class="component-entry c12">
+    <div
+      id="entry-${data.id}"
+      class="component-entry c12"
+    >
       <div class="ophc dib psr design-block-margin">
         <a
           href="${data.url}"
