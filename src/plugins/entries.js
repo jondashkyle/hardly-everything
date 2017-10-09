@@ -211,12 +211,16 @@ function Entries (state, emitter) {
       .sort(function (a, b) {
         return state.ui.entriesViewAll
           ? getDismissedDate(b) - getDismissedDate(a)
-          : getDismissedDate(a) - getDismissedDate(b)
+          : getDurationDate(b) - getDurationDate(a)
       })
   }
 }
 
 function getDismissedDate (entry) {
+  return moment(entry.dateDismissed).valueOf()
+}
+
+function getDurationDate (entry) {
   return moment(entry.dateDismissed)
     .add(entry.duration, entry.interval)
     .valueOf()

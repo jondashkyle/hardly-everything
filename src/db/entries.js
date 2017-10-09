@@ -8,7 +8,7 @@ var add = (data, state) => {
 }
 
 var update = (data, state) => {
-  ls.save(namespace, state)
+  // ls.save(namespace, state)
 }
 
 var remove = (data, state) => {
