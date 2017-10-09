@@ -1,11 +1,11 @@
-# <center>🕗 hardly everything</center>
+<center># 🕗 hardly everything</center>
 
 Instead of following or subscribing to something, just add it to Hardly Everything! When you do, you’ll set how often you want to see it—maybe once a week, maybe once a month.
 
 ## features
 
 - **amplify**: be reminded of the quiet things
-- **suppress**: rate limit the louder things 
+- **suppress**: rate limit the loud things
 - **prioritize**: use periods of rest with custom intervals
 - **customize**: set your own colors and typography taste
 - **ownership**: no database; only local-storage
