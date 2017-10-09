@@ -7,7 +7,7 @@
 - **amplify**: be reminded of the quiet things
 - **suppress**: rate limit the loud things
 - **prioritize**: use periods of rest with custom intervals
-- **customize**: set your own colors and typography taste
+- **customize**: choose your own colors and typography
 - **ownership**: no database; only local-storage
 
 ## philosophy
