@@ -10,7 +10,8 @@
     "watch-css": "watch 'node ./src/design > dist/bundles/bundle.css' ./src",
     "build-js": "browserify src/index.js -t envify -g aliasify -t brfs -t [ babelify --presets [ babel-preset-es2015 babel-preset-react ] ] -g uglifyify > dist/bundles/bundle.js",
     "watch-js": "budo src/index.js:bundles/bundle.js --dir dist --pushstate -- -t [ envify --NODE_ENV development ] -g aliasify -t brfs",
-    "start": "concurrently --kill-others \"npm run watch-js\" \"npm run watch-css\""
+    "start": "concurrently --kill-others \"npm run watch-js\" \"npm run watch-css\"",
+    "deploy": "dat sync dist/"
   },
   "author": "",
   "license": "ISC",
