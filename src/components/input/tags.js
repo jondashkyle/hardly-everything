@@ -23,17 +23,19 @@ module.exports = class Tags extends Component {
     }
   }
 
-  render () {
-    var input =  h(TokenInput, {
+  componentWillMount() {
+    this.input = h(TokenInput, {
       class: '',
       placeholder: this.props.name || 'Untitled',
       value: this.props.value,
       onChange: this.handleChange
     })
+  }
 
+  render () {
     return Container({
       name: this.props.name || 'Untitled'
-    }, input)
+    }, this.input)
   }
 }
 

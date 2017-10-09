@@ -4,7 +4,7 @@ the links are visible
 
 you click a link
 your link opens
-it dissapears from the list
+it disappears from the list
 the link is now hidden
 
 you’ve clicked all your links
@@ -14,7 +14,7 @@ now none are visible
 
 time passes
 slowly your links re-appear
-you told them to how long to dissapear for when you added them
+you told them to how long to disappear for when you added them
 some are more important than others so they appear more often
 others, maybe not
 
