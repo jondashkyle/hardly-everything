@@ -1,5 +1,5 @@
-const a = require('axios')
-const STORAGE_ID = 'asdf_'
+var a = require('axios')
+var STORAGE_ID = 'asdf_'
 
 /**
  * Get

@@ -1,25 +1,25 @@
-const a = require('axios')
-const ls = require('./localstorage')
+var a = require('axios')
+var ls = require('./localstorage')
 
-const namespace = 'entries'
+var namespace = 'entries'
 
-const add = (data, state) => {
+var add = (data, state) => {
   ls.save(namespace, state)
 }
 
-const update = (data, state) => {
+var update = (data, state) => {
+  // ls.save(namespace, state)
+}
+
+var remove = (data, state) => {
   ls.save(namespace, state)
 }
 
-const remove = (data, state) => {
+var dismiss = (data, state) => {
   ls.save(namespace, state)
 }
 
-const dismiss = (data, state) => {
-  ls.save(namespace, state)
-}
-
-const get = (cb) => {
+var get = (cb) => {
   ls.get(namespace, cb)
 }
 

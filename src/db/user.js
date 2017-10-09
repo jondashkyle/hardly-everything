@@ -1,12 +1,12 @@
-const ls = require('./localstorage')
+var ls = require('./localstorage')
 
-const namespace = 'user'
+var namespace = 'user'
 
-const update = (data, state) => {
+var update = (data, state) => {
   ls.save(namespace, state)
 }
 
-const get = (cb) => {
+var get = (cb) => {
   ls.get(namespace, cb)
 }
 

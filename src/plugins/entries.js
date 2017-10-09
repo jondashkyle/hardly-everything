@@ -181,8 +181,9 @@ function Entries (state, emitter) {
 
   function getActive () {
     var now = moment().startOf('day').toDate()
+
     return ov(state.entries.all)
-      .filter(entry => {
+      .filter(function (entry) {
         if (
           !state.ui.entriesViewAll &&
           entry.dateDismissed &&
@@ -195,7 +196,7 @@ function Entries (state, emitter) {
           return true
         }
       })
-      .filter(entry => {
+      .filter(function (entry) {
         if (state.search.term) {
           var term = state.search.term.toLowerCase()
           var title = entry.title.toLowerCase().indexOf(term) >= 0
@@ -207,7 +208,7 @@ function Entries (state, emitter) {
           return true
         }
       })
-      .sort((a, b) => {
+      .sort(function (a, b) {
         return state.ui.entriesViewAll
           ? getDismissedDate(b) - getDismissedDate(a)
           : getDismissedDate(a) - getDismissedDate(b)
@@ -218,6 +219,5 @@ function Entries (state, emitter) {
 function getDismissedDate (entry) {
   return moment(entry.dateDismissed)
     .add(entry.duration, entry.interval)
-    .startOf('day')
-    .toDate()
+    .valueOf()
 }
