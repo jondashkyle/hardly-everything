@@ -1,4 +1,4 @@
-<center># 🕗 hardly everything</center>
+<h1 align="center">🕗 hardly everything</h1>
 
 Instead of following or subscribing to something, just add it to Hardly Everything! When you do, you’ll set how often you want to see it—maybe once a week, maybe once a month.
 
