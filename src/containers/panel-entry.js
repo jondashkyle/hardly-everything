@@ -141,6 +141,7 @@ function view (state, emit) {
 
   function remove (id) {
     reset()
+    emit('ui:panel', { view: '' })
     emit('entries:remove', { id: id })
   }
 
