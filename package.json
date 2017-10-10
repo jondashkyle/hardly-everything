@@ -18,7 +18,7 @@
   "devDependencies": {
     "aliasify": "^2.1.0",
     "asset-cache-bust": "^2.2.0",
-    "autoprefixer": "^7.1.1",
+    "autoprefixer": "^7.1.5",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babelify": "^7.3.0",
