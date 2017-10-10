@@ -5,6 +5,54 @@ var lilcss = require('lilcss')
 
 var custom = fs.readFileSync(__dirname + '/index.css', 'utf8')
 
+var utils = [ ]
+
+utils.push({
+  prop: 'position',
+  prefix: 'ps',
+  vals: { st: 'sticky' }
+})
+
+utils.push({
+  prop: 'width',
+  unit: '%',
+  vals: [50]
+})
+
+utils.push({
+  prop: 'width',
+  prefix: 'wrem',
+  unit: 'rem',
+  vals: [40]
+})
+
+utils.push({
+  prop: 'max-width',
+  prefix: 'mwrem',
+  unit: 'rem',
+  vals: [43]
+})
+
+utils.push({
+  prop: 'opacity',
+  prefix: 'op',
+  vals: [{ 33: 0.3 }]
+})
+
+utils.push({
+  prop: 'padding-top',
+  prefix: 'ptvh',
+  unit: 'vh',
+  vals: [25, 50, 75, 100]
+})
+
+utils.push({
+  prop: 'margin-top',
+  prefix: 'mtpx',
+  unit: 'rem',
+  vals: [0, 2].map(function (size) { return { [size]: size / 10 }})
+})
+
 var gr8css = gr8({
   breakpoints: {
     lg: '1000px',
@@ -19,53 +67,8 @@ var gr8css = gr8({
     .map(function (size) {
       return { [size.toString().replace('.', '-')]: size * 1.25 }
     }),
-  responsive: true
-})
-
-gr8css.add({
-  prop: 'position',
-  prefix: 'ps',
-  vals: { st: 'sticky' }
-})
-
-gr8css.add({
-  prop: 'width',
-  unit: '%',
-  vals: [50]
-})
-
-gr8css.add({
-  prop: 'width',
-  prefix: 'wrem',
-  unit: 'rem',
-  vals: [40]
-})
-
-gr8css.add({
-  prop: 'max-width',
-  prefix: 'mwrem',
-  unit: 'rem',
-  vals: [43]
-})
-
-gr8css.add({
-  prop: 'opacity',
-  prefix: 'op',
-  vals: [{ 33: 0.3 }]
-})
-
-gr8css.add({
-  prop: 'padding-top',
-  prefix: 'ptvh',
-  unit: 'vh',
-  vals: [25, 50, 75, 100]
-})
-
-gr8css.add({
-  prop: 'margin-top',
-  prefix: 'mtpx',
-  unit: 'rem',
-  vals: [0, 2].map(function (size) { return { [size]: size / 10 }})
+  responsive: true,
+  utils: utils
 })
 
 var lilsrc = [

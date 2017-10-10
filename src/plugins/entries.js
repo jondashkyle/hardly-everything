@@ -191,7 +191,7 @@ function Entries (state, emitter) {
           entry.interval &&
           entry.visited >= 1
         ) {
-          return getDismissedDate(entry) <= now
+          return getNowDate(entry) <= now
         } else {
           return true
         }
@@ -214,6 +214,13 @@ function Entries (state, emitter) {
           : getDurationDate(b) - getDurationDate(a)
       })
   }
+}
+
+function getNowDate (entry) {
+  return moment(entry.dateDismissed)
+    .add(entry.duration, entry.interval)
+    .startOf('day')
+    .toDate()
 }
 
 function getDismissedDate (entry) {
