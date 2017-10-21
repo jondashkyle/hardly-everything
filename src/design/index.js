@@ -8,8 +8,7 @@ var custom = fs.readFileSync(__dirname + '/index.css', 'utf8')
 var utils = [ ]
 
 utils.push({
-  prop: 'position',
-  prefix: 'ps',
+  prop: { ps: 'position' },
   vals: { st: 'sticky' }
 })
 
@@ -20,35 +19,30 @@ utils.push({
 })
 
 utils.push({
-  prop: 'width',
-  prefix: 'wrem',
+  prop: { wrem: 'width' },
   unit: 'rem',
   vals: [40]
 })
 
 utils.push({
-  prop: 'max-width',
-  prefix: 'mwrem',
+  prop: { mwrem: 'max-width' },
   unit: 'rem',
   vals: [43]
 })
 
 utils.push({
-  prop: 'opacity',
-  prefix: 'op',
+  prop: { op: 'opacity' },
   vals: [{ 33: 0.3 }]
 })
 
 utils.push({
-  prop: 'padding-top',
-  prefix: 'ptvh',
+  prop: { ptvh: 'padding-top' },
   unit: 'vh',
   vals: [25, 50, 75, 100]
 })
 
 utils.push({
-  prop: 'margin-top',
-  prefix: 'mtpx',
+  prop: { mtpx: 'margin-top' },
   unit: 'rem',
   vals: [0, 2].map(function (size) { return { [size]: size / 10 }})
 })
@@ -71,24 +65,25 @@ var gr8css = gr8({
   utils: utils
 })
 
-var lilsrc = [
-  'containers/*.js',
-  'components/**/*.js',
-  'templates/*.js',
-  'sandbox/*.js',
-  'index.js'
-].map(p => 'src/' + p)
+// var lilsrc = [
+//   'containers/*.js',
+//   'components/**/*.js',
+//   'templates/*.js',
+//   'sandbox/*.js',
+//   'index.js'
+// ].map(p => 'src/' + p)
 
-var lilopts = {
-  ignore: ['psa', 'psr', 't0', 'b0', 'l0', 'r0']
-}
+// var lilopts = {
+//   ignore: ['psa', 'psr', 't0', 'b0', 'l0', 'r0']
+// }
 
-var lilgr8 = lilcss(gr8css.toString(), lilsrc, lilopts)
+// var lilgr8 = lilcss(gr8css.toString(), lilsrc, lilopts)
 
 var built = [
   custom,
   recsst.toString(),
-  lilgr8,
+  gr8css.toString()
+  // lilgr8,
 ].join(' ')
 
 process.stdout.write(built)
