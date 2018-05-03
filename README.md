@@ -24,7 +24,7 @@ This tool is not a rejection of an interface, but a prompt to question who the i
 
 ## access
 
-You can use Hardly Everything by visiting [https://hardlyeverything.com](https://hardlyeverything.com), [dat://hardly-everything.com](dat://hardly-everything.com), and it’s [unique Dat hash](dat://a1c54e094020e2f898b6061ed9c0dbe60d4d18612b4226d9c916011c415f7875). [Dat](http://datproject.org) is a distributed data protocol being used to build the future of the p2p/decentralized web.
+You can use Hardly Everything by visiting [https://hardlyeverything.com](https://hardlyeverything.com), [dat://hardlyeverything.com](dat://hardlyeverything.com), and it’s [unique Dat hash](dat://a1c54e094020e2f898b6061ed9c0dbe60d4d18612b4226d9c916011c415f7875). [Dat](http://datproject.org) is a distributed data protocol being used to build the future of the p2p/decentralized web.
 
 ## todo
 
