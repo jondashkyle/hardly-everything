@@ -81,10 +81,6 @@ function intro (state, emit) {
 
             <p>This tool is not a rejection of an interface, but a prompt to question who the interface serves, and why. It is also meant to be immediately useful, and hopefully you will find it that way, too.</p>
 
-            <p>
-              <a href="http://hello.hardlyeverything.com/about" class="op25 oph100">Permalink</a>
-            </p>
-
             <div
               class="
                 ${!state.intro.status ? 'curp' : 'op33 pen curd'}
