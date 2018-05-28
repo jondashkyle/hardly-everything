@@ -47,7 +47,7 @@ function Entry (state, data, emit) {
     emit('entries:dismiss', { id: data.id })
   }
 
-  function handleClickEdit () {
+  function handleClickEdit (event) {
     var staging = state.entries.all[data.id]
     
     if (data.id !== undefined && staging !== undefined) {

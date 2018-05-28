@@ -12,7 +12,6 @@ function Staging (state, emitter) {
 
   emitter.on('staging:entry', function (data) {
     state.staging.entry = xtend(state.staging.entry, data)
-    console.log(data.tags)
     emitter.emit('app:render')
   })
 }

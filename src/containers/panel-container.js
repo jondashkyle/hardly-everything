@@ -212,7 +212,7 @@ function navigationSearch (props = { }) {
     />
   `
 
-  function handleInput () {
+  function handleInput (event) {
     if (props.onInput) {
       props.onInput({
         value: event.target.value
@@ -220,7 +220,7 @@ function navigationSearch (props = { }) {
     }
   }
 
-  function handleFocus () {
+  function handleFocus (event) {
     if (props.onFocus) {
       props.onFocus({
         value: event.target.value
