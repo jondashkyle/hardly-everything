@@ -7,7 +7,7 @@ module.exports = class Text extends Component {
     super()
 
     this.local = {
-      autofocus: true
+      autofocus: false
     }
 
     this.handleInput = this.handleInput.bind(this)

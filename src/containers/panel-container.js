@@ -12,15 +12,15 @@ function view (state, props, emit) {
   props = props || { }
   
   var views = {
-    options: {
-      title: 'Options', 
-      path: 'options',
-      view: () => panelOptions(state, emit)
-    },
     entry: {
       title: 'Entry',
       path: 'entry',
       view: () => panelEntry(state, emit)
+    },
+    options: {
+      title: 'Options', 
+      path: 'options',
+      view: () => panelOptions(state, emit)
     }
   }
 
@@ -44,7 +44,7 @@ function view (state, props, emit) {
 
   return html`
     <div
-      class="${view && !state.ui.mobile ? 'psf t0 l0 r0 b0 z3' : ''} px1"
+      class="${view && !state.ui.mobile ? 'psf t0 r0 b0 z3' : ''} px1"
       onclick=${handleContainerClick}
       data-panel
     >
@@ -54,7 +54,7 @@ function view (state, props, emit) {
         onmouseleave=${handlePanelLeave}
       >
         <div
-          class="psf t0 l0 px1 z3 ${state.ui.mobile ? 'bg-white bb2b' : ''}"
+          class="psf t0 r0 z3 ${state.ui.mobile ? 'bg-white bb2b' : ''}"
           sm="r0"
         >
           ${navigation()} 
@@ -75,51 +75,8 @@ function view (state, props, emit) {
           .filter(view => view.active !== false)
           .map(navigationLink)
         }
-        <div class="mr1"></div> 
-        <div
-          class="
-            mr1 curp oph100 line pea
-            ${state.entries.amount ? '' : 'dn'}
-            ${state.ui.entriesViewAll ? 'op100' : 'op33'} 
-          "
-          sm="${view ? 'dn' : ''}"
-          onclick=${function () {
-            emit('search:update', { value: '', render: false })
-            emit('ui:update', { entriesViewAll: !state.ui.entriesViewAll })
-          }}
-        >
-          All
-        </div>
-        ${elSearch()} 
       </div>
     `
-
-    function elSearch () {
-      if (!state.features.search) {
-        return ''
-      }
-
-      return html`
-        <div class="pea" sm="dn" style="padding-top: 0.75rem">
-          ${navigationSearch({
-            value: state.search.term,
-            onFocus: function () {
-              emit('search:update', {
-                hidePanel: true
-              })
-            },
-            onInput: function (data) {
-              emit('search:update', {
-                all: true,
-                value: data.value,
-                hidePanel: true,
-                render: true
-              })
-            }
-          })}
-        </div>
-      `
-    }
   }
 
   function navigationLink (view) {
@@ -184,35 +141,5 @@ function view (state, props, emit) {
   function hide () {
     emit('staging:reset')
     emit('ui:panel', { view: '' })
-  }
-}
-
-function navigationSearch (props = { }) {
-  return html`
-    <input
-      type="text"
-      placeholder="Search…"
-      value="${props.value || ''}"
-      class="db fs1 ff-sans tc-black"
-      style="background: none"
-      oninput=${handleInput}
-      onfocus=${handleFocus}
-    />
-  `
-
-  function handleInput (event) {
-    if (props.onInput) {
-      props.onInput({
-        value: event.target.value
-      })
-    }
-  }
-
-  function handleFocus (event) {
-    if (props.onFocus) {
-      props.onFocus({
-        value: event.target.value
-      })
-    }
   }
 }
