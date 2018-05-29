@@ -4,10 +4,7 @@ module.exports = Entry
 
 function Entry (state, data, emit) {
   return html`
-    <div
-      id="entry-${data.id}"
-      class="component-entry c12"
-    >
+    <div id="entry-${data.id}" class="component-entry c12">
       <div class="ophc dib psr design-block-margin">
         <a
           href="${data.url}"
@@ -19,25 +16,19 @@ function Entry (state, data, emit) {
           class="usn psa l0 r0 x xjc fs1 fwn sans z2"
           style="top: 100%"
         >
-          <div class="x arrow-top bg-black bro px0-5 op0 ophc33 oph100">
+          <div class="x op0 ophc33 oph100">
             <div
-              class="curp tc-white p0-5 op50 oph100 ${state.ui.entriesViewAll ? 'dn' : 'db'}"
+              class="curp tc-black p0-5 op50 oph100 ${state.ui.entriesViewAll ? 'dn' : 'db'}"
               onclick=${handleClick}
-            >
-              Hide
-            </div>
+            ><div class="icon icon-eye"></div></div>
             <div
-              class="curp tc-white p0-5 op50 oph100"
+              class="curp tc-black p0-5 op50 oph100"
               onclick=${handleClickEdit}
-            >
-              Edit
-            </div>
+            ><div class="icon icon-settings"></div></div>
             <div
-              class="dn curp p0-5 op25 oph100"
+              class="curp p0-5 op50 oph100"
               onclick=${handleClickDelete}
-            >
-              Delete
-            </div>
+            ><div class="icon icon-trash"></div></div>
           </div>
       </div>
     </div>

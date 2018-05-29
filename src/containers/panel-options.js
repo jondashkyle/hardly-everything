@@ -17,14 +17,16 @@ function view (state, emit) {
           ${templateOption(state.options.design.font)}
         </div>
       </div>
-      <div class="c12 p1px">
-        <div class="tc-black bg-white">
-          ${templateOption(state.options.design.scale)}
+      <div class="c12 x">
+        <div class="c6 p1px">
+          <div class="tc-black bg-white">
+            ${templateOption(state.options.design.scale)}
+          </div>
         </div>
-      </div>
-      <div class="c12 p1px">
-        <div class="tc-black bg-white">
-          ${templateOption(state.options.design.spacing)}
+        <div class="c6 p1px">
+          <div class="tc-black bg-white">
+            ${templateOption(state.options.design.spacing)}
+          </div>
         </div>
       </div>
       <div class="c12 x">

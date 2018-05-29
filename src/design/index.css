@@ -43,8 +43,37 @@ body {
 }
 
 /**
+ * icons
+ */
+
+.icon {
+  background-color: var(--fg);
+  height: 1em;
+  width: 1em;
+}
+
+.icon-eye {
+  mask: url(/assets/icon-eye.svg) no-repeat center;
+  mask-size: contain;
+}
+
+.icon-settings {
+  mask: url(/assets/icon-settings.svg) no-repeat center;
+  mask-size: contain;
+}
+
+.icon-trash {
+  mask: url(/assets/icon-trash.svg) no-repeat center;
+  mask-size: contain;
+  margin-top: 0.05em;
+  height: 0.85em;
+  width: 0.85em;
+}
+
+/**
  * FX
  */
+
 .blink {
   animation: blink 250ms steps(1, end) infinite;
 }

@@ -149,6 +149,10 @@ function Entries (state, emitter) {
 
   // remove
   emitter.on('entries:remove', function (data) {
+    var entry = state.entries.all[data.id]
+    var shouldDelete = confirm('Are you sure you want to delete ' + entry.title + '?')
+    if (!shouldDelete) return
+      
     var newState = clone(state.entries.all)
     delete newState[data.id]
 

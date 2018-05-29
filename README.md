@@ -37,4 +37,3 @@ Hardly Everything is in active development:
 - [ ] Cache entry list in state
 - [ ] Remove google fonts / localize options
 - [ ] Add Dat support if available (dump state to json)
-- [ ] Replace moment.js with dayjs
