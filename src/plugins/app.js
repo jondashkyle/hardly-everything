@@ -18,7 +18,7 @@ function app (state, emitter) {
   // load fallback
   emitter.on('DOMContentLoaded', function () {
     setTimeout(() => {
-      if (!state.app.loaded) handleLoad();
+      if (!state.app.loaded) handleLoad()
     }, 3000)
   })
 
@@ -30,21 +30,12 @@ function app (state, emitter) {
       state.options.loaded.typeLocal &&
       state.options.loaded.data &&
       !state.app.loaded
-    ) {
-      handleLoad()
-    }
+    ) { handleLoad() }
   }
 
   // all good
   function handleLoad () {
     state.app.loaded = true
-    removeLoader()
     emitter.emit('app:render')
   }
-}
-
-// remove the loading el
-function removeLoader () {
-  var el = document.querySelector('[data-load]')
-  return el ? document.body.removeChild(el) : ''
 }

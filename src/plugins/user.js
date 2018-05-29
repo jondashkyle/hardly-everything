@@ -1,6 +1,5 @@
-var x = require('xtend')
 var clone = require('clone-deep')
-var moment = require('moment')
+var xtend = require('xtend')
 
 var db = require('../db/user')
 
@@ -19,28 +18,28 @@ function user (state, emitter) {
 
   emitter.on('user:loaded', function (data) {
     state.user.analytics.visits += 1
-    state.user.analytics.lastvisit = moment().toISOString()
+    state.user.analytics.lastvisit = new Date().toISOString()
     emitter.emit('user:update')
   })
 
   emitter.on('user:analytics', function (data) {
-    state.user.analytics = x(state.user.analytics, data)
+    state.user.analytics = xtend(state.user.analytics, data)
     emitter.emit('user:update')
   })
 
   emitter.on('pushState', function (data) {
-    if (
-      process.env.NODE_ENV === 'production' &&
-      window.ga &&
-      typeof window.ga === 'function'
-    ) {
-      window.ga('set', 'page', window.location.pathname)
-      window.ga('send', 'pageview')
-    }
+    // if (
+    //   process.env.NODE_ENV === 'production' &&
+    //   window.ga &&
+    //   typeof window.ga === 'function'
+    // ) {
+    //   window.ga('set', 'page', window.location.pathname)
+    //   window.ga('send', 'pageview')
+    // }
   })
 
   emitter.on('user:load', function (data) {
-    state.user = x(state.user, data)
+    state.user = xtend(state.user, data)
     emitter.emit('user:loaded', data)
   })
 
@@ -52,7 +51,7 @@ function user (state, emitter) {
   // user prefs for features
   emitter.on('user:feature', function (data) {
     if (typeof data === 'object') {
-      state.user.features = x(state.user.features, data)
+      state.user.features = xtend(state.user.features, data)
     }
 
     if (data.render !== false) {

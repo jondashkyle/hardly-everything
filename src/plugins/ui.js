@@ -1,14 +1,14 @@
-var xtend = require('xtend')
-var moment = require('moment')
 var attachFastClick = require('fastclick')
+var moment = require('moment')
+var xtend = require('xtend')
 
-module.exports = Ui
+module.exports = pluginUi
 
 var resizeFrame
 
-function Ui (state, emitter) {
+function pluginUi (state, emitter) {
   state.ui = {
-    date: moment().format("MMM Do"),
+    date: moment().format('MMM Do'),
     loaded: false,
     stagingActive: false,
     entriesViewAll: false,

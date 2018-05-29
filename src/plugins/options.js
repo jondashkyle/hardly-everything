@@ -1,9 +1,9 @@
-var db = require('../db/options')
+var objectValues = require('object-values')
 var clone = require('clone-deep')
-var ov = require('object-values')
-var x = require('xtend')
+var xtend = require('xtend')
 
 var typography = require('../design/typography')
+var db = require('../db/options')
 
 var optionsTypography = {
   systemLight: {
@@ -228,7 +228,7 @@ function Options (state, emitter) {
 
   // update
   emitter.on('options:update', function (data) {
-    state.options.values = x(state.options.values, data)
+    state.options.values = xtend(state.options.values, data)
     emitter.emit('app:render')
   })
 
@@ -241,7 +241,7 @@ function Options (state, emitter) {
 
   // loaded
   emitter.on('options:loaded', function (data) {
-    state.options.loaded = x(state.options.loaded, data)
+    state.options.loaded = xtend(state.options.loaded, data)
     emitter.emit('app:render')
   })
 
@@ -257,7 +257,8 @@ function Options (state, emitter) {
   })
 
   emitter.on('options:typography', function () {
-    ov(state.options.typography).forEach((data) => {
+    var options = objectValues(state.options.typography)
+    options.forEach(function (data) {
       typography.load(data, () => emitter.emit)
     })
   })

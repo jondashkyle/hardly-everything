@@ -1,7 +1,7 @@
 var html = require('choo/html')
-var x = require('xtend')
+var xtend = require('xtend')
 
-var { intToRest } = require('../helpers/time')
+var { intToRest } = require('../lib/time')
 var InputRange = require('../components/input/range')
 var InputText = require('../components/input/text')
 var InputTags = require('../components/input/tags')
@@ -57,7 +57,7 @@ function panelEntry (state, emit) {
                 value: state.staging.entry.timeRange,
                 valueShow: false,
                 onInput: function (data) {
-                  emit('staging:entry', x(getTime(data.value), {
+                  emit('staging:entry', xtend(getTime(data.value), {
                     timeRange: data.value
                   }))
                 }

@@ -1,6 +1,6 @@
 var html = require('choo/html')
 
-var { linearConversion } = require('../helpers/scale')
+var { linearConversion } = require('../lib/scale')
 
 module.exports = Css
 

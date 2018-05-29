@@ -1,11 +1,12 @@
-var db = require('../db/entries')
-var x = require('xtend')
-var clone = require('clone-deep')
-var moment = require('moment')
-var uuid = require('uuid')
-var ov = require('object-values')
+var objectValues = require('object-values')
 var normalizeUrl = require('normalize-url')
 var validUrl = require('valid-url')
+var clone = require('clone-deep')
+var moment = require('moment')
+var xtend = require('xtend')
+var uuid = require('uuid')
+
+var db = require('../db/entries')
 
 var intervals = [
   'minute',
@@ -69,7 +70,7 @@ function Entries (state, emitter) {
   // all
   emitter.on('entries:all', function (data) {
     state.entries.all = data
-    state.entries.amount = ov(state.entries.all).length
+    state.entries.amount = objectValues(state.entries.all).length
     emitter.emit('entries:refresh')
     emitter.emit('app:render')
   })
@@ -82,7 +83,7 @@ function Entries (state, emitter) {
   // add
   emitter.on('entries:add', function (data) {
     var id = uuid.v4()
-    var staging = x({
+    var staging = xtend({
       id: id,
       content: { },
       dateAdded: moment().toISOString(),
@@ -133,7 +134,7 @@ function Entries (state, emitter) {
   emitter.on('entries:dismiss', function (data) {
     var newState = clone(state.entries.all)
     var curEntry = newState[data.id]
-    var newEntry = x(curEntry, {
+    var newEntry = xtend(curEntry, {
       visited: curEntry.visited + 1,
       dateUpdated: moment().toISOString(),
       dateDismissed: moment().toISOString()
@@ -182,7 +183,7 @@ function Entries (state, emitter) {
   function getActive () {
     var now = moment().startOf('day').toDate()
 
-    return ov(state.entries.all)
+    return objectValues(state.entries.all)
       .filter(function (entry) {
         if (
           !state.ui.entriesViewAll &&
