@@ -1,5 +1,3 @@
-var html = require('choo/html')
-
 var Panel = require('../containers/panel-container')
 var EntryList = require('../containers/entry-list')
 var EntryNavigation = require('../containers/entry-navigation')

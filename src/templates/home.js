@@ -1,5 +1,3 @@
-var html = require('choo/html')
-
 var Panel = require('../containers/panel-container')
 var EntryNavigation = require('../containers/entry-navigation')
 var EntryList = require('../containers/entry-list')
@@ -18,7 +16,7 @@ function view (state, emit) {
   }
 
   // show the entry list if we’re logged in
-  var content =  EntryList(state, emit)
+  var content = EntryList(state, emit)
 
   return [
     Panel(state, panelProps, emit),

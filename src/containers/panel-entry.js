@@ -17,63 +17,63 @@ function panelEntry (state, emit) {
     >
       <div class="c12 p1px">
         ${state
-          .cache(InputText, 'entry:url')
-          .render({
-            key: 'url',
-            name: 'http://',
-            value: state.staging.entry.url,
-            required: true,
-            style: 'brit',
-            autofocus: true,
-            onInput: function (data) {
-              emit('staging:entry', {
-                url: data.value
-              })
-            }
-          })
-        }
+    .cache(InputText, 'entry:url')
+    .render({
+      key: 'url',
+      name: 'http://',
+      value: state.staging.entry.url,
+      required: true,
+      style: 'brit',
+      autofocus: true,
+      onInput: function (data) {
+        emit('staging:entry', {
+          url: data.value
+        })
+      }
+    })
+}
       </div>
       <div class="c12 p1px">
         ${state
-          .cache(InputText, 'entry:title')
-          .render({
-            key: 'title',
-            name: 'Title',
-            required: true,
-            value: state.staging.entry.title,
-            onInput: function (data) {
-              emit('staging:entry', {
-                title: data.value
-              })
-            }
-          })
-        }
+    .cache(InputText, 'entry:title')
+    .render({
+      key: 'title',
+      name: 'Title',
+      required: true,
+      value: state.staging.entry.title,
+      onInput: function (data) {
+        emit('staging:entry', {
+          title: data.value
+        })
+      }
+    })
+}
       </div>
       <div class="c12 x">
         <div class="xx p1px">
           <div class="fs1 c12 bg-white tc-black line">
             ${state
-              .cache(InputRange, 'entry:rest')
-              .render({
-                name: 'Rest',
-                value: state.staging.entry.timeRange,
-                valueShow: false,
-                onInput: function (data) {
-                  emit('staging:entry', xtend(getTime(data.value), {
-                    timeRange: data.value
-                  }))
-                }
-              })
-            }
+    .cache(InputRange, 'entry:rest')
+    .render({
+      name: 'Rest',
+      value: state.staging.entry.timeRange,
+      valueShow: false,
+      onInput: function (data) {
+        emit('staging:entry', xtend(getTime(data.value), {
+          timeRange: data.value
+        }))
+      }
+    })
+}
           </div>
         </div>
         <div class="c2 p1px">
           <input
             value=${state.staging.entry.duration}
             oninput=${e => emit('staging:entry', {
-              timeRange: 0,
-              duration: parseInt(e.target.value || 0)
-            })}
+    timeRange: 0,
+    duration: parseInt(e.target.value || 0)
+  })}
             type="text"
             class="p0 c12 tac fs1 mono bg-white tc-black line"
           />
@@ -82,9 +82,9 @@ function panelEntry (state, emit) {
           <input
             value=${state.staging.entry.interval}
             oninput=${e => emit('staging:entry', {
-              timeRange: 0,
-              interval: e.target.value
-            })}
+    timeRange: 0,
+    interval: e.target.value
+  })}
             type="text"
             class="p0 c12 tac fs1 sans bg-white tc-black line"
           />
@@ -93,18 +93,18 @@ function panelEntry (state, emit) {
       <div class="c12 p1px">
         <div class="bg-white">
           ${state
-            .cache(InputTags, 'entry:tags')
-            .render({
-              key: 'tags',
-              name: 'Tags',
-              value: state.staging.entry.tags || [ ],
-              onChange: function (data) {
-                emit('staging:entry', {
-                  tags: data.value
-                })
-              }
-            })
-          }
+    .cache(InputTags, 'entry:tags')
+    .render({
+      key: 'tags',
+      name: 'Tags',
+      value: state.staging.entry.tags || [ ],
+      onChange: function (data) {
+        emit('staging:entry', {
+          tags: data.value
+        })
+      }
+    })
+}
         </div>
       </div>
       <div class="c12 x">

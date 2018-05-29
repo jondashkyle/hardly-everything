@@ -1,5 +1,4 @@
 var html = require('choo/html')
-var x = require('xtend')
 var ov = require('object-values')
 
 var css = require('../components/css')
@@ -61,7 +60,7 @@ var elNavigation = (state, emit) => {
   </div>`
 }
 
-var elImport = (state,emit) => {
+var elImport = (state, emit) => {
   return html`<div class="data">
     <textarea
       class="mono bg-white tc-black p1 fs1 lh1-5"

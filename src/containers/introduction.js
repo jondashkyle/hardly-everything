@@ -20,7 +20,7 @@ class Countdown extends Component {
   }
 
   unload () {
-    clearInterval(this.frame) 
+    clearInterval(this.frame)
   }
 
   handleFinished () {

@@ -10,7 +10,7 @@ module.exports = view
 
 function view (state, props, emit) {
   props = props || { }
-  
+
   var views = {
     entry: {
       title: 'Entry',
@@ -18,7 +18,7 @@ function view (state, props, emit) {
       view: () => panelEntry(state, emit)
     },
     options: {
-      title: 'Options', 
+      title: 'Options',
       path: 'options',
       view: () => panelOptions(state, emit)
     }
@@ -40,7 +40,6 @@ function view (state, props, emit) {
       </div>
       `
     : ''
-
 
   return html`
     <div
@@ -72,9 +71,9 @@ function view (state, props, emit) {
     return html`
       <div class="x line c12 tc-black fs1 pen usn">
         ${ov(views)
-          .filter(view => view.active !== false)
-          .map(navigationLink)
-        }
+    .filter(view => view.active !== false)
+    .map(navigationLink)
+}
       </div>
     `
   }

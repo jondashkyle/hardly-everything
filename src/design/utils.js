@@ -53,7 +53,7 @@ utils.push({
 utils.push({
   prop: { mtpx: 'margin-top' },
   unit: 'rem',
-  vals: [0, 2].map(function (size) { return { [size]: size / 10 }})
+  vals: [0, 2].map(function (size) { return { [size]: size / 10 } })
 })
 
 output = gr8({

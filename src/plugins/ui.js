@@ -27,7 +27,7 @@ function pluginUi (state, emitter) {
   emitter.on('ui:panel', function (data) {
     var render = state.ui.panel.view !== data.view
     state.ui.panel = xtend(state.ui.panel, data)
-    if (render) emitter.emit('app:render', 'ui:panel');
+    if (render) emitter.emit('app:render', 'ui:panel')
   })
 
   emitter.on('DOMContentLoaded', function () {

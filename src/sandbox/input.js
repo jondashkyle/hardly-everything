@@ -17,7 +17,7 @@ function checkbox (state, emit) {
         key: 'one',
         name: 'Test',
         value: true,
-        onChange: function(data) {
+        onChange: function (data) {
           emit({
             component: 'Checkbox',
             data: data
@@ -53,7 +53,7 @@ function range (state, emit) {
         key: 'one',
         name: 'Test',
         value: 50,
-        onInput: function(data) {
+        onInput: function (data) {
           emit({
             component: 'Range',
             data: data
@@ -82,7 +82,7 @@ function text (state, emit) {
       props: {
         key: 'one',
         name: 'Test',
-        onInput: function(data) {
+        onInput: function (data) {
           emit({
             component: 'Text',
             data: data
@@ -118,7 +118,7 @@ function tags (state, emit) {
         key: 'one',
         name: 'Test',
         value: [ ],
-        onChange: function(data) {
+        onChange: function (data) {
           emit({
             component: 'Tags',
             data: data
@@ -130,7 +130,7 @@ function tags (state, emit) {
       props: {
         key: 'two',
         value: ['one', 'two', 'three'],
-        onChange: function(data) {
+        onChange: function (data) {
           emit({
             component: 'Tags',
             data: data

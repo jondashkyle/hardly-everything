@@ -33,12 +33,12 @@ class Picker extends Component {
     this.colorPicker.onChange(function (data) {
       // clearTimeout(self.frame)
       // self.frame = setTimeout(function () {
-        self.local.color = tinycolor(data)
-        if (typeof self.local.handleChange === 'function') {
-          self.local.handleChange({
-            rgb: self.local.color.toRgb()
-          })
-        }
+      self.local.color = tinycolor(data)
+      if (typeof self.local.handleChange === 'function') {
+        self.local.handleChange({
+          rgb: self.local.color.toRgb()
+        })
+      }
       // }, 20)
     })
 

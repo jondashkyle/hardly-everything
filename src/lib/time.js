@@ -48,7 +48,7 @@ const intToRest = opts => {
       ) {
         return true
       } else if (
-        options.breakpoints.indexOf(bp) === 
+        options.breakpoints.indexOf(bp) ===
         options.breakpoints.length - 1
       ) {
         return true
@@ -58,10 +58,10 @@ const intToRest = opts => {
     })
 
   const scale = {
-    input: (value - breakpoint.range.min)
-      / (breakpoint.range.max - breakpoint.range.min),
-    output: (breakpoint.result.max - breakpoint.result.min)
-      + breakpoint.result.min
+    input: (value - breakpoint.range.min) /
+      (breakpoint.range.max - breakpoint.range.min),
+    output: (breakpoint.result.max - breakpoint.result.min) +
+      breakpoint.result.min
   }
 
   const result = {

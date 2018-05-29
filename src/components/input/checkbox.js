@@ -16,7 +16,7 @@ module.exports = class Checkbox extends Component {
   handleChange () {
     if (
       this.local &&
-      this.local.onChange && 
+      this.local.onChange &&
       typeof this.local.onChange === 'function'
     ) {
       this.local.onChange({
@@ -52,7 +52,7 @@ function Container (props, children) {
       </div>
       ${children}
     </div>
-  ` 
+  `
 }
 
 function Input (props = { }) {

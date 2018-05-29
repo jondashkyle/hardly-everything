@@ -10,7 +10,7 @@ class Typography extends Component {
     super()
 
     this.local = {
-      active: false,
+      active: false
     }
 
     this.handleOptionClick = this.handleOptionClick.bind(this)

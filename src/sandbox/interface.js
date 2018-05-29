@@ -12,7 +12,7 @@ function search (state, emit) {
       name: 'Default',
       props: {
         value: true,
-        onChange: function(data) {
+        onChange: function (data) {
           emit({
             component: 'Search',
             data: data

@@ -33,5 +33,12 @@ Hardly Everything is in active development:
 - [ ] Re-think the onboarding process
 - [ ] Get `hello` back up
 - [ ] Remove google fonts / localize options
+  - lunch type
+  - plex (weights?)
+- [ ] Custom font option
+- [ ] Drag/drop data export/import
 - [ ] Add Dat support if available (dump state to json)
-- [ ] write testing
+- [ ] Testing
+- [ ] Pagination
+- [ ] Show total when viewing all
+- [ ] Auto-hide option

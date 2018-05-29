@@ -19,11 +19,11 @@ module.exports = class Text extends Component {
       this.element.querySelector('input').focus()
     }
   }
- 
+
   handleInput (event) {
     if (
       this.local &&
-      this.local.onInput && 
+      this.local.onInput &&
       typeof this.local.onInput === 'function'
     ) {
       this.local.onInput({
@@ -58,7 +58,7 @@ function Container (props = { }, children) {
     <div class="psr bg-black line">
       ${children}
     </div>
-  ` 
+  `
 }
 
 function Input (props = { }) {

@@ -80,6 +80,6 @@ function getState () {
       visits: 0,
       lastvisit: undefined
     },
-    signedIn: false,
+    signedIn: false
   }
 }

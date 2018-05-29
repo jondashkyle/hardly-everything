@@ -1,9 +1,8 @@
 var dayjs = require('dayjs')
 
 module.exports = {
-  getDismissedDate,
+  getDismissedDate
 }
-
 
 function getDismissedDate (entry) {
   return dayjs(entry.dateDismissed)

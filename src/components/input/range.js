@@ -12,11 +12,11 @@ module.exports = class Range extends Component {
 
     this.handleInput = this.handleInput.bind(this)
   }
- 
+
   handleInput (event) {
     if (
       this.local &&
-      this.local.onInput && 
+      this.local.onInput &&
       typeof this.local.onInput === 'function'
     ) {
       var value = Math.floor(parseInt(event.target.value) / 10)
@@ -56,7 +56,7 @@ function Container (props, children) {
       </div>
       ${children}
     </div>
-  ` 
+  `
 }
 
 function Input (props = { }) {

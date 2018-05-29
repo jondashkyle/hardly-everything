@@ -32,20 +32,20 @@ var optionsTypography = {
   alegreya: {
     name: 'Alegreya',
     key: 'alegreya',
-    host: 'google', 
+    host: 'google',
     value: 'Alegreya'
   },
   alegreyaItalic: {
     name: 'Alegreya Italic',
     key: 'alegreyaItalic',
-    host: 'google', 
+    host: 'google',
     style: 'italic',
     value: 'Alegreya'
   },
   anonymous: {
     name: 'Anonymous',
     key: 'anonymous',
-    host: 'google', 
+    host: 'google',
     value: 'Anonymous Pro'
   },
   cabin: {
@@ -300,7 +300,7 @@ function Options (state, emitter) {
 }
 
 function getDefaultState () {
- return {
+  return {
     design: {
       colorBg: {
         name: 'Background',
@@ -372,5 +372,5 @@ function getDefaultState () {
       data: false
     },
     typography: optionsTypography
-  } 
+  }
 }

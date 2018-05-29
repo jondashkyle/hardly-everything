@@ -40,7 +40,7 @@ function Entry (state, data, emit) {
 
   function handleClickEdit (event) {
     var staging = state.entries.all[data.id]
-    
+
     if (data.id !== undefined && staging !== undefined) {
       emit('staging:entry', staging)
       emit('ui:panel', { view: 'entry' })

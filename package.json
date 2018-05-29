@@ -6,7 +6,8 @@
   "scripts": {
     "build": "browserify src/index.js -t [ envify --NODE_ENV production  ] -t yo-yoify -t es2040 -t [ sheetify -u sheetify-cssnext ] -p [ css-extract -o bundles/bundle.css ] | uglifyjs -cm > bundles/bundle.js",
     "start": "budo src/index.js --dir . -s bundles/bundle.js -P -- -t sheetify -p [ css-extract -o bundles/bundle.css ]",
-    "serve": "python -m SimpleHTTPServer 8080"
+    "serve": "python -m SimpleHTTPServer 8080",
+    "test": "standard"
   },
   "author": "",
   "license": "ISC",

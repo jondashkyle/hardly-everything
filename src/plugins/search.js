@@ -12,7 +12,7 @@ function search (state, emitter) {
 
   emitter.on('search:update', function (data = { }) {
     // check if active
-    if (!isEnabled()) return;
+    if (!isEnabled()) return
 
     // search term
     if (data.value !== undefined) {

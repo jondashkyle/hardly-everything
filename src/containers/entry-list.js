@@ -13,9 +13,9 @@ function EntryList (state, emit) {
 
   var elContent =
       isEntriesAll && elsEntries.length ? elsEntries
-    : isEntriesAll && !elsEntries.length && !state.search.term ? emptyEl()
-    : isEntriesAll && !elsEntries.length && state.search.term ? emptySearchEl()
-    : elEntriesNone(state, emit)
+        : isEntriesAll && !elsEntries.length && !state.search.term ? emptyEl()
+          : isEntriesAll && !elsEntries.length && state.search.term ? emptySearchEl()
+            : elEntriesNone(state, emit)
 
   var styleMobile = state.ui.mobile
     ? 'margin-top: 4.5rem;'
@@ -40,7 +40,7 @@ function EntryList (state, emit) {
 
   function entries () {
     return state.entries.active
-      .map(entry => Entry(state, entry, emit)) 
+      .map(entry => Entry(state, entry, emit))
   }
 }
 

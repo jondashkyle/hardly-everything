@@ -23,7 +23,7 @@ var intervals = [
   'years'
 ]
 
-function formatTags (tag){
+function formatTags (tag) {
   return tag.replace(/^\s+|\s+$/g, '').split(/\s*,\s*/)
 }
 
@@ -152,7 +152,7 @@ function Entries (state, emitter) {
     var entry = state.entries.all[data.id]
     var shouldDelete = confirm('Are you sure you want to delete ' + entry.title + '?')
     if (!shouldDelete) return
-      
+
     var newState = clone(state.entries.all)
     delete newState[data.id]
 
@@ -164,10 +164,10 @@ function Entries (state, emitter) {
 
   // reset
   emitter.on('entries:reset', function (data) {
-    var newState = data ? data : { }
+    var newState = data || { }
     emitter.emit('entries:all', newState)
     emitter.emit('app:render')
-    db.update(newState, newState) 
+    db.update(newState, newState)
   })
 
   // render
