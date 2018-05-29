@@ -28,16 +28,16 @@ function view (state, emit) {
         </div>
       </div>
       <div class="c12 x">
-        <div class="xx">
-          <div class="c12 p1px">
+        <div class="x xx">
+          <div class="c6 p1px">
             ${templateOption(state.options.design.colorBg)}
           </div>
-          <div class="c12 p1px">
+          <div class="c6 p1px">
             ${templateOption(state.options.design.colorText)}
           </div>
         </div>
-        <div class="x p1px" style="width: 9.2rem">
-          <div class="x xac xjc c12 bg-white tc-black px1 curp" onclick=${handleInvertClick}>
+        <div class="p1px">
+          <div class="bg-white tc-black px2 line curp" onclick=${handleInvertClick}>
             Invert
           </div>
         </div>

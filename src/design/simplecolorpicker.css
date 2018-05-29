@@ -9,8 +9,8 @@
   padding: 2px!important;
   display: flex;
   position: absolute;
-  top: calc(100% + 1rem);
-  right: 0;
+  top: calc(100% - 0.75rem);
+  left: calc(100% - 5.25rem);
   z-index: 9999;
 }
 
@@ -19,7 +19,7 @@
   display: block;
   position: absolute;
   top: -1rem;
-  right: 2.25rem;
+  left: 2rem;
   width: 0;
   height: 0;
   border-style: solid;

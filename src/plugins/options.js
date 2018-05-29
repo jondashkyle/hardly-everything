@@ -302,13 +302,13 @@ function getDefaultState () {
  return {
     design: {
       colorBg: {
-        name: 'Background color',
+        name: 'Background',
         key: 'colorBg',
         type: 'color',
         visible: true
       },
       colorText: {
-        name: 'Text color',
+        name: 'Text',
         key: 'colorText',
         type: 'color',
         visible: true
