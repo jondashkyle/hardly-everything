@@ -8,7 +8,7 @@ var resizeFrame
 
 function pluginUi (state, emitter) {
   state.ui = {
-    date: dayjs().format('MMM Do'),
+    date: dayjs().format('MMM D'),
     loaded: false,
     stagingActive: false,
     entriesViewAll: false,
