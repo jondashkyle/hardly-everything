@@ -1,5 +1,4 @@
 var ColorPicker = require('simple-color-picker')
-var throttle = require('lodash.throttle')
 var Component = require('choo/component')
 var tinycolor = require('tinycolor2')
 var html = require('choo/html')
@@ -32,15 +31,15 @@ class Picker extends Component {
     })
 
     this.colorPicker.onChange(function (data) {
-      clearTimeout(self.frame)
-      self.frame = setTimeout(function () {
+      // clearTimeout(self.frame)
+      // self.frame = setTimeout(function () {
         self.local.color = tinycolor(data)
         if (typeof self.local.handleChange === 'function') {
           self.local.handleChange({
             rgb: self.local.color.toRgb()
           })
         }
-      }, 100)
+      // }, 20)
     })
 
     this.colorPicker.$el.style.display = 'none'

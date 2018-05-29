@@ -7,7 +7,8 @@ module.exports = class Text extends Component {
     super()
 
     this.local = {
-      autofocus: false
+      autofocus: false,
+      required: false
     }
 
     this.handleInput = this.handleInput.bind(this)
@@ -66,6 +67,7 @@ function Input (props = { }) {
       name="${props.key}"
       placeholder="${props.name}"
       value="${props.value}"
+      required="${props.value}"
       oninput=${props.onInput}
       type="text"
       class="db fs1 c12 sans bg-white tc-black px1 line ${props.style}"

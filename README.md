@@ -32,8 +32,8 @@ Hardly Everything is in active development:
 
 - [ ] Re-think the onboarding process
 - [ ] Get `hello` back up
-- [ ] Options nanocomponent
 - [ ] Abstract logic from views to lib
 - [ ] Cache entry list in state
 - [ ] Remove google fonts / localize options
 - [ ] Add Dat support if available (dump state to json)
+- [ ] html5 form required instead of alert

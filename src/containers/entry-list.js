@@ -2,6 +2,7 @@ var objectValues = require('object-values')
 var html = require('choo/html')
 var dayjs = require('dayjs')
 
+var libEntries = require('../lib/entries')
 var Entry = require('../components/entry')
 
 module.exports = EntryList
@@ -43,13 +44,6 @@ function EntryList (state, emit) {
   }
 }
 
-function getDismissedDate (entry) {
-  return dayjs(entry.dateDismissed)
-    .add(entry.duration, entry.interval)
-    .startOf('day')
-    .toDate()
-}
-
 function emptyEl () {
   return html`
     <div class="fs2 sans fwn">
@@ -68,10 +62,11 @@ function emptySearchEl () {
 
 function elEntriesNone (state, emit) {
   return html`
-    <div class="fs2 lh1-5 sans fwn">
-      There aren’t any entries,<br>
-      go ahead and
-      <a href="/panel/entry" class="tc-black fwb">add one</span>?
+    <div class="fs2 lh1-5 sans fwn usn">
+      <a href="/panel/entry" class="tc-black">
+        There aren’t any entries,<br>
+        go ahead and <span class="fwb">add one</span>?
+      </a>
     </div>
   `
 }

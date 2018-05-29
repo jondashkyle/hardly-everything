@@ -22,6 +22,7 @@ function panelEntry (state, emit) {
             key: 'url',
             name: 'http://',
             value: state.staging.entry.url,
+            required: true,
             style: 'brit',
             autofocus: true,
             onInput: function (data) {
@@ -38,6 +39,7 @@ function panelEntry (state, emit) {
           .render({
             key: 'title',
             name: 'Title',
+            required: true,
             value: state.staging.entry.title,
             onInput: function (data) {
               emit('staging:entry', {
@@ -52,7 +54,7 @@ function panelEntry (state, emit) {
           <div class="fs1 c12 bg-white tc-black line">
             ${state
               .cache(InputRange, 'entry:rest')
-                .render({
+              .render({
                 name: 'Rest',
                 value: state.staging.entry.timeRange,
                 valueShow: false,
@@ -88,8 +90,8 @@ function panelEntry (state, emit) {
           />
         </div>
       </div>
-      <div class="c12 p1px dn">
-        <div class="bg-white oxs">
+      <div class="c12 p1px">
+        <div class="bg-white">
           ${state
             .cache(InputTags, 'entry:tags')
             .render({
@@ -119,7 +121,7 @@ function panelEntry (state, emit) {
         <div class="xa p1px">
           <input
             type="submit"
-            value="${!state.staging.entry.id ? 'Add' : 'Save'}"
+            value="${!state.staging.entry.id ? 'Add entry' : 'Save entry'}"
             tabindex="-1"
             class="fs1 c12 bg-white tc-black sans fwb line ${state.staging.entry.id ? 'bribr' : 'brib'}"
           />

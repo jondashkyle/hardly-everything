@@ -1,6 +1,20 @@
 var gr8 = require('gr8')
+var lilcss = require('lilcss')
 
+var output = ''
 var utils = [ ]
+
+var lilsrc = [
+  'containers/*.js',
+  'components/**/*.js',
+  'templates/*.js',
+  'sandbox/*.js',
+  'index.js'
+].map(p => 'src/' + p)
+
+var lilopts = {
+  ignore: ['psa', 'psr', 't0', 'b0', 'l0', 'r0']
+}
 
 utils.push({
   prop: { ps: 'position' },
@@ -42,7 +56,7 @@ utils.push({
   vals: [0, 2].map(function (size) { return { [size]: size / 10 }})
 })
 
-module.exports = gr8({
+output = gr8({
   breakpoints: {
     lg: '1000px',
     md: '800px',
@@ -59,3 +73,10 @@ module.exports = gr8({
   responsive: true,
   utils: utils
 })
+
+// remove unused classes
+if (process.env.NODE_ENV === 'production') {
+  output = lilcss(output, lilsrc, lilopts)
+}
+
+module.exports = output

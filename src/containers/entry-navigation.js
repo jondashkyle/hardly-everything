@@ -24,7 +24,7 @@ function view (state, emit) {
           All
         </div>
       </div>
-      <div class="px0-5 line">
+      <div class="px0-5 line ${state.entries.amount ? '' : 'dn'}">
         ${elSearch()} 
       </div>
     </div>
