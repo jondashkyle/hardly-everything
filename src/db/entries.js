@@ -1,4 +1,3 @@
-var a = require('axios')
 var ls = require('./localstorage')
 
 var namespace = 'entries'

@@ -1,8 +1,6 @@
 var html = require('choo/html')
 var css = require('../components/css')
 
-var intro = require('../containers/introduction')
-
 module.exports = wrapper
 
 function wrapper (view) {

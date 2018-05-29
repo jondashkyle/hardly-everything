@@ -1,6 +1,5 @@
 var html = require('choo/html')
 
-var Intro = require('../containers/introduction')
 var Panel = require('../containers/panel-container')
 var EntryNavigation = require('../containers/entry-navigation')
 var EntryList = require('../containers/entry-list')
@@ -19,9 +18,7 @@ function view (state, emit) {
   }
 
   // show the entry list if we’re logged in
-  var content = state.user.analytics.authenticated
-    ? EntryList(state, emit)
-    : Intro(state, emit)
+  var content =  EntryList(state, emit)
 
   return [
     Panel(state, panelProps, emit),

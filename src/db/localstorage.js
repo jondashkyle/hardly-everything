@@ -1,4 +1,3 @@
-var a = require('axios')
 var STORAGE_ID = 'asdf_'
 
 /**
