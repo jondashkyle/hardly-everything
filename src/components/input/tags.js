@@ -1,10 +1,7 @@
 var Component = require('choo/component')
 var tagsInput = require('tags-input')
 var html = require('choo/html')
-var css = require('sheetify')
 var xtend = require('xtend')
-
-// var styles = css('./tags.css')
 
 module.exports = class Tags extends Component {
   constructor (name, state, emit) {
@@ -30,7 +27,6 @@ module.exports = class Tags extends Component {
       { name: this.local.name || 'Untitled' },
       html`<input
         placeholder="${this.local.name}"
-        class="tags-input"
         value="${this.local.value}"
         onchange=${this.handleChange}
       >`
@@ -40,11 +36,12 @@ module.exports = class Tags extends Component {
   handleChange (event) {
     if (
       this.local &&
-      this.local.onChange && 
+      this.local.onChange &&
       typeof this.local.onChange === 'function'
     ) {
-      var value = event.target.value.split(',') 
+      var value = event.target.value.split(',')
       if (!arraysEqual(this.local.value, value)) {
+        this.local.value = value
         this.local.onChange({ value: value })
       }
     }
@@ -56,13 +53,8 @@ module.exports = class Tags extends Component {
     if (!arraysEqual(value, this.local.value)) {
       var el = this.element.querySelector('.tags-input')
       this.local.value = value
-      this.element.querySelector('input').value = value
-
-      // reset
-      if (this.local.value === this.local.valueStart) {
-        this.element.removeChild(el)
-        tagsInput(this.element.querySelector('input'))
-      }
+      this.element.removeChild(el)
+      tagsInput(this.element.querySelector('input'))
     }
 
     return false
@@ -74,7 +66,7 @@ function Container (props, children) {
     <div class="psr line usn bg-white curt">
       ${children}
     </div>
-  ` 
+  `
 }
 
 function arraysEqual (a, b) {
