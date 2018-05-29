@@ -42,3 +42,4 @@ Hardly Everything is in active development:
 - [ ] Pagination
 - [ ] Show total when viewing all
 - [ ] Auto-hide option
+- [ ] All becomes route

@@ -52,9 +52,11 @@ module.exports = class Tags extends Component {
 
     if (!arraysEqual(value, this.local.value)) {
       var el = this.element.querySelector('.tags-input')
+      var elInput = this.element.querySelector('input')
+      if (el) this.element.removeChild(el)
       this.local.value = value
-      this.element.removeChild(el)
-      tagsInput(this.element.querySelector('input'))
+      elInput.value = value
+      tagsInput(elInput)
     }
 
     return false
