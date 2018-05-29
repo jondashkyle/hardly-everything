@@ -30,7 +30,6 @@
     "fastclick": "^1.0.6",
     "gr8": "^3.1.5",
     "lodash.throttle": "^4.1.1",
-    "moment": "^2.14.1",
     "nanoreset": "^2.0.0",
     "normalize-url": "^1.6.1",
     "object-values": "^1.0.0",

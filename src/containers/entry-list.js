@@ -1,19 +1,20 @@
+var objectValues = require('object-values')
 var html = require('choo/html')
-var ov = require('object-values')
-var moment = require('moment')
+var dayjs = require('dayjs')
+
 var Entry = require('../components/entry')
 
 function getDismissedDate (entry) {
-  return moment(entry.dateDismissed)
+  return dayjs(entry.dateDismissed)
     .add(entry.duration, entry.interval)
     .startOf('day')
     .toDate()
 }
 
 function templateEntries2 (state, emit) {
-  var now = moment().startOf('day').toDate()
+  var now = dayjs().startOf('day').toDate()
 
-  var entries = ov(state.entries.all)
+  var entries = objectValues(state.entries.all)
     .filter(entry => {
       if (
         !state.ui.entriesViewAll &&

@@ -2,7 +2,7 @@ var objectValues = require('object-values')
 var normalizeUrl = require('normalize-url')
 var validUrl = require('valid-url')
 var clone = require('clone-deep')
-var moment = require('moment')
+var dayjs = require('dayjs')
 var xtend = require('xtend')
 var uuid = require('uuid')
 
@@ -86,9 +86,9 @@ function Entries (state, emitter) {
     var staging = xtend({
       id: id,
       content: { },
-      dateAdded: moment().toISOString(),
-      dateUpdated: moment().toISOString(),
-      dateDismissed: moment().subtract(10, 'years').toISOString()
+      dateAdded: dayjs().toISOString(),
+      dateUpdated: dayjs().toISOString(),
+      dateDismissed: dayjs().subtract(10, 'years').toISOString()
     }, data)
 
     var entry = formatEntry(staging)
@@ -113,7 +113,7 @@ function Entries (state, emitter) {
     var entry = formatEntry(data)
     var validation = validateEntry(entry)
 
-    entry.dateUpdated = moment().toISOString()
+    entry.dateUpdated = dayjs().toISOString()
 
     if (validation === true) {
       var newState = clone(state.entries.all)
@@ -136,8 +136,8 @@ function Entries (state, emitter) {
     var curEntry = newState[data.id]
     var newEntry = xtend(curEntry, {
       visited: curEntry.visited + 1,
-      dateUpdated: moment().toISOString(),
-      dateDismissed: moment().toISOString()
+      dateUpdated: dayjs().toISOString(),
+      dateDismissed: dayjs().toISOString()
     })
 
     newState[data.id] = newEntry
@@ -181,7 +181,7 @@ function Entries (state, emitter) {
   })
 
   function getActive () {
-    var now = moment().startOf('day').toDate()
+    var now = dayjs().startOf('day').toDate()
 
     return objectValues(state.entries.all)
       .filter(function (entry) {
@@ -218,18 +218,18 @@ function Entries (state, emitter) {
 }
 
 function getNowDate (entry) {
-  return moment(entry.dateDismissed)
+  return dayjs(entry.dateDismissed)
     .add(entry.duration, entry.interval)
     .startOf('day')
     .toDate()
 }
 
 function getDismissedDate (entry) {
-  return moment(entry.dateDismissed).valueOf()
+  return dayjs(entry.dateDismissed).valueOf()
 }
 
 function getDurationDate (entry) {
-  return moment(entry.dateDismissed)
+  return dayjs(entry.dateDismissed)
     .add(entry.duration, entry.interval)
     .valueOf()
 }

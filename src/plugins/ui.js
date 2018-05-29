@@ -1,5 +1,5 @@
 var attachFastClick = require('fastclick')
-var moment = require('moment')
+var dayjs = require('dayjs')
 var xtend = require('xtend')
 
 module.exports = pluginUi
@@ -8,7 +8,7 @@ var resizeFrame
 
 function pluginUi (state, emitter) {
   state.ui = {
-    date: moment().format('MMM Do'),
+    date: dayjs().format('MMM Do'),
     loaded: false,
     stagingActive: false,
     entriesViewAll: false,
