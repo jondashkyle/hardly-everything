@@ -44,7 +44,11 @@ function Css (state, emit) {
 
   return html`
     <style>
-      body { background: ${colorBg} }
+      body {
+        --bg: ${colorBg};
+        --fg: ${colorFg};
+        background: ${colorBg};
+      }
 
       .design-block-padding {
         padding: ${blockPadding * 0.8}rem ${blockPadding}rem;

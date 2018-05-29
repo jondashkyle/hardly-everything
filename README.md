@@ -2,7 +2,7 @@
 <div align="center"><strong>your feed with a cadence</strong></div>
 <div align="center"><a href="http://hardlyeverything.com">hardlyeverything.com</a></div>
 
-## features
+## Features
 
 - **amplify**: be reminded of the quiet things
 - **suppress**: rate limit the loud things
@@ -10,7 +10,7 @@
 - **customize**: choose your own colors and typography
 - **ownership**: no database; only local-storage
 
-## philosophy
+## Philosophy
 
 Popular apps and sites often share a common element today; *the feed*. It looks like Facebook’s timeline, or Buzzfeed’s homepage—an endlessly updating stream of content, designed to keep you returning, and spending more time.
 
@@ -22,16 +22,18 @@ Your entries can rest anywhere from a day to a year. Link to a page you like to 
 
 This tool is not a rejection of an interface, but a prompt to question who the interface serves, and why. It is also meant to be immediately useful, and hopefully you will find it that way, too.
 
-## access
+## Access
 
 You can use Hardly Everything by visiting [https://hardlyeverything.com](https://hardlyeverything.com), [dat://hardlyeverything.com](dat://hardlyeverything.com), and it’s [unique Dat hash](dat://a1c54e094020e2f898b6061ed9c0dbe60d4d18612b4226d9c916011c415f7875). [Dat](http://datproject.org) is a distributed data protocol being used to build the future of the p2p/decentralized web.
 
-## todo
+## Todo
 
 Hardly Everything is in active development:
 
-- [ ] Convert from `rooch`/`preact` to `choo`/`bankai`/`nanocomponent`/`sheetify`
 - [ ] Re-think the onboarding process
-- [ ] Convert API to use `fs`-like structure
 - [ ] Get `hello` back up
-- [ ] Add image support
+- [ ] Options nanocomponent
+- [ ] Abstract logic from views to lib
+- [ ] Cache entry list in state
+- [ ] Remove google fonts / localize options
+- [ ] Add Dat support if available (dump state to json)

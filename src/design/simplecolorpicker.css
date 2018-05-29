@@ -9,14 +9,14 @@
   padding: 2px!important;
   display: flex;
   position: absolute;
-  top: calc(100% - 0.75rem);
-  left: calc(100% - 5.25rem);
+  top: -3rem;
+  left: 25%;
   z-index: 9999;
 }
 
 .Scp:before {
   content: '';
-  display: block;
+  display: none;
   position: absolute;
   top: -1rem;
   left: 2rem;
