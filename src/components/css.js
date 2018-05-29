@@ -34,7 +34,7 @@ function Css (state, emit) {
 
   if (colors.fg) {
     var colorFg = `rgb(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b})`
-    var colorFgLight = `rgba(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b}, 0.33)`
+    var colorFgLight = `rgba(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b}, 0.5)`
     var colorFgLighter = `rgba(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b}, 0.165)`
   } else {
     var colorFg = 'rgb(0, 0, 0)'

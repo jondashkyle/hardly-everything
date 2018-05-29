@@ -385,9 +385,19 @@ body .tags-input .tag.selected {
 }
 
 body .tags-input input {
+  background: var(--bg);
+  color: var(--fg);
   font-size: inherit;
   padding: 0 0.25rem;
   margin-bottom: 3px;
+}
+
+/**
+ * forms
+ */
+
+input:required {
+  box-shadow: none;
 }
 
 /**

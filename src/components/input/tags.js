@@ -26,9 +26,15 @@ module.exports = class Tags extends Component {
     this.local = xtend(this.local, props)
     if (!this.local.valueStart) this.local.valueStart = this.local.value
 
-    return Container({
-      name: this.local.name || 'Untitled'
-    }, html`<input placeholder="${this.local.name}" class="tags-input" value="${this.local.value}" onchange=${this.handleChange}>`)
+    return Container(
+      { name: this.local.name || 'Untitled' },
+      html`<input
+        placeholder="${this.local.name}"
+        class="tags-input"
+        value="${this.local.value}"
+        onchange=${this.handleChange}
+      >`
+    )
   }
 
   handleChange (event) {
