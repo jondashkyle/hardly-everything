@@ -1,4 +1,4 @@
-var html = require('rooch/html')
+var html = require('choo/html')
 var ov = require('object-values')
 var moment = require('moment')
 var Entry = require('../components/entry')

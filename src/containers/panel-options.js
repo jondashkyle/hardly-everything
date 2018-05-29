@@ -1,6 +1,4 @@
-var react = require('react')
-var h = require('rooch/h')
-var html = require('rooch/html')
+var html = require('choo/html')
 var x = require('xtend')
 
 var inputColor = require('../components/input-color')
@@ -67,67 +65,78 @@ function view (state, emit) {
   function templateOption (option) {
     switch (option.type) {
       case 'text':
-        return h(inputText, {
-          key: option.key,
-          name: option.name,
-          value: state.options.values[option.key],
-          onChange: function (data) {
-            emit('options:values', {
-              key: option.key,
-              value: data.value
-            })
-          }
-        })
+        return state
+          .cache(inputText, 'panel:' + option.key)
+          .render({
+            key: option.key,
+            name: option.name,
+            value: state.options.values[option.key],
+            onChange: function (data) {
+              emit('options:values', {
+                key: option.key,
+                value: data.value
+              })
+            }
+          })
       case 'checkbox':
-        return h(inputCheckbox,{
-          key: option.key,
-          name: option.name,
-          value: state.options.values[option.key],
-          onChange: function (data) {
-            emit('options:values', {
-              key: option.key,
-              value: data.value
-            })
-          }
-        })
+        return state
+          .cache(inputCheckbox, 'panel:' + option.key)
+          .render({
+            key: option.key,
+            name: option.name,
+            value: state.options.values[option.key],
+            onChange: function (data) {
+              emit('options:values', {
+                key: option.key,
+                value: data.value
+              })
+            }
+          })
       case 'color':
         var color = state.options.values[option.key]
-        return h(inputColor, {
-          data: option,
-          color: `rgb(${color.r}, ${color.g}, ${color.b})`,
-          handleChange: function (value) {
-            emit('options:values', {
-              key: option.key,
-              value: value.rgb
-            })
-          }
-        })
+        color = color || { r: 0, g: 0, b: 0 }
+        return state
+          .cache(inputColor, 'panel:' + option.key)
+          .render({
+            data: option,
+            color: color,
+            handleChange: function (value) {
+              emit('options:values', {
+                key: option.key,
+                value: value.rgb
+              })
+            }
+          })
       case 'range':
-        return h(inputRange, {
-          name: option.name,
-          value: state.options.values[option.key],
-          showValue: option.showValue,
-          onInput: function (data) {
-            emit('options:values', {
-              key: option.key,
-              value: data.value
-            })
-          }
-        })
+        return state
+          .cache(inputRange, 'panel:' + option.key)
+          .render({
+            name: option.name,
+            value: state.options.values[option.key],
+            showValue: option.showValue,
+            onInput: function (data) {
+              emit('options:values', {
+                key: option.key,
+                value: data.value
+              })
+            }
+          })
       case 'typography':
-        return h(inputTypography, {
-          current: state.options.values.font,
-          options: state.options.typography,
-          handleCurrentClick: function () {
-            emit('options:typography')
-          },
-          handleOptionClick: function (data) {
-            emit('options:values', {
-              key: option.key,
-              value: data
-            })
-          }
-        })
+        return state
+          .cache(inputTypography, 'panel' + option.key)
+          .render({
+            current: state.options.values.font,
+            options: state.options.typography,
+            handleCurrentClick: function () {
+              emit('options:typography')
+            },
+            handleOptionClick: function (data) {
+              emit('options:values', {
+                key: option.key,
+                value: data
+              })
+            }
+          })
       default:
         return ''
     }

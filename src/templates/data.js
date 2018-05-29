@@ -1,4 +1,4 @@
-var html = require('rooch/html')
+var html = require('choo/html')
 var x = require('xtend')
 var ov = require('object-values')
 
@@ -66,6 +66,7 @@ var elImport = (state,emit) => {
     <textarea
       class="mono bg-white tc-black p1 fs1 lh1-5"
       placeholder="Must be valid link JSON"
+      style="height: calc(100vh - 4.5rem)"
     ></textarea>
     <div
       class="fs1 psf b0 r0 z2 bg-black tc-white py1 px2 curp"
@@ -83,6 +84,7 @@ var elExport = (state, emit) => {
     <textarea
       class="mono bg-white tc-black p1 fs1 lh1-5"
       placeholder="Must be valid link JSON"
+      style="height: calc(100vh - 4.5rem)"
     >${JSON.stringify(entries, null, 2)}</textarea>
   </div>`
 }

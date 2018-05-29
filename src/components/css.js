@@ -1,4 +1,4 @@
-var html = require('rooch/html')
+var html = require('choo/html')
 
 var { linearConversion } = require('../helpers/scale')
 
@@ -26,10 +26,21 @@ function Css (state, emit) {
     fg: state.options.values.colorText
   }
 
-  var colorBg = `rgb(${colors.bg.r}, ${colors.bg.g}, ${colors.bg.b})`
-  var colorFg = `rgb(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b})`
-  var colorFgLight = `rgba(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b}, 0.33)`
-  var colorFgLighter = `rgba(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b}, 0.165)`
+  if (colors.bg) {
+    var colorBg = `rgb(${colors.bg.r}, ${colors.bg.g}, ${colors.bg.b})`
+  } else {
+    var colorBg = 'rgb(255, 255, 255)'
+  }
+
+  if (colors.fg) {
+    var colorFg = `rgb(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b})`
+    var colorFgLight = `rgba(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b}, 0.33)`
+    var colorFgLighter = `rgba(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b}, 0.165)`
+  } else {
+    var colorFg = 'rgb(0, 0, 0)'
+    var colorFgLight = 'rgba(0, 0, 0, 0.33)'
+    var colorFgLighter = 'rgba(0, 0, 0, 0.165)'
+  }
 
   return html`
     <style>

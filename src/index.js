@@ -1,15 +1,17 @@
-var html = require('rooch/html')
-var rooch = require('rooch')
+require('./design')
+
+var html = require('choo/html')
+var choo = require('choo')
 
 var wrapper = require('./containers/wrapper')
-var app = rooch()
+var app = choo()
 
 // plugins
 require('./plugins').forEach(plugin => app.use(plugin))
 
 // app
 app.route('/', wrapper(require('./templates/home')))
-app.route('/reset', wrapper(require('./templates/reset')))
+// app.route('/reset', wrapper(require('./templates/reset')))
 
 // panel
 app.route('/panel', wrapper(require('./templates/panel')))
@@ -22,9 +24,9 @@ app.route('/data/:command', wrapper(require('./templates/data')))
 
 // dev
 if (process.env.NODE_ENV === 'development') {
-  app.route('/sandbox', wrapper(require('./sandbox')))
-  app.route('/sandbox/:component', wrapper(require('./sandbox')))
+  // app.route('/sandbox', wrapper(require('./sandbox')))
+  // app.route('/sandbox/:component', wrapper(require('./sandbox')))
 }
 
 // start
-app.mount('main')
+module.exports = app.mount('body')

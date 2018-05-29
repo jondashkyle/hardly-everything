@@ -1,38 +1,46 @@
-var html = require('rooch/html')
-var Component = require('rooch/component')
+var Component = require('choo/component')
+var html = require('choo/html')
+var xtend = require('xtend')
 
 module.exports = class Checkbox extends Component {
-  constructor () {
+  constructor (name, state, emit) {
     super()
-    this.handleChange = this.handleChange.bind(this)
-  }
 
-  componentDidMount () {
-    
+    this.local = {
+
+    }
+
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange () {
     if (
-      this.props &&
-      this.props.onChange && 
-      typeof this.props.onChange === 'function'
+      this.local &&
+      this.local.onChange && 
+      typeof this.local.onChange === 'function'
     ) {
-      this.props.onChange({
-        value: !this.props.value
+      this.local.onChange({
+        value: !this.local.value
       })
     }
   }
 
-  render () {
+  createElement (props) {
+    this.local = xtend(this.local, props)
+
     var input = Input({
       onChange: this.handleChange,
-      icon: this.props.icon || '✓',
-      value: this.props.value
+      icon: this.local.icon || '✓',
+      value: this.local.value
     })
 
     return Container({
-      name: this.props.name || 'Untitled'
+      name: this.local.name || 'Untitled'
     }, input)
+  }
+
+  update (props) {
+    return true
   }
 }
 

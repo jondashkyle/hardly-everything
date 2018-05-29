@@ -1,4 +1,4 @@
-var html = require('rooch/html')
+var html = require('choo/html')
 var ov = require('object-values')
 
 var panelEntry = require('../containers/panel-entry')
@@ -21,12 +21,6 @@ function view (state, props, emit) {
       title: 'Entry',
       path: 'entry',
       view: () => panelEntry(state, emit)
-    },
-    sync: {
-      title: 'Sync',
-      path: 'sync',
-      active: false,
-      view: () => html`<div class="bro bg-black tc-white px1 line">Coming soon</div>`
     }
   }
 
@@ -105,10 +99,8 @@ function view (state, props, emit) {
         return ''
       }
 
-      return html`<div
-          class="pea"
-          sm="dn"
-        >
+      return html`
+        <div class="pea" sm="dn" style="padding-top: 0.75rem">
           ${navigationSearch({
             value: state.search.term,
             onFocus: function () {
@@ -141,9 +133,7 @@ function view (state, props, emit) {
             ${active ? 'op100 arrow-bottom' : 'op33'}
             curd psr db oph100 mr1 tc-black pea
           "
-        >
-          ${view.title}
-        </div>
+        >${view.title}</div>
       `
     } else {
       return html` 
@@ -154,9 +144,7 @@ function view (state, props, emit) {
             ${active ? 'op100 arrow-bottom' : 'op33'}
             psr db oph100 mr1 tc-black pea
           "
-        >
-          ${view.title}
-        </a>
+        >${view.title}</a>
       `
     }
 
@@ -205,7 +193,7 @@ function navigationSearch (props = { }) {
       type="text"
       placeholder="Search…"
       value="${props.value || ''}"
-      class="fs1 ff-sans tc-black"
+      class="db fs1 ff-sans tc-black"
       style="background: none"
       oninput=${handleInput}
       onfocus=${handleFocus}

@@ -1,4 +1,4 @@
-const html = require('rooch/html')
+const html = require('choo/html')
 
 const css = require('../components/css')
 

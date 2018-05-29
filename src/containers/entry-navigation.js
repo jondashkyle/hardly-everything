@@ -1,4 +1,4 @@
-var html = require('rooch/html')
+var html = require('choo/html')
 
 module.exports = view
 
@@ -8,8 +8,6 @@ function view (state, emit) {
       <div class="px0-5 line">
         ${state.ui.date}
       </div>
-      <div class="dn px0-5 line op33 oph100">Search</div>
-      <div class="dn px0-5 line op33 oph100">Tags</div>
     </div>
   `
 }

@@ -1,13 +1,12 @@
-var html = require('rooch/html')
-var h = require('rooch/h')
-var TokenInput = require('preact-token-input')
-var Component = require('rooch/component')
+var Component = require('choo/component')
+var html = require('choo/html')
+var xtend = require('xtend')
 
 module.exports = class Tags extends Component {
-  constructor () {
+  constructor (name, state, emit) {
     super()
 
-    this.state = {
+    this.local = {
       value: [ ]
     }
 
@@ -15,27 +14,27 @@ module.exports = class Tags extends Component {
   }
 
   handleChange (data) {
-    this.setState({ value: data.value })
-    if (this.props && this.props.onChange) {
-      this.props.onChange({
+    this.local.value = data.value
+    if (this.local && this.local.onChange) {
+      this.local.onChange({
         value: data.value
       })
     }
   }
 
-  componentWillMount() {
-    this.input = h(TokenInput, {
-      class: '',
-      placeholder: this.props.name || 'Untitled',
-      value: this.props.value,
-      onChange: this.handleChange
-    })
+  load () {
+    // this.input = 
   }
 
-  render () {
+  createElement (props) {
+    this.local = xtend(this.local, props)
     return Container({
-      name: this.props.name || 'Untitled'
+      name: this.local.name || 'Untitled'
     }, this.input)
+  }
+
+  update (props) {
+    return true
   }
 }
 

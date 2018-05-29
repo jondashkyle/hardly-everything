@@ -1,49 +1,54 @@
-var html = require('rooch/html')
-var h = require('rooch/h')
-var Component = require('rooch/component')
+var Component = require('choo/component')
 var ov = require('object-values')
+var html = require('choo/html')
+var xtend = require('xtend')
 
 module.exports = intro
 
 class Countdown extends Component {
   constructor () {
     super()
-    this.state = {
+    this.local = {
       count: 60
     }
   }
 
-  componentDidMount () {
+  load () {
     this.frame = setInterval(() => {
       this.tick()
     }, 1000)
   }
 
-  componentWillUnmount() {
+  unload () {
     clearInterval(this.frame) 
   }
 
   handleFinished () {
-    if (this.props.finished && typeof this.props.finished === 'function') {
+    if (this.local.finished && typeof this.local.finished === 'function') {
       clearInterval(this.frame)
-      this.props.finished()
+      this.local.finished()
     }
   }
 
   tick () {
-    if (this.state.count > 0) {
-      this.setState({ count: this.state.count - 1 }) 
+    if (this.local.count > 0) {
+      this.local.count = this.local.count - 1
     } else {
       this.handleFinished()
     }
   }
 
-  render () {
+  createElement (props) {
+    this.local = xtend(this.local, props)
     return html`
       <div class="mono">
-        0:${('0' + this.state.count).slice(-2)}
+        0:${('0' + this.local.count).slice(-2)}
       </div>
     `
+  }
+
+  update (props) {
+    return false
   }
 }
 
@@ -96,10 +101,12 @@ function intro (state, emit) {
   `
 
   function elProceed () {
-    return h(Countdown, {
-      finished: () => {
-        emit('intro:update', { status: false })
-      }
-    })
+    return state
+      .cache(Countdown, 'countdown')
+      .render({
+        finished: () => {
+          emit('intro:update', { status: false })
+        }
+      })
   }
 }

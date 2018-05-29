@@ -1,5 +1,4 @@
-var html = require('rooch/html')
-var h = require('rooch/h')
+var html = require('choo/html')
 var x = require('xtend')
 
 var { intToRest } = require('../helpers/time')
@@ -7,9 +6,9 @@ var InputRange = require('../components/input/range')
 var InputText = require('../components/input/text')
 var InputTags = require('../components/input/tags')
 
-module.exports = view
+module.exports = panelEntry
 
-function view (state, emit) {
+function panelEntry (state, emit) {
   return html`
     <form
       autocomplete="off"
@@ -17,44 +16,53 @@ function view (state, emit) {
       onsubmit=${handleSubmit}
     >
       <div class="c12 p1px">
-        ${h(InputText, {
-          key: 'url',
-          name: 'http://',
-          value: state.staging.entry.url,
-          style: 'brit',
-          autofocus: true,
-          onInput: function (data) {
-            emit('staging:entry', {
-              url: data.value
-            })
-          }
-        })}
+        ${state
+          .cache(InputText, 'entry:url')
+          .render({
+            key: 'url',
+            name: 'http://',
+            value: state.staging.entry.url,
+            style: 'brit',
+            autofocus: true,
+            onInput: function (data) {
+              emit('staging:entry', {
+                url: data.value
+              })
+            }
+          })
+        }
       </div>
       <div class="c12 p1px">
-        ${h(InputText, {
-          key: 'title',
-          name: 'Title',
-          value: state.staging.entry.title,
-          onInput: function (data) {
-            emit('staging:entry', {
-              title: data.value
-            })
-          }
-        })}
+        ${state
+          .cache(InputText, 'entry:title')
+          .render({
+            key: 'title',
+            name: 'Title',
+            value: state.staging.entry.title,
+            onInput: function (data) {
+              emit('staging:entry', {
+                title: data.value
+              })
+            }
+          })
+        }
       </div>
       <div class="c12 x">
         <div class="xx p1px">
           <div class="fs1 c12 bg-white tc-black line">
-            ${h(InputRange, {
-              name: 'Rest',
-              value: state.staging.entry.timeRange,
-              valueShow: false,
-              onInput: function (data) {
-                emit('staging:entry', x(getTime(data.value), {
-                  timeRange: data.value
-                }))
-              }
-            })}
+            ${state
+              .cache(InputRange, 'entry:rest')
+                .render({
+                name: 'Rest',
+                value: state.staging.entry.timeRange,
+                valueShow: false,
+                onInput: function (data) {
+                  emit('staging:entry', x(getTime(data.value), {
+                    timeRange: data.value
+                  }))
+                }
+              })
+            }
           </div>
         </div>
         <div class="c2 p1px">
@@ -80,18 +88,21 @@ function view (state, emit) {
           />
         </div>
       </div>
-      <div class="c12 p1px ${isTagsVisible() && isStepThree() ? 'db' : 'dn'}">
+      <div class="c12 p1px dn">
         <div class="bg-white oxs">
-          ${h(InputTags, {
-            key: 'tags',
-            name: 'Tags',
-            value: state.staging.entry.tags || [ ],
-            onChange: function (data) {
-              emit('staging:entry', {
-                tags: data.value
-              })
-            }
-          })}
+          ${state
+            .cache(InputTags, 'entry:tags')
+            .render({
+              key: 'tags',
+              name: 'Tags',
+              value: state.staging.entry.tags || [ ],
+              onChange: function (data) {
+                emit('staging:entry', {
+                  tags: data.value
+                })
+              }
+            })
+          }
         </div>
       </div>
       <div class="c12 x">

@@ -1,4 +1,4 @@
-var html = require('rooch/html')
+var html = require('choo/html')
 
 module.exports = { icon, container }
 

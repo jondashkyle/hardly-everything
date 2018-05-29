@@ -1,7 +1,6 @@
-var html = require('rooch/html')
+var html = require('choo/html')
 var ov = require('object-values')
 var xd = require('xtend')
-var h = require('rooch/h')
 
 var input = require('./input')
 var ui = require('./interface')

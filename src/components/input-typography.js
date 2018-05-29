@@ -1,16 +1,15 @@
-var Component = require('rooch/component')
-var h = require('rooch/h')
-var html = require('rooch/html')
-var x = require('xtend')
 var objectValues = require('object-values')
+var Component = require('choo/component')
+var html = require('choo/html')
+var x = require('xtend')
 
 var typography = require('../design/typography')
 
 class Typography extends Component {
-  constructor () {
+  constructor (name, state, emit) {
     super()
 
-    this.state = {
+    this.local = {
       active: false,
     }
 
@@ -20,16 +19,17 @@ class Typography extends Component {
   }
 
   handleOptionClick (data, event) {
-    if (this.props.handleOptionClick) {
-      this.props.handleOptionClick(data)
+    if (this.local.handleOptionClick) {
+      this.local.handleOptionClick(data)
     }
   }
 
   handleCurrentClick (data, event) {
-    if (this.props.handleCurrentClick) {
-      this.props.handleCurrentClick()
+    if (this.local.handleCurrentClick) {
+      this.local.handleCurrentClick()
     }
-    this.setState({ active: !this.state.active })
+    this.local.active = !this.local.active
+    this.rerender()
   }
 
   handleScroll (event) {
@@ -51,12 +51,12 @@ class Typography extends Component {
   }
 
   elContainer () {
-    var options = objectValues(this.props.options)
+    var options = objectValues(this.local.options)
     return html`
       <div
         class="
           bg-white tc-black bt2-lighter input-dropdown-options
-          ${this.state.active ? 'db' : 'dn'}
+          ${this.local.active ? 'db' : 'dn'}
         "
         onscroll=${this.handleScroll}
       >
@@ -74,18 +74,23 @@ class Typography extends Component {
         Font
       </label>
       <div class="px1 fs1-5 design-font">
-        ${this.props.current.name}
+        ${this.local.current.name}
       </div>
     </div>`
   }
 
-  render () {
+  createElement (props) {
+    this.local = x(this.local, props)
     return html`
       <div class="usn c12 psr">
         ${this.elCurrent()}
         ${this.elContainer()}
       </div>
     `
+  }
+
+  update (props) {
+    return true
   }
 }
 

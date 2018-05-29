@@ -266,11 +266,13 @@ input {
  * Panel
  */
 
+/*
 .panel-content {
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 80vh;
 }
+*/
 
 input {
   font-size: 1rem;

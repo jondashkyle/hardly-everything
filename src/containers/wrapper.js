@@ -1,4 +1,4 @@
-var html = require('rooch/html')
+var html = require('choo/html')
 var css = require('../components/css')
 
 var intro = require('../containers/introduction')
@@ -7,20 +7,21 @@ module.exports = wrapper
 
 function wrapper (view) {
   return function (state, emit) {
-    return state.intro.status &&
-      !state.user.analytics.authenticated
-      ? container(intro(state, emit))
-      : state.app.loaded
+    return state.app.loaded
       ? container(view(state, emit))
-      : ''
+      : container(loading())
 
     function container (content) {
       return html`
-        <div>
+        <body class="sans bg-white tc-black">
           ${css(state, emit)}
           ${content}
-        </div>
+        </body>
       `
     }
   }
+}
+
+function loading () {
+  return html`<div class="loader" data-load></div>`
 }

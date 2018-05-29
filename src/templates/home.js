@@ -1,4 +1,4 @@
-var html = require('rooch/html')
+var html = require('choo/html')
 
 var Intro = require('../containers/introduction')
 var Panel = require('../containers/panel-container')
