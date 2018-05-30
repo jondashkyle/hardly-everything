@@ -126,6 +126,12 @@ function getDefaultState () {
         type: 'checkbox',
         visible: true
       },
+      hyphenate: {
+        name: 'Hyphenate',
+        key: 'hyphenate',
+        type: 'checkbox',
+        visible: true
+      },
       scale: {
         name: 'Scale',
         key: 'scale',
@@ -167,6 +173,7 @@ function getDefaultState () {
       colorText: { r: 0, g: 0, b: 0 },
       font: optionsTypography.system,
       uppercase: false,
+      hyphenate: true,
       scale: 35,
       spacing: 5,
       invert: false,

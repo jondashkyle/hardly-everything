@@ -64,8 +64,13 @@ function view (state, emit) {
 
   function createFontOptions () {
     return html`
-      <div class="bb2-lighter">
-        ${input(state, emit, state.options.design.uppercase)}
+      <div class="bb2b x">
+        <div class="c6 br1b">
+          ${input(state, emit, state.options.design.uppercase)}
+        </div>
+        <div class="c6 bl1b">
+          ${input(state, emit, state.options.design.hyphenate)}
+        </div>
       </div>
     `
   }

@@ -29,7 +29,7 @@ function EntryList (state, emit) {
       <div
         class="
           x xw xac xjc tac
-          design-font design-font-uppercase design-font-size design-background design-color-entry design-block-padding
+          design-font design-font-hyphenate design-font-uppercase design-font-size design-background design-color-entry design-block-padding
         "
         style="
           line-height: 1.2;

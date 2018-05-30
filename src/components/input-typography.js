@@ -39,7 +39,6 @@ class Typography extends Component {
   }
 
   elOption (data) {
-    var author = data.author || { }
     return html`
       <div
         class="x px1 curp fs1-5 line bb1-lighter ophc design-font-uppercase"
@@ -51,13 +50,18 @@ class Typography extends Component {
         "
       >
         <div class="xx">${data.name}</div>
-        <div class="op0 ophc33 oph100">
-          <a
-            href="${author.url}"
-            target="_blank"
-            class="tc-black mono fs1-5 arrow-ext"
-          ></a>
-        </div>
+        ${data.author
+          ? html`
+              <div class="op0 ophc33 oph100">
+                <a
+                  href="${data.author.url}"
+                  target="_blank"
+                  class="tc-black mono fs1-5 arrow-ext"
+                ></a>
+              </div>
+            `
+          : ''
+        }
       </div> 
     `
   }
@@ -67,7 +71,7 @@ class Typography extends Component {
     return html`
       <div
         class="
-          bg-white tc-black bt2-lighter input-dropdown-options
+          bg-white tc-black bt2b input-dropdown-options
           ${this.local.active ? 'db' : 'dn'}
         "
       >
@@ -78,17 +82,19 @@ class Typography extends Component {
   }
 
   elCurrent () {
-    return html`<div
-      class="psr c12 curp x xje line"
-      onclick=${event => this.handleCurrentClick({ }, event)}
-    >
-      <label class="psa t0 l0 px1 pen">
-        Font
-      </label>
-      <div class="px1 fs1-5 design-font design-font-uppercase">
-        ${this.local.current.name}
+    return html`
+      <div
+        class="psr c12 curp x xje line"
+        onclick=${event => this.handleCurrentClick({ }, event)}
+      >
+        <label class="psa t0 l0 px1 pen">
+          Font
+        </label>
+        <div class="px1 fs1-5 design-font design-font-uppercase">
+          ${this.local.current.name}
+        </div>
       </div>
-    </div>`
+    `
   }
 
   createElement (props) {

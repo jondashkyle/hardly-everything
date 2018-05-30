@@ -95,8 +95,11 @@ function Css (state, emit) {
 
       .bbu { border-bottom-color: ${colorFg} }
       .b1b { border: .1rem solid ${colorFg} }
+      .br1b { border-right: .1rem solid ${colorFg} }
+      .bl1b { border-left: .1rem solid ${colorFg} }
       .b2b { border: .2rem solid ${colorFg} }
       .bb2b { border-bottom: .2rem solid ${colorFg} }
+      .bt2b { border-top: .2rem solid ${colorFg} }
       .bt2-lighter { border-top: .2rem solid ${colorFgLighter} }
       .bb2-lighter { border-bottom: .2rem solid ${colorFgLighter} }
       .bb1-lighter { border-bottom: .1rem solid ${colorFgLighter} }
@@ -109,6 +112,7 @@ function Css (state, emit) {
 
       .design-font-size { font-size: ${fontSize}em }
       .design-font-uppercase { text-transform: ${state.options.values.uppercase ? 'uppercase' : 'inherit'} }
+      .design-font-hyphenate { hyphens: ${state.options.values.hyphenate ? 'auto' : ''} }
 
       body .tags-input .tag {
         background: ${colorFg};
