@@ -22,6 +22,42 @@
 }
 
 @font-face {
+  font-family: 'Lunchtype25 LC';
+  src: url('/assets/fonts/lunchtype25-light_condensed-webfont.woff2') format('woff2'),
+       url('/assets/fonts/lunchtype25-light_condensed-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Lunchtype25 MC';
+  src: url('/assets/fonts/lunchtype25-medium-condensed-webfont.woff2') format('woff2'),
+       url('/assets/fonts/lunchtype25-medium-condensed-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Lunchtype22 L';
+  src: url('/assets/fonts/lunchtype22-light-webfont.woff2') format('woff2'),
+       url('/assets/fonts/lunchtype22-light-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Lunchtype22 M';
+  src: url('/assets/fonts/lunchtype22-medium-webfont.woff2') format('woff2'),
+       url('/assets/fonts/lunchtype22-medium-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Lunchtype24 LE';
+  src: url('/assets/fonts/lunchtype24-light-expanded-webfont.woff2') format('woff2'),
+       url('/assets/fonts/lunchtype24-light-expanded-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Lunchtype24 ME';
+  src: url('/assets/fonts/lunchtype24-medium-expanded-webfont.woff2') format('woff2'),
+       url('/assets/fonts/lunchtype24-medium-expanded-webfont.woff') format('woff');
+}
+
+@font-face {
   font-family: 'JRUG PUNK';
   src: url('/assets/fonts/JRUG_PUNK.ttf') format('truetype')
 }

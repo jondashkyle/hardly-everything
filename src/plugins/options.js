@@ -53,6 +53,42 @@ var optionsTypography = {
     host: 'local',
     value: 'DSEG7 Classic Bold'
   },
+  lunchtype25LightCondensed: {
+    name: 'Lunchtype25 L/C',
+    key: 'lunchtype25LightCondensed',
+    host: 'local',
+    value: 'Lunchtype25 LC'
+  },
+  lunchtype25MediumCondensed: {
+    name: 'Lunchtype25 M/E',
+    key: 'lunchtype25MediumCondensed',
+    host: 'local',
+    value: 'Lunchtype25 MC'
+  },
+  lunchtype22Light: {
+    name: 'Lunchtype22 L',
+    key: 'lunchtype22Light',
+    host: 'local',
+    value: 'Lunchtype22 L'
+  },
+  lunchtype22Medium: {
+    name: 'Lunchtype22 M',
+    key: 'lunchtype22Medium',
+    host: 'local',
+    value: 'Lunchtype22 M'
+  },
+  lunchtype24LightExpanded: {
+    name: 'Lunchtype24 L/C',
+    key: 'lunchtype24LightExpanded',
+    host: 'local',
+    value: 'Lunchtype24 LE'
+  },
+  lunchtype24MediumExpanded: {
+    name: 'Lunchtype24 M/E',
+    key: 'lunchtype24MediumExpanded',
+    host: 'local',
+    value: 'Lunchtype24 ME'
+  },
   jrugPunk: {
     name: 'JRUG PUNK',
     key: 'jrugPunk',

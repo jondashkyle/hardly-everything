@@ -34,9 +34,6 @@ Hardly Everything is in active development:
 - [ ] Get `hello` back up
 - [ ] Remove google fonts / localize options
   - lunch type
-  - plex (weights?)
-  - https://github.com/keshikan/DSEG
-  - raphael pixelated one
 - [ ] Custom font option
 - [ ] Drag/drop data export/import
 - [ ] Add Dat support if available (dump state to json)
