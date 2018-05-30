@@ -75,8 +75,6 @@ output = gr8({
 })
 
 // remove unused classes
-if (process.env.NODE_ENV === 'production') {
-  output = lilcss(output, lilsrc, lilopts)
-}
+output = lilcss(output, lilsrc, lilopts)
 
 module.exports = output

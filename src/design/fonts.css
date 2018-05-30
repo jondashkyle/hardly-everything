@@ -1,0 +1,118 @@
+@font-face {
+  font-family: 'Astloch';
+  src: url('/assets/fonts/Astloch-Regular.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Authentic Sans';
+  src: url('/assets/fonts/AUTHENTIC-sans.woff') format('woff'),
+       url('/assets/fonts/AUTHENTIC-sans.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DSEG7 Classic Bold';
+  src: url('/assets/fonts/DSEG7Classic-Bold.woff2') format('woff2'),
+       url('/assets/fonts/DSEG7Classic-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'DSEG7 Classic Light';
+  src: url('/assets/fonts/DSEG7Classic-Light.woff2') format('woff2'),
+       url('/assets/fonts/DSEG7Classic-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'JRUG PUNK';
+  src: url('/assets/fonts/JRUG_PUNK.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Pecita';
+  src: url('/assets/fonts/Pecita.otf') format('opentype')
+}
+
+@font-face {
+  font-family: 'Junicode Condensed';
+  src: url('/assets/fonts/junicode-regularcondensed-webfont.woff2') format('woff2'),
+       url('/assets/fonts/junicode-regularcondensed-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Junicode Bold Condensed';
+  src: url('/assets/fonts/junicode-boldcondensed-webfont.woff2') format('woff2'),
+       url('/assets/fonts/junicode-boldcondensed-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url('/assets/fonts/SpaceMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Spectral Extra-Light';
+  src: url('/assets/fonts/Spectral-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Spectral Regular';
+  src: url('/assets/fonts/Spectral-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Spectral Bold';
+  src: url('/assets/fonts/Spectral-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Terminal Grotesque';
+  src: url('/assets/fonts/terminal-grotesque-webfont.woff2') format('woff2'),
+       url('/assets/fonts/terminal-grotesque-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Ume Gothic';
+  src: url('/assets/fonts/ume-gothic-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Ume Mincho';
+  src: url('/assets/fonts/ume-mincho-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Unifraktur Maguntia';
+  src: url('/assets/fonts/UnifrakturMaguntia.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Work Sans Thin';
+  src: url('/assets/fonts/WorkSans-Thin.woff2') format('woff2'),
+       url('/assets/fonts/WorkSans-Thin.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/assets/fonts/WorkSans-Regular.woff2') format('woff2'),
+       url('/assets/fonts/WorkSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Work Sans Black';
+  src: url('/assets/fonts/WorkSans-Black.woff2') format('woff2'),
+       url('/assets/fonts/WorkSans-Black.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Wremena Light';
+  src: url('/assets/fonts/Wremena-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Wremena Bold';
+  src: url('/assets/fonts/Wremena-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Young Serif';
+  src: url('/assets/fonts/YoungSerif-Regular.otf') format('opentype')
+}

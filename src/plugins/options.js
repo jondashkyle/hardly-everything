@@ -29,180 +29,137 @@ var optionsTypography = {
     weight: 700,
     value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
   },
-  alegreya: {
-    name: 'Alegreya',
-    key: 'alegreya',
-    host: 'google',
-    value: 'Alegreya'
+  astloch: {
+    name: 'Astloch',
+    key: 'astloch',
+    host: 'local',
+    value: 'Astloch'
   },
-  alegreyaItalic: {
-    name: 'Alegreya Italic',
-    key: 'alegreyaItalic',
-    host: 'google',
-    style: 'italic',
-    value: 'Alegreya'
+  authenticSans: {
+    name: 'Authentic Sans',
+    key: 'authenticSans',
+    host: 'local',
+    value: 'Authentic Sans'
   },
-  anonymous: {
-    name: 'Anonymous',
-    key: 'anonymous',
-    host: 'google',
-    value: 'Anonymous Pro'
+  dsegClassicLight: {
+    name: 'DSEG7 Classic Light',
+    key: 'dsegClassicLight',
+    host: 'local',
+    value: 'DSEG7 Classic Light'
   },
-  cabin: {
-    name: 'Cabin',
-    key: 'cabin',
-    host: 'google',
-    value: 'Cabin'
+  dseg7ClassicBold: {
+    name: 'DSEG7 Classic Bold',
+    key: 'dseg7ClassicBold',
+    host: 'local',
+    value: 'DSEG7 Classic Bold'
   },
-  cabinBold: {
-    name: 'Cabin Bold',
-    key: 'cabinBold',
-    host: 'google',
-    weight: 700,
-    value: 'Cabin'
+  jrugPunk: {
+    name: 'JRUG PUNK',
+    key: 'jrugPunk',
+    host: 'local',
+    value: 'JRUG PUNK'
   },
-  cardo: {
-    name: 'Cardo',
-    key: 'cardo',
-    host: 'google',
-    value: 'Cardo'
+  junicodeCondensed: {
+    name: 'Junicode Condensed',
+    key: 'junicodeCondensed',
+    host: 'local',
+    value: 'Junicode Condensed'
   },
-  garamond: {
-    name: 'Cormorant Garamond',
-    key: 'garamond',
-    host: 'google',
-    value: 'Cormorant Garamond'
+  junicodeBoldCondensed: {
+    name: 'Junicode Bold Condensed',
+    key: 'junicodeBoldCondensed',
+    host: 'local',
+    value: 'Junicode Bold Condensed'
   },
-  inconsolata: {
-    name: 'Inconsolata',
-    key: 'inconsolata',
-    host: 'google',
-    value: 'Inconsolata'
-  },
-  montserrat: {
-    name: 'Montserrat',
-    key: 'montserrat',
-    host: 'google',
-    value: 'Montserrat'
-  },
-  montserratBold: {
-    name: 'Montserrat Bold',
-    key: 'montserratBold',
-    host: 'google',
-    weight: '700',
-    value: 'Montserrat'
-  },
-  karla: {
-    name: 'Karla',
-    key: 'karla',
-    host: 'google',
-    value: 'Karla'
-  },
-  notoSerif: {
-    name: 'Noto Serif',
-    key: 'notoSerif',
-    host: 'google',
-    value: 'Noto Serif'
-  },
-  openSansLight: {
-    name: 'Open Sans Light',
-    key: 'openSansLight',
-    host: 'google',
-    weight: 300,
-    value: 'Open Sans'
-  },
-  openSansBold: {
-    name: 'Open Sans Bold',
-    key: 'openSansBold',
-    host: 'google',
-    weight: 700,
-    value: 'Open Sans'
-  },
-  pathway: {
-    name: 'Pathway Gothic',
-    key: 'pathway',
-    host: 'google',
-    value: 'Pathway Gothic One'
-  },
-  playfairDisplay: {
-    name: 'Playfair Display',
-    key: 'playfairDisplay',
-    host: 'google',
-    value: 'Playfair Display'
-  },
-  playfairDisplayBold: {
-    name: 'Playfair Display Bold',
-    key: 'playfairDisplayBold',
-    host: 'google',
-    weight: 700,
-    value: 'Playfair Display'
-  },
-  rubikLight: {
-    name: 'Rubik Light',
-    key: 'rubikLight',
-    host: 'google',
-    weight: 300,
-    value: 'Rubik'
-  },
-  rubik: {
-    name: 'Rubik',
-    key: 'rubik',
-    host: 'google',
-    value: 'Rubik'
-  },
-  rubikBlack: {
-    name: 'Rubik Black',
-    key: 'rubikBlack',
-    host: 'google',
-    weight: 900,
-    value: 'Rubik'
+  pecita: {
+    name: 'Pecita',
+    key: 'pecita',
+    host: 'local',
+    value: 'Pecita'
   },
   spaceMono: {
     name: 'Space Mono',
     key: 'spaceMono',
-    host: 'google',
+    host: 'local',
     value: 'Space Mono'
   },
   spectralExtraLight: {
     name: 'Spectral Extra-Light',
     key: 'spectralExtraLight',
-    host: 'google',
-    weight: 200,
-    value: 'Spectral'
+    host: 'local',
+    value: 'Spectral Extra-Light'
   },
   spectral: {
     name: 'Spectral',
     key: 'spectral',
-    host: 'google',
-    weight: 400,
+    host: 'local',
     value: 'Spectral'
   },
   spectralBold: {
     name: 'Spectral Bold',
     key: 'spectralBold',
-    host: 'google',
-    weight: 700,
-    value: 'Spectral'
+    host: 'local',
+    value: 'Spectral Bold'
+  },
+  terminalGrotesque: {
+    name: 'Terminal Grotesque',
+    key: 'terminalGrotesque',
+    host: 'local',
+    value: 'Terminal Grotesque'
+  },
+  umeGothic: {
+    name: 'Ume Gothic',
+    key: 'umeGothic',
+    host: 'local',
+    value: 'Ume Gothic'
+  },
+  umeMincho: {
+    name: 'Ume Mincho',
+    key: 'umeMincho',
+    host: 'local',
+    value: 'Ume Mincho'
+  },
+  unifrakturMaguntia: {
+    name: 'Unifraktur Maguntia',
+    key: 'unifrakturMaguntia',
+    host: 'local',
+    value: 'Unifraktur Maguntia'
+  },
+  workSansThin: {
+    name: 'Work Sans Thin',
+    key: 'workSansThin',
+    host: 'local',
+    value: 'Work Sans Thin'
   },
   workSans: {
     name: 'Work Sans',
     key: 'workSans',
-    host: 'google',
+    host: 'local',
     value: 'Work Sans'
   },
-  workSansLight: {
-    name: 'Work Sans Light',
-    key: 'workSansLight',
-    host: 'google',
-    weight: 200,
-    value: 'Work Sans'
+  workSansBlack: {
+    name: 'Work Sans Black',
+    key: 'workSansBlack',
+    host: 'local',
+    value: 'Work Sans Black'
   },
-  workSansBold: {
-    name: 'Work Sans Bold',
-    key: 'workSansBold',
-    host: 'google',
-    weight: 700,
-    value: 'Work Sans'
+  wremenaLight: {
+    name: 'Wremena Light',
+    key: 'wremenaLight',
+    host: 'local',
+    value: 'Wremena Light'
+  },
+  wremenaBold: {
+    name: 'Wremena Bold',
+    key: 'wremenaBold',
+    host: 'local',
+    value: 'Wremena Bold'
+  },
+  youngSerif: {
+    name: 'Young Serif',
+    key: 'youngSerif',
+    host: 'local',
+    value: 'Young Serif'
   }
 }
 

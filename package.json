@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "build": "browserify src/index.js -t [ envify --NODE_ENV production  ] -t [ babelify --presets [ '@babel/preset-env' ] ] -t [ sheetify -u sheetify-cssnext ] -p [ css-extract -o bundles/bundle.css ] | uglifyjs -c -m -o bundles/bundle.js",
+    "build": "browserify src/index.js -t [ envify --NODE_ENV production ] -t [ babelify --presets [ '@babel/preset-env' ] ] -t [ sheetify -u sheetify-cssnext ] -p [ css-extract -o bundles/bundle.css ] | uglifyjs -c -m -o bundles/bundle.js",
     "start": "budo src/index.js --dir . -s bundles/bundle.js -P -- -t sheetify -p [ css-extract -o bundles/bundle.css ]",
     "serve": "python -m SimpleHTTPServer 8080",
     "test": "standard"
