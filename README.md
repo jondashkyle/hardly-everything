@@ -35,6 +35,8 @@ Hardly Everything is in active development:
 - [ ] Remove google fonts / localize options
   - lunch type
   - plex (weights?)
+  - https://github.com/keshikan/DSEG
+  - raphael pixelated one
 - [ ] Custom font option
 - [ ] Drag/drop data export/import
 - [ ] Add Dat support if available (dump state to json)
@@ -42,3 +44,4 @@ Hardly Everything is in active development:
 - [ ] Show total when viewing all
 - [ ] Auto-hide option
 - [ ] All becomes route
+- [ ] Internationalization

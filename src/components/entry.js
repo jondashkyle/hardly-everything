@@ -42,7 +42,7 @@ function Entry (state, data, emit) {
     var staging = state.entries.all[data.id]
 
     // toggle
-    if (state.staging.entry.id) {
+    if (data.id === state.staging.entry.id) {
       emit('staging:reset')
       emit('ui:panel', { view: '' })
     } else {
