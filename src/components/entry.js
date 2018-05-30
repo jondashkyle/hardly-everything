@@ -4,8 +4,8 @@ module.exports = Entry
 
 function Entry (state, data, emit) {
   return html`
-    <div id="entry-${data.id}" class="component-entry c12">
-      <div class="ophc dib psr design-block-margin">
+    <div id="entry-${data.id}" class="component-entry c12 psr">
+      <div class="ophc dib design-block-padding">
         <a
           href="${data.url}"
           target="${state.options.values.newTab ? '_blank' : '_self'}"
@@ -14,7 +14,7 @@ function Entry (state, data, emit) {
         >${data.title}</a>
         <div
           class="usn psa l0 r0 x xjc fs1 fwn sans z2"
-          style="top: 100%"
+          style="top: calc(100% - 1rem)"
         >
           <div class="x op0 ophc33 oph100">
             <div

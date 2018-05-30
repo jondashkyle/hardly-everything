@@ -32,13 +32,9 @@ Hardly Everything is in active development:
 
 - [ ] Re-think the onboarding process
 - [ ] Get `hello` back up
-- [ ] Remove google fonts / localize options
-  - lunch type
 - [ ] Custom font option
-- [ ] Drag/drop data export/import
 - [ ] Add Dat support if available (dump state to json)
 - [ ] Testing
-- [ ] Show total when viewing all
 - [ ] Auto-hide option
 - [ ] All becomes route
 - [ ] Internationalization

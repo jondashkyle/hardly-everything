@@ -8,8 +8,9 @@ var Entry = require('../components/entry')
 module.exports = EntryList
 
 function EntryList (state, emit) {
+  var entriesAll = Object.keys(state.entries.all) 
   var elsEntries = entries()
-  var isEntriesAll = Object.keys(state.entries.all).length > 0
+  var isEntriesAll = entriesAll.length > 0
 
   var elContent = (isEntriesAll && elsEntries.length)
     ? elsEntries
@@ -43,6 +44,14 @@ function EntryList (state, emit) {
 
   function isPaginatable () {
     return state.entries.active.length > elsEntries.length
+  }
+
+  function createCounter () {
+    return html`
+      <div class="fs1 psf b0 r0 line px1">
+        ${elsEntries.length}/${entriesAll.length}
+      </div>
+    `
   }
 
   function createPaginate () {

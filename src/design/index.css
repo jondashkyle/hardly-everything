@@ -424,3 +424,12 @@ input:required {
   from { transform: translateY(-2rem); opacity: 0; }
   to { transform: translateY(0rem); opacity: 1; }
 }
+
+/**
+ * fallback
+ */
+
+@font-face {
+  font-family: 'SFMono-Regular';
+  src: url(/assets/fonts/SFMono-Regular.otf) format('opentype');
+}
