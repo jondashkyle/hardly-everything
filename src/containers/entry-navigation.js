@@ -18,7 +18,7 @@ function view (state, emit) {
           sm="${view ? 'dn' : ''}"
           onclick=${handleAllClick}
         >
-          All
+          View all
         </div>
       </div>
       <div class="px0-5 line ${state.entries.amount ? '' : 'dn'}">

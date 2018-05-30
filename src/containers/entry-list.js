@@ -25,7 +25,7 @@ function EntryList (state, emit) {
     : 'min-height: 100vh;'
 
   return html`
-    <div class="design-container">
+    <div class="design-container dev">
       <div
         class="
           x xw xac xjc tac
@@ -80,7 +80,7 @@ function EntryList (state, emit) {
 
 function emptyEl () {
   return html`
-    <div class="fs2 sans fwn">
+    <div class="fs2 sans fwn ttn">
       Nothing more for today
     </div>
   `

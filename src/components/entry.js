@@ -14,7 +14,7 @@ function Entry (state, data, emit) {
         >${data.title}</a>
         <div
           class="usn psa l0 r0 x xjc fs1 fwn sans z2"
-          style="top: calc(100% - 1rem)"
+          style="top: calc(100% - 1.25rem)"
         >
           <div class="x op0 ophc33 oph100">
             <div

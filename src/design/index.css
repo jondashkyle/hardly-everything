@@ -270,6 +270,42 @@ input {
 }
 
 /**
+ * new
+ */
+
+.new-entry {
+  position: relative;
+  display: inline-block;
+  height: 1rem;
+  width: 1rem;
+  margin-right: 0.5rem;
+}
+
+.new-entry:before, .new-entry:after {
+  display: block;
+  content: '';
+  position: absolute;
+}
+
+.new-entry:before {
+  background: var(--fg);
+  left: 0;
+  top: 50%;
+  margin-top: -1px;
+  height: 2px;
+  width: 10px;
+}
+
+.new-entry:after {
+  background: var(--fg);
+  top: 0;
+  left: 50%;
+  margin-left: -1px;
+  width: 2px;
+  height: 10px;
+}
+
+/**
  * arrow
  */
 
