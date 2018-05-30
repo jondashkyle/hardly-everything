@@ -13,11 +13,17 @@ function pluginUi (state, emitter) {
     stagingActive: false,
     entriesViewAll: false,
     mobile: false,
+    pagination: {
+      page: 1,
+      limit: 15
+    },
     panel: {
       active: false,
       view: ''
     }
   }
+
+  state.events.UI_PAGINATE = 'ui:paginate'
 
   emitter.on('ui:update', function (data) {
     state.ui = xtend(state.ui, data)
@@ -28,6 +34,14 @@ function pluginUi (state, emitter) {
     var render = state.ui.panel.view !== data.view
     state.ui.panel = xtend(state.ui.panel, data)
     if (render) emitter.emit('app:render', 'ui:panel')
+  })
+
+  emitter.on(state.events.UI_PAGINATE, function (data) {
+    data = data || { }
+    var shouldRender = data.render !== false
+    delete data.render
+    state.ui.pagination = xtend(state.ui.pagination, data)
+    if (shouldRender) emitter.emit('app:render')
   })
 
   emitter.on('DOMContentLoaded', function () {

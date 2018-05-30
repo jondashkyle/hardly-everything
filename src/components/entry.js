@@ -41,9 +41,15 @@ function Entry (state, data, emit) {
   function handleClickEdit (event) {
     var staging = state.entries.all[data.id]
 
-    if (data.id !== undefined && staging !== undefined) {
-      emit('staging:entry', staging)
-      emit('ui:panel', { view: 'entry' })
+    // toggle
+    if (state.staging.entry.id) {
+      emit('staging:reset')
+      emit('ui:panel', { view: '' })
+    } else {
+      if (data.id !== undefined && staging !== undefined) {
+        emit('staging:entry', staging)
+        emit('ui:panel', { view: 'entry' })
+      }
     }
 
     event.preventDefault()

@@ -11,11 +11,13 @@ function EntryList (state, emit) {
   var elsEntries = entries()
   var isEntriesAll = Object.keys(state.entries.all).length > 0
 
-  var elContent =
-      isEntriesAll && elsEntries.length ? elsEntries
-        : isEntriesAll && !elsEntries.length && !state.search.term ? emptyEl()
-          : isEntriesAll && !elsEntries.length && state.search.term ? emptySearchEl()
-            : elEntriesNone(state, emit)
+  var elContent = (isEntriesAll && elsEntries.length)
+    ? elsEntries
+    : (isEntriesAll && !elsEntries.length && !state.search.term)
+    ? emptyEl()
+    : (isEntriesAll && !elsEntries.length && state.search.term)
+    ? emptySearchEl()
+    : elEntriesNone(state, emit)
 
   var styleMobile = state.ui.mobile
     ? 'margin-top: 4.5rem;'
@@ -33,14 +35,37 @@ function EntryList (state, emit) {
           ${styleMobile}
         "
       >
-        <div>${elContent}</div>
+        <div class="c12">${elContent}</div>
+        ${isPaginatable() ? createPaginate() : ''}
       </div>
     </div>
   `
 
+  function isPaginatable () {
+    return state.entries.active.length > elsEntries.length
+  }
+
+  function createPaginate () {
+    return html`
+      <div
+        class="tac design-block-padding curp op33 oph100"
+        style="font-size: 5rem"
+        onclick=${handlePaginate}
+      >•••</div>
+    `
+  }
+
   function entries () {
+    var end = state.ui.pagination.page * state.ui.pagination.limit
     return state.entries.active
+      .slice(0, end)
       .map(entry => Entry(state, entry, emit))
+  }
+
+  function handlePaginate (event) {
+    emit(state.events.UI_PAGINATE, {
+      page: state.ui.pagination.page + 1
+    })
   }
 }
 

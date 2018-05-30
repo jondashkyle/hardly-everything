@@ -39,7 +39,6 @@ Hardly Everything is in active development:
 - [ ] Drag/drop data export/import
 - [ ] Add Dat support if available (dump state to json)
 - [ ] Testing
-- [ ] Pagination
 - [ ] Show total when viewing all
 - [ ] Auto-hide option
 - [ ] All becomes route

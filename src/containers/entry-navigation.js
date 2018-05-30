@@ -16,10 +16,7 @@ function view (state, emit) {
             ${state.ui.entriesViewAll ? 'op100' : 'op33'} 
           "
           sm="${view ? 'dn' : ''}"
-          onclick=${function () {
-    emit('search:update', { value: '', render: false })
-    emit('ui:update', { entriesViewAll: !state.ui.entriesViewAll })
-  }}
+          onclick=${handleAllClick}
         >
           All
         </div>
@@ -30,6 +27,12 @@ function view (state, emit) {
     </div>
   `
 
+  function handleAllClick () {
+    emit('search:update', { value: '', render: false })
+    emit('ui:update', { entriesViewAll: !state.ui.entriesViewAll })
+    window.scrollTo(0, 0)
+  }
+
   function elSearch () {
     if (!state.features.search) {
       return ''
@@ -38,21 +41,21 @@ function view (state, emit) {
     return html`
       <div class="pea" sm="dn" style="padding-top: 0.75rem">
         ${navigationSearch({
-    value: state.search.term,
-    onFocus: function () {
-      emit('search:update', {
-        hidePanel: true
-      })
-    },
-    onInput: function (data) {
-      emit('search:update', {
-        all: true,
-        value: data.value,
-        hidePanel: true,
-        render: true
-      })
-    }
-  })}
+          value: state.search.term,
+          onFocus: function () {
+            emit('search:update', {
+              hidePanel: true
+            })
+          },
+          onInput: function (data) {
+            emit('search:update', {
+              all: true,
+              value: data.value,
+              hidePanel: true,
+              render: true
+            })
+          }
+        })}
       </div>
     `
   }

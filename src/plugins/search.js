@@ -24,11 +24,14 @@ function search (state, emitter) {
       emitter.emit('ui:update', { entriesViewAll: true })
     }
 
+    emitter.emit(state.events.UI_PAGINATE, {
+      page: 1,
+      render: false
+    })
+
     // hide the panel
     if (data.hidePanel && state.ui.panel.view) {
-      emitter.emit('ui:panel', {
-        view: ''
-      })
+      emitter.emit('ui:panel', { view: '' })
     }
 
     // rendering
