@@ -12,9 +12,10 @@ function view (state, emit) {
         ${state.ui.date}
       </div>
       <div class="px0-5 line">
-        <div
+        <a
+          href="${state.ui.entriesViewAll ? '/' : '/all'}"
           class="
-            curp oph100 line pea
+            tc-black curp oph100 line pea
             ${state.entries.amount ? '' : 'dn'}
             ${state.ui.entriesViewAll ? 'op100' : 'op33'} 
           "
@@ -22,7 +23,7 @@ function view (state, emit) {
           onclick=${handleAllClick}
         >
           View all
-        </div>
+        </a>
       </div>
       <div class="px0-5 line ${state.ui.mobile ? 'dn' : ''} ${state.entries.amount ? '' : 'dn'}">
         ${elSearch()} 

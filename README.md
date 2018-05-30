@@ -30,11 +30,17 @@ You can use Hardly Everything by visiting [https://hardlyeverything.com](https:/
 
 Hardly Everything is in active development:
 
+### 2.0
+
 - [ ] Re-think the onboarding process
-- [ ] Get `hello` back up
-- [ ] Custom font option
+- [ ] Get `hello` back up with interviews
 - [ ] Add Dat support if available (dump state to json)
 - [ ] Testing
-- [ ] Auto-hide option
 - [ ] All becomes route
 - [ ] Internationalization
+- [ ] Parametric design options if none available
+
+### 2.1
+
+- [ ] Custom font option
+- [ ] Auto-hide option

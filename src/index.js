@@ -11,6 +11,7 @@ require('./plugins').forEach(plugin => app.use(plugin))
 
 // app
 app.route('/', wrapper(require('./templates/home')))
+app.route('/all', wrapper(require('./templates/home')))
 // app.route('/reset', wrapper(require('./templates/reset')))
 
 // panel

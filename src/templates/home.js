@@ -15,6 +15,11 @@ function view (state, emit) {
     return ''
   }
 
+  // all
+  if (state.route === 'all' && !state.ui.entriesViewAll) {
+    emit('ui:update', { entriesViewAll: true })
+  }
+
   // show the entry list if we’re logged in
   var content = EntryList(state, emit)
 

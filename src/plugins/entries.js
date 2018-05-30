@@ -101,7 +101,9 @@ function Entries (state, emitter) {
 
       emitter.emit('staging:reset', { })
       emitter.emit('entries:all', newState)
+      emitter.emit('ui:update', { entriesViewAll: false })
       emitter.emit('pushState', '/')
+      window.scrollTo(0, 0)
 
       db.add(entry, newState)
     } else {
