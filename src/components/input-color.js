@@ -105,6 +105,12 @@ class Picker extends Component {
   update (props) {
     var elSwatch = this.element.querySelector('[data-swatch]')
     elSwatch.style.background = `rgb(${props.color.r}, ${props.color.g}, ${props.color.b})`
+    this.local.color = props.color
+
+    if (this.colorPicker) {
+      this.colorPicker.setColor(tinycolor(props.color))
+    }
+
     return false
   }
 }
