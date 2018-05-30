@@ -4,7 +4,10 @@ module.exports = view
 
 function view (state, emit) {
   return html`
-    <div class="psf t0 l0 px0-5 lh1 x z4 usn sans fs1">
+    <div class="
+      psf t0 l0 px0-5 lh1 x z3 usn sans fs1
+      ${state.ui.mobile ? 'r0 bg-white bb2b' : ''}
+    ">
       <div class="px0-5 line">
         ${state.ui.date}
       </div>
@@ -21,7 +24,7 @@ function view (state, emit) {
           View all
         </div>
       </div>
-      <div class="px0-5 line ${state.entries.amount ? '' : 'dn'}">
+      <div class="px0-5 line ${state.ui.mobile ? 'dn' : ''} ${state.entries.amount ? '' : 'dn'}">
         ${elSearch()} 
       </div>
     </div>

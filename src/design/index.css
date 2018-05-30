@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  height: auto;
   line-height: 1.5;
   margin: 0;
   -webkit-font-smoothing: antialiased;

@@ -35,9 +35,9 @@ function view (state, props, emit) {
         style="top: 4.5rem"
         onmouseenter=${handleContainerEnter}
       >
-        <div class="pea psr">
-          <div class="psa t0 l0 r0 b0 bro b2b pen z2"></div>
-          <div class="p1px">${view.view()}</div>
+        <div class="pea psr ${state.ui.mobile ? 'w100 oh' : ''}">
+          <div class="pen z2 ${state.ui.mobile ? '' : 'psa t0 l0 r0 b0 bro b2b'}"></div>
+          <div class="p1px" style="${state.ui.mobile ? 'margin: 0 -2px' : ''}">${view.view()}</div>
         </div>
       </div>
       `
@@ -45,17 +45,17 @@ function view (state, props, emit) {
 
   return html`
     <div
-      class="${view && !state.ui.mobile ? 'psf t0 r0 b0 z3' : ''} px1"
+      class="${view && !state.ui.mobile ? 'psf t0 r0 b0 z3 px1' : ''}"
       onclick=${handleContainerClick}
       data-panel
     >
       <div
-        class="wrem40"
+        class="${state.ui.mobile ? '' : 'wrem40'}"
         sm="c12"
         onmouseleave=${handlePanelLeave}
       >
         <div
-          class="psf t0 r0 z3 ${state.ui.mobile ? 'bg-white bb2b' : ''}"
+          class="psf t0 r0 z4 ${state.ui.mobile ? 'bg-white bb2b' : ''}"
           sm="r0"
         >
           ${navigation()} 

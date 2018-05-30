@@ -25,7 +25,7 @@ function EntryList (state, emit) {
     : 'min-height: 100vh;'
 
   return html`
-    <div class="design-container dev">
+    <div class="design-container">
       <div
         class="
           x xw xac xjc tac
@@ -57,7 +57,7 @@ function EntryList (state, emit) {
   function createPaginate () {
     return html`
       <div
-        class="tac design-block-padding curp op33 oph100"
+        class="tac design-block-padding design-block-margin curp op33 oph100"
         style="font-size: 5rem"
         onclick=${handlePaginate}
       >•••</div>

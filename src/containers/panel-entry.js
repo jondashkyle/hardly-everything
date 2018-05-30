@@ -23,7 +23,7 @@ function panelEntry (state, emit) {
             name: 'http://',
             value: state.staging.entry.url,
             required: true,
-            style: 'brit',
+            style: state.ui.mobile ? '' : 'brit',
             autofocus: true,
             onInput: function (data) {
               emit('staging:entry', {
