@@ -197,6 +197,7 @@ input {
   border-top: 0;
   border-left: 0;
   overflow-y: scroll;
+  overflow-x: hidden;
   max-height: 16rem;
   -webkit-overflow-scrolling: touch;
 }
@@ -296,6 +297,12 @@ input {
   height: 0; 
   border-left: .4rem solid transparent;
   border-right: .4rem solid transparent;
+}
+
+.arrow-ext:after {
+  content: '→';
+  display: block;
+  transform: rotate(-45deg);
 }
 
 /**

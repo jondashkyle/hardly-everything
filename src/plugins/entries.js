@@ -69,7 +69,7 @@ function Entries (state, emitter) {
 
   // all
   emitter.on('entries:all', function (data) {
-    var entries = objectValues(state.entries.all)
+    var entries = objectValues(data)
     state.entries.all = data
     state.entries.amount = entries.length
     // emitter.emit('entries:refresh')

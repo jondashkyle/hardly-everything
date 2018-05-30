@@ -2,202 +2,9 @@ var objectValues = require('object-values')
 var clone = require('clone-deep')
 var xtend = require('xtend')
 
+var optionsTypography = require('./options-typography')
 var typography = require('../design/typography')
 var db = require('../db/options')
-
-var optionsTypography = {
-  systemLight: {
-    name: 'System Light',
-    key: 'sans',
-    host: 'local',
-    active: true,
-    weight: 200,
-    value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
-  },
-  system: {
-    name: 'System',
-    key: 'sans',
-    host: 'local',
-    active: true,
-    value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
-  },
-  systemBold: {
-    name: 'System Bold',
-    key: 'sans',
-    host: 'local',
-    active: true,
-    weight: 700,
-    value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
-  },
-  astloch: {
-    name: 'Astloch',
-    key: 'astloch',
-    host: 'local',
-    value: 'Astloch'
-  },
-  authenticSans: {
-    name: 'Authentic Sans',
-    key: 'authenticSans',
-    host: 'local',
-    value: 'Authentic Sans'
-  },
-  dsegClassicLight: {
-    name: 'DSEG7 Classic Light',
-    key: 'dsegClassicLight',
-    host: 'local',
-    value: 'DSEG7 Classic Light'
-  },
-  dseg7ClassicBold: {
-    name: 'DSEG7 Classic Bold',
-    key: 'dseg7ClassicBold',
-    host: 'local',
-    value: 'DSEG7 Classic Bold'
-  },
-  lunchtype25LightCondensed: {
-    name: 'Lunchtype25 L/C',
-    key: 'lunchtype25LightCondensed',
-    host: 'local',
-    value: 'Lunchtype25 LC'
-  },
-  lunchtype25MediumCondensed: {
-    name: 'Lunchtype25 M/E',
-    key: 'lunchtype25MediumCondensed',
-    host: 'local',
-    value: 'Lunchtype25 MC'
-  },
-  lunchtype22Light: {
-    name: 'Lunchtype22 L',
-    key: 'lunchtype22Light',
-    host: 'local',
-    value: 'Lunchtype22 L'
-  },
-  lunchtype22Medium: {
-    name: 'Lunchtype22 M',
-    key: 'lunchtype22Medium',
-    host: 'local',
-    value: 'Lunchtype22 M'
-  },
-  lunchtype24LightExpanded: {
-    name: 'Lunchtype24 L/C',
-    key: 'lunchtype24LightExpanded',
-    host: 'local',
-    value: 'Lunchtype24 LE'
-  },
-  lunchtype24MediumExpanded: {
-    name: 'Lunchtype24 M/E',
-    key: 'lunchtype24MediumExpanded',
-    host: 'local',
-    value: 'Lunchtype24 ME'
-  },
-  jrugPunk: {
-    name: 'JRUG PUNK',
-    key: 'jrugPunk',
-    host: 'local',
-    value: 'JRUG PUNK'
-  },
-  junicodeCondensed: {
-    name: 'Junicode Condensed',
-    key: 'junicodeCondensed',
-    host: 'local',
-    value: 'Junicode Condensed'
-  },
-  junicodeBoldCondensed: {
-    name: 'Junicode Bold Condensed',
-    key: 'junicodeBoldCondensed',
-    host: 'local',
-    value: 'Junicode Bold Condensed'
-  },
-  pecita: {
-    name: 'Pecita',
-    key: 'pecita',
-    host: 'local',
-    value: 'Pecita'
-  },
-  spaceMono: {
-    name: 'Space Mono',
-    key: 'spaceMono',
-    host: 'local',
-    value: 'Space Mono'
-  },
-  spectralExtraLight: {
-    name: 'Spectral Extra-Light',
-    key: 'spectralExtraLight',
-    host: 'local',
-    value: 'Spectral Extra-Light'
-  },
-  spectral: {
-    name: 'Spectral',
-    key: 'spectral',
-    host: 'local',
-    value: 'Spectral'
-  },
-  spectralBold: {
-    name: 'Spectral Bold',
-    key: 'spectralBold',
-    host: 'local',
-    value: 'Spectral Bold'
-  },
-  terminalGrotesque: {
-    name: 'Terminal Grotesque',
-    key: 'terminalGrotesque',
-    host: 'local',
-    value: 'Terminal Grotesque'
-  },
-  umeGothic: {
-    name: 'Ume Gothic',
-    key: 'umeGothic',
-    host: 'local',
-    value: 'Ume Gothic'
-  },
-  umeMincho: {
-    name: 'Ume Mincho',
-    key: 'umeMincho',
-    host: 'local',
-    value: 'Ume Mincho'
-  },
-  unifrakturMaguntia: {
-    name: 'Unifraktur Maguntia',
-    key: 'unifrakturMaguntia',
-    host: 'local',
-    value: 'Unifraktur Maguntia'
-  },
-  workSansThin: {
-    name: 'Work Sans Thin',
-    key: 'workSansThin',
-    host: 'local',
-    value: 'Work Sans Thin'
-  },
-  workSans: {
-    name: 'Work Sans',
-    key: 'workSans',
-    host: 'local',
-    value: 'Work Sans'
-  },
-  workSansBlack: {
-    name: 'Work Sans Black',
-    key: 'workSansBlack',
-    host: 'local',
-    value: 'Work Sans Black'
-  },
-  wremenaLight: {
-    name: 'Wremena Light',
-    key: 'wremenaLight',
-    host: 'local',
-    value: 'Wremena Light'
-  },
-  wremenaBold: {
-    name: 'Wremena Bold',
-    key: 'wremenaBold',
-    host: 'local',
-    value: 'Wremena Bold'
-  },
-  youngSerif: {
-    name: 'Young Serif',
-    key: 'youngSerif',
-    host: 'local',
-    value: 'Young Serif'
-  }
-}
 
 module.exports = Options
 
@@ -313,6 +120,12 @@ function getDefaultState () {
         type: 'typography',
         visible: true
       },
+      uppercase: {
+        name: 'Uppercase',
+        key: 'uppercase',
+        type: 'checkbox',
+        visible: true
+      },
       scale: {
         name: 'Scale',
         key: 'scale',
@@ -353,6 +166,7 @@ function getDefaultState () {
       colorBg: { r: 255, g: 255, b: 255 },
       colorText: { r: 0, g: 0, b: 0 },
       font: optionsTypography.system,
+      uppercase: false,
       scale: 35,
       spacing: 5,
       invert: false,

@@ -98,6 +98,7 @@ function Css (state, emit) {
       .b2b { border: .2rem solid ${colorFg} }
       .bb2b { border-bottom: .2rem solid ${colorFg} }
       .bt2-lighter { border-top: .2rem solid ${colorFgLighter} }
+      .bb2-lighter { border-bottom: .2rem solid ${colorFgLighter} }
       .bb1-lighter { border-bottom: .1rem solid ${colorFgLighter} }
 
       .design-font {
@@ -107,6 +108,7 @@ function Css (state, emit) {
       }
 
       .design-font-size { font-size: ${fontSize}em }
+      .design-font-uppercase { text-transform: ${state.options.values.uppercase ? 'uppercase' : 'inherit'} }
 
       body .tags-input .tag {
         background: ${colorFg};

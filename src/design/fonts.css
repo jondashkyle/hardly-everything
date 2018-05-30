@@ -22,6 +22,12 @@
 }
 
 @font-face {
+  font-family: 'Lab Mono';
+  src: url('/assets/fonts/labmono-regular-web.woff') format('woff'),
+       url('/assets/fonts/labmono-regular-web.woff2') format('woff2');
+}
+
+@font-face {
   font-family: 'Lunchtype25 LC';
   src: url('/assets/fonts/lunchtype25-light_condensed-webfont.woff2') format('woff2'),
        url('/assets/fonts/lunchtype25-light_condensed-webfont.woff') format('woff');
@@ -58,6 +64,16 @@
 }
 
 @font-face {
+  font-family: 'Manifont Grotesque';
+  src: url('/assets/fonts/manifont-grotesk_book.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Manifont Grotesque Dot';
+  src: url('/assets/fonts/manifont-grotesk_book-dot.woff') format('woff');
+}
+
+@font-face {
   font-family: 'JRUG PUNK';
   src: url('/assets/fonts/JRUG_PUNK.ttf') format('truetype')
 }
@@ -65,6 +81,11 @@
 @font-face {
   font-family: 'Pecita';
   src: url('/assets/fonts/Pecita.otf') format('opentype')
+}
+
+@font-face {
+  font-family: 'Reglo';
+  src: url('/assets/fonts/Reglo-Bold.otf') format('opentype')
 }
 
 @font-face {
@@ -97,6 +118,18 @@
 @font-face {
   font-family: 'Spectral Bold';
   src: url('/assets/fonts/Spectral-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sporting Grotesque';
+  src: url('/assets/fonts/Sporting_Grotesque-Regular_web.woff') format('woff'),
+       url('/assets/fonts/Sporting_Grotesque-Regular_web.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sporting Grotesque Bold';
+  src: url('/assets/fonts/Sporting_Grotesque-Bold_web.woff') format('woff'),
+       url('/assets/fonts/Sporting_Grotesque-Bold_web.woff2') format('woff2');
 }
 
 @font-face {
@@ -146,6 +179,11 @@
 @font-face {
   font-family: 'Wremena Bold';
   src: url('/assets/fonts/Wremena-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Yatra Regular';
+  src: url('/assets/fonts/Yatra-Regular.ttf') format('truetype')
 }
 
 @font-face {

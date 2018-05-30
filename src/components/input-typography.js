@@ -8,6 +8,8 @@ var typography = require('../design/typography')
 class Typography extends Component {
   constructor (name, state, emit) {
     super()
+    this.state = state
+    this.emit = emit
 
     this.local = {
       active: false
@@ -37,16 +39,26 @@ class Typography extends Component {
   }
 
   elOption (data) {
+    var author = data.author || { }
     return html`
       <div
-        class="px1 curp fs1-5 line bb1-lighter"
+        class="x px1 curp fs1-5 line bb1-lighter ophc design-font-uppercase"
         onclick=${event => this.handleOptionClick(data, event)}
         style="
           font-family: ${data.value}, sans-serif;
           font-weight: ${data.weight || 400};
           font-style: ${data.style || 'normal'};
         "
-      >${data.name}</div> 
+      >
+        <div class="xx">${data.name}</div>
+        <div class="op0 ophc33 oph100">
+          <a
+            href="${author.url}"
+            target="_blank"
+            class="tc-black mono fs1-5 arrow-ext"
+          ></a>
+        </div>
+      </div> 
     `
   }
 
@@ -58,8 +70,8 @@ class Typography extends Component {
           bg-white tc-black bt2-lighter input-dropdown-options
           ${this.local.active ? 'db' : 'dn'}
         "
-        onscroll=${this.handleScroll}
       >
+        ${this.local.children}
         ${options.map(option => this.elOption(option))}
       </div>
     `
@@ -73,7 +85,7 @@ class Typography extends Component {
       <label class="psa t0 l0 px1 pen">
         Font
       </label>
-      <div class="px1 fs1-5 design-font">
+      <div class="px1 fs1-5 design-font design-font-uppercase">
         ${this.local.current.name}
       </div>
     </div>`
