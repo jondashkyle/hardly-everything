@@ -57,9 +57,7 @@ function view (state, props, emit) {
         <div
           class="psf t0 r0 z4 ${state.ui.mobile ? 'bg-white bb2b' : ''}"
           sm="r0"
-        >
-          ${navigation()} 
-        </div>
+        >${navigation()}</div>
         ${content}
       </div>
     </div>
@@ -73,9 +71,9 @@ function view (state, props, emit) {
     return html`
       <div class="x line c12 tc-black fs1 pen usn">
         ${ov(views)
-    .filter(view => view.active !== false)
-    .map(navigationLink)
-}
+          .filter(view => view.active !== false)
+          .map(navigationLink)
+        }
       </div>
     `
   }
@@ -89,7 +87,7 @@ function view (state, props, emit) {
           onmouseenter=${handleLinkEnter}
           class="
             ${active ? 'op100 arrow-bottom' : 'op33'}
-            curd psr db oph100 mr1 tc-black pea
+            curd psr db oph100 mx1 tc-black pea
           "
         >${view.title}</div>
       `

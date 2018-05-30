@@ -32,15 +32,14 @@ Hardly Everything is in active development:
 
 ### 2.0
 
+- [ ] Add Dat support if available (dump state to json)
 - [ ] Re-think the onboarding process
 - [ ] Get `hello` back up with interviews
-- [ ] Add Dat support if available (dump state to json)
+- [ ] Parametric design options if none available?
 - [ ] Testing
-- [ ] All becomes route
-- [ ] Internationalization
-- [ ] Parametric design options if none available
 
 ### 2.1
 
+- [ ] Internationalization
 - [ ] Custom font option
 - [ ] Auto-hide option

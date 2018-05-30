@@ -173,7 +173,7 @@ function getDefaultState () {
       colorText: { r: 0, g: 0, b: 0 },
       font: optionsTypography.system,
       uppercase: false,
-      hyphenate: true,
+      hyphenate: false,
       scale: 35,
       spacing: 5,
       invert: false,

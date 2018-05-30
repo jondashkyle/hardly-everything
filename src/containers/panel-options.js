@@ -47,10 +47,20 @@ function view (state, emit) {
           ${input(state, emit, state.options.design.newTab)}
         </div>
       </div>
-      <div class="c12">
-        <div class="c12 p1px curp tac">
-          <a href="/data/" class="line bg-white db bribr tc-black">
+      <div class="c12 x">
+        <div class="c4 p1px curp tac">
+          <a href="/data" class="line bg-white db bribr tc-black">
             Data
+          </a>
+        </div>
+        <div class="c4 p1px curp tac">
+          <a href="/about" class="line bg-white db bribr tc-black">
+            About
+          </a>
+        </div>
+        <div class="c4 p1px curp tac">
+          <a href="/blog" class="line bg-white db bribr tc-black">
+            Blog
           </a>
         </div>
       </div>

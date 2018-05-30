@@ -16,8 +16,20 @@ function view (state, emit) {
   }
 
   // all
-  if (state.route === 'all' && !state.ui.entriesViewAll) {
+  if (
+      state.route === 'all' &&
+      !state.ui.entriesViewAll
+    ) {
     emit('ui:update', { entriesViewAll: true })
+  }
+
+  // non all
+  if (
+    state.route !== 'all' &&
+    state.ui.entriesViewAll &&
+    !state.search.term
+  ) {
+    emit('ui:update', { entriesViewAll: false })
   }
 
   // show the entry list if we’re logged in

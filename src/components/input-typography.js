@@ -1,7 +1,7 @@
 var objectValues = require('object-values')
 var Component = require('choo/component')
 var html = require('choo/html')
-var x = require('xtend')
+var xtend = require('xtend')
 
 var typography = require('../design/typography')
 
@@ -98,7 +98,7 @@ class Typography extends Component {
   }
 
   createElement (props) {
-    this.local = x(this.local, props)
+    this.local = xtend(this.local, props)
     return html`
       <div class="usn c12 psr">
         ${this.elCurrent()}
