@@ -19,7 +19,6 @@ function view (state, emit) {
             ${state.entries.amount ? '' : 'dn'}
             ${state.ui.entriesViewAll ? 'op100' : 'op33'} 
           "
-          sm="${view ? 'dn' : ''}"
           onclick=${handleAllClick}
         >
           View all
@@ -42,7 +41,7 @@ function view (state, emit) {
     }
 
     return html`
-      <div class="pea" sm="dn" style="padding-top: 0.75rem">
+      <div class="pea dn" sm="db" style="padding-top: 0.75rem">
         ${navigationSearch({
           value: state.search.term,
           onFocus: function () {

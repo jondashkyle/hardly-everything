@@ -19,7 +19,7 @@ function content (state, emit) {
 
   return html`
     <div class="xx fs1 lh1-5">
-      <div class="p0-5 tc3">
+      <div class="p0-5" sm="tc2" md="tc3">
         ${answers.map(createAnswer)}
       </div>
     </div>

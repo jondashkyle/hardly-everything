@@ -12,6 +12,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/**
+ * home
+ */
+
+@media (min-width: 767px) {
+  .home-width {
+    width: calc(100% - 41.4rem)
+  }
+}
+
 .home-gradient {
   position: absolute;
   height: 6rem;

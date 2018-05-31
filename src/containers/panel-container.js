@@ -31,7 +31,6 @@ function view (state, props, emit) {
     ? html`
       <div
         class="panel psr c12 sans fs1 pen pb1"
-        sm="c12 pt1 mtpx2"
         style="top: 4.5rem"
         onmouseenter=${handleContainerEnter}
       >
@@ -51,12 +50,10 @@ function view (state, props, emit) {
     >
       <div
         class="${state.ui.mobile ? '' : 'wrem40'}"
-        sm="c12"
         onmouseleave=${handlePanelLeave}
       >
         <div
           class="psf t0 r0 z4 ${state.ui.mobile ? 'bg-white bb2b' : ''}"
-          sm="r0"
         >${navigation()}</div>
         ${content}
       </div>
