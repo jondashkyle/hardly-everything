@@ -33,7 +33,7 @@ function containerHome (state, emit) {
               Hardly Everything is your feed with a rhythm.
             </div>
             <div class="fs1 sans pt2 pb1 wmxrem50 copy lh1-5">
-              <p>Give attention to what’s important by setting how often you want to remember things • Amplify the quiet stuff, tune out the loud • Incorperate time in your browsing habits • <a href="/about">Continue reading</a> →</p>
+              <p>Give attention to what’s important by setting how often you want to remember things • Amplify the quiet stuff, tune out the loud • Incorperate time into your browsing habits • <a href="/about">Continue reading</a> →</p>
             </div>
           </div>
           <div class="x xw w100 fs1 lh1-5 sans bg-white psr z2">
