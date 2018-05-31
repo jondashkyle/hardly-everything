@@ -174,8 +174,8 @@ function getDefaultState () {
       font: optionsTypography.system,
       uppercase: false,
       hyphenate: false,
-      scale: 35,
-      spacing: 5,
+      scale: 22,
+      spacing: 10,
       invert: false,
       newTab: true,
       autoDismiss: true

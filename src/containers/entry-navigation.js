@@ -5,7 +5,7 @@ module.exports = view
 function view (state, emit) {
   return html`
     <div class="
-      psf t0 l0 px0-5 lh1 x z3 usn sans fs1
+      psf t0 l0 lh1 x z3 usn sans fs1
       ${state.ui.mobile ? 'r0 bg-white bb2b' : ''}
     ">
       <div class="px1 line">
@@ -34,7 +34,6 @@ function view (state, emit) {
   function handleAllClick () {
     emit('search:update', { value: '', render: false })
     emit('ui:update', { entriesViewAll: !state.ui.entriesViewAll })
-    window.scrollTo(0, 0)
   }
 
   function elSearch () {

@@ -8,12 +8,18 @@ var app = choo()
 
 // plugins
 require('./plugins').forEach(plugin => app.use(plugin))
+app.use(require('enoki/choo')('content', {
+  autoload: false
+}))
 
 // app
 app.route('/', wrapper(require('./templates/home')))
 app.route('/all', wrapper(require('./templates/home')))
 app.route('/about', wrapper(require('./templates/about')))
 app.route('/blog', wrapper(require('./templates/blog')))
+app.route('/faq', wrapper(require('./templates/faq')))
+app.route('/intro', wrapper(require('./templates/intro')))
+app.route('/empty', wrapper(require('./containers/homepage-empty')))
 
 // panel
 app.route('/panel', wrapper(require('./templates/panel')))

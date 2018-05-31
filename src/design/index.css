@@ -10,6 +10,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.home-gradient {
+  position: absolute;
+  height: 6rem;
+  top: -6rem;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
 /**
  * typography
  */
@@ -29,13 +38,20 @@ body {
   font-style: normal;
 }
 
+.serif {
+  font-family: 'Spectral Extra-Light', georgia, serif;
+}
+
 .copy > * { margin: 1.5rem 0 }
 .copy > *:first-child { margin-top: 0 }
 .copy > *:last-child { margin-bottom: 0 }
 
-.copy a {
+.copy a,
+.copy .a {
   text-decoration: none;
-  padding-bottom: 0.2em;
+  padding-bottom: 0.1em;
+  color: currentColor;
+  border-bottom: .1rem solid currentColor;
 }
 
 .copy img {
@@ -68,6 +84,33 @@ body {
   margin-top: 0.05em;
   height: 0.85em;
   width: 0.85em;
+}
+
+.icon-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0; 
+  height: 0;
+  margin: -2rem 0 0 -1.75rem;
+  border-top: 2rem solid transparent;
+  border-bottom: 2rem solid transparent;
+  border-left: 3.5rem solid var(--bg);
+}
+
+/**
+ * faq
+ */
+
+.faq-answer {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  display: table; 
+  width: 100%;
+}
+
+.faq-answer h2 {
+  font-weight: bold;
 }
 
 /**

@@ -8,5 +8,6 @@ module.exports = [
   require('./staging'),
   require('./user'),
   require('./introduction'),
-  require('./app')
+  require('./app'),
+  require('./scroll')
 ]

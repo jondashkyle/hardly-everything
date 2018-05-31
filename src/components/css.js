@@ -28,6 +28,7 @@ function Css (state, emit) {
 
   if (colors.bg) {
     var colorBg = `rgb(${colors.bg.r}, ${colors.bg.g}, ${colors.bg.b})`
+    var colorBgTransparent = `rgba(${colors.bg.r}, ${colors.bg.g}, ${colors.bg.b}, 0)`
   } else {
     var colorBg = 'rgb(255, 255, 255)'
   }
@@ -58,13 +59,14 @@ function Css (state, emit) {
         margin: ${blockPadding * 0.8}rem ${blockPadding}rem;
       }
 
+      .home-gradient {
+        background: -moz-linear-gradient(top, ${colorBgTransparent} 0%, ${colorBg} 100%);
+        background: -webkit-linear-gradient(top, ${colorBgTransparent} 0%,${colorBg} 100%);
+        background: linear-gradient(to bottom, ${colorBgTransparent} 0%,${colorBg} 100%);
+      }
+
       .tc-black { color: ${colorFg} }
       .tc-white { color: ${colorBg} }
-
-      .copy a {
-        color: ${colorFg};
-        border-bottom: .1rem solid ${colorFg};
-      }
 
       ::-moz-selection { background: ${colorFgLighter} }
       ::selection { background: ${colorFgLighter} }
@@ -74,10 +76,10 @@ function Css (state, emit) {
       :-ms-input-placeholder { color: ${colorFgLight} }
       :-moz-placeholder { color: ${colorFgLight} }
 
-      .bg-black { background: ${colorFg} }
-      .bg-white { background: ${colorBg} }
-      .bg-black-light { background: ${colorFgLight} }
-      .bg-black-lighter { background: ${colorFgLighter} }
+      .bg-black { background-color: ${colorFg} }
+      .bg-white { background-color: ${colorBg} }
+      .bg-black-light { background-color: ${colorFgLight} }
+      .bg-black-lighter { background-color: ${colorFgLighter} }
 
       .fill-black { fill: ${colorFg} }
       .fill-white { fill: ${colorBg} }
@@ -100,6 +102,7 @@ function Css (state, emit) {
       .b2b { border: .2rem solid ${colorFg} }
       .bb2b { border-bottom: .2rem solid ${colorFg} }
       .bt2b { border-top: .2rem solid ${colorFg} }
+      .b2-lighter { border: .2rem solid ${colorFgLighter} }
       .bt2-lighter { border-top: .2rem solid ${colorFgLighter} }
       .bb2-lighter { border-bottom: .2rem solid ${colorFgLighter} }
       .bb1-lighter { border-bottom: .1rem solid ${colorFgLighter} }

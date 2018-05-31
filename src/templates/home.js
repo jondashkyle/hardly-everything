@@ -1,3 +1,4 @@
+var Empty = require('../containers/homepage-empty')
 var Panel = require('../containers/panel-container')
 var EntryNavigation = require('../containers/entry-navigation')
 var EntryList = require('../containers/entry-list')
@@ -32,12 +33,23 @@ function view (state, emit) {
     emit('ui:update', { entriesViewAll: false })
   }
 
-  // show the entry list if we’re logged in
-  var content = EntryList(state, emit)
-
   return [
     Panel(state, panelProps, emit),
-    content,
+    createContent(),
     EntryNavigation(state, emit)
   ]
+
+  function createContent () {
+    return (state.entries.amount === 0)
+      ? createEmpty(state, emit)
+      : EntryList(state, emit)
+  }
+
+  function createEmpty () {
+    // show if we have’t
+    if (!state.ui.mobile && !state.ui.panel.loaded) {
+      emit('ui:panel', { view: 'entry', loaded: true })
+    }
+    return Empty(state, emit)
+  }
 }

@@ -1,0 +1,5 @@
+title: Blog
+----
+visible: true
+----
+text: This is the blog!

@@ -14,6 +14,7 @@ function wrapper (view) {
         <body class="sans bg-white tc-black">
           ${css(state, emit)}
           ${content}
+          ${preloadFonts()}
         </body>
       `
     }
@@ -22,4 +23,13 @@ function wrapper (view) {
 
 function loading () {
   return html`<div class="loader" data-load></div>`
+}
+
+function preloadFonts () {
+  return html`
+    <div class="psf t0 op0 pen">
+      <div class="mono"></div>
+      <div class="serif"></div>
+    </div>
+  `
 }

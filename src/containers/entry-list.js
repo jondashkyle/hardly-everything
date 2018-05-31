@@ -25,7 +25,7 @@ function EntryList (state, emit) {
     : 'min-height: 100vh;'
 
   return html`
-    <div class="design-container">
+    <div class="design-container c12 oh">
       <div
         class="
           x xw xac xjc tac
@@ -80,7 +80,7 @@ function EntryList (state, emit) {
 
 function emptyEl () {
   return html`
-    <div class="fs2 sans fwn ttn">
+    <div class="">
       Nothing more for today
     </div>
   `
@@ -88,7 +88,7 @@ function emptyEl () {
 
 function emptySearchEl () {
   return html`
-    <div class="fs2 sans fwn">
+    <div class="">
       No matching entries
     </div>
   `
@@ -96,11 +96,6 @@ function emptySearchEl () {
 
 function elEntriesNone (state, emit) {
   return html`
-    <div class="fs2 lh1-5 sans fwn usn">
-      <a href="/panel/entry" class="tc-black">
-        There aren’t any entries,<br>
-        go ahead and <span class="fwb">add one</span>?
-      </a>
-    </div>
+    <div class="">No entries to see here!</div>
   `
 }

@@ -1,0 +1,11 @@
+title: Dropping out
+----
+author: Jon-Kyle Mohr
+----
+authorUrl: https://jon-kyle.com
+----
+category: essay
+----
+text:
+
+Yo whats good now!

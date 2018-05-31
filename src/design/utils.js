@@ -30,7 +30,13 @@ utils.push({
 utils.push({
   prop: { wrem: 'width' },
   unit: 'rem',
-  vals: [40]
+  vals: [40, 60]
+})
+
+utils.push({
+  prop: { wmxrem: 'max-width' },
+  unit: 'rem',
+  vals: [40, 50, 60, 70]
 })
 
 utils.push({
@@ -62,6 +68,7 @@ output = gr8({
     md: '800px',
     sm: '600px'
   },
+  lineHeight: [1, 1.2, 1.5],
   fontSize: [0.7, 0.8, 1, 1.2, 1.4, 1.5, 1.6, 1.8, 2, 3, 4]
     .map(function (size) {
       return { [size.toString().replace('.', '-')]: size * 1.5 }
@@ -75,6 +82,8 @@ output = gr8({
 })
 
 // remove unused classes
-output = lilcss(output, lilsrc, lilopts)
+if (process.env.NODE_ENV === 'production') {
+  output = lilcss(output, lilsrc, lilopts)
+}
 
 module.exports = output

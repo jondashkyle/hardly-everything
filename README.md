@@ -34,6 +34,8 @@ Hardly Everything is in active development:
 
 - [ ] Add Dat support if available (dump state to json)
 - [ ] Re-think the onboarding process
+  - [ ] Remix design
+  - [ ] Add example links from blogs
 - [ ] Get `hello` back up with interviews
 - [ ] Parametric design options if none available?
 - [ ] Testing
