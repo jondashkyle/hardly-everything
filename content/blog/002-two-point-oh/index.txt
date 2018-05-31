@@ -1,0 +1,9 @@
+title: 2.0: What’s new?
+----
+date: 2018-05-31
+----
+category: update
+----
+text:
+
+Nice!

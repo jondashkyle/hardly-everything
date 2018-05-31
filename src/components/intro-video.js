@@ -15,10 +15,12 @@ module.exports = class IntroVideo extends Component {
 
   createElement (props) {
     return html`
-      <video class="psa t0 l0 r0 b0 h100 w100" style="opacity: 0; object-fit: cover;" poster="/path/to/poster.jpg" playsinline controls>
-        <source src="/content/intro/loop.mp4" type="video/mp4">
-        <track kind="captions" label="English captions" src="/content/intro/loop.vtt" srclang="en" default>
-      </video>
+      <div class="h100 w100" style="opacity: 0">
+        <video class="psa t0 l0 r0 b0 h100 w100" style="object-fit: cover;" poster="/path/to/poster.jpg" playsinline controls>
+          <source src="/content/intro/loop.mp4" type="video/mp4">
+          <track kind="captions" label="English captions" src="/content/intro/loop.vtt" srclang="en" default>
+        </video>
+      </div>
     `
   }
 
@@ -29,9 +31,12 @@ module.exports = class IntroVideo extends Component {
   load (element) {
     setTimeout(() => {
       element.style.opacity = 1
-      this.player = new Plyr(element, {
+      this.player = new Plyr(element.querySelector('video'), {
         controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'captions'],
-        settings: false
+        captions: { active: true },
+        settings: false,
+        loadSprite: false,
+        iconUrl: '/assets/plyr.svg'
       })
     }, 400)
   }

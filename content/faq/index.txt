@@ -10,7 +10,9 @@ There are no invites, no accounts, no passwords, no signup. Just start [using it
 
 ## What is this for?
 
-Getting peace of mind from social media burnout and the anxiety around managing a large library of bookmarks. I don’t want to live in a social desert, I just want some mental solitude. Here’s some shit I care about, remind it of me infrequently, done.
+Getting peace of mind from social media burnout and the anxiety around managing a large library of bookmarks. I don’t want to live in a social desert, I just want some mental solitude. Here’s some stuff I care about, remind it of me infrequently, done.
+
+You shouldn’t use Hardly Everything for more than 2 minutes/day.
 
 ## Where does my data go?
 
@@ -18,17 +20,19 @@ In a normal browser? It’s saved in local storage. Look out though, because cle
 
 ## Managing my own data sounds archaic.
 
-Yeah, so does all of this two factor login shit that requires you to have a smartphone on hand 2/47. Tbh just copying some JSON into a plaintext file you can do whatever you want with once every few weeks feels like less of a hassle at this point, even if you don’t know what you’re doing.
+Yeah, so does all of this two factor login stuff we have to deal with these days. Tbh, just copying some JSON into a plaintext file you can do whatever you want with once every few weeks feels like less of a hassle at this point, even if you don’t know what you’re doing.
+
+The slowness lends a certain type of honesty to the practices involved.
 
 ## What if I don’t want to manage my data?
 
-Use Hardly Everything in a browser which supports the peer-to-peer protocol [Dat](https://datproject.org), like [Beaker Browser](https://beakerbrowser.com). Better yet, use it either way. You can save your data locally and even access it offline.
+Use Hardly Everything in a browser which supports the peer-to-peer protocol [Dat](https://datproject.org), like [Beaker Browser](https://beakerbrowser.com). Better yet, use it either way. You can save your data locally, access it offline, and even fork the entire application to customize however you’d like.
 
 ## What about mobile.
 
 Get off your damn phone.
 
-Honestly though, this works fine on mobile, but syncing data between devices is a pain. But really, put your phone down already. Don’t hold your breathe for a native app. Fuck walled gardens :)
+Don’t hold your breathe for a native app. Honestly though, this works fine on mobile, but syncing data between devices is a pain. But really, put your phone down already.
 
 ## Can I add images or video?
 
@@ -41,6 +45,10 @@ Could be cool, but part the reasoning behind creating links out to sites is to r
 ## Why update once a day?
 
 That way you’re not mindlessly refreshing and revisiting the site all day to get that serotonin hit. Visited once already today? Great. That’s how it’s gonna be all day. No rush to look at everything now, so go do better things.
+
+## It’d be cool to share things with friends on here.
+
+This is a tool, not a social network. Just send your friend a link with whatever messaging app you use and get on with your day.
 
 ## I want feature X
 

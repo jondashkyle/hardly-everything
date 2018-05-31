@@ -606,6 +606,7 @@ input:required {
 .plyr__captions {
   animation: none;
   font-family: var(--serif);
+  color: yellow;
 }
 
 .plyr__captions span {

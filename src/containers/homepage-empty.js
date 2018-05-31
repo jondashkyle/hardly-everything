@@ -8,8 +8,8 @@ function containerHome (state, emit) {
     <div>
       <div class="vhmn100 x xafe pt3 fs3">
         <div
-          class="dn b2-light bro fs1 sans ophc lh1-5 x xjc xac psf r0 m1 wrem40"
-          sm="db"
+          class="dn b2-light bro fs1 sans ophc lh1-5 xjc xac psf r0 m1 wrem40"
+          sm="x"
           style="top: 3.25rem; height: 23.7rem"
         >
           <div
@@ -33,12 +33,7 @@ function containerHome (state, emit) {
               Hardly Everything is your feed with a rhythm.
             </div>
             <div class="fs1 sans pt2 pb1 wmxrem50 copy lh1-5">
-              <ul>
-                <li>Feeling the social media burnout?</li>
-                <li>Want to keep up with things without the noise & fomo?</li>
-                <li>Have a ton of links laying collecting dust?</li>
-              </ul>
-              <p>Prioritize your feed by defining how often you want to remember things. Amplify the quiet things, tune out the loud. <a href="/about">Continue reading</a> →</p>
+              <p>Give attention to what’s important in your feed by defining how often you want to remember things. Amplify the quiet stuff, tune out the loud, all by creating cycles of time. <a href="/about">Continue reading</a> →</p>
             </div>
           </div>
           <div class="x xw w100 fs1 lh1-5 sans bg-white psr z2">
