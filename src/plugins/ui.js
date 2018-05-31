@@ -53,6 +53,7 @@ function pluginUi (state, emitter) {
   function setMobile () {
     clearTimeout(resizeFrame)
     resizeFrame = setTimeout(function () {
+      if (state.href === '/intro') return
       state.ui.mobile = window.innerWidth <= 600
       emitter.emit('app:render')
     }, 100)

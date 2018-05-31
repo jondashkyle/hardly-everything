@@ -3,13 +3,20 @@ var html = require('choo/html')
 module.exports = containerHome
 
 function containerHome (state, emit) {
+  var isActivePreview = !state.ui.panel.view
   return html`
     <div>
       <div class="vhmn100 x xafe pt3 fs3">
         <div
-          class="b2-lighter bro fs1 sans ophc lh1-5 x xjc xac psf r0 m1 wrem40"
-          style="top: 3.3rem; height: 23.6rem"
+          class="b2-light bro fs1 sans ophc lh1-5 x xjc xac psf r0 m1 wrem40"
+          style="top: 3.25rem; height: 23.7rem"
         >
+          <div
+            class="psa op33 ${isActivePreview ? 'db' : 'dn'}"
+            style="left: 28.3rem; top: -.2rem;"
+          >
+            <div class="arrow-bottom"></div>
+          </div>
           <div>
             <div class="op33 ophc100 lh1-5 copy tc-black py1 px2 tac">
               <p>
@@ -24,33 +31,44 @@ function containerHome (state, emit) {
             <div class="lh1-2 serif">
               Hardly Everything is your feed with a rhythm.
             </div>
-            <div class="fs1 sans pt2 wmxrem50 copy lh1-5">
-              <p>Tired of the constant notifications from social media? Want to keep up with your friends but don’t want all the noise and fomo? End up having way too many bookmarks and always forget to revisit things? Prioritize your feed by defining how often you want to remember things. Amplify the quiet things, tune out the loud. <a href="/about">Continue reading</a> →</p>
+            <div class="fs1 sans pt2 pb1 wmxrem50 copy lh1-5">
+              <ul>
+                <li>Feeling the social media burnout? Want to preserve context?</li>
+                <li>Want to keep up with your friends without the noise & fomo?</li>
+                <li>Have too many bookmarks and forget to revisit them?</li>
+              </ul>
+              <p>Prioritize your feed by defining how often you want to remember things. Amplify the quiet things, tune out the loud. <a href="/about">Continue reading</a> →</p>
             </div>
           </div>
-          <div class="p0-5 x xw w100 fs1 lh1-5 sans bg-white psr z2">
+          <div class="x xw w100 fs1 lh1-5 sans bg-white psr z2">
             <div class="home-gradient"></div>
-            <div class="c4 p0-5 pb1-5" sm="c12">
+            <div class="c4 pb1" sm="c12">
               <a
                 href="/intro"
-                class="db mb1 bro bgsc psr curp"
+                class="db bgsc psr curp"
                 style="background-color: red; background-blend-mode: screen; background-image: url(/assets/img/garden.jpg); padding-bottom: 50%"
               ><div class="icon-play"></div></a>
-              <div class="fwb">Get Started</div>
-              <div class="copy">Wondering what this is all about? Give the video <a href="/intro">a quick watch</a>. Still have some questions? Stop by <a href="/faq">the FAQ</a> for a quick scroll.</div>
+              <div class="p1">
+                <div class="fwb">Getting started</div>
+                <div class="copy">Wondering what this is all about? Give the video <a href="/intro">a quick watch</a>. Still have some questions? Stop by <a href="/faq">the FAQ</a> for a quick scroll.</div>
+              </div>
             </div>
-            <div class="c4 p0-5 pb1-5" sm="c12">
-              <div class="mb1 bro bgsc" style="background-image: url(/assets/img/customizable.svg); padding-bottom: 50%"></div>
-              <div class="fwb">Customizable</div>
-              <div class="copy">Design is dead? Hardly. Choose from a fresh selection of open source typography and finesse to your liking.</div>
+            <div class="c4 pb1" sm="c12">
+              <div class="bgsc" style="background-image: url(/assets/img/customizable.svg); padding-bottom: 50%"></div>
+              <div class="p1">
+                <div class="fwb">Customizable</div>
+                <div class="copy">“Web design is dead?” Hardly. Choose from a fresh selection of open source typography and finesse to your liking.</div>
+              </div>
             </div>
-            <div class="c4 p0-5 pb1-5" sm="c12">
+            <div class="c4 pb1" sm="c12">
               <div
-                class="mb1 bro bgsct bgpc"
+                class="bgsct bgpc"
                 style="background-color: blue; background-blend-mode: screen; background-image: url(/assets/img/big-data-no-thanks.png); padding-bottom: 50%"
               ></div>
-              <div class="fwb">Own your data</div>
-              <div>Forget accounts and passwords. You own your data thanks to full support for p2p connectivity and offline access with Dat.</div>
+              <div class="p1">
+                <div class="fwb">Own your data</div>
+                <div>Forget accounts and passwords. You own your data thanks to full support for p2p connectivity and offline access with Dat.</div>
+              </div>
             </div>
           </div>
         </div>

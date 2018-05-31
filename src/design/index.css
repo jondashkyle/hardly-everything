@@ -1,5 +1,7 @@
 html {
   font-size: 62.50%;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  --serif: 'Spectral Extra-Light', georgia, serif;
 }
 
 body {
@@ -39,7 +41,7 @@ body {
 }
 
 .serif {
-  font-family: 'Spectral Extra-Light', georgia, serif;
+  font-family: var(--serif);
 }
 
 .copy > * { margin: 1.5rem 0 }
@@ -418,6 +420,22 @@ input[type="submit"] {
 }
 
 /**
+ * list
+ */
+
+ul li {
+  position: relative;
+  padding-left: 2rem;
+}
+
+ul li:before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/**
  * data
  */
 
@@ -519,4 +537,75 @@ input:required {
 @font-face {
   font-family: 'SFMono-Regular';
   src: url(/assets/fonts/SFMono-Regular.otf) format('opentype');
+}
+
+/**
+ * plyr
+ */
+
+.plyr,
+.plyr__video-wrapper {
+  height: 100%;
+  width: 100%;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.plyr--full-ui input[type="range"] {
+  color: #fff;
+}
+
+.plyr--video .plyr__controls .plyr__control.plyr__tab-focus, .plyr--video .plyr__controls .plyr__control:hover, .plyr--video .plyr__controls .plyr__control[aria-expanded="true"] {
+  background: #000;
+}
+
+.plyr--video .plyr__time {
+  font-family: var(--mono);
+  text-shadow: none;
+}
+
+.plyr__control {
+  transition: none;
+}
+
+.plyr__tooltip {
+  background: #000;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 1rem;
+  transform: translateX(-50%);
+  transition: none;
+}
+
+.plyr__tooltip:before {
+  border-top: 4px solid #000;
+}
+
+.plyr--video .plyr__controls {
+  background: none;
+}
+
+.plyr--full-ui input[type="range"]::-moz-range-thumb { box-shadow: none !important; }
+.plyr--video .plyr--full-ui input[type="range"]::-moz-range-thumb { box-shadow: none }
+.plyr--video .plyr__progress--buffer { box-shadow: none; }
+
+.plyr--video .plyr__controls .plyr__control svg {
+  filter: none;
+}
+
+.plyr__captions {
+  animation: none;
+  font-family: var(--serif);
+}
+
+.plyr__captions span {
+  background: none;
+  line-height: 1.2;
+  font-size: 4rem;
+  padding: 0;
+}
+
+.plyr audio, .plyr video {
+  height: 100%;
+  width: 100%;
 }

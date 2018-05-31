@@ -1,5 +1,7 @@
 var html = require('choo/html')
+
 var containerContent = require('../containers/content')
+var IntroVideo = require('../components/intro-video')
 
 module.exports = view
 
@@ -9,8 +11,8 @@ function view (state, emit) {
 
 function content (state, emit) {
   return html`
-    <div class="bg-black tc-white mt0-5 fs2 w100 xx x xjc xac">
-      Coming soon!
+    <div class="bg-black tc-white fs2 w100 xx x xjc xac">
+      ${state.cache(IntroVideo, 'intro-video').render()}
     </div>
   `
 }

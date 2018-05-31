@@ -35,10 +35,12 @@ function Css (state, emit) {
 
   if (colors.fg) {
     var colorFg = `rgb(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b})`
-    var colorFgLight = `rgba(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b}, 0.5)`
+    var colorFgLightish = `rgba(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b}, 0.5)`
+    var colorFgLight = `rgba(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b}, 0.33)`
     var colorFgLighter = `rgba(${colors.fg.r}, ${colors.fg.g}, ${colors.fg.b}, 0.165)`
   } else {
     var colorFg = 'rgb(0, 0, 0)'
+    var colorFgLightish = 'rgba(0, 0, 0, 0.5)'
     var colorFgLight = 'rgba(0, 0, 0, 0.33)'
     var colorFgLighter = 'rgba(0, 0, 0, 0.165)'
   }
@@ -71,10 +73,10 @@ function Css (state, emit) {
       ::-moz-selection { background: ${colorFgLighter} }
       ::selection { background: ${colorFgLighter} }
 
-      ::-webkit-input-placeholder { color: ${colorFgLight} }
-      ::-moz-placeholder { color: ${colorFgLight} }
-      :-ms-input-placeholder { color: ${colorFgLight} }
-      :-moz-placeholder { color: ${colorFgLight} }
+      ::-webkit-input-placeholder { color: ${colorFgLightish} }
+      ::-moz-placeholder { color: ${colorFgLightish} }
+      :-ms-input-placeholder { color: ${colorFgLightish} }
+      :-moz-placeholder { color: ${colorFgLightish} }
 
       .bg-black { background-color: ${colorFg} }
       .bg-white { background-color: ${colorBg} }
@@ -102,6 +104,7 @@ function Css (state, emit) {
       .b2b { border: .2rem solid ${colorFg} }
       .bb2b { border-bottom: .2rem solid ${colorFg} }
       .bt2b { border-top: .2rem solid ${colorFg} }
+      .b2-light { border: .2rem solid ${colorFgLight} }
       .b2-lighter { border: .2rem solid ${colorFgLighter} }
       .bt2-lighter { border-top: .2rem solid ${colorFgLighter} }
       .bb2-lighter { border-bottom: .2rem solid ${colorFgLighter} }

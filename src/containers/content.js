@@ -15,7 +15,7 @@ function containerContent (state, emit, children) {
 
   function createContent () {
     return html`
-      <div class="vhmn100 x xdc w100 pt3">
+      <div class="vhmn100 x xdc w100 pt3-5">
         ${state.site.loaded
           ? children
           : html`<div class="xx w100">${loading()}</div>`

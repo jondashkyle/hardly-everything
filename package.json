@@ -40,6 +40,7 @@
     "nanoreset": "^2.0.0",
     "normalize-url": "^1.6.1",
     "object-values": "^1.0.0",
+    "plyr": "^3.3.9",
     "recsst": "^1.1.2",
     "simple-color-picker": "^0.1.2",
     "tags-input": "^1.1.1",

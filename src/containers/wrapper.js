@@ -28,8 +28,8 @@ function loading () {
 function preloadFonts () {
   return html`
     <div class="psf t0 op0 pen">
-      <div class="mono"></div>
-      <div class="serif"></div>
+      <div class="mono">mono</div>
+      <div class="serif">serif</div>
     </div>
   `
 }
