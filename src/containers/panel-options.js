@@ -54,8 +54,8 @@ function view (state, emit) {
           </a>
         </div>
         <div class="xx p1px curp tac">
-          <a href="/about" class="line bg-white db tc-black">
-            About
+          <a href="/faq" class="line bg-white db tc-black">
+            FAQ
           </a>
         </div>
         <div class="xx p1px curp tac">
