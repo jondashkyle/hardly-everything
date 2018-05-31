@@ -1,5 +1,7 @@
 title: Dropping out
 ----
+visible: false
+----
 date: 2018-05-30
 ----
 author: Jon-Kyle Mohr
