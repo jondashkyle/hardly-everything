@@ -6,7 +6,8 @@ function containerHome (state, emit) {
   var isActivePreview = !state.ui.panel.view
   return html`
     <div>
-      <div class="x xafe pt3 fs3" style="background: #D6D6D6; min-height: calc(100vh - 4rem)">
+      <div class="x xafe pt3 fs3 psr" style="background: #eee; min-height: calc(100vh - 4rem)">
+        <img src="/assets/img/bg.jpg" class="dn pen psa t0 l0 r0 b0 h100 w100 pixelate" style="object-fit: cover; mix-blend-mode: screen;">
         <div
           class="dn b2-light bro fs1 sans ophc lh1-5 xjc xac psf r0 m1 wrem40"
           sm="${state.ui.panel.loaded ? 'x' : ''}"

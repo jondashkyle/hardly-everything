@@ -638,3 +638,11 @@ input:required {
   height: 100%;
   width: 100%;
 }
+
+.pixelate {
+  image-rendering: -moz-crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -o-pixelated;
+  image-rendering: pixelated; 
+}
