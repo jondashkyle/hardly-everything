@@ -40,6 +40,7 @@ Hardly Everything is in active development:
 - [ ] Testing
 - [ ] Credit section on about
 - [ ] Design slideshow
+- [ ] Homepage has intro video above big screenshot?
 
 ### 2.1
 

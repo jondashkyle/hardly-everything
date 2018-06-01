@@ -12,8 +12,8 @@ Fresh release! Lots of new stuff and all sorts of fixes.
 
 - Fresh new homepage for new visitors.
 - The **Blog**, an area for updates and notes.
-- The **FAQ**.
-- An **Intro video** which gives a quick overview.
+- The [**FAQ**](/faq).
+- An [**Intro video**](/intro) which gives a quick overview.
 - Tons of new **open source fonts**.
 - New options like **uppercase** and hyphenate.
 - Too many interface updates to mention.

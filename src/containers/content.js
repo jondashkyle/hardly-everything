@@ -15,7 +15,7 @@ function containerContent (state, emit, children) {
 
   function createContent () {
     return html`
-      <div class="vhmn100 x xdc w100 pt3-5">
+      <div class="vhmn100 x xdc w100 pt3-6">
         ${state.site.loaded
           ? children
           : html`<div class="xx w100">${loading()}</div>`
@@ -30,7 +30,7 @@ function createNavigation (state, emit) {
   var pages = state.page('/').pages().sortBy('name', 'asc').toArray()
 
   return html`
-    <div class="fs1 line psf t0 l0 r0 x xjb z2">
+    <div class="fs1 line psf t0 l0 r0 x xjb z2 bgh-white">
       <div class="x">
         <div class="px1 fwb">
           <a href="/" class="tc-black">Hardly Everything</a>

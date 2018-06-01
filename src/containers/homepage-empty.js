@@ -1,12 +1,14 @@
 var html = require('choo/html')
 
+var IntroVideo = require('../components/intro-video')
+
 module.exports = containerHome
 
 function containerHome (state, emit) {
   var isActivePreview = !state.ui.panel.view
   return html`
     <div>
-      <div class="x xafe pt3 fs3 psr" style="background: #eee; min-height: calc(100vh - 4rem)">
+      <div class="x xafe fs3 psr home-height pt3">
         <img src="/assets/img/bg.jpg" class="dn pen psa t0 l0 r0 b0 h100 w100 pixelate" style="object-fit: cover; mix-blend-mode: screen;">
         <div
           class="dn b2-light bro fs1 sans ophc lh1-5 xjc xac psf r0 m1 wrem40"
@@ -33,12 +35,12 @@ function containerHome (state, emit) {
             <div class="lh1-2 serif">
               Hardly Everything is your feed with a cadence.
             </div>
-            <div class="fs1 sans pt1 pb3 wmxrem50 copy lh1-5">
+            <div class="fs1 sans pt1 wmxrem50 copy lh1-5" sm="pb3">
               <p>Give attention to what’s important by choosing how often you want to remember things. Amplify the quiet, dial down the loud. For lovers of links and the open web. <a href="/about">Continue reading</a> →</p>
             </div>
           </div>
           <div class="x xw w100 fs1 lh1-5 sans bg-white psr z2">
-            <div class="home-gradient dn" sm="db"></div>
+            <div class="home-gradient dn" sm="dn"></div>
             <div class="x xdc xx">
               <a
                 href="/intro"

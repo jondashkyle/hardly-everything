@@ -85,6 +85,8 @@ function Css (state, emit) {
       .bg-black-light { background-color: ${colorFgLight} }
       .bg-black-lighter { background-color: ${colorFgLighter} }
 
+      .bgh-white:hover { background-color: ${colorBg} }
+
       .fill-black { fill: ${colorFg} }
       .fill-white { fill: ${colorBg} }
 
@@ -115,6 +117,7 @@ function Css (state, emit) {
       .bb2-lighter { border-bottom: .2rem solid ${colorFgLighter} }
       .bb1-lighter { border-bottom: .1rem solid ${colorFgLighter} }
       .br1-lighter { border-right: .1rem solid ${colorFgLighter} }
+      .bt1-lighter { border-top: .1rem solid ${colorFgLighter} }
 
       .design-font {
         font-family: ${state.options.values.font.value}, sans-serif;

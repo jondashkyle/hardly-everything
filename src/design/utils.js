@@ -73,7 +73,7 @@ output = gr8({
     .map(function (size) {
       return { [size.toString().replace('.', '-')]: size * 1.5 }
     }),
-  spacing: [0, 0.25, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5]
+  spacing: [0, 0.25, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 3.6, 4, 4.5]
     .map(function (size) {
       return { [size.toString().replace('.', '-')]: size * 1.25 }
     }),

@@ -17,6 +17,10 @@ body {
  */
 
 @media (min-width: 767px) {
+  .home-height {
+    min-height: calc(100vh - 4rem);
+  }
+
   .home-width {
     width: calc(100% - 41.4rem)
   }
@@ -78,6 +82,8 @@ body {
 
 .copy h2 a {
   padding-bottom: 0;
+  line-height: 1.2;
+  display: inline-block;
 }
 
 .copy h3 {
@@ -597,8 +603,9 @@ input:required {
 }
 
 .plyr__tooltip {
-  background: #000;
-  color: #fff;
+  background: #fff;
+  box-shadow: none;
+  color: #000;
   font-family: var(--mono);
   font-size: 1rem;
   transform: translateX(-50%);
@@ -606,7 +613,7 @@ input:required {
 }
 
 .plyr__tooltip:before {
-  border-top: 4px solid #000;
+  border-top: 4px solid #fff;
 }
 
 .plyr--video .plyr__controls {
@@ -637,6 +644,10 @@ input:required {
 .plyr audio, .plyr video {
   height: 100%;
   width: 100%;
+}
+
+.plyr__poster {
+  background-size: cover;
 }
 
 .pixelate {
