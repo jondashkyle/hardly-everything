@@ -1,0 +1,28 @@
+title: Jon-Kyle’s list
+----
+visible: true
+----
+date: 2018-05-30
+----
+author: Jon-Kyle
+----
+authorUrl: https://jon-kyle.com
+----
+category: list
+----
+links:
+  day:
+    title: Mount Wilson Tower Cam
+    url: http://obs.astro.ucla.edu/towercam.htm
+  week:
+    title: Walking in LA
+    url: http://walkinginla.com/
+  month:
+    title: Primitive Technology
+    url: https://youtube.com/channel/UCAL3JXZSzSm8AlZyD3nQdBA
+  year:
+    title: ofHouses
+    url: http://ofhouses.com/
+  century:
+    title: React.js Documentation
+    url: https://reactjs.org/docs

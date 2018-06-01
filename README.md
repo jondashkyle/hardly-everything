@@ -34,7 +34,7 @@ Hardly Everything is in active development:
 
 - [ ] Add Dat support if available (dump state to json)
 - [ ] Re-think the onboarding process
-  - [ ] Remix design
+  - [ ] Remix design if design obj equals defaults
   - [ ] Add example links from blogs
 - [ ] Get `hello` back up with interviews
 - [ ] Testing

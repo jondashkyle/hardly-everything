@@ -36,7 +36,7 @@
     "fastclick": "^1.0.6",
     "gr8": "^3.1.5",
     "lodash.throttle": "^4.1.1",
-    "nano-markdown": "^1.2.0",
+    "marked": "^0.4.0",
     "nanoreset": "^2.0.0",
     "normalize-url": "^1.6.1",
     "object-values": "^1.0.0",

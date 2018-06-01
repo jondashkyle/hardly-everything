@@ -9,7 +9,7 @@ function containerHome (state, emit) {
       <div class="vhmn100 x xafe pt3 fs3">
         <div
           class="dn b2-light bro fs1 sans ophc lh1-5 xjc xac psf r0 m1 wrem40"
-          sm="x"
+          sm="${state.ui.panel.loaded ? 'x' : ''}"
           style="top: 3.25rem; height: 23.7rem"
         >
           <div
@@ -30,10 +30,10 @@ function containerHome (state, emit) {
         <div class="w100">
           <div class="p1 wmxrem60 psr home-width" sm="z3">
             <div class="lh1-2 serif">
-              Hardly Everything is your feed with a rhythm.
+              Hardly Everything is your feed with a cadence.
             </div>
             <div class="fs1 sans pt1 wmxrem60 copy lh1-5">
-              <p>Give attention to what’s important by choosing how often you want to remember things. Amplify the quiet stuff, turn down the loud. <a href="/about">Continue reading</a> →</p>
+              <p>Give attention to what’s important by choosing how often you want to remember things. Amplify the quiet, dial down the loud. For lovers of links. <a href="/about">Continue reading</a> →</p>
             </div>
           </div>
           <div class="x xw w100 fs1 lh1-5 sans bg-white psr z2">
@@ -46,7 +46,7 @@ function containerHome (state, emit) {
               ><div class="icon-play"></div></a>
               <div class="pt1">
                 <div class="fwb">Getting started</div>
-                <div class="copy">Wondering what this is all about? Give the video <a href="/intro">a quick watch</a>. Still have some questions? Stop by <a href="/faq">the FAQ</a> for a quick scroll.</div>
+                <div class="copy">Wondering what this is all about? Give the video <a href="/intro">a quick watch</a>. Still have some questions? Stop by <a href="/faq">the FAQ</a> for a scroll.</div>
               </div>
             </div>
             <div class="xx p1 pb2">

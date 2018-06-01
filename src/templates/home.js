@@ -48,7 +48,9 @@ function view (state, emit) {
   function createEmpty () {
     // show if we have’t
     if (!state.ui.mobile && !state.ui.panel.loaded) {
-      emit('ui:panel', { view: 'entry', loaded: true })
+      setTimeout(function () {
+        emit('ui:panel', { view: 'entry', loaded: true })
+      }, 1)
     }
     return Empty(state, emit)
   }

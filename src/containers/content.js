@@ -38,7 +38,7 @@ function createNavigation (state, emit) {
         ${pages.map(createLink)}
       </div>
       <div class="x">
-        <div class="px1"><a href="/" class="tc-black op33 oph100">← Feed</a></div>
+        <div class="px1"><a href="/" class="tc-black op33 oph100"><span class="mono">←</div> Feed</a></div>
       </div>
     </div>
   `  

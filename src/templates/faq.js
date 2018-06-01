@@ -1,8 +1,7 @@
-var raw = require('choo/html/raw')
-var md = require('nano-markdown')
 var html = require('choo/html')
 
 var containerContent = require('../containers/content')
+var format = require('../components/format')
 
 module.exports = view
 
@@ -28,7 +27,7 @@ function content (state, emit) {
   function createAnswer (props) {
     return html`
       <div class="p0-5 faq-answer copy">
-        ${raw(md(props || ''))}
+        ${format(props)}
       </div>
     `
   }

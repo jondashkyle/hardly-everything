@@ -1,8 +1,8 @@
-var raw = require('choo/html/raw')
-var md = require('nano-markdown')
 var html = require('choo/html')
 
 var containerContent = require('../containers/content')
+var entryBlog = require('../components/entry-blog')
+var format = require('../components/format')
 
 module.exports = view
 
@@ -14,23 +14,15 @@ function content (state, emit) {
   var entries = state.page()
     .children()
     .visible()
-    .sortBy('date', 'asc')
+    .sortBy('date', 'desc')
     .toArray()
 
   return html`
-    <div class="fs1 lh1-5 xx">
-      <div class="p1 copy wrem40">
-        ${entries.map(createEntry)}
+    <div class="fs1 lh1-5 xx x xdc xjc xac" sm="p2-5">
+      <div class="p1 copy w100 wmxrem50">
+        ${entries.map(entryBlog)}
       </div>
     </div>
   `
 }
 
-function createEntry (props) {
-  return html`
-    <div>
-      <h2>${props.title}</h2>
-      ${raw(md(props.text || ''))}
-    </div>
-  `
-}

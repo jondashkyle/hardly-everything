@@ -70,6 +70,21 @@ body {
   max-width: 100%;
 }
 
+.copy h2 {
+  font-family: var(--serif);
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.copy h2 a {
+  padding-bottom: 0;
+}
+
+.copy h3 {
+  color: var(--fg-light);
+  font-weight: bold;
+}
+
 /**
  * icons
  */
@@ -122,6 +137,9 @@ body {
 }
 
 .faq-answer h2 {
+  font-family: var(--sans);
+  font-size: 1em;
+  line-height: 1.5;
   font-weight: bold;
 }
 

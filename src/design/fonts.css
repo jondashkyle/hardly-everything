@@ -116,6 +116,12 @@
 }
 
 @font-face {
+  font-family: 'Spectral Extra-Light';
+  font-weight: bold;
+  src: url('/assets/fonts/Spectral-Bold.ttf') format('truetype');
+}
+
+@font-face {
   font-family: 'Spectral Regular';
   src: url('/assets/fonts/Spectral-Regular.ttf') format('truetype');
 }

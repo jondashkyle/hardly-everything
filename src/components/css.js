@@ -50,6 +50,7 @@ function Css (state, emit) {
       body {
         --bg: ${colorBg};
         --fg: ${colorFg};
+        --fg-light: ${colorFgLight};
         background: ${colorBg};
       }
 
@@ -73,10 +74,11 @@ function Css (state, emit) {
       ::-moz-selection { background: ${colorFgLighter} }
       ::selection { background: ${colorFgLighter} }
 
-      ::-webkit-input-placeholder { color: ${colorFgLightish} }
-      ::-moz-placeholder { color: ${colorFgLightish} }
-      :-ms-input-placeholder { color: ${colorFgLightish} }
-      :-moz-placeholder { color: ${colorFgLightish} }
+      ::-webkit-input-placeholder { color: ${colorFgLight} }
+      :-ms-input-placeholder { color: ${colorFgLight} }
+      :-moz-placeholder { color: ${colorFgLight}; opacity: 1; }
+      ::-moz-placeholder { color: ${colorFgLight}; opacity: 1; }
+      :placeholder-shown { color: ${colorFgLight}; opacity: 1; }
 
       .bg-black { background-color: ${colorFg} }
       .bg-white { background-color: ${colorBg} }
@@ -85,6 +87,9 @@ function Css (state, emit) {
 
       .fill-black { fill: ${colorFg} }
       .fill-white { fill: ${colorBg} }
+
+      .fc-black-light { color: ${colorFgLight} }
+      .fc-black-lighter { color: ${colorFgLighter} }
 
       .stroke-black { stroke: ${colorFg} }
       .stroke-white { stroke: ${colorBg} }

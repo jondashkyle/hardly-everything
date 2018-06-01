@@ -1,6 +1,7 @@
 var html = require('choo/html')
 
 var containerContent = require('../containers/content')
+var entryBlog = require('../components/entry-blog')
 var format = require('../components/format')
 
 module.exports = view
@@ -10,11 +11,14 @@ function view (state, emit) {
 }
 
 function content (state, emit) {
+  var page = state.page().v()
+
   return html`
-    <div class="xx x xjc xac py4 fs1-5 lh1-5" sm="fs2">
-      <div class="p1 copy serif w100 wmxrem70">
-        ${format(state.page().v('text'))}
+    <div class="fs1 lh1-5 xx x xdc xjc xac p2-5">
+      <div class="p1 copy w100 wmxrem50">
+        ${entryBlog(page)}
       </div>
     </div>
   `
 }
+
