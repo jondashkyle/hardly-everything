@@ -28,11 +28,11 @@ function containerHome (state, emit) {
           </div>
         </div>
         <div class="w100">
-          <div class="p1 wmxrem60 psr home-width" sm="z3">
+          <div class="p1 wmxrem60 psr home-width" sm="z3 pl4">
             <div class="lh1-2 serif">
               Hardly Everything is your feed with a cadence.
             </div>
-            <div class="fs1 sans pt1 pb4 wmxrem50 copy lh1-5">
+            <div class="fs1 sans pt1 pb3 wmxrem50 copy lh1-5">
               <p>Give attention to what’s important by choosing how often you want to remember things. Amplify the quiet, dial down the loud. For lovers of links. <a href="/about">Continue reading</a> →</p>
             </div>
           </div>
