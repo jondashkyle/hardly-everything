@@ -39,6 +39,7 @@ Hardly Everything is in active development:
 - [ ] Get `hello` back up with interviews
 - [ ] Testing
 - [ ] Credit section on about
+- [ ] Design slideshow
 
 ### 2.1
 
