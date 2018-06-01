@@ -10,6 +10,11 @@
 }
 
 @font-face {
+  font-family: 'Cool S Font';
+  src: url('/assets/fonts/CoolS-Regular.otf') format('opentype')
+}
+
+@font-face {
   font-family: 'DSEG7 Classic Bold';
   src: url('/assets/fonts/DSEG7Classic-Bold.woff2') format('woff2'),
        url('/assets/fonts/DSEG7Classic-Bold.woff') format('woff');

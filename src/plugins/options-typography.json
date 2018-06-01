@@ -371,5 +371,15 @@
     "key": "youngSerif",
     "host": "local",
     "value": "Young Serif"
+  },
+  "coolSFont": {
+    "author": {
+      "name": "Tom Goulet",
+      "url": "https://www.tomgoulet.com/fonts"
+    },
+    "name": "Cool S Font",
+    "key": "coolSFont",
+    "host": "local",
+    "value": "Cool S Font"
   }
 }
