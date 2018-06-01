@@ -17,7 +17,7 @@ function createList (props) {
   return html`
     <div class="lh1-5 b2b bro">
       <div class="p2 copy">
-        <h2><a href="${props.authorUrl}"> target="_blank">${props.author}</a>, what is a site you visit…</h2>
+        <h2><a href="${props.authorUrl}" target="_blank">${props.author}</a>, what is a site you visit…</h2>
         <p>
           <span class="fc-black-light">once every day</span><br/>
           <a href="${props.links.day.url}" target="_blank">${props.links.day.url}</a>
