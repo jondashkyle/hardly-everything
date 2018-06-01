@@ -12,10 +12,11 @@ function entryBlog (props) {
   }
 }
 
-
 function createList (props) {
+  var image = '/content/' + props.files['desktop.png']
   return html`
-    <div class="lh1-5 b2b bro">
+    <div class="lh1-5 b2b bro oh">
+      <img src="${image}" class="w100">
       <div class="p2 copy">
         <h2><a href="${props.authorUrl}" target="_blank">${props.author}</a>, what is a site you visit…</h2>
         <p>

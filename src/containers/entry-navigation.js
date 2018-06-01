@@ -8,7 +8,7 @@ function view (state, emit) {
       psf t0 l0 lh1 x z3 usn sans fs1
       ${state.ui.mobile ? 'r0 bg-white bb2b' : ''}
     ">
-      <div class="px1 line">
+      <div class="px1 line fwb">
         ${state.ui.date}
       </div>
       <div class="px1 line">
