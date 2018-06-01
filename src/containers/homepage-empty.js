@@ -6,7 +6,7 @@ function containerHome (state, emit) {
   var isActivePreview = !state.ui.panel.view
   return html`
     <div>
-      <div class="bg-black-lighter x xafe pt3 fs3" style="min-height: calc(100vh - 2rem)">
+      <div class="x xafe pt3 fs3" style="background: #D6D6D6; min-height: calc(100vh - 4rem)">
         <div
           class="dn b2-light bro fs1 sans ophc lh1-5 xjc xac psf r0 m1 wrem40"
           sm="${state.ui.panel.loaded ? 'x' : ''}"
@@ -33,7 +33,7 @@ function containerHome (state, emit) {
               Hardly Everything is your feed with a cadence.
             </div>
             <div class="fs1 sans pt1 pb3 wmxrem50 copy lh1-5">
-              <p>Give attention to what’s important by choosing how often you want to remember things. Amplify the quiet, dial down the loud. For lovers of links. <a href="/about">Continue reading</a> →</p>
+              <p>Give attention to what’s important by choosing how often you want to remember things. Amplify the quiet, dial down the loud. For lovers of links and the open web. <a href="/about">Continue reading</a> →</p>
             </div>
           </div>
           <div class="x xw w100 fs1 lh1-5 sans bg-white psr z2">
