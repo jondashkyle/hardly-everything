@@ -114,6 +114,7 @@ function Css (state, emit) {
       .bt2-lighter { border-top: .2rem solid ${colorFgLighter} }
       .bb2-lighter { border-bottom: .2rem solid ${colorFgLighter} }
       .bb1-lighter { border-bottom: .1rem solid ${colorFgLighter} }
+      .br1-lighter { border-right: .1rem solid ${colorFgLighter} }
 
       .design-font {
         font-family: ${state.options.values.font.value}, sans-serif;

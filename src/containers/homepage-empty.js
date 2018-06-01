@@ -6,7 +6,7 @@ function containerHome (state, emit) {
   var isActivePreview = !state.ui.panel.view
   return html`
     <div>
-      <div class="vhmn100 x xafe pt3 fs3">
+      <div class="bg-black-lighter x xafe pt3 fs3" style="min-height: calc(100vh - 2rem)">
         <div
           class="dn b2-light bro fs1 sans ophc lh1-5 xjc xac psf r0 m1 wrem40"
           sm="${state.ui.panel.loaded ? 'x' : ''}"
@@ -32,36 +32,36 @@ function containerHome (state, emit) {
             <div class="lh1-2 serif">
               Hardly Everything is your feed with a cadence.
             </div>
-            <div class="fs1 sans pt1 wmxrem60 copy lh1-5">
+            <div class="fs1 sans pt1 pb4 wmxrem50 copy lh1-5">
               <p>Give attention to what’s important by choosing how often you want to remember things. Amplify the quiet, dial down the loud. For lovers of links. <a href="/about">Continue reading</a> →</p>
             </div>
           </div>
           <div class="x xw w100 fs1 lh1-5 sans bg-white psr z2">
             <div class="home-gradient dn" sm="db"></div>
-            <div class="xx p1 pb2">
+            <div class="x xdc xx">
               <a
                 href="/intro"
                 class="db bgsc psr curp"
                 style="background-color: red; background-blend-mode: screen; background-image: url(/assets/img/garden.jpg); padding-bottom: 50%"
               ><div class="icon-play"></div></a>
-              <div class="pt1">
+              <div class="p1 pb2 br1-lighter">
                 <div class="fwb">Getting started</div>
                 <div class="copy">Wondering what this is all about? Give the video <a href="/intro">a quick watch</a>. Still have some questions? Stop by <a href="/faq">the FAQ</a> for a scroll.</div>
               </div>
             </div>
-            <div class="xx p1 pb2">
+            <div class="x xdc xx">
               <div class="bgsc" style="background-color: #00ff00; background-image: url(/assets/img/customizable.svg); padding-bottom: 50%"></div>
-              <div class="pt1">
+              <div class="p1 pb2 br1-lighter">
                 <div class="fwb">Customizable</div>
                 <div class="copy">“Web design is dead?” Hardly. Choose from a fresh selection of open source typography and finesse to your liking.</div>
               </div>
             </div>
-            <div class="c12 p1 pb2 dn" sm="xx db">
+            <div class="c12 dn" sm="xx x xdc">
               <div
                 class="bgsct bgpc"
                 style="background-color: blue; background-blend-mode: screen; background-image: url(/assets/img/big-data-no-thanks.png); padding-bottom: 50%"
               ></div>
-              <div class="pt1">
+              <div class="p1 pb2">
                 <div class="fwb">Own your data</div>
                 <div>Forget accounts and passwords. You own your data thanks to full support for p2p connectivity and offline access with Dat.</div>
               </div>
