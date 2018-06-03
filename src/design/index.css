@@ -103,16 +103,22 @@ body {
 .icon-eye {
   mask: url(/assets/icon-eye.svg) no-repeat center;
   mask-size: contain;
+  -webkit-mask: url(/assets/icon-eye.svg) no-repeat center;
+  -webkit-mask-size: contain;
 }
 
 .icon-settings {
   mask: url(/assets/icon-settings.svg) no-repeat center;
   mask-size: contain;
+  -webkit-mask: url(/assets/icon-settings.svg) no-repeat center;
+  -webkit-mask-size: contain;
 }
 
 .icon-trash {
   mask: url(/assets/icon-trash.svg) no-repeat center;
   mask-size: contain;
+  -webkit-mask: url(/assets/icon-trash.svg) no-repeat center;
+  -webkit-mask-size: contain;
   margin-top: 0.05em;
   height: 0.85em;
   width: 0.85em;
