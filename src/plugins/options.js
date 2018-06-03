@@ -2,6 +2,7 @@ var objectValues = require('object-values')
 var clone = require('clone-deep')
 var xtend = require('xtend')
 
+var libDesign = require('../lib/design')
 var optionsTypography = require('./options-typography')
 var typography = require('../design/typography')
 var db = require('../db/options')
@@ -26,6 +27,12 @@ function Options (state, emitter) {
     emitter.emit('options:update', newState)
   })
 
+  emitter.on('options:replace', function (data) {
+    var newState = xtend(state.options.values, data)
+    db.update(data, newState)
+    emitter.emit('options:update', newState)
+  })
+
   // update
   emitter.on('options:update', function (data) {
     state.options.values = xtend(state.options.values, data)
@@ -33,7 +40,7 @@ function Options (state, emitter) {
   })
 
   // reset
-  emitter.on('reset', function (data) {
+  emitter.on('options:reset', function (data) {
     var defaults = getDefaultState().values
     db.update({ }, defaults)
     emitter.emit('options:update', defaults)
@@ -168,18 +175,11 @@ function getDefaultState () {
         visible: false
       }
     },
-    values: {
-      colorBg: { r: 255, g: 255, b: 255 },
-      colorText: { r: 0, g: 0, b: 0 },
-      font: optionsTypography.system,
-      uppercase: false,
-      hyphenate: false,
-      scale: 22,
-      spacing: 10,
+    values: xtend({
       invert: false,
       newTab: true,
       autoDismiss: true
-    },
+    }, libDesign.getDesignDefaults()),
     loaded: {
       typeLocal: false,
       typeCustom: false,

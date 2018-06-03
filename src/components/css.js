@@ -117,6 +117,8 @@ function Css (state, emit) {
       .bb2-lighter { border-bottom: .2rem solid ${colorFgLighter} }
       .bb1-lighter { border-bottom: .1rem solid ${colorFgLighter} }
       .br1-lighter { border-right: .1rem solid ${colorFgLighter} }
+      .br2-lighter { border-right: .2rem solid ${colorFgLighter} }
+      .bl1-lighter { border-left: .1rem solid ${colorFgLighter} }
       .bt1-lighter { border-top: .1rem solid ${colorFgLighter} }
 
       .design-font {

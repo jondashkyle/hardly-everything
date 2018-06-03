@@ -20,7 +20,9 @@ In a normal browser? It’s saved in local storage. Look out though, because cle
 
 ## Managing my own data sounds archaic.
 
-Yeah, so does all of this two factor login stuff we have to deal with these days. Tbh, just copying some JSON into a plaintext file you can do whatever you want with once every few weeks feels like less of a hassle at this point, even if you don’t know what you’re doing.
+Yeah, so does all of this two factor login stuff we have to deal with these days. Misplace your phone? Oh too bad!
+
+Tbh, just copying some JSON into a plaintext file you can do whatever you want with once every few weeks feels like less of a hassle at this point, even if you don’t know what you’re doing.
 
 The slowness lends a certain type of honesty to the practices involved.
 

@@ -23,17 +23,19 @@ function pluginUi (state, emitter) {
     }
   }
 
+  state.events.UI_PANEL = 'ui:panel'
+  state.events.UI_UPDATE = 'ui:update'
   state.events.UI_PAGINATE = 'ui:paginate'
 
-  emitter.on('ui:update', function (data) {
+  emitter.on(state.events.UI_UPDATE, function (data) {
     state.ui = xtend(state.ui, data)
     emitter.emit('app:render')
   })
 
-  emitter.on('ui:panel', function (data) {
+  emitter.on(state.events.UI_PANEL, function (data) {
     var render = state.ui.panel.view !== data.view
     state.ui.panel = xtend(state.ui.panel, data)
-    if (render) emitter.emit('app:render', 'ui:panel')
+    if (render) emitter.emit('app:render', state.events.UI_PANEL)
   })
 
   emitter.on(state.events.UI_PAGINATE, function (data) {
@@ -53,7 +55,6 @@ function pluginUi (state, emitter) {
   function setMobile () {
     clearTimeout(resizeFrame)
     resizeFrame = setTimeout(function () {
-      // if (state.href === '/intro') return
       state.ui.mobile = window.innerWidth <= 600
       emitter.emit('app:render')
     }, 100)

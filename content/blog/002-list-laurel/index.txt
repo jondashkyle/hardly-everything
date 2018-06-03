@@ -1,16 +1,14 @@
-title: Jon-Kyle’s list
+title: Laurel’s list
 ----
 visible: true
 ----
-date: 2018-05-30
+date: 2018-06-01
 ----
-author: Jon-Kyle
+author: Laurel Schwulst
 ----
-authorUrl: https://jon-kyle.com
+authorUrl: http://laurelschwulst.com/
 ----
 category: list
-----
-image: true
 ----
 links:
   day:

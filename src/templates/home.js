@@ -1,6 +1,7 @@
-var Empty = require('../containers/homepage-empty')
-var Panel = require('../containers/panel-container')
 var EntryNavigation = require('../containers/entry-navigation')
+var Notification = require('../containers/notification')
+var Panel = require('../containers/panel-container')
+var Empty = require('../containers/homepage-empty')
 var EntryList = require('../containers/entry-list')
 
 module.exports = view
@@ -35,14 +36,20 @@ function view (state, emit) {
 
   return [
     Panel(state, panelProps, emit),
-    createContent(),
-    EntryNavigation(state, emit)
+    EntryNavigation(state, emit),
+    createContent()
   ]
+
+  function createNotification () {
+    if (state.notifications.active) {
+      return Notification(state, emit)
+    }
+  }
 
   function createContent () {
     return (state.entries.amount === 0)
       ? createEmpty(state, emit)
-      : EntryList(state, emit)
+      : [EntryList(state, emit), createNotification()]
   }
 
   function createEmpty () {

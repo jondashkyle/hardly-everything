@@ -30,6 +30,7 @@ app.route('/panel/:view/:id', wrapper(require('./templates/panel')))
 // data
 app.route('/data', wrapper(require('./templates/data')))
 app.route('/data/:command', wrapper(require('./templates/data')))
+app.route('/reset', wrapper(require('./templates/reset')))
 
 // dev
 if (process.env.NODE_ENV === 'development') {
