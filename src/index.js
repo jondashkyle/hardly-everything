@@ -15,12 +15,15 @@ app.use(require('enoki/choo')('content', {
 // app
 app.route('/', wrapper(require('./templates/home')))
 app.route('/all', wrapper(require('./templates/home')))
+app.route('/empty', wrapper(require('./containers/homepage-empty')))
+app.route('/suggestions', wrapper(require('./templates/suggestions')))
+
+// content
 app.route('/about', wrapper(require('./templates/about')))
 app.route('/blog', wrapper(require('./templates/blog')))
 app.route('/blog/:entry', wrapper(require('./templates/blog-entry')))
 app.route('/faq', wrapper(require('./templates/faq')))
 app.route('/intro', wrapper(require('./templates/intro')))
-app.route('/empty', wrapper(require('./containers/homepage-empty')))
 
 // panel
 app.route('/panel', wrapper(require('./templates/panel')))

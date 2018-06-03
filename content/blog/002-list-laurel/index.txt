@@ -12,14 +12,14 @@ category: list
 ----
 links:
   day:
-    title: Mount Wilson Tower Cam
-    url: http://obs.astro.ucla.edu/towercam.htm
+    title: Delinear
+    url: http://delinear.info
   week:
-    title: Walking in LA
-    url: http://walkinginla.com/
+    title: The Creative Independent
+    url: https://thecreativeindependent.com
   month:
-    title: Primitive Technology
-    url: https://youtube.com/channel/UCAL3JXZSzSm8AlZyD3nQdBA
+    title: Bill Wurtz
+    url: http://www.billwurtz.com
   year:
-    title: ofHouses
-    url: http://ofhouses.com/
+    title: Gossip Web
+    url: http://gossipsweb.net

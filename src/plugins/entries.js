@@ -23,40 +23,6 @@ var intervals = [
   'years'
 ]
 
-function formatTags (tag) {
-  return tag.replace(/^\s+|\s+$/g, '').split(/\s*,\s*/)
-}
-
-function formatEntry (data) {
-  var result = clone(data)
-
-  for (var key in result) {
-    switch (key) {
-      case 'url':
-        result.url = result.url ? normalizeUrl(result.url) : ''
-        break
-    }
-  }
-
-  return result
-}
-
-function validateEntry (data) {
-  if (data.title === '') {
-    return 'Please enter a title'
-  } else if (data.url === '') {
-    return 'Please enter a URL'
-  } else if (!validUrl.isUri(data.url)) {
-    return 'Please enter a valid url'
-  } else if (isNaN(data.duration)) {
-    return 'Please enter a valid duration'
-  } else if (intervals.indexOf(data.interval) === -1) {
-    return 'Please enter a valid interval'
-  } else {
-    return true
-  }
-}
-
 module.exports = Entries
 
 function Entries (state, emitter) {
@@ -238,4 +204,38 @@ function getDurationDate (entry) {
   return dayjs(entry.dateDismissed)
     .add(entry.duration, entry.interval)
     .valueOf()
+}
+
+function formatTags (tag) {
+  return tag.replace(/^\s+|\s+$/g, '').split(/\s*,\s*/)
+}
+
+function formatEntry (data) {
+  var result = clone(data)
+
+  for (var key in result) {
+    switch (key) {
+      case 'url':
+        result.url = result.url ? normalizeUrl(result.url) : ''
+        break
+    }
+  }
+
+  return result
+}
+
+function validateEntry (data) {
+  if (data.title === '') {
+    return 'Please enter a title'
+  } else if (data.url === '') {
+    return 'Please enter a URL'
+  } else if (!validUrl.isUri(data.url)) {
+    return 'Please enter a valid url'
+  } else if (isNaN(data.duration)) {
+    return 'Please enter a valid duration'
+  } else if (intervals.indexOf(data.interval) === -1) {
+    return 'Please enter a valid interval'
+  } else {
+    return true
+  }
 }

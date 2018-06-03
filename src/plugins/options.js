@@ -163,7 +163,7 @@ function getDefaultState () {
         visible: false
       },
       newTab: {
-        name: 'Open entries in new tab',
+        name: 'Open links in new window',
         key: 'newTab',
         type: 'checkbox',
         visible: true

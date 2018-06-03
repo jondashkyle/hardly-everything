@@ -25,7 +25,7 @@ function containerHome (state, emit) {
             <div class="op33 ophc100 lh1-5 copy tc-black py1 px2 tac">
               <p>
                 <span class="fwb curp" onclick=${handleClickAdd}>Add a link</span>> to get started,<br>
-                or want <span class="fwb curp">some suggestions</span>?
+                or want <a href="/suggestions" class="fwb curp">some suggestions</a>?
               </p>
             </div>
           </div>
@@ -79,7 +79,7 @@ function containerHome (state, emit) {
         <div class="copy fs2 tac tc-white pb3 serif">
           <p>
             Take a minute to get started by either<br>
-            <span class="a curp" onclick=${handleClickAdd}>entering a link</span> or <span class="a curp">getting suggestions</span>
+            <span class="a curp" onclick=${handleClickAdd}>entering a link</span> or <a href="/suggestions" class="a curp">getting suggestions</a>
           </p>
         </div>
       </div>

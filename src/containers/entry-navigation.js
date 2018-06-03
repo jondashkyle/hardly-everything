@@ -9,7 +9,7 @@ function view (state, emit) {
       ${state.ui.mobile ? 'r0 bg-white bb2b' : ''}
     ">
       <div class="px1 line fwb">
-        ${state.ui.date}
+        <a href="/" class="tc-black">${state.ui.date}</a>
       </div>
       <div class="px1 line">
         <a

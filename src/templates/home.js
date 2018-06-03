@@ -13,15 +13,10 @@ function view (state, emit) {
   }
 
   // hide if nothing to load
-  if (!state.app.loaded) {
-    return ''
-  }
+  if (!state.app.loaded) return ''
 
   // all
-  if (
-      state.route === 'all' &&
-      !state.ui.entriesViewAll
-    ) {
+  if (state.route === 'all' && !state.ui.entriesViewAll) {
     emit('ui:update', { entriesViewAll: true })
   }
 

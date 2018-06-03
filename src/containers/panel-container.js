@@ -44,7 +44,7 @@ function view (state, props, emit) {
 
   return html`
     <div
-      class="${view && !state.ui.mobile ? 'psf t0 r0 b0 z3 px1' : ''}"
+      class="${view && !state.ui.mobile ? 'psf t0 r0 z3 px1' : ''}"
       onclick=${handleContainerClick}
       data-panel
     >

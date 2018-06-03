@@ -34,16 +34,14 @@ Hardly Everything is in active development:
 
 - [ ] Add Dat support if available (dump state to json)
 - [ ] Re-think the onboarding process
-  - [ ] Remix design if design obj equals defaults
   - [ ] Add example links from blogs
-- [ ] Get `hello` back up with interviews
 - [ ] Testing
-- [ ] Credit section on about
-- [ ] Design slideshow
 - [ ] Homepage has intro video above big screenshot?
+- [ ] Shuffle support
 
 ### 2.1
 
 - [ ] Internationalization
 - [ ] Custom font option
 - [ ] Auto-hide option
+- [ ] Design slideshow
