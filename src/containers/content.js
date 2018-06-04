@@ -1,14 +1,27 @@
 var html = require('choo/html')
+
+var Panel = require('../containers/panel-container')
 var loading = require('../components/loading')
 
 module.exports = containerContent
 
 function containerContent (state, emit, children) {
+  var panelProps = {
+    isHoverActive: true && !state.ui.mobile,
+    view: state.ui.panel.view,
+    navChildren: html`
+      <a href="/" class="op33 psr db oph100 mx1 tc-black pea">
+        <span class="mono">←</span> Feed
+      </a>
+    `
+  }
+
   if (!state.site.loaded) {
     emit(state.events.CONTENT_LOAD)
   }
 
   return [
+    Panel(state, panelProps, emit),
     createNavigation(state, emit),
     createContent()
   ]
@@ -36,9 +49,6 @@ function createNavigation (state, emit) {
           <a href="/" class="tc-black">Hardly Everything</a>
         </div>
         ${pages.map(createLink)}
-      </div>
-      <div class="x">
-        <div class="px1"><a href="/" class="tc-black op33 oph100"><span class="mono">←</div> Feed</a></div>
       </div>
     </div>
   `  

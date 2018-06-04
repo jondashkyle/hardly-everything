@@ -32,7 +32,7 @@ function viewSuggestions (state, emit) {
   function createContent () {
     return html`
       <div class="vhmn100 x xjc xac w100 fs1">
-        ${Suggestions(state, emit)}
+        ${state.cache(Suggestions, 'suggestions').render()}
       </div>
     `
   }

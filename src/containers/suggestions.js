@@ -1,13 +1,42 @@
+var Component = require('nanocomponent')
 var html = require('choo/html')
+var xtend = require('xtend')
+
 var libBlog = require('../lib/blog')
 
-module.exports = containerSuggestions
+module.exports = class Suggestions extends Component {
+  constructor (name, state, emit) {
+    super()
+    this.state = state
+    this.emit = emit
+    this.local = {
+      suggestions: [ ]
+    }
+  }
+
+  load () {
+    // this.local.get
+  }
+
+  createElement (props) {
+    this.local = xtend(this.local, this.props)
+    return containerSuggestions(this.state, this.emit)
+  }
+
+  update (props) {
+    return false
+  }
+
+  updateEnries (props) {
+
+  }
+}
 
 function containerSuggestions (state, emit) {
   return html`
     <div class="p1">
       ${libBlog
-        .getRandomSuggestions(state)
+        .getSuggestions(state)
         .map(createSuggestion)
       }
     </div>

@@ -9,6 +9,5 @@ module.exports = [
   require('./user'),
   require('./app'),
   require('./scroll'),
-  require('./introduction'),
   require('./notifications')
 ]

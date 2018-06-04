@@ -67,6 +67,7 @@ function view (state, props, emit) {
   function navigation () {
     return html`
       <div class="x line c12 tc-black fs1 pen usn">
+        ${props.navChildren}
         ${ov(views)
           .filter(view => view.active !== false)
           .map(navigationLink)

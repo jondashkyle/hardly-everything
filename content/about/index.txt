@@ -20,7 +20,7 @@ credit:
 ----
 text:
 
-Today most prominent apps and sites often share a common element; the feed. It looks like Facebook’s timeline, or Buzzfeed’s homepage—an endlessly updating stream of content, designed to keep you returning, and spending more time.
+Most popular apps and sites today often share a common element; the feed. It looks like Facebook’s timeline, or Buzzfeed’s homepage—an endlessly updating stream of content, designed to keep you returning, and spending more time.
 
 You frequently hear of us feeling burnt out by this “drinking from a firehose.” Of course, these products know that, and are increasingly implementing steps to filter what you see and what you don’t based in part on what keeps you returning—a perpetually shifting mix, resulting in what has become known as the filter bubble, FOMO, and other things.
 
