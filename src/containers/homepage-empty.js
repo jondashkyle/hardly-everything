@@ -8,8 +8,7 @@ function containerHome (state, emit) {
   var isActivePreview = !state.ui.panel.view
   return html`
     <div>
-      <div class="x xafe fs3 psr home-height pt3">
-        <img src="/assets/img/bg.jpg" class="dn pen psa t0 l0 r0 b0 h100 w100 pixelate" style="object-fit: cover; mix-blend-mode: screen;">
+      <div class="x xdc fs3 psr home-height pt3">
         <div
           class="dn b2-light bro fs1 sans ophc lh1-5 xjc xac psf r0 m1 wrem40"
           sm="${state.ui.panel.loaded ? 'x' : ''}"
@@ -30,34 +29,34 @@ function containerHome (state, emit) {
             </div>
           </div>
         </div>
-        <div class="w100">
-          <div class="p1 wmxrem60 psr home-width" sm="z3 pl4">
-            <div class="lh1-2 serif curd">
-              Hardly Everything is your feed with a cadence.
-            </div>
-            <div class="fs1 sans pt1 wmxrem50 copy lh1-5 curd" sm="pb2">
-              <p>Give attention to what’s important by choosing how often you want to remember things. Amplify the quiet, tone down the loud. For lovers of links and the open web. <a href="/about">Continue reading</a> →</p>
+        <div class="xx x xdc tac psr home-width pb2" sm="z3">
+          <div class="xx x xac xjc p1">
+            <div class="bro bg-black psr" style="width: 20rem; height: 12rem">
+              <div class="icon-play"></div>
             </div>
           </div>
-          <div class="x xw w100 fs1 lh1-5 curd sans bg-white psr z2">
-            <div class="home-gradient dn" sm="db"></div>
-            <div class="x xdc xx op33 oph100">
-              <div class="p1">
-                <div class="fwb mb1">Getting started</div>
-                <div class="copy">Wondering what this is all about? Give the video <a href="/intro">a quick watch</a>. Still have some questions? Stop by <a href="/faq">the FAQ</a> for a scroll.</div>
-              </div>
+          <div class="lh1-2 serif curd p1">
+            Your feed with a cadence
+          </div>
+        </div>
+        <div class="x xw w100 fs1 lh1-5 curd sans bg-white psr z2">
+          <div class="home-gradient dn" sm="db"></div>
+          <div class="x xdc xx op33 oph100">
+            <div class="p1">
+              <div class="fwb mb1">You’re in control</div>
+              <div class="copy"> Give attention to what’s important by choosing how often you want to remember things. For lovers of the open web.</div>
             </div>
-            <div class="x xdc xx op33 oph100">
-              <div class="p1">
-                <div class="fwb mb1">Customizable</div>
-                <div class="copy">“Web design is dead?” Hardly. Choose from a fresh selection of open source typography and finesse to your liking.</div>
-              </div>
+          </div>
+          <div class="x xdc xx op33 oph100">
+            <div class="p1">
+              <div class="fwb mb1">Make it yours</div>
+              <div class="copy">Not everyone is the same. Create your own design by selecting an open source font and finessing the colors.</div>
             </div>
-            <div class="c12 dn op33 oph100" sm="xx x xdc">
-              <div class="p1">
-                <div class="fwb mb1">Own your data</div>
-                <div>Forget accounts and passwords. You own your data thanks to full support for p2p connectivity and offline access with Dat.</div>
-              </div>
+          </div>
+          <div class="c12 dn op33 oph100" sm="xx x xdc">
+            <div class="p1">
+              <div class="fwb mb1">Own your data</div>
+              <div class="copy">No ads. No tracking. Forget accounts and passwords. Your data is yours and no one elses thanks to <a href="https://datproject.org">Dat</a>.</div>
             </div>
           </div>
         </div>

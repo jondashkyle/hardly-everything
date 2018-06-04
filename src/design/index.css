@@ -18,7 +18,7 @@ body {
 
 @media (min-width: 767px) {
   .home-height {
-    min-height: calc(100vh - 4rem);
+    min-height: 46rem;
   }
 
   .home-width {
