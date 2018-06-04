@@ -61,7 +61,7 @@ function createDefault (props) {
 
 function createFooter (props) {
   return html`
-    <div class="mt1 line bt1-lighter mono fc-black-lighter">
+    <div class="mt1 line bt1-lighter mono fc-black-light">
       Published <span class="mono">${props.date}</span>, <a href="${props.url}">Permalink</a>
     </div>
   `

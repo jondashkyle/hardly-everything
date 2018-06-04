@@ -112,6 +112,8 @@ function Css (state, emit) {
       .bb2b { border-bottom: .2rem solid ${colorFg} }
       .bt2b { border-top: .2rem solid ${colorFg} }
       .b2-light { border: .2rem solid ${colorFgLight} }
+      .bt2-light { border-top: .2rem solid ${colorFgLight} }
+      .bt1-light { border-top: .1rem solid ${colorFgLight} }
       .b2-lighter { border: .2rem solid ${colorFgLighter} }
       .bt2-lighter { border-top: .2rem solid ${colorFgLighter} }
       .bb2-lighter { border-bottom: .2rem solid ${colorFgLighter} }
