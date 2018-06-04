@@ -98,21 +98,23 @@ body {
   background-color: var(--fg);
   height: 1em;
   width: 1em;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
 .icon-eye {
+  -webkit-mask: url(/assets/icon-eye.svg) no-repeat center;
   mask: url(/assets/icon-eye.svg) no-repeat center;
-  mask-size: contain;
 }
 
 .icon-settings {
+  -webkit-mask: url(/assets/icon-settings.svg) no-repeat center;
   mask: url(/assets/icon-settings.svg) no-repeat center;
-  mask-size: contain;
 }
 
 .icon-trash {
+  -webkit-mask: url(/assets/icon-trash.svg) no-repeat center;
   mask: url(/assets/icon-trash.svg) no-repeat center;
-  mask-size: contain;
   margin-top: 0.05em;
   height: 0.85em;
   width: 0.85em;

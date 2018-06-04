@@ -1,0 +1,13 @@
+{
+  "sourceMap": false,
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "browsers": ["last 3 versions"]
+      }
+    }]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-async-to-generator"
+  ]
+}
