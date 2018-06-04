@@ -11,7 +11,7 @@ function containerContent (state, emit, children) {
     view: state.ui.panel.view,
     navChildren: html`
       <a href="/" class="op33 psr db oph100 mx1 tc-black pea">
-        <span class="mono">←</span> Feed
+        <span class="mono mr0-5">←</span>Feed
       </a>
     `
   }

@@ -1,4 +1,4 @@
-var objectValues = require('object-values')
+var objectKeys = require('object-keys')
 var xtend = require('xtend')
 
 module.exports = {
@@ -21,11 +21,14 @@ function getSuggestions (state) {
       return page.category === 'list'
     })
     .reduce(function (res, cur) {
-      objectValues(cur.links)
-        .forEach(function (link) {
+      objectKeys(cur.links)
+        .forEach(function (key) {
           return res.push(xtend(
-            link,
-            { author: cur.author, authorUrl: cur.authorUrl }
+            cur.links[key], {
+              author: cur.author,
+              authorUrl: cur.authorUrl,
+              interval: key
+            }
           ))
       })
       return res

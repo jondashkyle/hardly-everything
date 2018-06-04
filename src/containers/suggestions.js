@@ -64,8 +64,20 @@ function containerSuggestions (state, emit) {
       emit('staging:entry', {
         title: props.title,
         url: props.url,
-        tags: [ ]
+        tags: [ ],
+        duration: '1',
+        interval: props.interval,
+        timeRange: getTimeRange(props.interval)
       })
     }
+  }
+}
+
+function getTimeRange (interval) {
+  switch (interval) {
+    case 'year': return 100
+    case 'month': return 81
+    case 'week': return 61
+    default: return 1
   }
 }
