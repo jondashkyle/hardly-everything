@@ -31,9 +31,13 @@ function containerHome (state, emit) {
         </div>
         <div class="xx x xdc tac psr home-width pb2" sm="z3">
           <div class="xx x xac xjc p1">
-            <div class="bro bg-black psr" style="width: 20rem; height: 12rem">
+            <a
+              href="/intro"
+              class="db curp bro bg-black psr bgsc"
+              style="background-image: url(/assets/img/posterframe.jpg); width: 20rem; height: 12rem"
+            >
               <div class="icon-play"></div>
-            </div>
+            </a>
           </div>
           <div class="lh1-2 serif curd p1">
             Your feed with a cadence
@@ -44,12 +48,12 @@ function containerHome (state, emit) {
           <div class="x xdc xx op33 oph100">
             <div class="p1">
               <div class="fwb mb1">You’re in control</div>
-              <div class="copy"> Give attention to what’s important by choosing how often you want to remember things. For lovers of the open web.</div>
+              <div class="copy"> Give attention to what’s important by choosing how often you want to remember things. For lovers of links & the open web.</div>
             </div>
           </div>
           <div class="x xdc xx op33 oph100">
             <div class="p1">
-              <div class="fwb mb1">Make it yours</div>
+              <div class="fwb mb1">Make the design yours</div>
               <div class="copy">Not everyone is the same. Create your own design by selecting an open source font and finessing the colors.</div>
             </div>
           </div>
@@ -65,7 +69,7 @@ function containerHome (state, emit) {
         <div class="c8 co2">
           <img src="/assets/img/screenshot.png" class="w100">
         </div>
-        <div class="copy fs2 tac curd tc-white pb3 serif">
+        <div class="copy fs2 tac curd tc-white p1 pb3 serif">
           <p>
             Begin by <span class="a curp" onclick=${handleClickAdd}>entering a link</span> or <a href="/suggestions" class="a curp">seeing suggestions</a>
           </p>
