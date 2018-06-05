@@ -120,3 +120,26 @@ exports.terminal = {
   "scale": 46,
   "spacing": 72
 }
+
+exports.curvyPurple = {
+  "invert": true,
+  "newTab": true,
+  "autoDismiss": true,
+  "colorBg": {
+    "r": 245,
+    "g": 245,
+    "b": 245,
+    "a": 1
+  },
+  "colorText": {
+    "r": 100,
+    "g": 0,
+    "b": 255,
+    "a": 1
+  },
+  "font": type.pecita,
+  "uppercase": false,
+  "hyphenate": false,
+  "scale": 54,
+  "spacing": 68
+}
