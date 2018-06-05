@@ -3,7 +3,7 @@
   "presets": [
     ["@babel/preset-env", {
       "targets": {
-        "browsers": ["last 3 versions"]
+        "browsers": ["last 2 versions"]
       }
     }]
   ],

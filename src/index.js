@@ -1,3 +1,4 @@
+require('babel-polyfill')
 require('./design')
 
 var html = require('choo/html')
