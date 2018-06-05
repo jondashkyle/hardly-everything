@@ -60,7 +60,7 @@ function containerHome (state, emit) {
           <div class="c12 dn oph100" sm="db xx op33">
             <div class="p1">
               <div class="fwb mb1">You are not a product</div>
-              <div class="copy">No ads. No tracking. Forget accounts and passwords. Your data is yours and no one elses thanks to <a href="https://datproject.org">Dat</a>.</div>
+              <div class="copy">No ads. No tracking. Forget accounts and passwords. Own your data and run offline by visiting in <span class="external"><a href="https://beaker-browser.com">Beaker Browser</a></span>.</div>
             </div>
           </div>
         </div>
