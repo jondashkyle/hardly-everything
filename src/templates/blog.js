@@ -18,7 +18,7 @@ function content (state, emit) {
     .toArray()
 
   return html`
-    <div class="fs1 lh1-5 xx x xdc xjc xac">
+    <div class="fs1 lh1-5 xx x xdc xjc xac py3">
       <div class="p1 copy w100 wmxrem50">
         ${entries.map(entryBlog)}
       </div>

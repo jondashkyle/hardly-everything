@@ -42,7 +42,6 @@ module.exports = class IntroVideo extends Component {
   }
 
   unload (element) {
-    this.player.destroy()
     delete this.player
   }
 }

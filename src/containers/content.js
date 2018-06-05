@@ -16,7 +16,10 @@ function containerContent (state, emit, children) {
     `
   }
 
-  if (state.ui.panel.view !== '' && !state.ui.panel.loadedContent) {
+  if (
+    state.ui.panel.view !== '' &&
+    !state.ui.panel.loadedContent
+  ) {
     emit('ui:panel', { view: '', loadedContent: true })
   }
 

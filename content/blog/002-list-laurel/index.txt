@@ -19,7 +19,7 @@ links:
     url: https://thecreativeindependent.com
   month:
     title: Bill Wurtz
-    url: http://www.billwurtz.com
+    url: http://billwurtz.com
   year:
     title: Gossip Web
     url: http://gossipsweb.net

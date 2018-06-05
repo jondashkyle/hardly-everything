@@ -21,10 +21,10 @@ function containerHome (state, emit) {
             <div class="arrow-bottom"></div>
           </div>
           <div>
-            <div class="op33 ophc100 lh1-5 copy tc-black py1 px2 tac">
+            <div class="lh1-5 tc-black py1 px2 tac op33 ophc100">
               <p>
                 <span class="fwb curp" onclick=${handleClickAdd}>Add a link</span>> to get started,<br>
-                or want <a href="/suggestions" class="fwb curp">some suggestions</a>?
+                or want <a href="/suggestions" class="tc-black fwb curp">some suggestions</a>?
               </p>
             </div>
           </div>
@@ -33,7 +33,7 @@ function containerHome (state, emit) {
           <div class="xx x xac xjc p1">
             <a
               href="/intro"
-              class="db curp bro bg-black psr bgsc"
+              class="db curp bro bg-black-lighter psr bgsc"
               style="background-image: url(/assets/img/posterframe.jpg); width: 20rem; height: 12rem"
             >
               <div class="icon-play"></div>
@@ -45,19 +45,19 @@ function containerHome (state, emit) {
         </div>
         <div class="x xw w100 fs1 lh1-5 curd sans bg-white psr z2">
           <div class="home-gradient dn" sm="db"></div>
-          <div class="x xdc xx op33 oph100">
+          <div class="x xdc xx oph100" sm="op33">
             <div class="p1">
               <div class="fwb mb1">You’re in control</div>
               <div class="copy"> Give attention to what’s important by choosing how often you want to remember things. For lovers of links & the open web.</div>
             </div>
           </div>
-          <div class="x xdc xx op33 oph100">
+          <div class="x xdc xx oph100" sm="op33">
             <div class="p1">
               <div class="fwb mb1">Make the design yours</div>
               <div class="copy">Not everyone is the same. Create your own design by selecting an open source font and finessing the colors.</div>
             </div>
           </div>
-          <div class="c12 dn op33 oph100" sm="xx x xdc">
+          <div class="c12 dn oph100" sm="db xx op33">
             <div class="p1">
               <div class="fwb mb1">Own your data</div>
               <div class="copy">No ads. No tracking. Forget accounts and passwords. Your data is yours and no one elses thanks to <a href="https://datproject.org">Dat</a>.</div>
@@ -71,7 +71,7 @@ function containerHome (state, emit) {
         </div>
         <div class="copy fs2 tac curd tc-white p1 pb3 serif">
           <p>
-            Begin by <span class="a curp" onclick=${handleClickAdd}>entering a link</span> or <a href="/suggestions" class="a curp">seeing suggestions</a>
+            Begin by <span class="a curp" onclick=${handleClickAdd}>entering a link</span> or <a href="/suggestions" class="a curp">adding suggestions</a>
           </p>
         </div>
       </div>

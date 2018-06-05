@@ -1,8 +1,9 @@
 var html = require('choo/html')
 
 var EntryNavigation = require('../containers/entry-navigation')
-var Panel = require('../containers/panel-container')
 var Suggestions = require('../containers/suggestions')
+var Panel = require('../containers/panel-container')
+var EntryList = require('../containers/entry-list')
 var loading = require('../components/loading')
 
 module.exports = viewSuggestions
@@ -26,14 +27,24 @@ function viewSuggestions (state, emit) {
   return [
     Panel(state, panelProps, emit),
     EntryNavigation(state, emit),
+    EntryList(state, emit),
     createContent()
   ]
 
   function createContent () {
     return html`
-      <div class="vhmn100 x xjc xac w100 fs1">
+      <div
+        class="psf t0 l0 r0 b0 vhmn100 x xjc xac w100 fs1 py3-5 px1 z2"
+        onclick=${handleContainerClick}
+        data-suggestions
+      >
         ${state.cache(Suggestions, 'suggestions').render()}
       </div>
     `
+  }
+
+  function handleContainerClick (event) {
+    var isContainer = event.target.hasAttribute('data-suggestions')
+    if (isContainer && state.entries.amount) emit('pushState', '/')
   }
 }
