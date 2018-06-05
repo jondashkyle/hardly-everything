@@ -33,12 +33,7 @@ Hardly Everything is in active development:
 ### 2.0
 
 - [ ] Add Dat support if available (dump state to json)
-- [ ] Re-think the onboarding process
-  - [ ] Add example links from blogs
-  - [ ] Set duration of link of suggestions from time submitted
 - [ ] Testing
-- [ ] Homepage has intro video above big screenshot?
-- [ ] Shuffle support
 
 ### 2.1
 

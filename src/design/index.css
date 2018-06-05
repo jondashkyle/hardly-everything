@@ -188,6 +188,14 @@ a {
   padding-bottom: .2rem;
 }
 
+.external:after {
+  content: '→';
+  display: inline-block;
+  transform: rotate(-45deg);
+  font-family: var(--mono);
+  margin-left: 0.5rem;
+}
+
 /**
  * lists
  */

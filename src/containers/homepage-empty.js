@@ -54,12 +54,12 @@ function containerHome (state, emit) {
           <div class="x xdc xx oph100" sm="op33">
             <div class="p1">
               <div class="fwb mb1">Finesse the design</div>
-              <div class="copy">Everyone’s different. Create your own design by selecting an open source font and tweaking until it feels right to you.</div>
+              <div class="copy">Not everything conforms to a single format. Create your own design by selecting an open source font and tweaking until it feels right to you.</div>
             </div>
           </div>
           <div class="c12 dn oph100" sm="db xx op33">
             <div class="p1">
-              <div class="fwb mb1">Own your data</div>
+              <div class="fwb mb1">You are not a product</div>
               <div class="copy">No ads. No tracking. Forget accounts and passwords. Your data is yours and no one elses thanks to <a href="https://datproject.org">Dat</a>.</div>
             </div>
           </div>

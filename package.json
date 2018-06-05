@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "build": "enoki content && browserify src/index.js -t [ envify --NODE_ENV production ] -t [ sheetify -u sheetify-cssnext ] -p [ css-extract -o bundles/bundle.css ] -t babelify -o bundles/bundle.js",
-    "buildish": "enoki content && browserify src/index.js -t [ envify --NODE_ENV production ] -t [ sheetify -u sheetify-cssnext ] -p [ css-extract -o bundles/bundle.css ] -t babelify | uglifyjs -c -m -o bundles/bundle.js",
     "start": "enoki content --watch & budo src/index.js --dir . -s bundles/bundle.js -P -- -t sheetify -p [ css-extract -o bundles/bundle.css ]",
+    "dev": "enoki content --watch & watchify src/index.js -t sheetify -p [ css-extract -o bundles/bundle.css ]",
     "serve": "python -m SimpleHTTPServer 8080",
     "test": "standard"
   },

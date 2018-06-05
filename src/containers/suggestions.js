@@ -99,7 +99,7 @@ function containerSuggestions (state, emit) {
         <div class="x ${urls.indexOf(props.url) >= 0 ? 'pen op33' : ''}">
           <div class="xx px0-5 py1">
             <div class="fs1-5 px0-5 lh1-2 xx">
-              <a href="${props.url}" class="tc-black" target="_blank">${props.title}</a>
+              <a href="${props.url}" class="external tc-black" target="_blank">${props.title}</a>
             </div>
             <div class="copy px0-5 op33">
               <span>Contributed by <a href="${props.authorUrl}" class="tc-light" target="_blank">${props.author}</a></span>
