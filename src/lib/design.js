@@ -23,13 +23,14 @@ function isDesignDefault (state, opts) {
 
 function getDesignDefaults () {
   return {
+    invert: false,
     colorBg: { a: 1, r: 255, g: 255, b: 255 },
-    colorText: { a:1, r: 0, g: 0, b: 0 },
+    colorText: { a: 1, r: 0, g: 0, b: 0 },
     font: optionsTypography.system,
     uppercase: false,
     hyphenate: false,
-    scale: 22,
-    spacing: 10,
+    scale: 21,
+    spacing: 36
   }
 }
 

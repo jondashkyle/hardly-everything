@@ -1,4 +1,3 @@
-var api = DatArchive
 var saveTimeouts = { }
 var modalActive
 var archive
