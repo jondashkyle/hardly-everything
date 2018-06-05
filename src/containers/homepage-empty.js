@@ -53,8 +53,8 @@ function containerHome (state, emit) {
           </div>
           <div class="x xdc xx oph100" sm="op33">
             <div class="p1">
-              <div class="fwb mb1">Make the design yours</div>
-              <div class="copy">Not everyone is the same. Create your own design by selecting an open source font and finessing the colors.</div>
+              <div class="fwb mb1">Finesse the design</div>
+              <div class="copy">Everyone’s different. Create your own design by selecting an open source font and tweaking until it feels right to you.</div>
             </div>
           </div>
           <div class="c12 dn oph100" sm="db xx op33">

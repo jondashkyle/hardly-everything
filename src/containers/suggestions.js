@@ -35,6 +35,7 @@ module.exports = class Suggestions extends Component {
     if (!this.local.loaded) return html`<div></div>`
 
     return containerSuggestions({
+      amount: this.state.entries.amount,
       entries: this.state.entries.all,
       suggestions: this.local.entries
     }, this.emit)
@@ -78,9 +79,9 @@ function containerSuggestions (state, emit) {
       ${state.suggestions.map(createSuggestion)}
       <div class="x">
         <div class="c4 br2b p1 tac curp usn" onclick=${handleRefreshClick}>
-          Randomize
+          Refresh
         </div>
-        <a href="/" class="tc-black c8 p1 tac curp usn fwb">
+        <a href="/" class="tc-black c8 p1 tac curp usn fwb ${!state.amount ? 'pen op33' : ''}">
           Complete
         </a>
       </div>
