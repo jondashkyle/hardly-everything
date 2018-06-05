@@ -15,7 +15,7 @@ module.exports = class IntroVideo extends Component {
 
   createElement (props) {
     return html`
-      <div class="h100 w100 psr" style="opacity: 0">
+      <div class="psa t0 l0 r0 b0 h100 w100" style="opacity: 0">
         <div class="psa t0 l0 r0 b0 x xjc xac fs3 z2">Coming soon</div>
         <video class="psa t0 l0 r0 b0 h100 w100" style="object-fit: cover;" poster="/assets/img/posterframe.jpg" playsinline controls>
           <source src="/content/intro/loop.mp4" type="video/mp4">
