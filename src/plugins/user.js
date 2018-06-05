@@ -25,9 +25,9 @@ function user (state, emitter) {
   })
 
   emitter.on(state.events.USER_LOADED, function (data) {
-    state.user.analytics.visits += 1
-    state.user.analytics.lastvisit = new Date().toISOString()
-    emitter.emit('user:update')
+    // state.user.analytics.visits += 1
+    // state.user.analytics.lastvisit = new Date().toISOString()
+    // emitter.emit('user:update')
   })
 
   emitter.on(state.events.USER_ANALYTICS, function (data) {

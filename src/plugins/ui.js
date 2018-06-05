@@ -1,4 +1,3 @@
-var attachFastClick = require('fastclick')
 var dayjs = require('dayjs')
 var xtend = require('xtend')
 
@@ -48,7 +47,6 @@ function pluginUi (state, emitter) {
 
   emitter.on('DOMContentLoaded', function () {
     setMobile()
-    attachFastClick(document.body)
     window.addEventListener('resize', setMobile)
   })
 

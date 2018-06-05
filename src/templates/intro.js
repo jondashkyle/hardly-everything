@@ -11,7 +11,7 @@ function view (state, emit) {
 
 function content (state, emit) {
   return html`
-    <div class="bg-black tc-white fs2 w100 xx x xjc xac">
+    <div class="bg-black tc-white fs2 w100 xx x xjc xac psr">
       ${state.cache(IntroVideo, 'intro-video').render()}
     </div>
   `
