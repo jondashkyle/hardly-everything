@@ -1,4 +1,4 @@
-var Component = require('nanocomponent')
+var Component = require('choo/component')
 var objectValues = require('object-values')
 var nanobus = require('nanobus')
 var html = require('choo/html')

@@ -44,6 +44,7 @@
     "nanobus": "^4.3.3",
     "nanoreset": "^2.0.0",
     "normalize-url": "^1.6.1",
+    "object-keys": "^1.0.11",
     "object-values": "^1.0.0",
     "plyr": "^3.3.9",
     "recsst": "^1.1.2",

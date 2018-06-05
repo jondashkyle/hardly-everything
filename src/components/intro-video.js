@@ -1,4 +1,4 @@
-var Component = require('nanocomponent')
+var Component = require('choo/component')
 var html = require('choo/html')
 var css = require('sheetify')
 var Plyr = require('plyr')
