@@ -1,3 +1,5 @@
+var xtend = require('xtend')
+
 var saveTimeouts = { }
 var modalActive
 var archive

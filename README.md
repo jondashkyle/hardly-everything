@@ -37,6 +37,7 @@ Hardly Everything is in active development:
 
 ### 2.1
 
+- [ ] Better p2p/local ui
 - [ ] Internationalization
 - [ ] Custom font option
 - [ ] Auto-hide option

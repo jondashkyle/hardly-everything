@@ -197,6 +197,9 @@ a {
   display: inline-block;
   transform: rotate(-45deg);
   font-family: var(--mono);
+}
+
+.fs1-5 .external:after {
   margin-left: 0.5rem;
 }
 

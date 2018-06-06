@@ -87,7 +87,7 @@ exports.fraktur = {
   "font": type.unifrakturMaguntia,
   "uppercase": false,
   "hyphenate": false,
-  "scale": 46,
+  "scale": 70,
   "spacing": 53
 }
 

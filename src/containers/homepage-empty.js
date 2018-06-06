@@ -59,7 +59,7 @@ function containerHome (state, emit) {
           <div class="c12 oph100" sm="c6" md="db xx">
             <div class="px1 pb2">
               <div class="fwb">You are not a product</div>
-              <div class="copy">No ads. No tracking. Offline access. Forget accounts and passwords. Simply visit in <a href="https://beakerbrowser.com" target="_blank">Beaker Browser</a>.</div>
+              <div class="copy">No ads. No tracking. Forget accounts and passwords. Own your data and run offline by visiting in <span class="external"><a href="https://beaker-browser.com">Beaker Browser</a></span>.</div>
             </div>
           </div>
         </div>
