@@ -13,7 +13,8 @@ function entryBlog (props) {
 }
 
 function createList (props) {
-  var image = '/content/' + props.files['desktop.png']
+  props.image = false // temp disable
+  // var image = '/content/' + props.files['desktop.png']
 
   return html`
     <div class="lh1-5 py1-5">

@@ -28,19 +28,26 @@ async function get (namespace, callback) {
     if (!archive) await load()
     try {
       var state = await archive.readFile(namespace + '.json')
-      callback(JSON.parse(state))
+      var output = JSON.parse(state)
+      if (typeof callback === 'function') callback(output)
+      return output
     } catch (err) {
-      callback({ })
+      if (typeof callback === 'function') callback({ })
     }
   } else {
-    // skip if no arhive selected
-    callback({ })
+    // skip if no archive selected
+    if (typeof callback === 'function') callback({ })
   }
 }
 
 async function save (namespace, state, callback) {
+  var output = { }
+
   // load
-  if (!archive) await load()
+  if (!archive) {
+    await load()
+    output = await get(namespace)
+  }
 
   // throttle saving
   clearTimeout(saveTimeouts[namespace])
@@ -48,7 +55,7 @@ async function save (namespace, state, callback) {
     // write state
     await archive.writeFile(
       namespace + '.json',
-      JSON.stringify(state, { }, 2)
+      JSON.stringify(xtend(output, state), { }, 2)
     )
     //callback
     if (typeof callback === 'function') callback()

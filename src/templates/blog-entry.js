@@ -1,4 +1,4 @@
-var html = require('choo/html')
+var html = require('choo/html') 
 
 var containerContent = require('../containers/content')
 var entryBlog = require('../components/entry-blog')
@@ -21,4 +21,3 @@ function content (state, emit) {
     </div>
   `
 }
-

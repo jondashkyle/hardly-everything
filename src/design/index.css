@@ -90,6 +90,10 @@ body {
   font-weight: bold;
 }
 
+.ti1 {
+  text-indent: 2rem;
+}
+
 /**
  * icons
  */
@@ -678,7 +682,7 @@ input:required {
 .plyr__captions {
   animation: none;
   font-family: var(--serif);
-  color: yellow;
+  color: var(--bg);
 }
 
 .plyr__captions span {

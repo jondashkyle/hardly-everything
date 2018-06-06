@@ -8,7 +8,7 @@ function containerHome (state, emit) {
   var isActivePreview = !state.ui.panel.view
   return html`
     <div>
-      <div class="x xdc fs3 psr home-height pt3">
+      <div class="x xdc fs3 psr home-height" style="padding-top: 3.25rem">
         <div
           class="dn b2-light bro fs1 sans ophc lh1-5 xjc xac psf r0 m1 wrem40"
           sm="${state.ui.panel.loaded ? 'x' : ''}"
@@ -29,38 +29,37 @@ function containerHome (state, emit) {
             </div>
           </div>
         </div>
-        <div class="xx x xdc tac psr home-width pb2" sm="z3">
-          <div class="xx x xac xjc p1">
-            <a
-              href="/intro"
-              class="db curp bro bg-black-lighter psr bgsc"
-              style="background-image: url(/assets/img/posterframe.jpg); width: 20rem; height: 12rem"
-            >
-              <div class="icon-play"></div>
-            </a>
-          </div>
-          <div class="lh1-2 serif curd p1">
-            Your feed with a cadence
-          </div>
+        <div class="xx x xdc tac psr home-width p4" sm="z3">
+          <a
+            href="/intro"
+            class="w100 db curp bro bg-black-lighter psr bgsc"
+            style="background-image: url(/assets/img/posterframe.jpg);"
+          >
+            <div class="icon-play"></div>
+            <div class="w100" style="padding-bottom: 56.25%"></div>
+            <div class="tc-white psa l0 b0 r0 lh1-2 serif curd tac p1" sm="p2">
+              Your feed with a cadence
+            </div>
+          </a>
         </div>
         <div class="x xw w100 fs1 lh1-5 curd sans bg-white psr z2">
           <div class="home-gradient dn" sm="db"></div>
-          <div class="x xdc xx oph100" sm="op33">
-            <div class="p1">
-              <div class="fwb mb1">You’re in control</div>
+          <div class="x xdc c12 oph100" sm="c6" md="xx">
+            <div class="px1 pb2">
+              <div class="fwb">You’re in control</div>
               <div class="copy"> Give attention to what’s important by choosing how often you want to remember things. For lovers of links & the open web.</div>
             </div>
           </div>
-          <div class="x xdc xx oph100" sm="op33">
-            <div class="p1">
-              <div class="fwb mb1">Finesse the design</div>
+          <div class="x xdc c12 oph100" sm="c6" md="xx">
+            <div class="px1 pb2">
+              <div class="fwb">Finesse the design</div>
               <div class="copy">Not everything conforms to a single format. Create your own design by selecting an open source font and tweaking until it feels right to you.</div>
             </div>
           </div>
-          <div class="c12 dn oph100" sm="db xx op33">
-            <div class="p1">
-              <div class="fwb mb1">You are not a product</div>
-              <div class="copy">No ads. No tracking. Forget accounts and passwords. Your data is yours and no one elses thanks to <a href="https://datproject.org">Dat</a>.</div>
+          <div class="c12 oph100" sm="c6" md="db xx">
+            <div class="px1 pb2">
+              <div class="fwb">You are not a product</div>
+              <div class="copy">No ads. No tracking. Offline access. Forget accounts and passwords. Simply visit in <a href="https://beakerbrowser.com" target="_blank">Beaker Browser</a>.</div>
             </div>
           </div>
         </div>
