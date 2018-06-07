@@ -29,18 +29,15 @@ function containerHome (state, emit) {
             </div>
           </div>
         </div>
-        <div class="xx x xdc tac psr home-width p4" sm="z3">
-          <a
-            href="/intro"
-            class="w100 db curp bro bg-black-lighter psr bgsc"
-            style="background-image: url(/assets/img/posterframe.jpg);"
-          >
-            <div class="icon-play"></div>
+        <div class="xx x xdc tac psr home-width pt2 p1" sm="p1 z3" md="p4">
+          <div class="w100 db curp bro bg-black-lighter psr bgsc oh">
             <div class="w100" style="padding-bottom: 56.25%"></div>
-            <div class="tc-white psa l0 b0 r0 lh1-2 serif curd tac p1" sm="p2">
+            ${state.cache(IntroVideo, 'homepage:intro').render()}
+            <div class="${state.ui.introActive ? 'dn' : 'db'} pen icon-play"></div>
+            <div class="${state.ui.introStarted ? 'dn' : 'db'} pen tc-white psa l0 b0 r0 lh1-2 serif curd tac p1 fs2" sm="fs3 p2" md="fs3">
               Your feed with a cadence
             </div>
-          </a>
+          </div>
         </div>
         <div class="x xw w100 fs1 lh1-5 curd sans bg-white psr z2">
           <div class="home-gradient dn" sm="db"></div>
@@ -59,7 +56,7 @@ function containerHome (state, emit) {
           <div class="c12 oph100" sm="c6" md="db xx">
             <div class="px1 pb2">
               <div class="fwb">You are not a product</div>
-              <div class="copy">No ads. No tracking. Forget accounts and passwords. Own your data and run offline by visiting in <span class="external"><a href="https://beaker-browser.com">Beaker Browser</a></span>.</div>
+              <div class="copy">No ads. No tracking. Forget accounts and passwords. Own your data and run offline by visiting in <span class="external"><a href="https://beaker-browser.com" target="_blank">Beaker Browser</a></span>.</div>
             </div>
           </div>
         </div>
@@ -79,7 +76,7 @@ function containerHome (state, emit) {
           <div class="px1"><a href="/about" class="tc-black">About</a></div>
           <div class="px1"><a href="/blog" class="tc-black">Blog</a></div>
           <div class="px1"><a href="/faq" class="tc-black">FAQ</a></div>
-          <div class="px1"><a href="/intro" class="tc-black">Intro</a></div>
+          <div class="px1 ${!state.href ? 'dn' : ''}"><a href="/intro" class="tc-black">Intro</a></div>
         </div>
         <div class="px1">2018</div>
       </div>

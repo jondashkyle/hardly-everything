@@ -64,9 +64,9 @@ utils.push({
 
 output = gr8({
   breakpoints: {
-    lg: 1000,
+    sm: 600,
     md: 800,
-    sm: 600
+    lg: 1000
   },
   lineHeight: [1, 1.2, 1.5],
   fontSize: [0.7, 0.8, 1, 1.2, 1.4, 1.5, 1.6, 1.8, 2, 3, 4]

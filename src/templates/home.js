@@ -1,7 +1,7 @@
 var EntryNavigation = require('../containers/entry-navigation')
 var Notification = require('../containers/notification')
 var Panel = require('../containers/panel-container')
-var Empty = require('../containers/homepage-empty')
+var Intro = require('../containers/intro')
 var EntryList = require('../containers/entry-list')
 
 module.exports = view
@@ -43,17 +43,17 @@ function view (state, emit) {
 
   function createContent () {
     return (state.entries.amount === 0)
-      ? createEmpty(state, emit)
+      ? createIntro(state, emit)
       : [EntryList(state, emit), createNotification()]
   }
 
-  function createEmpty () {
+  function createIntro () {
     // show if we have’t
     if (!state.ui.mobile && !state.ui.panel.loaded) {
       setTimeout(function () {
         emit('ui:panel', { view: 'entry', loaded: true })
       }, 1)
     }
-    return Empty(state, emit)
+    return Intro(state, emit)
   }
 }

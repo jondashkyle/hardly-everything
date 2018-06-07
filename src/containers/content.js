@@ -50,8 +50,13 @@ function createNavigation (state, emit) {
   var pages = state.page('/').pages().sortBy('name', 'asc').toArray()
 
   return html`
-    <div class="fs1 line psf t0 l0 r0 x xjb z2 bgh-white">
-      <div class="x">
+    <div
+      class="
+        fs1 psf t0 l0 r0 x xjb z2 bgh-white
+        ${state.ui.mobile ? 'bg-white bb2b' : ''}
+      "
+    >
+      <div class="x line">
         <div class="px1 fwb">
           <a href="/" class="tc-black">Hardly Everything</a>
         </div>

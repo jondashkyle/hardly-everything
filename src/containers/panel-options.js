@@ -54,12 +54,12 @@ function view (state, emit) {
           </a>
         </div>
         <div class="xx p1px curp tac">
-          <a href="/blog" class="line bg-white db bribr tc-black">
+          <a href="/blog" class="line bg-white db  tc-black">
             Blog
           </a>
         </div>
         <div class="xx p1px curp tac">
-          <a href="/faq" class="line bg-white db tc-black">
+          <a href="/faq" class="line bg-white db bribr tc-black">
             FAQ
           </a>
         </div>

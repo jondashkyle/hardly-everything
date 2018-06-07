@@ -51,6 +51,7 @@ function Css (state, emit) {
         --bg: ${colorBg};
         --fg: ${colorFg};
         --fg-light: ${colorFgLight};
+        --fg-lighter: ${colorFgLighter};
         background: ${colorBg};
       }
 
@@ -108,6 +109,7 @@ function Css (state, emit) {
       .b1b { border: .1rem solid ${colorFg} }
       .br1b { border-right: .1rem solid ${colorFg} }
       .bl1b { border-left: .1rem solid ${colorFg} }
+      .bb1b { border-bottom: .1rem solid ${colorFg} }
       .b2b { border: .2rem solid ${colorFg} }
       .bb2b { border-bottom: .2rem solid ${colorFg} }
       .bt2b { border-top: .2rem solid ${colorFg} }
@@ -123,6 +125,10 @@ function Css (state, emit) {
       .br2-lighter { border-right: .2rem solid ${colorFgLighter} }
       .bl1-lighter { border-left: .1rem solid ${colorFgLighter} }
       .bt1-lighter { border-top: .1rem solid ${colorFgLighter} }
+
+      @media (min-width: 600px) {
+        [sm~="bb0"] { border-bottom: 0 }
+      }
 
       .design-font {
         font-family: ${state.options.values.font.value}, sans-serif;

@@ -16,7 +16,7 @@ body {
  * home
  */
 
-@media (min-width: 767px) {
+@media (min-width: 600px) {
   .home-height {
     min-height: 46rem;
   }
@@ -197,6 +197,7 @@ a {
   display: inline-block;
   transform: rotate(-45deg);
   font-family: var(--mono);
+  margin-left: 0.25em;
 }
 
 .fs1-5 .external:after {
@@ -238,6 +239,9 @@ a {
 }
 
 .p1px { padding: .1rem }
+@media (min-width: 600px) {
+  [sm~="p1px"] { padding: .1rem }
+}
 
 .pen { pointer-events: none }
 .cur-ewr { cursor: ew-resize }
@@ -647,6 +651,10 @@ input:required {
   background: #000;
 }
 
+.plyr__controls .plyr__progress:first-child {
+  margin-left: 10px;
+}
+
 .plyr--video .plyr__time {
   font-family: var(--mono);
   text-shadow: none;
@@ -686,12 +694,14 @@ input:required {
   animation: none;
   font-family: var(--serif);
   color: var(--bg);
+  pointer-events: none;
+  padding: 0 1rem;
 }
 
 .plyr__captions span {
   background: none;
   line-height: 1.2;
-  font-size: 4rem;
+  font-size: 2.5rem;
   padding: 0;
 }
 
@@ -704,10 +714,6 @@ input:required {
   background-size: cover;
 }
 
-.pixelate {
-  image-rendering: -moz-crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: -o-pixelated;
-  image-rendering: pixelated; 
+.plyr--video .plyr__progress__buffer {
+  box-shadow: none;
 }

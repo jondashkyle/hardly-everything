@@ -12,7 +12,7 @@ function panelEntry (state, emit) {
   return html`
     <form
       autocomplete="off"
-      class="x xw bg-black"
+      class="x xw bg-black m0"
       onsubmit=${handleSubmit}
     >
       <div class="c12 p1px">

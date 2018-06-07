@@ -10,6 +10,7 @@ function pluginUi (state, emitter) {
     date: dayjs().format('MMMM D'),
     loaded: false,
     stagingActive: false,
+    introActive: false,
     entriesViewAll: false,
     mobile: false,
     pagination: {

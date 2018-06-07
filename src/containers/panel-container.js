@@ -27,8 +27,10 @@ function view (state, props, emit) {
   }
 
   var view = views[props.view]
-  var content = view && view.view && typeof view.view === 'function'
-    ? html`
+  var content = (
+    view && view.view &&
+    typeof view.view === 'function'
+  ) ? html`
       <div
         class="panel psr c12 sans fs1 pen pb1"
         style="top: 4.5rem"
@@ -36,7 +38,13 @@ function view (state, props, emit) {
       >
         <div class="pea psr ${state.ui.mobile ? 'w100 oh' : ''}">
           <div class="pen z2 ${state.ui.mobile ? '' : 'psa t0 l0 r0 b0 bro b2b'}"></div>
-          <div class="p1px" style="${state.ui.mobile ? 'margin: 0 -2px' : ''}">${view.view()}</div>
+          <div
+            class="bb1b"
+            sm="p1px bb0"
+            style="${state.ui.mobile ? 'margin: 0 -1px' : ''}"
+          >
+            ${view.view()}
+          </div>
         </div>
       </div>
       `
@@ -66,7 +74,9 @@ function view (state, props, emit) {
 
   function navigation () {
     return html`
-      <div class="x line c12 tc-black fs1 pen usn">
+      <div
+        class="x line c12 tc-black fs1 pen usn"
+      >
         ${props.navChildren}
         ${ov(views)
           .filter(view => view.active !== false)

@@ -16,7 +16,6 @@ app.use(require('enoki/choo')('content', {
 // app
 app.route('/', wrapper(require('./templates/home')))
 app.route('/all', wrapper(require('./templates/home')))
-app.route('/empty', wrapper(require('./containers/homepage-empty')))
 app.route('/suggestions', wrapper(require('./templates/suggestions')))
 
 // content
