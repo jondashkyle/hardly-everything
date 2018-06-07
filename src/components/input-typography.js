@@ -41,7 +41,7 @@ class Typography extends Component {
   elOption (data) {
     return html`
       <div
-        class="x px1 curp fs1-5 line bb1-lighter ophc design-font-uppercase"
+        class="x px1 curp fs1-5 line bb1-lighter ophc design-font-uppercase wsnw"
         onclick=${event => this.handleOptionClick(data, event)}
         style="
           font-family: ${data.value}, sans-serif;
