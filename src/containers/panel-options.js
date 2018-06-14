@@ -6,10 +6,14 @@ var input = require('../components/input')
 module.exports = view
 
 function view (state, emit) {
+  var disabled = (state.href === '' && !state.entries.amount)
+    ? 'pen input-disabled'
+    : ''
+  console.log(disabled)  
   return html`
     <div class="${state.ui.mobile ? '' : 'panel-content'} x xw c12 bg-black tc-white sans usn">
       <div class="c12 p1px">
-        <div class="tc-black bg-white ${state.ui.mobile ? '' : 'brit'} psr z1">
+        <div class="tc-black bg-white psr z1 ${state.ui.mobile ? '' : 'brit'} ${disabled}">
           ${input(state, emit, xtend(state.options.design.font, {
             children: createFontOptions()
           }))}
@@ -17,12 +21,12 @@ function view (state, emit) {
       </div>
       <div class="c12 x">
         <div class="c6 p1px">
-          <div class="tc-black bg-white">
+          <div class="tc-black bg-white ${disabled}">
             ${input(state, emit, state.options.design.scale)}
           </div>
         </div>
         <div class="c6 p1px">
-          <div class="tc-black bg-white">
+          <div class="tc-black bg-white ${disabled}">
             ${input(state, emit, state.options.design.spacing)}
           </div>
         </div>
@@ -43,7 +47,7 @@ function view (state, emit) {
         </div>
       </div>
       <div class="c12 p1px">
-        <div class="tc-black bg-white line">
+        <div class="tc-black bg-white line ${disabled}">
           ${input(state, emit, state.options.design.newTab)}
         </div>
       </div>

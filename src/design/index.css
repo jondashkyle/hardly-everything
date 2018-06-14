@@ -62,8 +62,8 @@ body {
 .copy > *:first-child { margin-top: 0 }
 .copy > *:last-child { margin-bottom: 0 }
 
-.copy a,
-.copy .a {
+.a,
+.copy a {
   text-decoration: none;
   padding-bottom: 0.1em;
   color: currentColor;
@@ -299,6 +299,23 @@ input {
 :-moz-placeholder { color: rgba(127, 127, 127, 0.5); }
 ::-moz-placeholder { color: rgba(127, 127, 127, 0.5); }
 :-ms-input-placeholder { color: rgba(127, 127, 127, 0.5); }
+
+.input-disabled {
+  position: relative;
+}
+
+.input-disabled:before {
+  background: var(--bg);
+  content: '';
+  opacity: 0.75;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
 
 /**
  * dropdown

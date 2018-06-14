@@ -21,6 +21,15 @@ function pluginNotifications (state, emitter) {
       ) {
         state.notifications.active = 'customizeDesign'
         emitter.emit('app:render')
+        return
+      }
+
+      if (
+        !state.user.notified['p2p'] &&
+        typeof WebArchive === 'undefined'
+      ) {
+        state.notifications.active = 'p2p'
+        emitter.emit('app:render')
       }
     }, 1000)
   }

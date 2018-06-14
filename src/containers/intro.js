@@ -43,19 +43,19 @@ function containerHome (state, emit) {
           <div class="home-gradient dn" sm="db"></div>
           <div class="x xdc c12 oph100" sm="c6" md="xx">
             <div class="px1 pb2">
-              <div class="fwb">You’re in control</div>
+              <div class="fwb mb1">You’re in control</div>
               <div class="copy"> Give attention to what’s important by choosing how often you want to remember things. For lovers of links & the open web.</div>
             </div>
           </div>
           <div class="x xdc c12 oph100" sm="c6" md="xx">
             <div class="px1 pb2">
-              <div class="fwb">Finesse the design</div>
+              <div class="fwb mb1">Finesse the design</div>
               <div class="copy">Not everything conforms to a single format. Create your own design by selecting an open source font and tweaking until it feels right to you.</div>
             </div>
           </div>
           <div class="c12 oph100" sm="c6" md="db xx">
             <div class="px1 pb2">
-              <div class="fwb">You are not a product</div>
+              <div class="fwb mb1">You are not a product</div>
               <div class="copy">No ads. No tracking. Forget accounts and passwords. Own your data and run offline by visiting in <span class="external"><a href="https://beaker-browser.com" target="_blank">Beaker Browser</a></span>.</div>
             </div>
           </div>
