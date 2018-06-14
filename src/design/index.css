@@ -716,5 +716,5 @@ input:required {
 
 .plyr--video .plyr__progress__buffer {
   box-shadow: none;
-  background-image: linear-gradient(-45deg, var(--fg) 25%,transparent 25%,transparent 50%, var(--fg) 50%, var(--fg) 75%,transparent 75%,transparent);
+  /*background-image: linear-gradient(-45deg, var(--fg) 25%,transparent 25%,transparent 50%, var(--fg) 50%, var(--fg) 75%,transparent 75%,transparent);*/
 }

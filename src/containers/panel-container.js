@@ -14,8 +14,8 @@ function view (state, props, emit) {
   var views = {
     entry: {
       title: state.staging.entry.id
-        ? 'Edit link'
-        : html`<span><span class="new-entry"></span>New link</span>`,
+        ? 'Edit'
+        : html`<span><span class="new-entry"></span>Follow</span>`,
       path: 'entry',
       view: () => panelEntry(state, emit)
     },

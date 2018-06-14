@@ -111,7 +111,7 @@ function panelEntry (state, emit) {
         <div class="xa p1px">
           <input
             type="submit"
-            value="${!state.staging.entry.id ? 'Add link' : 'Save link'}"
+            value="${!state.staging.entry.id ? 'Save' : 'Save'}"
             tabindex="-1"
             class="fs1 c12 bg-white tc-black sans fwb line ${state.staging.entry.id ? 'bribr' : 'brib'}"
           />
