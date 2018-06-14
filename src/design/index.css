@@ -70,6 +70,10 @@ body {
   border-bottom: .1rem solid currentColor;
 }
 
+.copy a.bb0 {
+  border-bottom: 0;
+}
+
 .copy img {
   max-width: 100%;
 }
@@ -92,6 +96,10 @@ body {
 
 .ti1 {
   text-indent: 2rem;
+}
+
+.wbba {
+  word-break: break-all;
 }
 
 /**

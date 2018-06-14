@@ -15,9 +15,7 @@ function content (state, emit) {
 
   return html`
     <div class="fs1 lh1-5 xx x xdc xjc xac p2-5">
-      <div class="p1 copy w100 wmxrem50">
-        ${entryBlog(page)}
-      </div>
+      ${entryBlog(page)}
     </div>
   `
 }

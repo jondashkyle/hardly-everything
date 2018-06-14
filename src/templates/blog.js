@@ -19,9 +19,7 @@ function content (state, emit) {
 
   return html`
     <div class="fs1 lh1-5 xx x xdc xjc xac py3">
-      <div class="p1 copy w100 wmxrem50">
-        ${entries.map(entryBlog)}
-      </div>
+      ${entries.map(entryBlog)}
     </div>
   `
 }

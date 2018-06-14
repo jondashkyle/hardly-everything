@@ -1,3 +1,4 @@
+var objectKeys = require('object-keys')
 var html = require('choo/html')
 var format = require('../components/format')
 
@@ -14,55 +15,56 @@ function entryBlog (props) {
 
 function createList (props) {
   props.image = false // temp disable
-  // var image = '/content/' + props.files['desktop.png']
+  var links = (typeof props.links === 'object') ? props.links : { }
 
   return html`
-    <div class="lh1-5 py1-5">
-      <div class="copy">
-        ${props.image
-          ? html`<img src="${image}" class="db w100">`
-          : ''
-        }
-        <h2><a href="${props.authorUrl}" target="_blank">${props.author}</a>, what is a site that you visit once every…</h2>
+    <div class="py1 px0-5 w100">
+      <div class="lh1-5 py1-5 copy tac">
+        <h2 class="px0-5"><a href="${props.authorUrl}" target="_blank">${props.author}</a>, what is a site that you visit once every…</h2>
         <div class="x xw">
-          <div class="c3 mb1">Day?</div>
-          <div class="c9 mb1">
-            <a href="${props.links.day.url}" target="_blank">${props.links.day.url}</a>
-          </div>
-          <div class="c3 mb1">Week?</div>
-          <div class="c9 mb1">
-            <a href="${props.links.week.url}" target="_blank">${props.links.week.url}</a>
-          </div>
-          <div class="c3 mb1">Month?</div>
-          <div class="c9 mb1">
-            <a href="${props.links.month.url}" target="_blank">${props.links.month.url}</a>
-          </div>
-          <div class="c3">Year?</div>
-          <div class="c9">
-            <a href="${props.links.year.url}" target="_blank">${props.links.year.url}</a>
-          </div>
+          ${objectKeys(links).map(createThumb)}
+        </div>
+        <div class="px0-5">
+          ${createFooter(props)}
         </div>
       </div>
-      ${createFooter(props)}
     </div>
   `
+
+  function createThumb (key) {
+    var thumb = props.links[key]
+    var image = '/content' + props.files[thumb.img]
+    var url = thumb.url.replace(/(^\w+:|^)\/\//, '')
+
+    return html`
+      <div class="tac c6 p0-5" sm="c3">
+        <a href="${thumb.url}" target="_blank" class="db bb0">
+          <div class="pb1 ttc">${key}</div>
+          <div class="psr" style="padding-bottom: 75%">
+            <img src="${image}" class="bro w100 db h100 psa t0 l0 ofc">
+          </div>
+          <div class="mono pt1 wbba">${url}</div>
+        </a>
+      </div>
+    `
+  }
 }
 
 function createDefault (props) {
   return html`
-    <div class="lh1-5 py1-5">
-      <div class="copy">
+    <div class="p1 w100 wmxrem50">
+      <div class="lh1-5 py1-5 copy">
         <h2>${props.title}</h2>
         ${format(props.text)}
+        ${createFooter(props)}
       </div>
-      ${createFooter(props)}
     </div>
   `
 }
 
 function createFooter (props) {
   return html`
-    <div class="mt1 line bt1-lighter mono fc-black-light">
+    <div class="mono fc-black-light">
       Published <span class="mono">${props.date}</span>, <a href="${props.url}">Permalink</a>
     </div>
   `

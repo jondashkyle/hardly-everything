@@ -14,12 +14,16 @@ links:
   day:
     title: Delinear
     url: http://delinear.info
+    img: delinear.info.png
   week:
     title: The Creative Independent
     url: https://thecreativeindependent.com
+    img: thecreativeindependent.com.png
   month:
     title: Bill Wurtz
     url: http://billwurtz.com
+    img: billwurtz.com.png
   year:
     title: Gossip Web
     url: http://gossipsweb.net
+    img: gossipsweb.net.png
