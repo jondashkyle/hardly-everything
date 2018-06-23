@@ -173,10 +173,11 @@ function Entries (state, emitter) {
         if (state.search.term) {
           var term = state.search.term.toLowerCase()
           var title = entry.title.toLowerCase().indexOf(term) >= 0
+          var href = entry.url.toLowerCase().indexOf(term) >= 0
           var tags = entry.tags
-            ? entry.tags.toString().indexOf(term) >= 0
+            ? entry.tags.toString().toLowerCase().indexOf(term) >= 0
             : false
-          return title || tags
+          return title || tags || href
         } else {
           return true
         }

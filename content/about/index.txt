@@ -24,7 +24,7 @@ Most popular apps and sites today often share a common element; the feed. It loo
 
 You frequently hear of us feeling burnt out by this “drinking from a firehose.” Of course, these products know that, and are increasingly implementing steps to filter what you see and what you don’t based in part on what keeps you returning—a perpetually shifting mix, resulting in what has become known as the filter bubble, FOMO, and other things.
 
-**Hardly Everything** attempts to circumnavigate these corporate feeds by supplying you with an anti-feed.
+Hardly Everything attempts to circumnavigate these corporate feeds by supplying you with an anti-feed.
 
 Your feed closely resembles those already familiar—a scrolling list, at essence. You add things to this list, but when doing so prioritize their importance to you by defining a period of rest.
 

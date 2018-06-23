@@ -18,9 +18,19 @@ function content (state, emit) {
     .toArray()
 
   return html`
-    <div class="fs1 lh1-5 xx x xdc xjc xac py3">
-      ${entries.map(entryBlog)}
+    <div class="fs1 lh1-5 xx x xdc xjc xac bb1-lighter">
+      ${createEntries()}
     </div>
   `
+
+  function createEntries () {
+    return entries
+      .map(entryBlog)
+      .map(function (children) {
+        return html`
+          <div class="w100 bt1-lighter py1">${children}</dev>
+        `
+      })
+  }
 }
 

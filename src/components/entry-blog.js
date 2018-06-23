@@ -18,13 +18,13 @@ function createList (props) {
   var links = (typeof props.links === 'object') ? props.links : { }
 
   return html`
-    <div class="py1 px0-5 w100">
-      <div class="lh1-5 py1-5 copy tac">
+    <div class="px0-5 w100">
+      <div class="lh1-5 copy">
         <h2 class="px0-5"><a href="${props.authorUrl}" target="_blank">${props.author}</a>, what is a site that you visit once every…</h2>
-        <div class="x xw">
+        <div class="x xw c12" md="c10 co1 pt3">
           ${objectKeys(links).map(createThumb)}
         </div>
-        <div class="px0-5">
+        <div class="px0-5 pt3-5">
           ${createFooter(props)}
         </div>
       </div>
@@ -37,13 +37,13 @@ function createList (props) {
     var url = thumb.url.replace(/(^\w+:|^)\/\//, '')
 
     return html`
-      <div class="tac c6 p0-5" sm="c3">
+      <div class="c6 p0-5" sm="c3">
+        <div class="ttc pb1 lh1">${key}</div>
         <a href="${thumb.url}" target="_blank" class="db bb0">
-          <div class="pb1 ttc">${key}</div>
           <div class="psr" style="padding-bottom: 75%">
             <img src="${image}" class="bro w100 db h100 psa t0 l0 ofc">
           </div>
-          <div class="mono pt1 wbba">${url}</div>
+          <div class="pt1 pr1 wbba mono">${url}</div>
         </a>
       </div>
     `
@@ -52,10 +52,16 @@ function createList (props) {
 
 function createDefault (props) {
   return html`
-    <div class="p1 w100 wmxrem50">
-      <div class="lh1-5 py1-5 copy">
+    <div class="px1 w100 x xw xjc">
+      <div class="w100 lh1-5 copy pb3">
         <h2>${props.title}</h2>
-        ${format(props.text)}
+      </div>
+      <div class="w100 wmxrem60">
+        <div class="lh1-5 copy">
+          ${format(props.text)}
+        </div>
+      </div>
+      <div class="w100 copy pt3">
         ${createFooter(props)}
       </div>
     </div>
@@ -64,7 +70,7 @@ function createDefault (props) {
 
 function createFooter (props) {
   return html`
-    <div class="mono fc-black-light">
+    <div class="mono fc-black-light tar">
       Published <span class="mono">${props.date}</span>, <a href="${props.url}">Permalink</a>
     </div>
   `

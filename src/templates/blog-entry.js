@@ -14,7 +14,7 @@ function content (state, emit) {
   var page = state.page().v()
 
   return html`
-    <div class="fs1 lh1-5 xx x xdc xjc xac p2-5">
+    <div class="fs1 lh1-5 xx x xdc xjc xac">
       ${entryBlog(page)}
     </div>
   `
