@@ -48,7 +48,7 @@ function containerContent (state, emit, children) {
 }
 
 function createNavigation (state, emit) {
-  var pages = state.page('/').pages().sortBy('name', 'asc').toArray()
+  var pages = state.page('/').pages().visible().sortBy('name', 'asc').toArray()
 
   return html`
     <div

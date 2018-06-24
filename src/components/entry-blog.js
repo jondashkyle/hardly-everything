@@ -23,7 +23,7 @@ function createList (props) {
         <a href="${props.authorUrl}" class="tc-black a" target="_blank">${props.author}</a>, what is a site that you visit once every…
       </div>
       <div class="lh1-5 copy">
-        <div class="x xw c12" md="c10 co1 pt3">
+        <div class="x xw c12 pt2" md="c10 co1 pt3">
           ${objectKeys(links).map(createThumb)}
         </div>
       </div>
