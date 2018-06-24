@@ -31,7 +31,7 @@ function containerHome (state, emit) {
         >
           <div
             class="psa op33 ${isActivePreview ? 'db' : 'dn'}"
-            style="left: 28.3rem; top: -.2rem;"
+            style="left: 29rem; top: -.2rem;"
           >
             <div class="arrow-bottom"></div>
           </div>

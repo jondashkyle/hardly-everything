@@ -6,10 +6,10 @@ var input = require('../components/input')
 module.exports = view
 
 function view (state, emit) {
-  var disabled = (state.href === '' && !state.entries.amount)
+  var disabled = (state.href === ('' || '/') && !state.entries.amount)
     ? 'pen input-disabled'
     : ''
-  console.log(disabled)  
+
   return html`
     <div class="${state.ui.mobile ? '' : 'panel-content'} x xw c12 bg-black tc-white sans usn">
       <div class="c12 p1px">

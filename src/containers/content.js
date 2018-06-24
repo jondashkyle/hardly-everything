@@ -21,6 +21,7 @@ function containerContent (state, emit, children) {
     !state.ui.panel.loadedContent
   ) {
     emit('ui:panel', { view: '', loadedContent: true })
+    setTimeout(() => emit(state.events.RENDER), 20)
   }
 
   if (!state.site.loaded) {
