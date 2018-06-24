@@ -1,6 +1,7 @@
 var raw = require('choo/html/raw')
 var html = require('choo/html')
 
+var IntroSlideshow = require('../components/intro-slideshow')
 var IntroVideo = require('../components/intro-video')
 var entryBlog = require('../components/entry-blog')
 
@@ -73,8 +74,10 @@ function containerHome (state, emit) {
         <div class="home-gradient dn" sm="db"></div>
         <div class="c8 co2 x xjc">
           <div class="w100" style="max-width: 65rem">
-            <div class="psr bro oh bg-black-lighter" style="padding-bottom: 97.9319546%;">
-              <img src="/assets/img/screenshot.png" class="w100 psa t0 l0 h100">
+            <div class="psr bro oh bg-black-lighter" style="padding-bottom: 100%;">
+              ${state.cache(IntroSlideshow, 'intro-slideshow').render({
+                style: 'w100 psa t0 l0 h100 curp'
+              })}
             </div>
           </div>
         </div>
