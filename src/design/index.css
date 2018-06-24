@@ -36,7 +36,7 @@ body {
 }
 
 .list-thumb {
-  box-shadow: 0 0 1rem var(--fg-lighter);
+  border-top: 0;
 }
 
 /**
@@ -265,6 +265,16 @@ a {
 
 .bro { border-radius: .4rem }
 .bror { border-bottom-right-radius: .4rem }
+
+.brot {
+  border-top-left-radius: .4rem;
+  border-top-right-radius: .4rem;
+}
+
+.brob {
+  border-bottom-left-radius: .4rem;
+  border-bottom-right-radius: .4rem;
+}
 
 .brit {
   border-top-left-radius: .2rem;

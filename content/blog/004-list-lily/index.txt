@@ -17,7 +17,7 @@ links:
     img: a.carapetis.com_csf.png
   week:
     title: Lake Oroville SRA Spillway Live Stream
-    url: http://parks.ca.gov/live/lakeorovillesra_emergency_spillway
+    url: http://www.parks.ca.gov/live/lakeorovillesra_emergency_spillway
     img: parks.ca.gov_live_lakeorovillesra_emergency_spillway.png
   month:
     title: Digital Fire

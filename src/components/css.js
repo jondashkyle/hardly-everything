@@ -28,9 +28,11 @@ function Css (state, emit) {
 
   if (colors.bg) {
     var colorBg = `rgb(${colors.bg.r}, ${colors.bg.g}, ${colors.bg.b})`
+    var colorBgLighter = `rgba(${colors.bg.r}, ${colors.bg.g}, ${colors.bg.b}, 0.165)`
     var colorBgTransparent = `rgba(${colors.bg.r}, ${colors.bg.g}, ${colors.bg.b}, 0)`
   } else {
     var colorBg = 'rgb(255, 255, 255)'
+    var colorBgLighter = 'rgb(255, 255, 255, 0.165)'
   }
 
   if (colors.fg) {
@@ -83,6 +85,7 @@ function Css (state, emit) {
 
       .bg-black { background-color: ${colorFg} }
       .bg-white { background-color: ${colorBg} }
+      .bg-white-lighter { background-color: ${colorBgLighter} }
       .bg-black-light { background-color: ${colorFgLight} }
       .bg-black-lighter { background-color: ${colorFgLighter} }
 

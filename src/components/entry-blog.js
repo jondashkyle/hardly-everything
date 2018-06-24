@@ -22,7 +22,7 @@ function createList (props) {
       <div class="px0-5 pt3 fs2 lh1-5 tac serif">
         <a href="${props.authorUrl}" class="tc-black a" target="_blank">${props.author}</a>, what is a site that you visit once every…
       </div>
-      <div class="lh1-5 copy tac">
+      <div class="lh1-5 copy">
         <div class="x xw c12" md="c10 co1 pt3">
           ${objectKeys(links).map(createThumb)}
         </div>
@@ -37,12 +37,14 @@ function createList (props) {
 
     return html`
       <div class="c6 p0-5" sm="c3">
-        <div class="ttc pb1 lh1">${key}</div>
+        <div class="ttc pb1 lh1 tac">${key}</div>
         <a href="${thumb.url}" target="_blank" class="db bb0">
-          <div class="psr" style="padding-bottom: 75%">
-            <img src="${image}" class="bro w100 db h100 psa t0 l0 ofc list-thumb">
+          <div class="brot px1 py0-5 bg-black">
+            <div class="tc-white oh wsnw fs0-7 tac">${thumb.title}</div>
           </div>
-          <div class="pt1 pr1 wbba mono">${url}</div>
+          <div class="psr" style="padding-bottom: 75%">
+            <img src="${image}" class="brob b2b w100 db h100 psa t0 l0 ofc list-thumb">
+          </div>
         </a>
       </div>
     `
