@@ -40,7 +40,7 @@ function createList (props) {
         <div class="ttc pb1 lh1">${key}</div>
         <a href="${thumb.url}" target="_blank" class="db bb0">
           <div class="psr" style="padding-bottom: 75%">
-            <img src="${image}" class="bro w100 db h100 psa t0 l0 ofc">
+            <img src="${image}" class="bro w100 db h100 psa t0 l0 ofc list-thumb">
           </div>
           <div class="pt1 pr1 wbba mono">${url}</div>
         </a>

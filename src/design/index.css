@@ -35,6 +35,10 @@ body {
   z-index: 1;
 }
 
+.list-thumb {
+  box-shadow: 0 0 1rem var(--fg-lighter);
+}
+
 /**
  * typography
  */

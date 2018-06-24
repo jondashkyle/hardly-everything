@@ -93,7 +93,7 @@ function containerHome (state, emit) {
           <div class="px1"><a href="/about" class="tc-black">About</a></div>
           <div class="px1"><a href="/blog" class="tc-black">Blog</a></div>
           <div class="px1"><a href="/faq" class="tc-black">FAQ</a></div>
-          <div class="px1 ${!state.href ? 'dn' : ''}"><a href="/intro" class="tc-black">Intro</a></div>
+          <div class="px1 dn ${!state.href ? 'dn' : ''}"><a href="/intro" class="tc-black">Intro</a></div>
         </div>
         <div class="px1">2018</div>
       </div>
