@@ -18,19 +18,27 @@ function content (state, emit) {
     .toArray()
 
   return html`
-    <div class="fs1 lh1-5 xx x xdc xjc xac bb1-lighter">
+    <div class="fs1 lh1-5 xx x xdc xjc xac">
       ${createEntries()}
     </div>
   `
 
   function createEntries () {
-    return entries
-      .map(entryBlog)
-      .map(function (children) {
-        return html`
-          <div class="w100 bt1-lighter py1">${children}</dev>
-        `
-      })
+    return entries.map(function (props) {
+      return html`
+        <div class="w100 bb1-lighter py1">
+          ${entryBlog(props)}
+          ${createFooter(props)}
+        </div>
+      `
+    })
   }
 }
 
+function createFooter (props) {
+  return html`
+    <div class="mono fc-black-light tar pt3 pr1">
+      Published <span class="mono">${props.date}</span>, <a href="${props.url}" class="a">Permalink</a>
+    </div>
+  `
+}

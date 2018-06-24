@@ -7,8 +7,7 @@ module.exports = {
 }
 
 function getRandomSuggestions (state) {
-  var entries = getSuggestions(state)
-  return entries
+  return getSuggestions(state)
 }
 
 function getSuggestions (state) {

@@ -19,13 +19,12 @@ function createList (props) {
 
   return html`
     <div class="px0-5 w100">
-      <div class="lh1-5 copy">
-        <h2 class="px0-5"><a href="${props.authorUrl}" target="_blank">${props.author}</a>, what is a site that you visit once every…</h2>
+      <div class="px0-5 pt3 fs2 lh1-5 tac serif">
+        <a href="${props.authorUrl}" class="tc-black a" target="_blank">${props.author}</a>, what is a site that you visit once every…
+      </div>
+      <div class="lh1-5 copy tac">
         <div class="x xw c12" md="c10 co1 pt3">
           ${objectKeys(links).map(createThumb)}
-        </div>
-        <div class="px0-5 pt3-5">
-          ${createFooter(props)}
         </div>
       </div>
     </div>
@@ -53,25 +52,14 @@ function createList (props) {
 function createDefault (props) {
   return html`
     <div class="px1 w100 x xw xjc">
-      <div class="w100 lh1-5 copy pb3">
-        <h2>${props.title}</h2>
+      <div class="w100 lh1-5 serif fs3 pb3">
+        ${props.title}
       </div>
       <div class="w100 wmxrem60">
         <div class="lh1-5 copy">
           ${format(props.text)}
         </div>
       </div>
-      <div class="w100 copy pt3">
-        ${createFooter(props)}
-      </div>
-    </div>
-  `
-}
-
-function createFooter (props) {
-  return html`
-    <div class="mono fc-black-light tar">
-      Published <span class="mono">${props.date}</span>, <a href="${props.url}">Permalink</a>
     </div>
   `
 }

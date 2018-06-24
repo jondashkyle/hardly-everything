@@ -82,7 +82,7 @@ function containerSuggestions (state, emit) {
           Refresh
         </div>
         <a href="/" class="tc-black c8 p1 tac curp usn fwb ${!state.amount ? 'pen op33' : ''}">
-          Complete
+          Continue
         </a>
       </div>
     </div>
@@ -105,8 +105,10 @@ function containerSuggestions (state, emit) {
               <span>Contributed by <a href="${props.authorUrl}" class="tc-light" target="_blank">${props.author}</a></span>
             </div>
           </div>
-          <div class="p1 a curp" onclick=${handleClick}>
-            <div class="add-entry"></div>
+          <div>
+            <div class="p1 tc-black curp bb0 op25 oph100" onclick=${handleClick}>
+              <div class="add-entry"></div>
+            </div>
           </div>
         </div>
       </div>

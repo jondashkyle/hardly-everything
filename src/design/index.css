@@ -18,7 +18,7 @@ body {
 
 @media (min-width: 600px) {
   .home-height {
-    min-height: 46rem;
+     min-height: 28.7rem; 
   }
 
   .home-width {
@@ -68,6 +68,10 @@ body {
   padding-bottom: 0.1em;
   color: currentColor;
   border-bottom: .1rem solid currentColor;
+}
+
+.copy a.pb0 {
+  padding-bottom: 0;
 }
 
 .copy a.bb0 {
