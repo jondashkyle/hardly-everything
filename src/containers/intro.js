@@ -115,7 +115,7 @@ function containerHome (state, emit) {
     return html`
       <div class="w100 db fs2 lh1-5 serif fs2 tal">
         <div class="copy wmxrem70">
-          Hardly Everything is your feed with a cadence. Turn off the FOMO and follow everything at your own pace, whatever the speed. <a href="/about" class="pb0">${raw('Continue&nbsp;reading')}</a>.
+          Hardly Everything is your feed with a cadence. Ditch the FOMO and follow everything at your own pace, whatever the speed. <a href="/about" class="pb0">${raw('Continue&nbsp;reading')}</a>.
         </div>
       </div>
     `

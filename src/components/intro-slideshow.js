@@ -37,7 +37,7 @@ module.exports = class Slideshow extends Component {
     this.tick = setInterval(() => {
       this.local.index += 1
       this.rerender()
-    }, 2000)
+    }, 3000)
   }
 
   stop () {
