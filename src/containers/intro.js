@@ -105,7 +105,7 @@ function containerHome (state, emit) {
 
   function createSuggestion (props) {
     return html`
-      <div class="py1 fs1 bg-white">
+      <div class="py1 fs1 bg-white psr">
         ${entryBlog(props)}
       </div>
     `
@@ -115,7 +115,7 @@ function containerHome (state, emit) {
     return html`
       <div class="w100 db fs2 lh1-5 serif fs2 tal">
         <div class="copy wmxrem70">
-          Hardly Everything is your feed with a cadence. Ditch the FOMO and follow everything at your own pace, whatever the speed. <a href="/about" class="pb0">${raw('Continue&nbsp;reading')}</a>.
+          Hardly Everything is your feed with a cadence. Ditch the FOMO and follow anything at your own pace. <a href="/about" class="pb0">${raw('Continue&nbsp;reading')}</a>.
         </div>
       </div>
     `
