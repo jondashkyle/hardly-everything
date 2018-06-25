@@ -22,15 +22,15 @@ text:
 
 Most popular apps and sites today often share a common element; the feed. It looks like Facebook’s timeline, or Buzzfeed’s homepage—an endlessly updating stream of content, designed to keep you returning, and spending more time.
 
-You frequently hear of us feeling burnt out by this “drinking from a firehose.” Of course, these products know that, and are increasingly implementing steps to filter what you see and what you don’t based in part on what keeps you returning—a perpetually shifting mix, resulting in what has become known as the filter bubble, FOMO, and other things.
+You frequently hear of us feeling burnt out by this “drinking from a firehose.” Of course, these products know that, and are increasingly implementing steps to filter what you see and what you don’t based in part on what keeps you returning—a perpetually shifting mix, creating what has become known as the filter bubble, an endless source of FOMO (fear of missing out), and other things.
 
-Hardly Everything attempts to circumnavigate these corporate feeds by supplying you with an anti-feed.
+Hardly Everything attempts to circumnavigate these corporate feeds by supplying you with a feed of your own.
 
-Your feed closely resembles those already familiar—a scrolling list, at essence. You add things to this list, but when doing so prioritize their importance to you by defining a period of rest.
+Your feed closely resembles those already familiar—a scrolling list, at essence, but rather than algorithms determining what’s displayed we introduce timescales. You add things to this list, but when doing so prioritize their importance to you by defining a period of rest, long and short and everywhere in-between.
 
 The notion of a rest is borrowed from musical notation—a determined period of time between notes. Just as music has a cadence, consider your attention’s rhythm while consuming a feed. This is why your feed has a pulse, or a pace, defined by you.
 
-After clicking an entry, it disappears from your feed for the duration of it’s rest. Your feed updates once per day, there is never something new until tomorrow, a natural cycle, partitioned by a period of another kind of rest.
+After clicking an entry, it disappears from your feed for the duration of it’s rest. Your feed updates once per day, there is never something new until tomorrow, a natural cycle, partitioned by a period of another kind of rest; sleep.
 
 Your entries can rest anywhere from a day to a year. Link to a page you like to revisit often, or a page you want to remember in a few months.
 

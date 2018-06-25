@@ -1,0 +1,29 @@
+title: Carly Ayres’s list
+----
+visible: true
+----
+date: 2018-06-9
+----
+author: Carly Ayres
+----
+authorUrl: http://www.carlyayres.com/
+----
+category: list
+----
+links:
+  day:
+    title: Gmail
+    url: https://mail.google.com/mail
+    img: gmail.com.png
+  week:
+    title: Things Editors Like
+    url: https://www.nytimes.com/column/things-editors-like
+    img: things-editors-like.png
+  month:
+    title: Unti-titled New York
+    url: http://www.unti-tled.com/new-york
+    img: unti-tled.com.png
+  year:
+    title: Prosthetic Knowledge
+    url: http://prostheticknowledge.tumblr.com/
+    img: prostheticknowledge.tumblr.com.png

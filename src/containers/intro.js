@@ -88,7 +88,7 @@ function containerHome (state, emit) {
         </div>
       </div>
       ${randomSuggestion ? createSuggestion(randomSuggestion) : ''}
-      <div class="p1 tar bb1-lighter fs1 bg-white">
+      <div class="p1 tac bb1-lighter fs1 bg-white">
         <a href="/blog" class="tc-black op25 oph100">Continue scrolling through the blog →</a>
       </div>
       <div class="line fs1 x xjb w100 bg-white psr z2">
@@ -115,7 +115,7 @@ function containerHome (state, emit) {
     return html`
       <div class="w100 db fs2 lh1-5 serif fs2 tal">
         <div class="copy wmxrem70">
-          Hardly Everything is your feed with a cadence. Ditch the FOMO and follow anything at your own pace. <a href="/about" class="pb0">${raw('Continue&nbsp;reading')}</a>.
+          Hardly Everything is your feed with a cadence. Ditch the FOMO and follow anything at your own speed. <a href="/about" class="pb0">${raw('Continue&nbsp;reading')}</a>.
         </div>
       </div>
     `
