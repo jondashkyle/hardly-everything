@@ -30,15 +30,10 @@ You can use Hardly Everything by visiting [https://hardlyeverything.com](https:/
 
 Hardly Everything is in active development:
 
-### 2.0
-
-- [ ] Add Dat support if available (dump state to json)
-- [ ] Testing
-
 ### 2.1
 
 - [ ] Better p2p/local ui
 - [ ] Internationalization
 - [ ] Custom font option
+- [ ] Entropy option
 - [ ] Auto-hide option
-- [ ] Design slideshow
