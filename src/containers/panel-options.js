@@ -53,7 +53,12 @@ function view (state, emit) {
       </div>
       <div class="c12 x">
         <div class="xx p1px curp tac">
-          <a href="/data" class="line bg-white db bribl tc-black">
+          <a href="/css" class="line bg-white db bribl tc-black">
+            CSS
+          </a>
+        </div>
+        <div class="xx p1px curp tac">
+          <a href="/data" class="line bg-white db tc-black">
             Data
           </a>
         </div>
