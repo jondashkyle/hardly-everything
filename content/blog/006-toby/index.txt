@@ -6,7 +6,7 @@ date: 2018-06-11
 ----
 author: Toby Shorin
 ----
-authorUrl: http://www.carlyayres.com/
+authorUrl: https://tobyshorin.com/
 ----
 category: list
 ----
