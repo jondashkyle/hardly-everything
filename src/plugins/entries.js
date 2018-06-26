@@ -1,11 +1,12 @@
-var db = require('../db/entries')
-var x = require('xtend')
-var clone = require('clone-deep')
-var moment = require('moment')
-var uuid = require('uuid')
-var ov = require('object-values')
+var objectValues = require('object-values')
 var normalizeUrl = require('normalize-url')
 var validUrl = require('valid-url')
+var clone = require('clone-deep')
+var dayjs = require('dayjs')
+var xtend = require('xtend')
+var uuid = require('uuid')
+
+var db = require('../db/entries')
 
 var intervals = [
   'minute',
@@ -22,7 +23,191 @@ var intervals = [
   'years'
 ]
 
-function formatTags (tag){
+module.exports = Entries
+
+function Entries (state, emitter) {
+  state.entries = {
+    loaded: false,
+    amount: 0,
+    all: { },
+    active: [ ]
+  }
+
+  // all
+  emitter.on('entries:all', function (data) {
+    var entries = objectValues(data)
+    state.entries.all = data
+    state.entries.amount = entries.length
+    // emitter.emit('entries:refresh')
+    emitter.emit('app:render')
+  })
+
+  // loaded
+  emitter.on('entries:loaded', function (data) {
+    state.entries.loaded = data
+  })
+
+  // add
+  emitter.on('entries:add', function (data) {
+    var id = uuid.v4()
+    var staging = xtend({
+      id: id,
+      content: { },
+      dateAdded: dayjs().toISOString(),
+      dateUpdated: dayjs().toISOString(),
+      dateDismissed: dayjs().subtract(10, 'years').toISOString()
+    }, data)
+
+    var entry = formatEntry(staging)
+    var validation = validateEntry(entry)
+
+    if (validation === true) {
+      var newState = clone(state.entries.all)
+      newState[id] = entry
+
+      emitter.emit('staging:reset', { })
+      emitter.emit('entries:all', newState)
+      emitter.emit('ui:update', { entriesViewAll: false })
+      // emitter.emit('pushState', '/')
+
+      db.add(entry, newState)
+    } else {
+      alert(validation)
+    }
+  })
+
+  // update
+  emitter.on('entries:update', function (data) {
+    var entry = formatEntry(data)
+    var validation = validateEntry(entry)
+
+    entry.dateUpdated = dayjs().toISOString()
+
+    if (validation === true) {
+      var newState = clone(state.entries.all)
+      newState[data.id] = entry
+
+      emitter.emit('staging:reset', { })
+      emitter.emit('ui:update', { stagingActive: false })
+      emitter.emit('entries:all', newState)
+      emitter.emit('app:render')
+
+      db.update(data, newState)
+    } else {
+      alert(validation)
+    }
+  })
+
+  // dismiss
+  emitter.on('entries:dismiss', function (data) {
+    var newState = clone(state.entries.all)
+    var curEntry = newState[data.id]
+    var newEntry = xtend(curEntry, {
+      visited: curEntry.visited + 1,
+      dateUpdated: dayjs().toISOString(),
+      dateDismissed: dayjs().toISOString()
+    })
+
+    newState[data.id] = newEntry
+
+    emitter.emit('entries:all', newState)
+    emitter.emit('app:render')
+    db.update(newEntry, newState)
+  })
+
+  // remove
+  emitter.on('entries:remove', function (data) {
+    var entry = state.entries.all[data.id]
+    var shouldDelete = confirm('Are you sure you want to delete ' + entry.title + '?')
+    if (!shouldDelete) return
+
+    var newState = clone(state.entries.all)
+    delete newState[data.id]
+
+    emitter.emit('entries:all', newState)
+    emitter.emit('app:render')
+
+    db.remove(data, newState)
+  })
+
+  // reset
+  emitter.on('entries:reset', function (data) {
+    var newState = data || { }
+    emitter.emit('entries:all', newState)
+    emitter.emit('app:render')
+    db.update(newState, newState)
+  })
+
+  // render
+  emitter.on('entries:render', function (data) {
+    state.entries.active = getActive()
+  })
+
+  // initialize
+  db.get(data => {
+    emitter.emit('entries:all', data)
+    emitter.emit('entries:loaded', true)
+    emitter.emit('app:render')
+  }, () => {
+    emitter.emit('entries:loaded', true)
+  })
+
+  function getActive () {
+    var now = dayjs().startOf('day').toDate()
+
+    return objectValues(state.entries.all)
+      .filter(function (entry) {
+        if (
+          !state.ui.entriesViewAll &&
+          entry.dateDismissed &&
+          entry.duration &&
+          entry.interval &&
+          entry.visited >= 1
+        ) {
+          return getNowDate(entry) <= now
+        } else {
+          return true
+        }
+      })
+      .filter(function (entry) {
+        if (state.search.term) {
+          var term = state.search.term.toLowerCase()
+          var title = entry.title.toLowerCase().indexOf(term) >= 0
+          var href = entry.url.toLowerCase().indexOf(term) >= 0
+          var tags = entry.tags
+            ? entry.tags.toString().toLowerCase().indexOf(term) >= 0
+            : false
+          return title || tags || href
+        } else {
+          return true
+        }
+      })
+      .sort(function (a, b) {
+        return state.ui.entriesViewAll
+          ? getDismissedDate(b) - getDismissedDate(a)
+          : getDurationDate(b) - getDurationDate(a)
+      })
+  }
+}
+
+function getNowDate (entry) {
+  return dayjs(entry.dateDismissed)
+    .add(entry.duration, entry.interval)
+    .startOf('day')
+    .toDate()
+}
+
+function getDismissedDate (entry) {
+  return dayjs(entry.dateDismissed).valueOf()
+}
+
+function getDurationDate (entry) {
+  return dayjs(entry.dateDismissed)
+    .add(entry.duration, entry.interval)
+    .valueOf()
+}
+
+function formatTags (tag) {
   return tag.replace(/^\s+|\s+$/g, '').split(/\s*,\s*/)
 }
 
@@ -54,181 +239,4 @@ function validateEntry (data) {
   } else {
     return true
   }
-}
-
-module.exports = Entries
-
-function Entries (state, emitter) {
-  state.entries = {
-    loaded: false,
-    amount: 0,
-    all: { },
-    active: [ ]
-  }
-
-  // all
-  emitter.on('entries:all', function (data) {
-    state.entries.all = data
-    state.entries.amount = ov(state.entries.all).length
-    emitter.emit('entries:refresh')
-    emitter.emit('app:render')
-  })
-
-  // loaded
-  emitter.on('entries:loaded', function (data) {
-    state.entries.loaded = data
-  })
-
-  // add
-  emitter.on('entries:add', function (data) {
-    var id = uuid.v4()
-    var staging = x({
-      id: id,
-      content: { },
-      dateAdded: moment().toISOString(),
-      dateUpdated: moment().toISOString(),
-      dateDismissed: moment().subtract(10, 'years').toISOString()
-    }, data)
-
-    var entry = formatEntry(staging)
-    var validation = validateEntry(entry)
-
-    if (validation === true) {
-      var newState = clone(state.entries.all)
-      newState[id] = entry
-
-      emitter.emit('staging:reset', { })
-      emitter.emit('entries:all', newState)
-      emitter.emit('pushState', '/')
-
-      db.add(entry, newState)
-    } else {
-      alert(validation)
-    }
-  })
-
-  // update
-  emitter.on('entries:update', function (data) {
-    var entry = formatEntry(data)
-    var validation = validateEntry(entry)
-
-    entry.dateUpdated = moment().toISOString()
-
-    if (validation === true) {
-      var newState = clone(state.entries.all)
-      newState[data.id] = entry
-
-      emitter.emit('staging:reset', { })
-      emitter.emit('ui:update', { stagingActive: false })
-      emitter.emit('entries:all', newState)
-      emitter.emit('app:render')
-
-      db.update(data, newState)
-    } else {
-      alert(validation)
-    }
-  })
-
-  // dismiss
-  emitter.on('entries:dismiss', function (data) {
-    var newState = clone(state.entries.all)
-    var curEntry = newState[data.id]
-    var newEntry = x(curEntry, {
-      visited: curEntry.visited + 1,
-      dateUpdated: moment().toISOString(),
-      dateDismissed: moment().toISOString()
-    })
-
-    newState[data.id] = newEntry
-
-    emitter.emit('entries:all', newState)
-    emitter.emit('app:render')
-    db.update(newEntry, newState)
-  })
-
-  // remove
-  emitter.on('entries:remove', function (data) {
-    var newState = clone(state.entries.all)
-    delete newState[data.id]
-
-    emitter.emit('entries:all', newState)
-    emitter.emit('app:render')
-
-    db.remove(data, newState)
-  })
-
-  // reset
-  emitter.on('entries:reset', function (data) {
-    var newState = data ? data : { }
-    emitter.emit('entries:all', newState)
-    emitter.emit('app:render')
-    db.update(newState, newState) 
-  })
-
-  // render
-  emitter.on('entries:render', function (data) {
-    state.entries.active = getActive()
-  })
-
-  // initialize
-  db.get(data => {
-    emitter.emit('entries:all', data)
-    emitter.emit('entries:loaded', true)
-    emitter.emit('app:render')
-  }, () => {
-    emitter.emit('entries:loaded', true)
-  })
-
-  function getActive () {
-    var now = moment().startOf('day').toDate()
-
-    return ov(state.entries.all)
-      .filter(function (entry) {
-        if (
-          !state.ui.entriesViewAll &&
-          entry.dateDismissed &&
-          entry.duration &&
-          entry.interval &&
-          entry.visited >= 1
-        ) {
-          return getNowDate(entry) <= now
-        } else {
-          return true
-        }
-      })
-      .filter(function (entry) {
-        if (state.search.term) {
-          var term = state.search.term.toLowerCase()
-          var title = entry.title.toLowerCase().indexOf(term) >= 0
-          var tags = entry.tags
-            ? entry.tags.toString().indexOf(term) >= 0
-            : false
-          return title || tags
-        } else {
-          return true
-        }
-      })
-      .sort(function (a, b) {
-        return state.ui.entriesViewAll
-          ? getDismissedDate(b) - getDismissedDate(a)
-          : getDurationDate(b) - getDurationDate(a)
-      })
-  }
-}
-
-function getNowDate (entry) {
-  return moment(entry.dateDismissed)
-    .add(entry.duration, entry.interval)
-    .startOf('day')
-    .toDate()
-}
-
-function getDismissedDate (entry) {
-  return moment(entry.dateDismissed).valueOf()
-}
-
-function getDurationDate (entry) {
-  return moment(entry.dateDismissed)
-    .add(entry.duration, entry.interval)
-    .valueOf()
 }

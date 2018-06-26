@@ -1,4 +1,4 @@
-var html = require('rooch/html')
+var html = require('choo/html')
 var ov = require('object-values')
 
 var panelEntry = require('../containers/panel-entry')
@@ -10,61 +10,59 @@ module.exports = view
 
 function view (state, props, emit) {
   props = props || { }
-  
+
   var views = {
-    options: {
-      title: 'Options', 
-      path: 'options',
-      view: () => panelOptions(state, emit)
-    },
     entry: {
-      title: 'Entry',
+      title: state.staging.entry.id
+        ? 'Edit'
+        : html`<span><span class="new-entry"></span>Follow</span>`,
       path: 'entry',
       view: () => panelEntry(state, emit)
     },
-    sync: {
-      title: 'Sync',
-      path: 'sync',
-      active: false,
-      view: () => html`<div class="bro bg-black tc-white px1 line">Coming soon</div>`
+    options: {
+      title: 'Options',
+      path: 'options',
+      view: () => panelOptions(state, emit)
     }
   }
 
   var view = views[props.view]
-  var content = view && view.view && typeof view.view === 'function'
-    ? html`
+  var content = (
+    view && view.view &&
+    typeof view.view === 'function'
+  ) ? html`
       <div
         class="panel psr c12 sans fs1 pen pb1"
-        sm="c12 pt1 mtpx2"
         style="top: 4.5rem"
         onmouseenter=${handleContainerEnter}
       >
-        <div class="pea psr">
-          <div class="psa t0 l0 r0 b0 bro b2b pen z2"></div>
-          <div class="p1px">${view.view()}</div>
+        <div class="pea psr ${state.ui.mobile ? 'w100 oh' : ''}">
+          <div class="pen z2 ${state.ui.mobile ? '' : 'psa t0 l0 r0 b0 bro b2b'}"></div>
+          <div
+            class="bb1b"
+            sm="p1px bb0"
+            style="${state.ui.mobile ? 'margin: 0 -1px' : ''}"
+          >
+            ${view.view()}
+          </div>
         </div>
       </div>
       `
     : ''
 
-
   return html`
     <div
-      class="${view && !state.ui.mobile ? 'psf t0 l0 r0 b0 z3' : ''} px1"
+      class="${view && !state.ui.mobile ? 'psf t0 r0 z3 px1' : ''}"
       onclick=${handleContainerClick}
       data-panel
     >
       <div
-        class="wrem40"
-        sm="c12"
+        class="${state.ui.mobile ? '' : 'wrem40'}"
         onmouseleave=${handlePanelLeave}
       >
         <div
-          class="psf t0 l0 px1 z3 ${state.ui.mobile ? 'bg-white bb2b' : ''}"
-          sm="r0"
-        >
-          ${navigation()} 
-        </div>
+          class="psf t0 r0 z4 ${state.ui.mobile ? 'bg-white bb2b' : ''}"
+        >${navigation()}</div>
         ${content}
       </div>
     </div>
@@ -76,58 +74,16 @@ function view (state, props, emit) {
 
   function navigation () {
     return html`
-      <div class="x line c12 tc-black fs1 pen usn">
+      <div
+        class="x line c12 tc-black fs1 pen usn"
+      >
+        ${props.navChildren}
         ${ov(views)
           .filter(view => view.active !== false)
           .map(navigationLink)
         }
-        <div class="mr1"></div> 
-        <div
-          class="
-            mr1 curp oph100 line pea
-            ${state.entries.amount ? '' : 'dn'}
-            ${state.ui.entriesViewAll ? 'op100' : 'op33'} 
-          "
-          sm="${view ? 'dn' : ''}"
-          onclick=${function () {
-            emit('search:update', { value: '', render: false })
-            emit('ui:update', { entriesViewAll: !state.ui.entriesViewAll })
-          }}
-        >
-          All
-        </div>
-        ${elSearch()} 
       </div>
     `
-
-    function elSearch () {
-      if (!state.features.search) {
-        return ''
-      }
-
-      return html`<div
-          class="pea"
-          sm="dn"
-        >
-          ${navigationSearch({
-            value: state.search.term,
-            onFocus: function () {
-              emit('search:update', {
-                hidePanel: true
-              })
-            },
-            onInput: function (data) {
-              emit('search:update', {
-                all: true,
-                value: data.value,
-                hidePanel: true,
-                render: true
-              })
-            }
-          })}
-        </div>
-      `
-    }
   }
 
   function navigationLink (view) {
@@ -139,11 +95,9 @@ function view (state, props, emit) {
           onmouseenter=${handleLinkEnter}
           class="
             ${active ? 'op100 arrow-bottom' : 'op33'}
-            curd psr db oph100 mr1 tc-black pea
+            curd psr db oph100 mx1 tc-black pea
           "
-        >
-          ${view.title}
-        </div>
+        >${view.title}</div>
       `
     } else {
       return html` 
@@ -154,9 +108,7 @@ function view (state, props, emit) {
             ${active ? 'op100 arrow-bottom' : 'op33'}
             psr db oph100 mr1 tc-black pea
           "
-        >
-          ${view.title}
-        </a>
+        >${view.title}</a>
       `
     }
 
@@ -196,35 +148,5 @@ function view (state, props, emit) {
   function hide () {
     emit('staging:reset')
     emit('ui:panel', { view: '' })
-  }
-}
-
-function navigationSearch (props = { }) {
-  return html`
-    <input
-      type="text"
-      placeholder="Search…"
-      value="${props.value || ''}"
-      class="fs1 ff-sans tc-black"
-      style="background: none"
-      oninput=${handleInput}
-      onfocus=${handleFocus}
-    />
-  `
-
-  function handleInput (event) {
-    if (props.onInput) {
-      props.onInput({
-        value: event.target.value
-      })
-    }
-  }
-
-  function handleFocus (event) {
-    if (props.onFocus) {
-      props.onFocus({
-        value: event.target.value
-      })
-    }
   }
 }

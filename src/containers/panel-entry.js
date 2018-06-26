@@ -1,60 +1,70 @@
-var html = require('rooch/html')
-var h = require('rooch/h')
-var x = require('xtend')
+var html = require('choo/html')
+var xtend = require('xtend')
 
-var { intToRest } = require('../helpers/time')
+var { intToRest } = require('../lib/time')
 var InputRange = require('../components/input/range')
 var InputText = require('../components/input/text')
 var InputTags = require('../components/input/tags')
 
-module.exports = view
+module.exports = panelEntry
 
-function view (state, emit) {
+function panelEntry (state, emit) {
   return html`
     <form
       autocomplete="off"
-      class="x xw bg-black"
+      class="x xw bg-black m0"
       onsubmit=${handleSubmit}
     >
       <div class="c12 p1px">
-        ${h(InputText, {
-          key: 'url',
-          name: 'http://',
-          value: state.staging.entry.url,
-          style: 'brit',
-          autofocus: true,
-          onInput: function (data) {
-            emit('staging:entry', {
-              url: data.value
-            })
-          }
-        })}
+        ${state
+          .cache(InputText, 'entry:url')
+          .render({
+            key: 'url',
+            name: 'http://',
+            value: state.staging.entry.url,
+            required: true,
+            style: state.ui.mobile ? '' : 'brit',
+            autofocus: true,
+            onInput: function (data) {
+              emit('staging:entry', {
+                url: data.value
+              })
+            }
+          })
+        }
       </div>
       <div class="c12 p1px">
-        ${h(InputText, {
-          key: 'title',
-          name: 'Title',
-          value: state.staging.entry.title,
-          onInput: function (data) {
-            emit('staging:entry', {
-              title: data.value
-            })
-          }
-        })}
+        ${state
+          .cache(InputText, 'entry:title')
+          .render({
+            key: 'title',
+            name: 'Title',
+            required: true,
+            value: state.staging.entry.title,
+            onInput: function (data) {
+              emit('staging:entry', {
+                title: data.value
+              })
+            }
+          })
+      }
       </div>
       <div class="c12 x">
         <div class="xx p1px">
           <div class="fs1 c12 bg-white tc-black line">
-            ${h(InputRange, {
-              name: 'Rest',
-              value: state.staging.entry.timeRange,
-              valueShow: false,
-              onInput: function (data) {
-                emit('staging:entry', x(getTime(data.value), {
-                  timeRange: data.value
-                }))
-              }
-            })}
+            ${state
+              .cache(InputRange, 'entry:rest')
+              .render({
+                name: 'Rest',
+                value: state.staging.entry.timeRange,
+                valueShow: false,
+                onInput: function (data) {
+                  emit('staging:entry', xtend(getTime(data.value), {
+                    timeRange: data.value
+                  }))
+                }
+              })
+          }
           </div>
         </div>
         <div class="c2 p1px">
@@ -80,21 +90,32 @@ function view (state, emit) {
           />
         </div>
       </div>
-      <div class="c12 p1px ${isTagsVisible() && isStepThree() ? 'db' : 'dn'}">
-        <div class="bg-white oxs">
-          ${h(InputTags, {
-            key: 'tags',
-            name: 'Tags',
-            value: state.staging.entry.tags || [ ],
-            onChange: function (data) {
-              emit('staging:entry', {
-                tags: data.value
-              })
-            }
-          })}
+      <div class="c12 p1px">
+        <div class="bg-white">
+          ${state
+            .cache(InputTags, 'entry:tags')
+            .render({
+              key: 'tags',
+              name: 'Tags',
+              value: state.staging.entry.tags || [ ],
+              onChange: function (data) {
+                emit('staging:entry', {
+                  tags: data.value
+                })
+              }
+            })
+        }
         </div>
       </div>
       <div class="c12 x">
+        <div class="xa p1px">
+          <input
+            type="submit"
+            value="${!state.staging.entry.id ? 'Save' : 'Save'}"
+            tabindex="-1"
+            class="fs1 c12 bg-white tc-black sans fwb line ${state.staging.entry.id ? 'bribr' : 'brib'}"
+          />
+        </div>
         <div class="${state.staging.entry.id ? 'x c4' : 'dn'} p1px">
           <input
             name="delete"
@@ -103,14 +124,6 @@ function view (state, emit) {
             class="fs1 c12 tc-black bg-white sans bribl line"
             onclick=${e => remove(state.staging.entry.id)}
             type="button"
-          />
-        </div>
-        <div class="xa p1px">
-          <input
-            type="submit"
-            value="${!state.staging.entry.id ? 'Add' : 'Save'}"
-            tabindex="-1"
-            class="fs1 c12 bg-white tc-black sans fwb line ${state.staging.entry.id ? 'bribr' : 'brib'}"
           />
         </div>
       </div>

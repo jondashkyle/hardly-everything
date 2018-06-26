@@ -11,7 +11,7 @@ function features (state, emitter) {
   emitter.on('feature:enable', function (data) {
     if (data.feature) {
       state.features[data.feature] = true
-    } 
+    }
 
     if (data.render !== false) {
       emitter.emit('app:render')
@@ -21,7 +21,7 @@ function features (state, emitter) {
   emitter.on('feature:disable', function (data) {
     if (data.feature) {
       state.features[data.feature] = false
-    } 
+    }
 
     if (data.render !== false) {
       emitter.emit('app:render')

@@ -1,6 +1,5 @@
-var x = require('xtend')
 var clone = require('clone-deep')
-var moment = require('moment')
+var xtend = require('xtend')
 
 var db = require('../db/user')
 
@@ -9,50 +8,58 @@ module.exports = user
 function user (state, emitter) {
   state.user = getState()
 
+  state.events.USER_LOAD= 'user:load'
+  state.events.USER_RESET = 'user:reset'
+  state.events.USER_LOADED = 'user:loaded'
+  state.events.USER_UPDATE = 'user:update'
+  state.events.USER_FEATURE = 'user:feature'
+  state.events.USER_NOTIFIED = 'user:notified'
+  state.events.USER_ANALYTICS = 'user:analytics'
+
   emitter.on('DOMContentLoaded', function () {
     db.get(function (data) {
-      emitter.emit('user:load', data)
+      emitter.emit(state.events.USER_LOAD, data)
     }, function () {
-      emitter.emit('user:loaded', data)
+      emitter.emit(state.events.USER_LOADED, data)
     })
   })
 
-  emitter.on('user:loaded', function (data) {
-    state.user.analytics.visits += 1
-    state.user.analytics.lastvisit = moment().toISOString()
-    emitter.emit('user:update')
+  emitter.on(state.events.USER_LOADED, function (data) {
+    // state.user.analytics.visits += 1
+    // state.user.analytics.lastvisit = new Date().toISOString()
+    // emitter.emit('user:update')
   })
 
-  emitter.on('user:analytics', function (data) {
-    state.user.analytics = x(state.user.analytics, data)
+  emitter.on(state.events.USER_ANALYTICS, function (data) {
+    state.user.analytics = xtend(state.user.analytics, data)
     emitter.emit('user:update')
   })
 
   emitter.on('pushState', function (data) {
-    if (
-      process.env.NODE_ENV === 'production' &&
-      window.ga &&
-      typeof window.ga === 'function'
-    ) {
-      window.ga('set', 'page', window.location.pathname)
-      window.ga('send', 'pageview')
-    }
+    // if (
+    //   process.env.NODE_ENV === 'production' &&
+    //   window.ga &&
+    //   typeof window.ga === 'function'
+    // ) {
+    //   window.ga('set', 'page', window.location.pathname)
+    //   window.ga('send', 'pageview')
+    // }
   })
 
-  emitter.on('user:load', function (data) {
-    state.user = x(state.user, data)
-    emitter.emit('user:loaded', data)
+  emitter.on(state.events.USER_LOAD, function (data) {
+    state.user = xtend(state.user, data)
+    emitter.emit(state.events.USER_LOADED, data)
   })
 
-  emitter.on('user:update', function (data) {
+  emitter.on(state.events.USER_UPDATE, function (data) {
     db.update(data, state.user)
     emitter.emit('app:render')
   })
 
   // user prefs for features
-  emitter.on('user:feature', function (data) {
+  emitter.on(state.events.USER_FEATURE, function (data) {
     if (typeof data === 'object') {
-      state.user.features = x(state.user.features, data)
+      state.user.features = xtend(state.user.features, data)
     }
 
     if (data.render !== false) {
@@ -60,9 +67,18 @@ function user (state, emitter) {
     }
   })
 
-  emitter.on('user:reset', function (data) {
+  // notified
+  emitter.on(state.events.USER_NOTIFIED, function (data) {
+    var data = data || { }
+    if (!data.id) return
+    state.notifications.active = '' // whoops
+    state.user.notified[data.id] = true 
+    emitter.emit(state.events.USER_UPDATE)
+  })
+
+  emitter.on(state.events.USER_RESET, function (data) {
     state.user = getState()
-    emitter.emit('user:update')
+    emitter.emit(state.events.USER_UPDATE)
   })
 }
 
@@ -81,6 +97,7 @@ function getState () {
       visits: 0,
       lastvisit: undefined
     },
-    signedIn: false,
+    notified: { },
+    signedIn: false
   }
 }

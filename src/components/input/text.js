@@ -1,41 +1,54 @@
-var html = require('rooch/html')
-var Component = require('rooch/component')
+var Component = require('choo/component')
+var html = require('choo/html')
+var xtend = require('xtend')
 
 module.exports = class Text extends Component {
-  constructor () {
+  constructor (name, state, emit) {
     super()
+
+    this.local = {
+      autofocus: false,
+      required: false
+    }
+
     this.handleInput = this.handleInput.bind(this)
   }
 
-  componentDidMount () {
-    if (this.props.autofocus) {
-      this.base.querySelector('input').focus()
+  load () {
+    if (this.local.autofocus) {
+      this.element.querySelector('input').focus()
     }
   }
- 
+
   handleInput (event) {
     if (
-      this.props &&
-      this.props.onInput && 
-      typeof this.props.onInput === 'function'
+      this.local &&
+      this.local.onInput &&
+      typeof this.local.onInput === 'function'
     ) {
-      this.props.onInput({
+      this.local.onInput({
         value: event.target.value
       })
     }
   }
 
-  render () {
+  update (props) {
+    return true
+  }
+
+  createElement (props) {
+    this.local = xtend(this.local, props)
+
     var input = Input({
-      key: this.props.key,
-      name: this.props.name,
-      style: this.props.style || '',
-      value: this.props.value || '',
+      key: this.local.key,
+      name: this.local.name,
+      style: this.local.style || '',
+      value: this.local.value || '',
       onInput: this.handleInput
     })
 
     return Container({
-      name: this.props.name || 'Untitled'
+      name: this.local.name || 'Untitled'
     }, input)
   }
 }
@@ -45,7 +58,7 @@ function Container (props = { }, children) {
     <div class="psr bg-black line">
       ${children}
     </div>
-  ` 
+  `
 }
 
 function Input (props = { }) {
@@ -54,9 +67,10 @@ function Input (props = { }) {
       name="${props.key}"
       placeholder="${props.name}"
       value="${props.value}"
+      required="${props.value}"
       oninput=${props.onInput}
       type="text"
-      class="fs1 c12 sans bg-white tc-black px1 line ${props.style}"
+      class="db fs1 c12 sans bg-white tc-black px1 line ${props.style}"
     />
   `
 }

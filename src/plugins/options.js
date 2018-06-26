@@ -1,210 +1,11 @@
-var db = require('../db/options')
+var objectValues = require('object-values')
 var clone = require('clone-deep')
-var ov = require('object-values')
-var x = require('xtend')
+var xtend = require('xtend')
 
+var libDesign = require('../lib/design')
+var optionsTypography = require('./options-typography')
 var typography = require('../design/typography')
-
-var optionsTypography = {
-  systemLight: {
-    name: 'System Light',
-    key: 'sans',
-    host: 'local',
-    active: true,
-    weight: 200,
-    value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
-  },
-  system: {
-    name: 'System',
-    key: 'sans',
-    host: 'local',
-    active: true,
-    value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
-  },
-  systemBold: {
-    name: 'System Bold',
-    key: 'sans',
-    host: 'local',
-    active: true,
-    weight: 700,
-    value: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
-  },
-  alegreya: {
-    name: 'Alegreya',
-    key: 'alegreya',
-    host: 'google', 
-    value: 'Alegreya'
-  },
-  alegreyaItalic: {
-    name: 'Alegreya Italic',
-    key: 'alegreyaItalic',
-    host: 'google', 
-    style: 'italic',
-    value: 'Alegreya'
-  },
-  anonymous: {
-    name: 'Anonymous',
-    key: 'anonymous',
-    host: 'google', 
-    value: 'Anonymous Pro'
-  },
-  cabin: {
-    name: 'Cabin',
-    key: 'cabin',
-    host: 'google',
-    value: 'Cabin'
-  },
-  cabinBold: {
-    name: 'Cabin Bold',
-    key: 'cabinBold',
-    host: 'google',
-    weight: 700,
-    value: 'Cabin'
-  },
-  cardo: {
-    name: 'Cardo',
-    key: 'cardo',
-    host: 'google',
-    value: 'Cardo'
-  },
-  garamond: {
-    name: 'Cormorant Garamond',
-    key: 'garamond',
-    host: 'google',
-    value: 'Cormorant Garamond'
-  },
-  inconsolata: {
-    name: 'Inconsolata',
-    key: 'inconsolata',
-    host: 'google',
-    value: 'Inconsolata'
-  },
-  montserrat: {
-    name: 'Montserrat',
-    key: 'montserrat',
-    host: 'google',
-    value: 'Montserrat'
-  },
-  montserratBold: {
-    name: 'Montserrat Bold',
-    key: 'montserratBold',
-    host: 'google',
-    weight: '700',
-    value: 'Montserrat'
-  },
-  karla: {
-    name: 'Karla',
-    key: 'karla',
-    host: 'google',
-    value: 'Karla'
-  },
-  notoSerif: {
-    name: 'Noto Serif',
-    key: 'notoSerif',
-    host: 'google',
-    value: 'Noto Serif'
-  },
-  openSansLight: {
-    name: 'Open Sans Light',
-    key: 'openSansLight',
-    host: 'google',
-    weight: 300,
-    value: 'Open Sans'
-  },
-  openSansBold: {
-    name: 'Open Sans Bold',
-    key: 'openSansBold',
-    host: 'google',
-    weight: 700,
-    value: 'Open Sans'
-  },
-  pathway: {
-    name: 'Pathway Gothic',
-    key: 'pathway',
-    host: 'google',
-    value: 'Pathway Gothic One'
-  },
-  playfairDisplay: {
-    name: 'Playfair Display',
-    key: 'playfairDisplay',
-    host: 'google',
-    value: 'Playfair Display'
-  },
-  playfairDisplayBold: {
-    name: 'Playfair Display Bold',
-    key: 'playfairDisplayBold',
-    host: 'google',
-    weight: 700,
-    value: 'Playfair Display'
-  },
-  rubikLight: {
-    name: 'Rubik Light',
-    key: 'rubikLight',
-    host: 'google',
-    weight: 300,
-    value: 'Rubik'
-  },
-  rubik: {
-    name: 'Rubik',
-    key: 'rubik',
-    host: 'google',
-    value: 'Rubik'
-  },
-  rubikBlack: {
-    name: 'Rubik Black',
-    key: 'rubikBlack',
-    host: 'google',
-    weight: 900,
-    value: 'Rubik'
-  },
-  spaceMono: {
-    name: 'Space Mono',
-    key: 'spaceMono',
-    host: 'google',
-    value: 'Space Mono'
-  },
-  spectralExtraLight: {
-    name: 'Spectral Extra-Light',
-    key: 'spectralExtraLight',
-    host: 'google',
-    weight: 200,
-    value: 'Spectral'
-  },
-  spectral: {
-    name: 'Spectral',
-    key: 'spectral',
-    host: 'google',
-    weight: 400,
-    value: 'Spectral'
-  },
-  spectralBold: {
-    name: 'Spectral Bold',
-    key: 'spectralBold',
-    host: 'google',
-    weight: 700,
-    value: 'Spectral'
-  },
-  workSans: {
-    name: 'Work Sans',
-    key: 'workSans',
-    host: 'google',
-    value: 'Work Sans'
-  },
-  workSansLight: {
-    name: 'Work Sans Light',
-    key: 'workSansLight',
-    host: 'google',
-    weight: 200,
-    value: 'Work Sans'
-  },
-  workSansBold: {
-    name: 'Work Sans Bold',
-    key: 'workSansBold',
-    host: 'google',
-    weight: 700,
-    value: 'Work Sans'
-  }
-}
+var db = require('../db/options')
 
 module.exports = Options
 
@@ -226,14 +27,20 @@ function Options (state, emitter) {
     emitter.emit('options:update', newState)
   })
 
+  emitter.on('options:replace', function (data) {
+    var newState = xtend(state.options.values, data)
+    db.update(data, newState)
+    emitter.emit('options:update', newState)
+  })
+
   // update
   emitter.on('options:update', function (data) {
-    state.options.values = x(state.options.values, data)
+    state.options.values = xtend(state.options.values, data)
     emitter.emit('app:render')
   })
 
   // reset
-  emitter.on('reset', function (data) {
+  emitter.on('options:reset', function (data) {
     var defaults = getDefaultState().values
     db.update({ }, defaults)
     emitter.emit('options:update', defaults)
@@ -241,7 +48,7 @@ function Options (state, emitter) {
 
   // loaded
   emitter.on('options:loaded', function (data) {
-    state.options.loaded = x(state.options.loaded, data)
+    state.options.loaded = xtend(state.options.loaded, data)
     emitter.emit('app:render')
   })
 
@@ -257,7 +64,8 @@ function Options (state, emitter) {
   })
 
   emitter.on('options:typography', function () {
-    ov(state.options.typography).forEach((data) => {
+    var options = objectValues(state.options.typography)
+    options.forEach(function (data) {
       typography.load(data, () => emitter.emit)
     })
   })
@@ -299,16 +107,16 @@ function Options (state, emitter) {
 }
 
 function getDefaultState () {
- return {
+  return {
     design: {
       colorBg: {
-        name: 'Background color',
+        name: 'Background',
         key: 'colorBg',
         type: 'color',
         visible: true
       },
       colorText: {
-        name: 'Text color',
+        name: 'Text',
         key: 'colorText',
         type: 'color',
         visible: true
@@ -317,6 +125,18 @@ function getDefaultState () {
         name: 'Font',
         key: 'font',
         type: 'typography',
+        visible: true
+      },
+      uppercase: {
+        name: 'Uppercase',
+        key: 'uppercase',
+        type: 'checkbox',
+        visible: true
+      },
+      hyphenate: {
+        name: 'Hyphenate',
+        key: 'hyphenate',
+        type: 'checkbox',
         visible: true
       },
       scale: {
@@ -343,7 +163,7 @@ function getDefaultState () {
         visible: false
       },
       newTab: {
-        name: 'Open entries in new tab',
+        name: 'Open links in new window',
         key: 'newTab',
         type: 'checkbox',
         visible: true
@@ -355,21 +175,16 @@ function getDefaultState () {
         visible: false
       }
     },
-    values: {
-      colorBg: { r: 255, g: 255, b: 255 },
-      colorText: { r: 0, g: 0, b: 0 },
-      font: optionsTypography.system,
-      scale: 35,
-      spacing: 5,
+    values: xtend({
       invert: false,
       newTab: true,
       autoDismiss: true
-    },
+    }, libDesign.getDesignDefaults()),
     loaded: {
       typeLocal: false,
       typeCustom: false,
       data: false
     },
     typography: optionsTypography
-  } 
+  }
 }

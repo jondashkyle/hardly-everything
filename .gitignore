@@ -1,20 +1,24 @@
-# System
+# system
 .DS_Store
 
-# Logs
+# logs
 logs
 *.log
 npm-debug.log*
 
-# Dependency directories
+# dependency directories
 node_modules
 
-# Database
+# database
 .db
 .dat
 
-# Build
-/bundles
-bundle.js
-bundle.css
+# directories
+bundles
+
+# files
 credentials.json
+bundle.css
+bundle.js
+dat.json
+*.mp4

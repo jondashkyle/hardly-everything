@@ -1,38 +1,50 @@
-var html = require('rooch/html')
-var Component = require('rooch/component')
+var Component = require('choo/component')
+var html = require('choo/html')
+var xtend = require('xtend')
 
 module.exports = class Range extends Component {
-  constructor () {
+  constructor (name, state, emit) {
     super()
+
+    this.local = {
+
+    }
+
     this.handleInput = this.handleInput.bind(this)
   }
- 
+
   handleInput (event) {
     if (
-      this.props &&
-      this.props.onInput && 
-      typeof this.props.onInput === 'function'
+      this.local &&
+      this.local.onInput &&
+      typeof this.local.onInput === 'function'
     ) {
       var value = Math.floor(parseInt(event.target.value) / 10)
-      this.props.onInput({
+      this.local.onInput({
         value: value
       })
     }
   }
 
-  render () {
+  createElement (props) {
+    this.local = xtend(this.local, props)
+
     var input = Input({
       onInput: this.handleInput,
-      value: this.props.value
+      value: this.local.value
     })
 
-    var value = this.props.showValue
-      ? Value({ value: this.props.value })
+    var value = this.local.showValue
+      ? Value({ value: this.local.value })
       : ''
 
     return Container({
-      name: this.props.name || 'Untitled'
+      name: this.local.name || 'Untitled'
     }, [input, value])
+  }
+
+  update (props) {
+    return true
   }
 }
 
@@ -44,7 +56,7 @@ function Container (props, children) {
       </div>
       ${children}
     </div>
-  ` 
+  `
 }
 
 function Input (props = { }) {

@@ -1,32 +1,25 @@
-var a = require('axios')
-var ls = require('./localstorage')
-
+var db = require('./index')
 var namespace = 'entries'
 
-var add = (data, state) => {
-  ls.save(namespace, state)
+module.exports = { add, update, remove, dismiss, get }
+
+function add (data, state) {
+  db.save(namespace, state)
 }
 
-var update = (data, state) => {
-  ls.save(namespace, state)
+function update (data, state) {
+  db.save(namespace, state)
 }
 
-var remove = (data, state) => {
-  ls.save(namespace, state)
+function remove (data, state) {
+  db.save(namespace, state)
 }
 
-var dismiss = (data, state) => {
-  ls.save(namespace, state)
+function dismiss (data, state) {
+  db.save(namespace, state)
 }
 
-var get = (cb) => {
-  ls.get(namespace, cb)
+function get (cb) {
+  db.get(namespace, cb)
 }
 
-module.exports = {
-  add,
-  update,
-  remove,
-  dismiss,
-  get
-}

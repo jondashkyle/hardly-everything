@@ -25,6 +25,18 @@ exports.load = (data, emit) => {
           emit('app:render')
         }
       })
+    case 'local':
+      return webfontloader.load({
+        custom: { families: [data.value] },
+        fontactive: function () {
+          emit('options:loaded', { typeCustom: true })
+          emit('options:typography', {
+            key: data.key,
+            value: { active: true }
+          })
+          emit('app:render')
+        }
+      })
     default:
       emit('options:loaded', { typeCustom: true })
       emit('app:render')

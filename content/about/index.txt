@@ -1,0 +1,45 @@
+title: About
+----
+visible: true
+----
+credit:
+  - title: Open source libraries
+    libraries:
+      - title: Choo
+        url: https://github.com/choojs/choo
+      - title: Nanocomponent
+        url: https://github.com/choojs/nanocomponent
+      - title: Sheetify
+        url: https://github.com/stackcss/sheetify
+      - title: Browserify
+        url: https://github.com/browserify/browserify
+      - title: Dayjs
+        url: https://github.com/iamkun/dayjs
+      - title: Gr8
+        url: https://gr8.style
+----
+text:
+
+Most popular apps and sites today often share a common element; the feed. It looks like Facebook’s timeline, or Buzzfeed’s homepage—an endlessly updating stream of content, designed to keep you returning, and spending more time.
+
+You frequently hear of us feeling burnt out by this “drinking from a firehose.” Of course, these products know that, and are increasingly implementing steps to filter what you see and what you don’t based in part on what keeps you returning—a perpetually shifting mix, creating what has become known as the filter bubble, an endless source of FOMO (fear of missing out), and other things.
+
+Hardly Everything attempts to circumnavigate these corporate feeds by supplying you with a feed of your own.
+
+Your feed closely resembles those already familiar—a scrolling list, at essence, but rather than algorithms determining what’s displayed we introduce timescales. You add things to this list, but when doing so prioritize their importance to you by defining a period of rest, long and short and everywhere in-between.
+
+The notion of a rest is borrowed from musical notation—a determined period of time between notes. Just as music has a cadence, consider your attention’s rhythm while consuming a feed. This is why your feed has a pulse, or a pace, defined by you.
+
+After clicking an entry, it disappears from your feed for the duration of it’s rest. Your feed updates once per day, there is never something new until tomorrow, a natural cycle, partitioned by a period of another kind of rest; sleep.
+
+Your entries can rest anywhere from a day to a year. Link to a page you like to revisit often, or a page you want to remember in a few months.
+
+Link directly to someone’s Instagram page, instead of scrolling through Instagram’s feed, and be reminded of it once every two weeks.
+
+Link to something once every year, to free you from the impulse, if you’d like.
+
+This tool is not a rejection of an interface, but a prompt to question who the interface serves, and why. It is also meant to be immediately useful, and hopefully you’ll find it that way, too.
+
+Hardly Everything was created and is maintained by [Jon-Kyle](https://jon-kyle.com).
+
+----
