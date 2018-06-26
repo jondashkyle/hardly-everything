@@ -157,6 +157,8 @@ function Css (state, emit) {
       body .tags-input input {
         color: ${colorFg};
       }
+
+      ${state.options.values.css}
     </style>
   `
 }
