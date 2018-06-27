@@ -25,5 +25,5 @@ links:
     img: paradisebackyard.blogspost.com.png
   year:
     title: media.ccc.de
-    url: https://www.ribbonfarm.com/2014/09/03/how-to-fall-off-the-wagon/
+    url: https://media.ccc.de/c/34c3
     img: media.ccc.de.png
