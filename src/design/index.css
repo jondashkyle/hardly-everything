@@ -66,6 +66,8 @@ body {
 .copy > *:first-child { margin-top: 0 }
 .copy > *:last-child { margin-bottom: 0 }
 
+.copy sup { font-size: 0.75em; }
+
 .a,
 .copy a {
   text-decoration: none;
@@ -558,17 +560,24 @@ input[type="submit"] {
  * list
  */
 
-ul li {
+ul li, ol li {
   position: relative;
   padding-left: 2rem;
 }
 
-ul li:before {
-  content: '→';
+ul li:before,
+ol li:before {
   position: absolute;
   left: 0;
   top: 0;
 }
+
+ul li:before { content: '→' }
+
+ol li:nth-child(1):before { content: '1' }
+ol li:nth-child(2):before { content: '2' }
+ol li:nth-child(3):before { content: '3' }
+ol li:nth-child(4):before { content: '4' }
 
 /**
  * data

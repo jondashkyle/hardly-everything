@@ -42,6 +42,17 @@
     "host": "local",
     "value": "Authentic Sans"
   },
+  "authenticUntitled": {
+    "author": {
+      "name": "AUTHENTIC Type",
+      "url": "https://authentic.website",
+      "donated": true
+    },
+    "name": "Authentic Untitled",
+    "key": "authenticUntitled",
+    "host": "local",
+    "value": "Authentic Untitled"
+  },
   "dsegClassicLight": {
     "author": {
       "name": "Keshikan けしかん",
