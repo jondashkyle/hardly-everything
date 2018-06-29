@@ -14,8 +14,8 @@ function content (state, emit) {
   var page = state.page().v()
 
   return html`
-    <div class="fs1 lh1-5 xx x xdc xjc xac">
-      ${entryBlog(page)}
+    <div class="fs1 lh1-5 xx x xdc xjc xac" id="solo-${page.name}">
+      ${entryBlog(state, emit, page)}
     </div>
   `
 }

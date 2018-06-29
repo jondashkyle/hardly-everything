@@ -28,7 +28,7 @@ module.exports = class Blog extends Component {
     var emit = this.emit
     return entries.map(function (props) {
       return html`
-        <div class="w100 bb1-lighter py1">
+        <div class="w100 bb1-lighter py1" id="list-${props.name}">
           ${entryBlog(state, emit, props)}
           ${createFooter(props)}
         </div>
