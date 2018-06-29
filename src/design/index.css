@@ -37,6 +37,18 @@ body {
 
 .list-thumb {
   border-top: 0;
+  height: 0;
+  padding-bottom: 75%;
+  position: relative;
+}
+
+.list-thumb img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 /**

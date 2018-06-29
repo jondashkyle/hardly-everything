@@ -1,0 +1,29 @@
+title: Emma Rae Norton’s list
+----
+visible: true
+----
+date: 2018-06-29
+----
+author: Emma Rae Norton
+----
+authorUrl: http://marceldochamp.net/
+----
+category: list
+----
+links:
+  day:
+    title: Radio Garden
+    url: http://radio.garden/live/
+    img: radio.garden.png
+  week:
+    title: horvitz-457x500.jpg
+    url: http://pietmondriaan.com/pm/wp-content/uploads/2010/04/horvitz-457x500.jpg
+    img: horvitz.png
+  month:
+    title: gx1000
+    url: https://savedbythe-bellhooks.tumblr.com/
+    img: savedbythe-bellhooks.tumblr.com.png
+  year:
+    title: Door Does Impression of Miles Davis
+    url: https://no-home-like-place.com/
+    img: no-home-like-place.com.png

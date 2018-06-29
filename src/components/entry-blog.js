@@ -1,19 +1,20 @@
+var Monoimage = require('monoimage')
 var objectKeys = require('object-keys')
 var html = require('choo/html')
 var format = require('../components/format')
 
 module.exports = entryBlog
 
-function entryBlog (props) {
+function entryBlog (state, emit, props) {
   switch (props.category) {
     case 'list':
-      return createList(props)
+      return createList(state, emit, props)
     default:
       return createDefault(props)
   }
 }
 
-function createList (props) {
+function createList (state, emit, props) {
   props.image = false // temp disable
   var links = (typeof props.links === 'object') ? props.links : { }
 
@@ -42,8 +43,11 @@ function createList (props) {
           <div class="brot px1 py0-5 bg-black">
             <div class="tc-white oh wsnw fs0-7 tac">${thumb.title}</div>
           </div>
-          <div class="psr" style="padding-bottom: 75%">
-            <img src="${image}" class="brob b2b w100 db h100 psa t0 l0 ofc list-thumb">
+          <div class="brob b2b ofc list-thumb">
+            ${state.cache(Monoimage, image).render({
+              sizes: { 100: image },
+              dimensions: { ratio: 75 }
+            })}
           </div>
         </a>
       </div>

@@ -106,7 +106,7 @@ function containerHome (state, emit) {
   function createSuggestion (props) {
     return html`
       <div class="py1 fs1 bg-white psr">
-        ${entryBlog(props)}
+        ${entryBlog(state, emit, props)}
       </div>
     `
   }

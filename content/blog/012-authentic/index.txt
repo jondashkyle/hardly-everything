@@ -8,7 +8,7 @@ Removing the Google Fonts dependency was one of the most important new features 
 
 Choosing the type was made easier thanks to helpful tools like [Raphaël Bastide](https://raphaelbastide.com/)’s [Use & Modify](https://usemodify.com/), but one which immediately came to mind was [Authentic Sans](https://authentic.website/#sans) by Authentic. Imagine the gratitude felt when Authentic donated Authentic Untitled to the selection of available typography, too!
 
-Huge ups to the friends at [Authentic](https://authentic.webiste). Gratuitous type specimen below.
+Huge ups to the friends at [Authentic](https://authentic.website). Gratuitous type specimen below.
 
 1. [Google Fonts GDPR Compliance](https://github.com/google/fonts/issues/1495)
 2. [Host webfonts on your own server](http://kernelpanik.net/host-webfonts-on-own-server/)
