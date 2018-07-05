@@ -20,10 +20,10 @@ links:
     url: http://pietmondriaan.com/pm/wp-content/uploads/2010/04/horvitz-457x500.jpg
     img: horvitz.png
   month:
-    title: gx1000
+    title: Saved By The Bell Hooks
     url: https://savedbythe-bellhooks.tumblr.com/
     img: savedbythe-bellhooks.tumblr.com.png
   year:
-    title: Door Does Impression of Miles Davis
+    title: No Home Like Place
     url: https://no-home-like-place.com/
     img: no-home-like-place.com.png
