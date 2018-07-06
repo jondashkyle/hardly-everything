@@ -151,9 +151,9 @@ body .tags-input input {
 }
 
 .home-gradient {
-  background: -moz-linear-gradient(top, ${colorBgTransparent} 0%, ${colorBg} 100%);
-  background: -webkit-linear-gradient(top, ${colorBgTransparent} 0%,${colorBg} 100%);
-  background: linear-gradient(to bottom, ${colorBgTransparent} 0%,${colorBg} 100%);
+  background: -moz-linear-gradient(top, rgba(var(--bg), 0) 0%,  var(--background) 100%);
+  background: -webkit-linear-gradient(top, rgba(var(--bg), 0) 0%, var(--background) 100%);
+  background: linear-gradient(to bottom, rgba(var(--bg), 0) 0%, var(--background) 100%);
   position: absolute;
   height: 6rem;
   top: -6rem;

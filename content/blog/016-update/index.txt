@@ -4,7 +4,7 @@ date: 2018-07-06
 ----
 text:
 
-If you navigate to your [Options](/panel/options) you’ll see something fresh—**Edit your custom SS**. Clicking this new option will expand to display CSS you can modify to tweak your design beyond the capabilities provided by the interface.
+If you navigate to your [Options](/panel/options) you’ll see something fresh—**Edit your custom CSS**. Clicking this new option will expand to display CSS you can modify to tweak your design beyond the capabilities provided by the interface.
 
 ![](/content/blog/016-update/custom-css.png)
 
