@@ -4,10 +4,10 @@ date: 2018-07-06
 ----
 text:
 
-Hello everyone, there has silently been a quick update to version 2.1.0. Or I suppose silent till now. If you navigate to your [Options](/panel/options) you’ll see an something fresh—**Edit your custom css**. Clicking this new option will expand to display CSS you can modify to tweak your design beyond the capabilities of the interface.
+If you navigate to your [Options](/panel/options) you’ll see something fresh—**Edit your custom SS**. Clicking this new option will expand to display CSS you can modify to tweak your design beyond the capabilities provided by the interface.
 
 ![](/content/blog/016-update/custom-css.png)
 
-All of the values are made available to you with css variables, which you can always get back to by clicking **reset**. You can also use `calc`, which is handle for doing simple mathematic operations on variables such as `spacing`.
+All of the values are made available to you via CSS variables, which you can always revert back to by clicking **reset**. You can use handy CSS methods like `calc`, which is for doing simple mathematic operations on variables such as `spacing`.
 
-Hopefully this is useful for making more extreme customizations, and for finessing the type for those of you in the know.
+Hopefully this is useful making your feed even more personalized!

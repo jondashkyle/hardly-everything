@@ -6,7 +6,8 @@ var input = require('../components/input')
 module.exports = view
 
 function view (state, emit) {
-  var disabled = (state.href === ('' || '/') && !state.entries.amount)
+  var disabled = (state.href === ('' || '/') && !state.entries.amount) ||
+    (state.href === ('/blog' || '/about' || '/faq'))
     ? 'pen input-disabled'
     : ''
 
