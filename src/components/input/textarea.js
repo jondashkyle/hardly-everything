@@ -84,7 +84,7 @@ module.exports = class Text extends Component {
           onclick=${this.handleToggle}
         >
           ${this.local.name}
-          <div class="psa t0 r0 px1">
+          <div class="psa t0 r0 mx0-5 fs1-5 mono tac" style="width: 3.5rem">
             ${this.local.active ? '↑' : '↓'}
           </div>
         </div>

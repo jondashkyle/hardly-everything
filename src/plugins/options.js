@@ -177,7 +177,7 @@ function getDefaultState () {
         visible: false
       },
       css: {
-        name: 'Custom CSS',
+        name: 'Edit your custom CSS',
         key: 'css',
         type: 'textarea',
         visible: true
