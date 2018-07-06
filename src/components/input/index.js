@@ -1,8 +1,9 @@
 var html = require('choo/html')
 
-var inputTypography = require('../input-typography')
+var inputTypography = require('./typography')
+var inputColor = require('./color')
 var inputCheckbox = require('./checkbox')
-var inputColor = require('../input-color')
+var inputTextarea = require('./textarea')
 var inputRange = require('./range')
 var inputText = require('./text')
 
@@ -18,6 +19,20 @@ function componentInput (state, emit, option) {
           name: option.name,
           value: state.options.values[option.key],
           onChange: function (data) {
+            emit('options:values', {
+              key: option.key,
+              value: data.value
+            })
+          }
+        })
+    case 'textarea':
+      return state
+        .cache(inputTextarea, 'panel:' + option.key)
+        .render({
+          key: option.key,
+          name: option.name,
+          value: state.options.values[option.key],
+          onInput: function (data) {
             emit('options:values', {
               key: option.key,
               value: data.value

@@ -19,14 +19,12 @@ function createList (state, emit, props) {
   var links = (typeof props.links === 'object') ? props.links : { }
 
   return html`
-    <div class="px0-5 w100">
+    <div class="px0-5 w100 lh1-5">
       <div class="px0-5 pt3 fs2 lh1-5 tac serif">
         <a href="${props.authorUrl}" class="tc-black a" target="_blank">${props.author}</a>, what is a link you want to remember once every…
       </div>
-      <div class="lh1-5 copy">
-        <div class="x xw c12 pt2" md="c10 co1 pt3">
-          ${objectKeys(links).map(createThumb)}
-        </div>
+      <div class="x xw c12 pt2" md="c10 co1 pt3">
+        ${objectKeys(links).map(createThumb)}
       </div>
     </div>
   `

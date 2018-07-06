@@ -47,6 +47,11 @@ function view (state, emit) {
         </div>
       </div>
       <div class="c12 p1px">
+        <div class="tc-black bg-white ${disabled}">
+          ${input(state, emit, state.options.design.css)}
+        </div>
+      </div>
+      <div class="c12 p1px">
         <div class="tc-black bg-white line ${disabled}">
           ${input(state, emit, state.options.design.newTab)}
         </div>
@@ -78,11 +83,11 @@ function view (state, emit) {
 
   function createFontOptions () {
     return html`
-      <div class="bb2b x">
-        <div class="c6 br1b">
+      <div class="bb2-lighter x">
+        <div class="c6 br1-lighter">
           ${input(state, emit, state.options.design.uppercase)}
         </div>
-        <div class="c6 bl1b">
+        <div class="c6 bl1-lighter">
           ${input(state, emit, state.options.design.hyphenate)}
         </div>
       </div>

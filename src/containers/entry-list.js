@@ -26,16 +26,7 @@ function EntryList (state, emit) {
 
   return html`
     <div class="design-container c12 oh">
-      <div
-        class="
-          x xw xac xjc tac
-          design-font design-font-hyphenate design-font-uppercase design-font-size design-background design-color-entry design-block-padding
-        "
-        style="
-          line-height: 1.2;
-          ${styleMobile}
-        "
-      >
+      <div class="x xw xac xjc tac design-block-padding" style="${styleMobile}">
         <div class="c12">${elContent}</div>
         ${isPaginatable() ? createPaginate() : ''}
       </div>

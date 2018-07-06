@@ -9,7 +9,8 @@ var randomized = [ ]
 module.exports = {
   isDesignDefault,
   getRandomDesign,
-  getDesignDefaults
+  getDesignDefaults,
+  getCssDefaults
 }
 
 function isDesignDefault (state, opts) {
@@ -45,4 +46,23 @@ function getRandomDesign () {
   designsAll.splice(designsAll.indexOf(randomKey), 1)
   randomized.push(randomKey)
   return designs[randomKey]
+}
+
+function getCssDefaults () {
+return `
+.design-container {
+  color: var(--foreground);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  font-style: var(--font-style);
+  font-size: var(--font-size);
+  text-transform: var(--font-uppercase);
+  hyphens: var(--font-hyphenate);
+  line-height: 1.2;
+
+  --gutter:
+    calc(var(--spacing) * 0.8)
+    var(--spacing);
+}
+`
 }

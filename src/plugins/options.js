@@ -23,6 +23,8 @@ function Options (state, emitter) {
       })
     }
 
+    // console.log(data)
+
     db.update(data, newState)
     emitter.emit('options:update', newState)
   })
@@ -163,7 +165,7 @@ function getDefaultState () {
         visible: false
       },
       newTab: {
-        name: 'Open links in new window',
+        name: 'Open links in a new window',
         key: 'newTab',
         type: 'checkbox',
         visible: true
@@ -173,12 +175,19 @@ function getDefaultState () {
         key: 'autoDismiss',
         type: 'checkbox',
         visible: false
+      },
+      css: {
+        name: 'Custom CSS',
+        key: 'css',
+        type: 'textarea',
+        visible: true
       }
     },
     values: xtend({
       invert: false,
       newTab: true,
-      autoDismiss: true
+      autoDismiss: true,
+      css: libDesign.getCssDefaults()
     }, libDesign.getDesignDefaults()),
     loaded: {
       typeLocal: false,
