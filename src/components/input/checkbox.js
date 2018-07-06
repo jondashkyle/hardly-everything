@@ -69,8 +69,10 @@ function Input (props = { }) {
       <label
         class="pen x xjc xac psa t0 r0 fs1-5 tc-black bg-black-lighter"
         style="
-          height: 4.5rem;
-          width: 4.5rem;
+          margin: 0.5rem;
+          height: 3.5rem;
+          width: 3.5rem;
+          border-radius: 50%;
         "
       >
         ${props.value ? props.icon : ''}

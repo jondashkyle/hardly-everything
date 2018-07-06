@@ -39,7 +39,7 @@ function containerHome (state, emit) {
           <div>
             <div class="lh1-5 tc-black py1 px2 tac op33 ophc100">
               <p>
-                <span class="fwb curp" onclick=${handleClickAdd}>Follow a link</span>> to get started,<br>
+                <span class="fwb curp" onclick=${handleClickAdd}>Follow a link</span> to get started,<br>
                 or want <a href="/suggestions" class="tc-black fwb curp">some suggestions</a>?
               </p>
             </div>

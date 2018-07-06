@@ -5,11 +5,7 @@ var xtend = require('xtend')
 module.exports = class Range extends Component {
   constructor (name, state, emit) {
     super()
-
-    this.local = {
-
-    }
-
+    this.local = { }
     this.handleInput = this.handleInput.bind(this)
   }
 
@@ -44,7 +40,7 @@ module.exports = class Range extends Component {
   }
 
   update (props) {
-    return true
+    return props.value !== this.local.value
   }
 }
 
