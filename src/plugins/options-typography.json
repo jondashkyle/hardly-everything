@@ -25,7 +25,7 @@
   "astloch": {
     "author": {
       "name": "Dan Rhatigan",
-      "url": "http://www.ultrasparky.org/"
+      "url": "http://ultrasparky.org"
     },
     "name": "Astloch",
     "key": "astloch",
@@ -56,7 +56,7 @@
   "dsegClassicLight": {
     "author": {
       "name": "Keshikan けしかん",
-      "url": "https://www.keshikan.net/fonts-e.html"
+      "url": "https://keshikan.net/fonts-e.html"
     },
     "name": "DSEG7 Classic Light",
     "key": "dsegClassicLight",
@@ -66,7 +66,7 @@
   "dseg7ClassicBold": {
     "author": {
       "name": "Keshikan けしかん",
-      "url": "https://www.keshikan.net/fonts-e.html"
+      "url": "https://keshikan.net/fonts-e.html"
     },
     "name": "DSEG7 Classic Bold",
     "key": "dseg7ClassicBold",
@@ -76,7 +76,7 @@
   "labMono": {
     "author": {
       "name": "Martin Wecke",
-      "url": "http://martinwecke.de/lab-mono/"
+      "url": "http://martinwecke.de/lab-mono"
     },
     "name": "Lab Mono",
     "key": "labMono",
@@ -86,7 +86,7 @@
   "lunchtype25LightCondensed": {
     "author": {
       "name": "LunchType",
-      "url": "http://lunchtype.com/"
+      "url": "http://lunchtype.com"
     },
     "name": "Lunchtype25 L/C",
     "key": "lunchtype25LightCondensed",
@@ -96,7 +96,7 @@
   "lunchtype25MediumCondensed": {
     "author": {
       "name": "LunchType",
-      "url": "http://lunchtype.com/"
+      "url": "http://lunchtype.com"
     },
     "name": "Lunchtype25 M/E",
     "key": "lunchtype25MediumCondensed",
@@ -106,7 +106,7 @@
   "lunchtype22Light": {
     "author": {
       "name": "LunchType",
-      "url": "http://lunchtype.com/"
+      "url": "http://lunchtype.com"
     },
     "name": "Lunchtype22 L",
     "key": "lunchtype22Light",
@@ -116,7 +116,7 @@
   "lunchtype22Medium": {
     "author": {
       "name": "LunchType",
-      "url": "http://lunchtype.com/"
+      "url": "http://lunchtype.com"
     },
     "name": "Lunchtype22 M",
     "key": "lunchtype22Medium",
@@ -126,7 +126,7 @@
   "lunchtype24LightExpanded": {
     "author": {
       "name": "LunchType",
-      "url": "http://lunchtype.com/"
+      "url": "http://lunchtype.com"
     },
     "name": "Lunchtype24 L/C",
     "key": "lunchtype24LightExpanded",
@@ -136,7 +136,7 @@
   "lunchtype24MediumExpanded": {
     "author": {
       "name": "LunchType",
-      "url": "http://lunchtype.com/"
+      "url": "http://lunchtype.com"
     },
     "name": "Lunchtype24 M/E",
     "key": "lunchtype24MediumExpanded",
@@ -146,7 +146,7 @@
   "manifont": {
     "author": {
       "name": "Interstices",
-      "url": "http://interstices.io/"
+      "url": "http://interstices.io"
     },
     "name": "Manifont Grotesque",
     "key": "manifont",
@@ -156,7 +156,7 @@
   "manifontDot": {
     "author": {
       "name": "Interstices",
-      "url": "http://interstices.io/"
+      "url": "http://interstices.io"
     },
     "name": "Manifont Grotesque Dot",
     "key": "manifontDot",
@@ -166,7 +166,7 @@
   "jrugPunk": {
     "author": {
       "name": "Nooalf",
-      "url": "http://www.nooalf.com/UBoWT_XEZ_FoNS.html"
+      "url": "http://nooalf.com/UBoWT_XEZ_FoNS.html"
     },
     "name": "JRUG PUNK",
     "key": "jrugPunk",
@@ -176,7 +176,7 @@
   "junicodeCondensed": {
     "author": {
       "name": "Fromager",
-      "url": "http://junicode.sourceforge.net/"
+      "url": "http://junicode.sourceforge.net"
     },
     "name": "Junicode Condensed",
     "key": "junicodeCondensed",
@@ -186,7 +186,7 @@
   "junicodeBoldCondensed": {
     "author": {
       "name": "Fromager",
-      "url": "http://junicode.sourceforge.net/"
+      "url": "http://junicode.sourceforge.net"
     },
     "name": "Junicode Bold Condensed",
     "key": "junicodeBoldCondensed",
@@ -196,7 +196,7 @@
   "pecita": {
     "author": {
       "name": "Philippe Cochy",
-      "url": "http://pecita.eu/"
+      "url": "http://pecita.eu"
     },
     "name": "Pecita",
     "key": "pecita",
@@ -206,7 +206,7 @@
   "reglo": {
     "author": {
       "name": "Love Letters",
-      "url": "http://www.love-letters.be/"
+      "url": "http://love-letters.be"
     },
     "name": "Reglo",
     "key": "reglo",
@@ -216,7 +216,7 @@
   "spaceMono": {
     "author": {
       "name": "Colophon",
-      "url": "https://www.colophon-foundry.org/"
+      "url": "https://colophon-foundry.org"
     },
     "name": "Space Mono",
     "key": "spaceMono",
@@ -316,7 +316,7 @@
   "workSansThin": {
     "author": {
       "name": "Wei Huang",
-      "url": "https://weiweihuanghuang.github.io/Work-Sans/"
+      "url": "https://weiweihuanghuang.github.io/Work-Sans"
     },
     "name": "Work Sans Thin",
     "key": "workSansThin",
@@ -326,7 +326,7 @@
   "workSans": {
     "author": {
       "name": "Wei Huang",
-      "url": "https://weiweihuanghuang.github.io/Work-Sans/"
+      "url": "https://weiweihuanghuang.github.io/Work-Sans"
     },
     "name": "Work Sans",
     "key": "workSans",
@@ -336,7 +336,7 @@
   "workSansBlack": {
     "author": {
       "name": "Wei Huang",
-      "url": "https://weiweihuanghuang.github.io/Work-Sans/"
+      "url": "https://weiweihuanghuang.github.io/Work-Sans"
     },
     "name": "Work Sans Black",
     "key": "workSansBlack",
@@ -366,7 +366,7 @@
   "yatraRegular": {
     "author": {
       "name": "Catherine Leigh Schmidt",
-      "url": "http://cath.land/"
+      "url": "http://cath.land"
     },
     "name": "Yatra Regular",
     "key": "yatraRegular",
@@ -386,7 +386,7 @@
   "coolSFont": {
     "author": {
       "name": "Tom Goulet",
-      "url": "https://www.tomgoulet.com/fonts"
+      "url": "https://tomgoulet.com/fonts"
     },
     "name": "Cool S Font",
     "key": "coolSFont",

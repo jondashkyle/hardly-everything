@@ -1,9 +1,10 @@
-var Component = require('choo/component')
 var objectValues = require('object-values')
+var Component = require('choo/component')
 var nanobus = require('nanobus')
 var html = require('choo/html')
 var xtend = require('xtend')
 
+var typography = require('../plugins/options-typography')
 var libBlog = require('../lib/blog')
 
 module.exports = class Suggestions extends Component {
@@ -57,7 +58,10 @@ module.exports = class Suggestions extends Component {
 
   updateEntries (props) {
     var urls = objectValues(this.state.entries.all).map(entry => entry.url)
-    this.local.entries = shuffle(libBlog.getSuggestions(this.state))
+    var suggestions = libBlog.getSuggestions(this.state)
+    var type = objectValues(typography).reduce(createType, [ ])
+    var source = suggestions.concat(type)
+    this.local.entries = shuffle(source)
       .filter(props => urls.indexOf(props.url) < 0)
       .splice(0, 5)
   }
@@ -102,7 +106,7 @@ function containerSuggestions (state, emit) {
               <a href="${props.url}" class="external tc-black" target="_blank">${props.title}</a>
             </div>
             <div class="copy px0-5 op33">
-              <span>Contributed by <a href="${props.authorUrl}" class="tc-light" target="_blank">${props.author}</a></span>
+              ${props.type ? createType() : createContributor()}
             </div>
           </div>
           <div>
@@ -113,6 +117,18 @@ function containerSuggestions (state, emit) {
         </div>
       </div>
     `
+
+    function createContributor () {
+      return html`
+        <span>Contributed by <a href="${props.authorUrl}" class="tc-light" target="_blank">${props.author}</a></span>
+      `
+    }
+
+    function createType () {
+      return html`
+        <span>Designer of ${props.type}</span>
+      `
+    }
 
     function handleClick () {
       emit('ui:panel', { view: 'entry' })
@@ -149,4 +165,20 @@ function shuffle(array) {
   }
 
   return array
+}
+
+function createType (res, cur, i, src) {
+  // skip if no author
+  if (!cur.author) return res
+  // if exists
+  if (res.filter(e => e.url === cur.author.url).length > 0) return res
+  // push if otherwise
+  res.push({
+    interval: 'week',
+    title: cur.author.name,
+    url: cur.author.url,
+    type: cur.name
+  })
+  // continue
+  return res
 }

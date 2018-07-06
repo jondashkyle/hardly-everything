@@ -6,24 +6,24 @@ date: 2018-07-03
 ----
 author: Matthew Spencer
 ----
-authorUrl: https://matthewspencer.me/
+authorUrl: https://matthewspencer.me
 ----
 category: list
 ----
 links:
   day:
     title: Democracy Now
-    url: https://www.democracynow.org/
+    url: https://democracynow.org
     img: democracynow.org.png
   week:
     title: Trivium
-    url: http://chneukirchen.org/trivium/
+    url: http://chneukirchen.org/trivium
     img: chneukirchen.org_trivium.png
   month:
     title: NYC Tree Map
-    url: https://tree-map.nycgovparks.org/
+    url: https://tree-map.nycgovparks.org
     img: treemap.png
   year:
     title: Diaxa
-    url: http://diaxa.com/
+    url: http://diaxa.com
     img: diaxa.com.png

@@ -13,15 +13,15 @@ category: list
 links:
   day:
     title: Glittering Blue
-    url: https://glittering.blue/ 
+    url: https://glittering.blue
     img: glittering.blue.png
   week:
     title: Nigel Slater recipes 
-    url: https://www.theguardian.com/lifeandstyle/series/nigelslaterrecipes 
+    url: https://theguardian.com/lifeandstyle/series/nigelslaterrecipes 
     img: nigelslaterrecipes.png
   month:
     title: Paradise Backyard
-    url: https://paradisebackyard.blogspot.com/
+    url: https://paradisebackyard.blogspot.com
     img: paradisebackyard.blogspost.com.png
   year:
     title: media.ccc.de

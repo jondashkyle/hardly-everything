@@ -6,24 +6,24 @@ date: 2018-06-27
 ----
 author: Olly Bromham
 ----
-authorUrl: https://ollybromham.com/
+authorUrl: https://ollybromham.com
 ----
 category: list
 ----
 links:
   day:
     title: Honest Jons
-    url: https://honestjons.com/
+    url: https://honestjons.com
     img: honestjons.com.png
   week:
     title: Olafur Eliasson
-    url: http://olafureliasson.net/
+    url: http://olafureliasson.net
     img: olafureliasson.net.png
   month:
     title: gx1000
-    url: https://www.instagram.com/gx1000/
+    url: https://instagram.com/gx1000
     img: gx1000.png
   year:
     title: Door Does Impression of Miles Davis
-    url: https://www.youtube.com/watch?v=wwOipTXvNNo
+    url: https://youtube.com/watch?v=wwOipTXvNNo
     img: milesdavis.png

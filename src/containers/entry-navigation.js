@@ -3,6 +3,8 @@ var html = require('choo/html')
 module.exports = view
 
 function view (state, emit) {
+  var shouldSearchHide = state.ui.entriesViewAll && !state.ui.mobile && state.entries.amount
+
   return html`
     <div class="
       psf t0 l0 lh1 x z3 usn sans fs1
@@ -20,11 +22,9 @@ function view (state, emit) {
             ${state.ui.entriesViewAll ? 'op100' : 'op33'} 
           "
           onclick=${handleAllClick}
-        >
-          View all
-        </a>
+        >View all</a>
       </div>
-      <div class="px1 line ${state.ui.mobile ? 'dn' : ''} ${state.entries.amount ? '' : 'dn'}">
+      <div class="px1 line ${shouldSearchHide ? '' : 'dn'}">
         ${elSearch()} 
       </div>
     </div>

@@ -6,24 +6,24 @@ date: 2018-06-22
 ----
 author: Andrew Ohlmann
 ----
-authorUrl: https://andrewohlmann.com/
+authorUrl: https://andrewohlmann.com
 ----
 category: list
 ----
 links:
   day:
     title: Shadertoy
-    url: https://www.shadertoy.com/results?query=&sort=newest
+    url: https://shadertoy.com/results?query=&sort=newest
     img: shadertoy.com.png
   week:
     title: Things Magazine
-    url: http://www.thingsmagazine.net/ 
+    url: http://thingsmagazine.net
     img: thingsmagazine.net.png
   month:
     title: Insecam
-    url: https://www.insecam.org/en/bytag/River/
+    url: https://insecam.org/en/bytag/River
     img: insecam.org.png
   year:
     title: Siggraph Youtube
-    url: https://www.youtube.com/results?search_query=siggraph
+    url: https://youtube.com/results?search_query=siggraph
     img: siggraph.png

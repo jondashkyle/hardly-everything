@@ -6,24 +6,24 @@ date: 2018-06-13
 ----
 author: Yoshua Wuyts
 ----
-authorUrl: https://www.yoshuawuyts.com/
+authorUrl: https://yoshuawuyts.com
 ----
 category: list
 ----
 links:
   day:
     title: LWN.net
-    url: https://lwn.net/
+    url: https://lwn.net
     img: lwn.net.png
   week:
     title: The Morning Paper
-    url: https://blog.acolyer.org/
+    url: https://blog.acolyer.org
     img: blog.acolyer.org.png
   month:
     title: Rust Documentation
-    url: https://doc.rust-lang.org/std/
+    url: https://doc.rust-lang.org/std
     img: doc.rust-lang.org.png
   year:
     title: Cooking With Dog
-    url: https://www.youtube.com/user/cookingwithdog
+    url: https://youtube.com/user/cookingwithdog
     img: cookingwithdog.png

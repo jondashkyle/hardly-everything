@@ -1,8 +1,8 @@
+var objectValues = require('object-values')
 var html = require('choo/html')
-var ov = require('object-values')
 
-var panelEntry = require('../containers/panel-entry')
 var panelOptions = require('../containers/panel-options')
+var panelEntry = require('../containers/panel-entry')
 
 var hideFrame
 
@@ -66,17 +66,11 @@ function view (state, props, emit) {
     </div>
   `
 
-  function wrapper (content) {
-
-  }
-
   function navigation () {
     return html`
-      <div
-        class="x line c12 tc-black fs1 pen usn"
-      >
+      <div class="x line c12 tc-black fs1 pen usn">
         ${props.navChildren}
-        ${ov(views)
+        ${objectValues(views)
           .filter(view => view.active !== false)
           .map(navigationLink)
         }

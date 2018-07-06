@@ -6,14 +6,14 @@ date: 2018-06-29
 ----
 author: Emma Rae Norton
 ----
-authorUrl: http://marceldochamp.net/
+authorUrl: http://marceldochamp.net
 ----
 category: list
 ----
 links:
   day:
     title: Radio Garden
-    url: http://radio.garden/live/
+    url: http://radio.garden/live
     img: radio.garden.png
   week:
     title: horvitz-457x500.jpg
@@ -21,9 +21,9 @@ links:
     img: horvitz.png
   month:
     title: Saved By The Bell Hooks
-    url: https://savedbythe-bellhooks.tumblr.com/
+    url: https://savedbythe-bellhooks.tumblr.com
     img: savedbythe-bellhooks.tumblr.com.png
   year:
     title: No Home Like Place
-    url: https://no-home-like-place.com/
+    url: https://no-home-like-place.com
     img: no-home-like-place.com.png

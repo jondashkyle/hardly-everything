@@ -6,18 +6,18 @@ date: 2018-07-05
 ----
 author: Hassan Rahim
 ----
-authorUrl: http://hassanrahim.com/
+authorUrl: http://hassanrahim.com
 ----
 category: list
 ----
 links:
   day:
     title: Ebay
-    url: https://ebay.com/
+    url: https://ebay.com
     img: ebay.com.png
   week:
     title: MixesDB
-    url: https://www.mixesdb.com
+    url: https://mixesdb.com
     img: mixesdb.com.png
   month:
     title: Wallothnesch

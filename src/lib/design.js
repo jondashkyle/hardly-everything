@@ -30,7 +30,7 @@ function getDesignDefaults () {
     font: optionsTypography.system,
     uppercase: false,
     hyphenate: false,
-    scale: 21,
+    scale: 40,
     spacing: 36
   }
 }
