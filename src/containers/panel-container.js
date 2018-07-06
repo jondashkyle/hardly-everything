@@ -88,29 +88,21 @@ function view (state, props, emit) {
 
   function navigationLink (view) {
     var active = view.path === props.view
+    var href = active && state.href !== ''
+      ? '/'
+      : '/panel/' + view.path
 
-    if (props.isHoverActive) {
-      return html` 
-        <div
-          onmouseenter=${handleLinkEnter}
-          class="
-            ${active ? 'op100 arrow-bottom' : 'op33'}
-            curd psr db oph100 mx1 tc-black pea
-          "
-        >${view.title}</div>
-      `
-    } else {
-      return html` 
-        <a
-          href="${active ? '/' : '/panel/' + view.path}"
-          onmouseenter=${handleLinkEnter}
-          class="
-            ${active ? 'op100 arrow-bottom' : 'op33'}
-            psr db oph100 mr1 tc-black pea
-          "
-        >${view.title}</a>
-      `
-    }
+    return html` 
+      <a
+        href="${href}"
+        onclick=${hide}
+        onmouseenter=${handleLinkEnter}
+        class="
+          ${active ? 'op100 arrow-bottom' : 'op33'}
+          psr db oph100 mr1 tc-black pea
+        "
+      >${view.title}</a>
+    `
 
     function handleLinkEnter () {
       clearTimeout(hideFrame)

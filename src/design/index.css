@@ -10,6 +10,7 @@ html {
 
 body {
   background: var(--background);
+  color: var(--foreground);
   height: auto;
   line-height: 1.5;
   margin: 0;
@@ -62,6 +63,7 @@ body {
 
 .bg-black { background-color: var(--foreground) }
 .bg-white { background-color: var(--background) }
+.bg-white-light { background-color: var(--background-light) }
 .bg-white-lighter { background-color: var(--background-lighter) }
 .bg-black-light { background-color: var(--foreground-light) }
 .bg-black-lighter { background-color: var(--foreground-lighter) }
