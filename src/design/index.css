@@ -226,6 +226,12 @@ body .tags-input input {
 
 .copy sup { font-size: 0.75em; }
 
+.copy code {
+  font-family: var(--mono);
+  background: rgba(var(--fg), 0.0825);
+  border-radius: 2px;
+}
+
 .a,
 .copy a {
   text-decoration: none;
