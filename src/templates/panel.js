@@ -1,6 +1,8 @@
+var html = require('choo/html')
+
+var EntryNavigation = require('../containers/entry-navigation')
 var Panel = require('../containers/panel-container')
 var EntryList = require('../containers/entry-list')
-var EntryNavigation = require('../containers/entry-navigation')
 
 module.exports = view
 
@@ -13,6 +15,21 @@ function view (state, emit) {
   return [
     Panel(state, panelProps, emit),
     !state.ui.mobile ? EntryList(state, emit) : '',
-    EntryNavigation(state, emit)
+    EntryNavigation(state, emit),
+    createOverlay()
   ]
+
+  function createOverlay () {
+    return html`
+      <div
+        class="psf t0 l0 r0 b0 curp z2"
+        style="background: rgba(var(--bg), 0.5)"
+        onclick=${handleOverlayClick}
+      ></div>
+    `
+  }
+
+  function handleOverlayClick () {
+    emit('pushState', '/')
+  }
 }

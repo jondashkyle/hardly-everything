@@ -1,0 +1,11 @@
+title: Hardly a New Feature: Custom CSS
+----
+date: 2018-07-06
+----
+text:
+
+Hello everyone, there has silently been a quick update to version 2.1.0. Or I suppose silent till now. If you navigate to your [Options](/panel/options) you’ll see an something fresh—**Edit your custom css**. Clicking this new option will expand to display CSS you can modify to tweak your design beyond the capabilities of the interface.
+
+All of the values are made available to you with css variables, which you can always get back to by clicking **reset**. You can also use `calc`, which is handle for doing simple mathematic operations on variables such as `spacing`.
+
+Hopefully this is useful for making more extreme customizations, and for finessing the type for those of you in the know.

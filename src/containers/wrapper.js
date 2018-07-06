@@ -11,7 +11,7 @@ function wrapper (view) {
 
     function container (content) {
       return html`
-        <body class="sans bg-white tc-black">
+        <body class="sans">
           ${css(state, emit)}
           ${content}
           ${preloadFonts()}

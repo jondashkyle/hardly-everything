@@ -3,7 +3,7 @@ var Component = require('choo/component')
 var html = require('choo/html')
 var xtend = require('xtend')
 
-var typography = require('../design/typography')
+var typography = require('../../design/typography')
 
 class Typography extends Component {
   constructor (name, state, emit) {
@@ -12,7 +12,8 @@ class Typography extends Component {
     this.emit = emit
 
     this.local = {
-      active: false
+      active: false,
+      current: { }
     }
 
     this.handleOptionClick = this.handleOptionClick.bind(this)
@@ -71,7 +72,7 @@ class Typography extends Component {
     return html`
       <div
         class="
-          bg-white tc-black bt2b input-dropdown-options
+          bg-white tc-black bt2-lighter input-dropdown-options
           ${this.local.active ? 'db' : 'dn'}
         "
       >
@@ -90,7 +91,7 @@ class Typography extends Component {
         <label class="psa t0 l0 px1 pen">
           Font
         </label>
-        <div class="px1 fs1-5 design-font design-font-uppercase">
+        <div class="px1 fs1-5 design-font-preview">
           ${this.local.current.name}
         </div>
       </div>
@@ -108,7 +109,10 @@ class Typography extends Component {
   }
 
   update (props) {
-    return true
+    return (
+      props.current.key !== this.local.current.key ||
+      props.current.active !== this.local.current.active
+    )
   }
 }
 

@@ -21,9 +21,9 @@ links:
     img: granolashotgun.com.png
   month:
     title: Current Condition
-    url: http://www.currentcondition.org/
+    url: http://currentcondition.org
     img: currentcondition.org.png
   year:
     title: How to Fall Off the Wagon
-    url: https://www.ribbonfarm.com/2014/09/03/how-to-fall-off-the-wagon/
+    url: https://ribbonfarm.com/2014/09/03/how-to-fall-off-the-wagon
     img: wagon.png

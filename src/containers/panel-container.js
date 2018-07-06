@@ -1,8 +1,8 @@
+var objectValues = require('object-values')
 var html = require('choo/html')
-var ov = require('object-values')
 
-var panelEntry = require('../containers/panel-entry')
 var panelOptions = require('../containers/panel-options')
+var panelEntry = require('../containers/panel-entry')
 
 var hideFrame
 
@@ -13,9 +13,7 @@ function view (state, props, emit) {
 
   var views = {
     entry: {
-      title: state.staging.entry.id
-        ? 'Edit'
-        : html`<span><span class="new-entry"></span>Follow</span>`,
+      title: html`<span><span class="new-entry"></span>Follow</span>`,
       path: 'entry',
       view: () => panelEntry(state, emit)
     },
@@ -68,17 +66,11 @@ function view (state, props, emit) {
     </div>
   `
 
-  function wrapper (content) {
-
-  }
-
   function navigation () {
     return html`
-      <div
-        class="x line c12 tc-black fs1 pen usn"
-      >
+      <div class="x line c12 tc-black fs1 pen usn">
         ${props.navChildren}
-        ${ov(views)
+        ${objectValues(views)
           .filter(view => view.active !== false)
           .map(navigationLink)
         }
@@ -88,29 +80,21 @@ function view (state, props, emit) {
 
   function navigationLink (view) {
     var active = view.path === props.view
+    var href = active && state.href !== ''
+      ? '/'
+      : '/panel/' + view.path
 
-    if (props.isHoverActive) {
-      return html` 
-        <div
-          onmouseenter=${handleLinkEnter}
-          class="
-            ${active ? 'op100 arrow-bottom' : 'op33'}
-            curd psr db oph100 mx1 tc-black pea
-          "
-        >${view.title}</div>
-      `
-    } else {
-      return html` 
-        <a
-          href="${active ? '/' : '/panel/' + view.path}"
-          onmouseenter=${handleLinkEnter}
-          class="
-            ${active ? 'op100 arrow-bottom' : 'op33'}
-            psr db oph100 mr1 tc-black pea
-          "
-        >${view.title}</a>
-      `
-    }
+    return html` 
+      <a
+        href="${href}"
+        onclick=${hide}
+        onmouseenter=${handleLinkEnter}
+        class="
+          ${active && !state.staging.entry.id ? 'op100 arrow-bottom' : 'op33'}
+          psr db oph100 mr1 tc-black pea
+        "
+      >${view.title}</a>
+    `
 
     function handleLinkEnter () {
       clearTimeout(hideFrame)

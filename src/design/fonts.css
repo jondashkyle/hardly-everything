@@ -10,6 +10,12 @@
 }
 
 @font-face {
+  font-family: 'Authentic Untitled';
+  src: url('/assets/fonts/AUTHENTIC-Untitled.woff') format('woff'),
+       url('/assets/fonts/AUTHENTIC-Untitled.woff2') format('woff2');
+}
+
+@font-face {
   font-family: 'Cool S Font';
   src: url('/assets/fonts/CoolS-Regular.otf') format('opentype')
 }

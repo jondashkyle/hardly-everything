@@ -1,3 +1,4 @@
+require('intersection-observer')
 require('babel-polyfill')
 require('./design')
 
