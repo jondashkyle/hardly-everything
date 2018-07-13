@@ -10,4 +10,12 @@ If you navigate to your [Options](/panel/options) youâ€™ll see something freshâ€
 
 All of the values are made available to you via CSS variables, which you can always revert back to by clicking **reset**. You can use handy CSS methods like `calc`, which is for doing simple mathematic operations on variables such as `spacing`.
 
+Possibilities include setting a background image, or selecting any font installed on your local machine. For instance:
+
+```
+.design-container {
+  font-family: "Replica";
+}
+```
+
 Hopefully this is useful making your feed even more personalized!

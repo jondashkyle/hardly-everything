@@ -227,10 +227,18 @@ body .tags-input input {
 
 .copy sup { font-size: 0.75em; }
 
-.copy code {
+.copy pre, .copy code {
   font-family: var(--mono);
   background: rgba(var(--fg), 0.0825);
   border-radius: 2px;
+}
+
+.copy pre {
+  padding: 0.75rem;
+}
+
+.copy pre code {
+  background: none;
 }
 
 .a,
