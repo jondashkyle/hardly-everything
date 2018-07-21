@@ -85,8 +85,8 @@ body {
  * extended colors
  */
 
-.arrow-bottom:before { border-bottom: .4rem solid var(--foreground) }
-.arrow-top:before { border-bottom: .4rem solid var(--foreground) }
+.arrow-bottom:before { border-bottom: 0.4rem solid var(--foreground) }
+.arrow-top:before { border-bottom: 0.4rem solid var(--foreground) }
 
 .bbu  { border-bottom-color: var(--foreground) }
 .b1b  { border: .1rem solid var(--foreground) }

@@ -10,6 +10,8 @@ async function load () {
   // load from localstorage
   var archiveUrl = window.localStorage.archiveUrl
   if (modalActive) return // skip if already choosing
+
+
   if (!archiveUrl) {
     modalActive = true
     archive = await DatArchive.selectArchive({
@@ -28,6 +30,7 @@ async function get (namespace, callback) {
   if (window.localStorage.archiveUrl) {
     // load
     if (!archive) await load()
+      
     try {
       var state = await archive.readFile(namespace + '.json')
       var output = JSON.parse(state)

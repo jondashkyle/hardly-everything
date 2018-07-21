@@ -23,8 +23,6 @@ function Options (state, emitter) {
       })
     }
 
-    // console.log(data)
-
     db.update(data, newState)
     emitter.emit('options:update', newState)
   })
@@ -110,6 +108,12 @@ function Options (state, emitter) {
 
 function getDefaultState () {
   return {
+    data: {
+      name: 'Data',
+      key: 'data',
+      type: 'data',
+      visible: true
+    },
     design: {
       colorBg: {
         name: 'Background',
