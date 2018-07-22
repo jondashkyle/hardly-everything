@@ -89,9 +89,7 @@ function view (state, emit) {
   `
 
   function isDisabled () {
-    return (state.href === ('' || '/') &&
-      !state.entries.amount) ||
-      (state.href === ('/blog' || '/about' || '/faq'))
+    return !state.entries.amount && state.href !== '/panel/options'
   }
 
   function createOverlay () {
