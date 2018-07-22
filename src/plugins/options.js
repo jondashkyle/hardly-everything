@@ -88,7 +88,7 @@ function Options (state, emitter) {
 
     // init
     db.get(function (data) {
-      data = xtend(defaults, data)
+      data = xtend(defaults.values, data)
 
       if (data.font) {
         typography.load(data.font, function () {

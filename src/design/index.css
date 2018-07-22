@@ -92,6 +92,7 @@ body {
 .b1b  { border: .1rem solid var(--foreground) }
 .br1b { border-right: .1rem solid var(--foreground) }
 .bl1b { border-left: .1rem solid var(--foreground) }
+.bl2b { border-left: .2rem solid var(--foreground) }
 .bb1b { border-bottom: .1rem solid var(--foreground) }
 .b2b  { border: .2rem solid var(--foreground) }
 .bb2b { border-bottom: .2rem solid var(--foreground) }

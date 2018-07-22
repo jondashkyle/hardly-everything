@@ -12,7 +12,7 @@ async function load () {
   if (modalActive) return // skip if already choosing
 
   if (!archiveUrl) {
-    modalActive = true
+    // modalActive = true
     archive = await DatArchive.selectArchive({
       title: 'Select an archive to use as your user profile',
       buttonLabel: 'Select profile',
@@ -22,7 +22,7 @@ async function load () {
   } else {
     archive = await DatArchive.load(archiveUrl) 
   }
-  modalActive = false
+  // modalActive = false
 }
 
 async function reset () {

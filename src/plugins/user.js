@@ -78,6 +78,7 @@ function user (state, emitter) {
 
   emitter.on(state.events.USER_RESET, function (data) {
     state.user = getState()
+    window.localStorage.archiveUrl = ''
     emitter.emit(state.events.USER_UPDATE)
   })
 }
