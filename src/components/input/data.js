@@ -36,12 +36,12 @@ module.exports = class Data extends Component {
 
   getStorageName () {
     var archiveUrl = this.state.datastorage.archiveUrl
-    var archiveName = this.state.datastorage.archive.name
+    var archiveTitle = this.state.datastorage.archive.title
 
     // is dat
     if (this.state.datastorage.isDat) {
       // archive loaded
-      if (archiveUrl) return archiveName
+      if (archiveUrl) return archiveTitle
       else return 'Select an Archive'
     } else {
       return 'Local browser'
@@ -52,7 +52,7 @@ module.exports = class Data extends Component {
 
   handleClick (event) {
     if (this.state.datastorage.isDat) {
-      console.log('dat')
+      this.emit(this.state.events.DATA_DAT_LOAD)
     } else {
       // if not dat, go to data management
       this.emit(this.state.events.PUSHSTATE, '/data')

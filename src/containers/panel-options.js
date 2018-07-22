@@ -13,7 +13,6 @@ function view (state, emit) {
       id="panel-options"
       class="${state.ui.mobile ? '' : 'panel-content'} x xw c12 bg-black tc-white sans usn"
     >
-      ${disabled ? createOverlay() : ''}
       <div class="c12 p1px">
         <div class="tc-black bg-white psr z1 ${disabled ? 'pen' : ''} ${state.ui.mobile ? '' : 'brit'}">
           ${input(state, emit, xtend(state.options.design.font, {
@@ -53,12 +52,17 @@ function view (state, emit) {
           ${input(state, emit, state.options.design.css)}
         </div>
       </div>
-      <div class="c12 p1px">
+      <div class="c12 p1px ${disabled ? 'pen' : ''}">
         <div class="tc-black bg-white line">
           ${input(state, emit, state.options.design.newTab)}
         </div>
       </div>
-      <div class="c12 p1px ${disabled ? 'pen' : ''}">
+      <div class="c12 p1px dn">
+        <div class="tc-black bg-white brib line">
+          ${input(state, emit, state.options.design.autoDismiss)}
+        </div>
+      </div>
+      <div class="c12 p1px">
         <div class="tc-black bg-white line">
           ${input(state, emit, state.options.data)}
         </div>
@@ -80,11 +84,7 @@ function view (state, emit) {
           </a>
         </div>
       </div>
-      <div class="c12 p1px dn">
-        <div class="tc-black bg-white brib line">
-          ${input(state, emit, state.options.design.autoDismiss)}
-        </div>
-      </div>
+      ${disabled ? createOverlay() : ''}
     </div>
   `
 
