@@ -12,6 +12,13 @@ module.exports = Options
 function Options (state, emitter) {
   state.options = getDefaultState()
 
+  // events
+  state.events.OPTIONS_LOAD = 'options:load'
+
+  // listen
+  emitter.on('DOMContentLoaded', handleLoad)
+  emitter.on(state.events.OPTIONS_LOAD, handleLoad)
+
   // values
   emitter.on('options:values', function (data) {
     var newState = clone(state.options.values)
@@ -22,8 +29,6 @@ function Options (state, emitter) {
         emitter.emit(event, _data)
       })
     }
-
-    // console.log(data)
 
     db.update(data, newState)
     emitter.emit('options:update', newState)
@@ -73,7 +78,7 @@ function Options (state, emitter) {
   })
 
   // type
-  emitter.on('DOMContentLoaded', function () {
+  function handleLoad () {
     var defaults = getDefaultState()
 
     typography.local(function () {
@@ -83,6 +88,8 @@ function Options (state, emitter) {
 
     // init
     db.get(function (data) {
+      data = xtend(defaults.values, data)
+
       if (data.font) {
         typography.load(data.font, function () {
           emitter.emit('options:loaded', { typeCustom: true })
@@ -93,23 +100,21 @@ function Options (state, emitter) {
         })
       }
 
-      if (typeof data.colorBg !== 'object') {
-        data.colorBg = defaults.values.colorBg
-      }
-
-      if (typeof data.colorText !== 'object') {
-        data.colorText = defaults.values.colorText
-      }
-
       emitter.emit('options:update', data)
       emitter.emit('options:loaded', { data: true })
       emitter.emit('app:render')
     })
-  })
+  }
 }
 
 function getDefaultState () {
   return {
+    data: {
+      name: 'Data',
+      key: 'data',
+      type: 'data',
+      visible: true
+    },
     design: {
       colorBg: {
         name: 'Background',

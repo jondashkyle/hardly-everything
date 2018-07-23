@@ -113,7 +113,7 @@ function panelEntry (state, emit) {
             type="submit"
             value="${!state.staging.entry.id ? 'Save' : 'Save'}"
             tabindex="-1"
-            class="fs1 c12 bg-white tc-black sans fwb line ${state.staging.entry.id ? 'bribr' : 'brib'}"
+            class="fs1 c12 bg-white tc-black sans fwb line ${state.staging.entry.id ? '' : 'brib'}"
           />
         </div>
         <div class="${state.staging.entry.id ? 'x c4' : 'dn'} p1px">
@@ -121,7 +121,7 @@ function panelEntry (state, emit) {
             name="delete"
             value="Delete"
             tabindex="-1"
-            class="fs1 c12 tc-black bg-white sans bribl line"
+            class="fs1 c12 tc-black bg-white sans line"
             onclick=${e => remove(state.staging.entry.id)}
             type="button"
           />

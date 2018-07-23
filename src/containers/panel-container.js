@@ -13,7 +13,9 @@ function view (state, props, emit) {
 
   var views = {
     entry: {
-      title: html`<span><span class="new-entry"></span>Follow</span>`,
+      title: state.staging.entry.id
+        ? 'Edit'
+        : html`<span><span class="new-entry"></span>Follow</span>`,
       path: 'entry',
       view: () => panelEntry(state, emit)
     },
@@ -90,8 +92,8 @@ function view (state, props, emit) {
         onclick=${hide}
         onmouseenter=${handleLinkEnter}
         class="
-          ${active && !state.staging.entry.id ? 'op100 arrow-bottom' : 'op33'}
-          psr db oph100 mr1 tc-black pea
+          ${active ? 'op100 arrow-bottom' : 'op33'}
+          psr db oph100 mx1 tc-black pea
         "
       >${view.title}</a>
     `

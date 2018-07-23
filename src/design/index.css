@@ -14,6 +14,7 @@ body {
   height: auto;
   line-height: 1.5;
   margin: 0;
+  font-size: 1.5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -84,13 +85,14 @@ body {
  * extended colors
  */
 
-.arrow-bottom:before { border-bottom: .4rem solid var(--foreground) }
-.arrow-top:before { border-bottom: .4rem solid var(--foreground) }
+.arrow-bottom:before { border-bottom: 0.4rem solid var(--foreground) }
+.arrow-top:before { border-bottom: 0.4rem solid var(--foreground) }
 
 .bbu  { border-bottom-color: var(--foreground) }
 .b1b  { border: .1rem solid var(--foreground) }
 .br1b { border-right: .1rem solid var(--foreground) }
 .bl1b { border-left: .1rem solid var(--foreground) }
+.bl2b { border-left: .2rem solid var(--foreground) }
 .bb1b { border-bottom: .1rem solid var(--foreground) }
 .b2b  { border: .2rem solid var(--foreground) }
 .bb2b { border-bottom: .2rem solid var(--foreground) }
@@ -150,9 +152,9 @@ body .tags-input input {
 }
 
 .home-gradient {
-  background: -moz-linear-gradient(top, ${colorBgTransparent} 0%, ${colorBg} 100%);
-  background: -webkit-linear-gradient(top, ${colorBgTransparent} 0%,${colorBg} 100%);
-  background: linear-gradient(to bottom, ${colorBgTransparent} 0%,${colorBg} 100%);
+  background: -moz-linear-gradient(top, rgba(var(--bg), 0) 0%,  var(--background) 100%);
+  background: -webkit-linear-gradient(top, rgba(var(--bg), 0) 0%, var(--background) 100%);
+  background: linear-gradient(to bottom, rgba(var(--bg), 0) 0%, var(--background) 100%);
   position: absolute;
   height: 6rem;
   top: -6rem;
@@ -226,10 +228,18 @@ body .tags-input input {
 
 .copy sup { font-size: 0.75em; }
 
-.copy code {
+.copy pre, .copy code {
   font-family: var(--mono);
   background: rgba(var(--fg), 0.0825);
   border-radius: 2px;
+}
+
+.copy pre {
+  padding: 0.75rem;
+}
+
+.copy pre code {
+  background: none;
 }
 
 .a,
@@ -253,7 +263,8 @@ body .tags-input input {
 }
 
 .copy img {
-  max-width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .copy h2 {

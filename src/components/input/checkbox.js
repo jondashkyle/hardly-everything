@@ -60,7 +60,7 @@ function Input (props = { }) {
     html`
       <input
         type="checkbox"
-        class="op0 psa t0 l0 r0 b0 z2 w100 h100 curp"
+        class="op0 psa t0 l0 r0 b0 z1 w100 h100 curp"
         checked="${props.value}"
         onchange=${props.onChange}
       >

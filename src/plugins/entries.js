@@ -33,6 +33,13 @@ function Entries (state, emitter) {
     active: [ ]
   }
 
+  // events
+  state.events.ENTRIES_LOAD = 'entries:load'
+
+  // listen
+  emitter.on('DOMContentLoaded', handleLoad)
+  emitter.on(state.events.ENTRIES_LOAD, handleLoad)
+
   // all
   emitter.on('entries:all', function (data) {
     var entries = objectValues(data)
@@ -144,13 +151,15 @@ function Entries (state, emitter) {
   })
 
   // initialize
-  db.get(data => {
-    emitter.emit('entries:all', data)
-    emitter.emit('entries:loaded', true)
-    emitter.emit('app:render')
-  }, () => {
-    emitter.emit('entries:loaded', true)
-  })
+  function handleLoad () {
+    db.get(data => {
+      emitter.emit('entries:all', data)
+      emitter.emit('entries:loaded', true)
+      emitter.emit('app:render')
+    }, () => {
+      emitter.emit('entries:loaded', true)
+    })
+  }
 
   function getActive () {
     var now = dayjs().startOf('day').toDate()

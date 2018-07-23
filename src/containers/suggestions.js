@@ -59,8 +59,9 @@ module.exports = class Suggestions extends Component {
   updateEntries (props) {
     var urls = objectValues(this.state.entries.all).map(entry => entry.url)
     var suggestions = libBlog.getSuggestions(this.state)
-    var type = objectValues(typography).reduce(createType, [ ])
-    var source = suggestions.concat(type)
+    var people = suggestions.reduce(getPeople, [ ])
+    var type = objectValues(typography).reduce(getTypography, [ ])
+    var source = suggestions.concat(type).concat(people)
     this.local.entries = shuffle(source)
       .filter(props => urls.indexOf(props.url) < 0)
       .splice(0, 5)
@@ -106,7 +107,12 @@ function containerSuggestions (state, emit) {
               <a href="${props.url}" class="external tc-black" target="_blank">${props.title}</a>
             </div>
             <div class="copy px0-5 op33">
-              ${props.type ? createType() : createContributor()}
+              ${props.type
+                ? createType()
+                : props.authorUrl
+                ? createContributor()
+                : createFriend()
+              }
             </div>
           </div>
           <div>
@@ -117,6 +123,12 @@ function containerSuggestions (state, emit) {
         </div>
       </div>
     `
+
+    function createFriend () {
+      return html`
+        <span>Contributor to the Blog</span>
+      `
+    }
 
     function createContributor () {
       return html`
@@ -167,7 +179,7 @@ function shuffle(array) {
   return array
 }
 
-function createType (res, cur, i, src) {
+function getTypography (res, cur, i, src) {
   // skip if no author
   if (!cur.author) return res
   // if exists
@@ -178,6 +190,21 @@ function createType (res, cur, i, src) {
     title: cur.author.name,
     url: cur.author.url,
     type: cur.name
+  })
+  // continue
+  return res
+}
+
+function getPeople (res, cur, i, src) {
+  // skip if no author
+  if (!cur.author) return res
+  // if exists
+  if (res.filter(e => e.title === cur.author).length > 0) return res
+  // push if otherwise
+  res.push({
+    interval: 'week',
+    title: cur.author,
+    url: cur.authorUrl
   })
   // continue
   return res

@@ -1,10 +1,11 @@
 var html = require('choo/html')
 
 var inputTypography = require('./typography')
-var inputColor = require('./color')
 var inputCheckbox = require('./checkbox')
 var inputTextarea = require('./textarea')
+var inputColor = require('./color')
 var inputRange = require('./range')
+var inputData = require('./data')
 var inputText = require('./text')
 
 module.exports = componentInput
@@ -99,6 +100,10 @@ function componentInput (state, emit, option) {
             })
           }
         })
+    case 'data':
+      return state
+        .cache(inputData, 'panel' + option.key)
+        .render({ })
     default:
       return ''
   }

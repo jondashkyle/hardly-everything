@@ -1,0 +1,29 @@
+title: Gemma Copeland’s list
+----
+visible: true
+----
+date: 2018-07-16
+----
+author: Gemma Copeland 
+----
+authorUrl: http://gemmacope.land
+----
+category: list
+----
+links:
+  day:
+    title: Arena / Explore
+    url: http://are.na/explore 
+    img: arena.png
+  week:
+    title: The Gradient
+    url: https://walkerart.org/magazine/categories/design 
+    img: thegradient.png
+  month:
+    title: At Some Point This Tree Will Fall
+    url: http://at-some-point-this-tree-will-fall.jack-wild.com
+    img: tree-fall.png
+  year:
+    title: Human Universals
+    url: https://condor.depaul.edu/mfiddler/hyphen/humunivers.htm
+    img: humunivers.png
