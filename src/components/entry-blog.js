@@ -41,7 +41,7 @@ function createList (state, emit, props) {
           <div class="brot px1 py0-5 bg-black">
             <div class="tc-white oh wsnw fs0-7 tac">${thumb.title}</div>
           </div>
-          <div class="brob b2b ofc list-thumb">
+          <div class="brob b2b ofc oh list-thumb">
             ${state.cache(Monoimage, image).render({
               sizes: { 100: image },
               dimensions: { ratio: 75 }
