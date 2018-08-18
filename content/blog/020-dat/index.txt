@@ -26,9 +26,9 @@ This update introduces a new **Data storage** option in the panel, and does just
 
 </div>
 
-When visiting over HTTP your data is saved with [Localstorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), which stores your data locally, but isolated to the browser you’re visiting from. This prevents you from accessing it elsewhere, or sharing it with others should you choose. 
+When visiting over HTTP your data is saved with [Localstorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), which stores your data locally, but isolated to the browser you’re visiting from. This avoids sending your data to a remote database, but also limits you from accessing it elsewhere, or sharing it with others should you choose. 
 
-The updated **Data storage** option reflect your browser’s capabilities. *Local browser* indicates Dat is unavailable and Localstorage is used, however if Dat is available it reads *Select an archive*.
+The updated **Data storage** option reflects your browser’s capabilities. *Local browser* indicates Dat is unavailable and Localstorage is used, however if Dat is available it reads *Select an archive*.
 
 <div class="b2b bro oh" style="background: #fff;">
 
@@ -36,7 +36,7 @@ The updated **Data storage** option reflect your browser’s capabilities. *Loca
 
 </div>
 
-Selecting an archive by clicking the option allows you to either select an existing archive containing Hardly Everything data, or to create a new archive. This archive is then loaded whenever visiting Hardly Everything. You can also load another archive anytime you’d like.
+Selecting an archive by clicking the option allows you to either select an existing archive containing Hardly Everything data, or to create a new archive. This archive is then loaded whenever visiting Hardly Everything. You can also load another archive anytime you’d like, which is sort of like managing multiple libraries.
 
 What was once the **Data** tab is now accessible by clicking *View*, containing options for exporting and importing your raw data. This is handy for manually backing up your data, or to transfer between environments. Soon Dat will be adding multi-writer, which will enable you to read/write to the same archive across devices. Until then, this will likely come in handy.
 

@@ -16,7 +16,7 @@ function view (state, emit) {
     Panel(state, panelProps, emit),
     !state.ui.mobile ? EntryList(state, emit) : '',
     EntryNavigation(state, emit),
-    createOverlay()
+    !state.ui.mobile ? createOverlay() : html`<div></div>`
   ]
 
   function createOverlay () {

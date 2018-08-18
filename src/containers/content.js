@@ -54,7 +54,7 @@ function createNavigation (state, emit) {
     <div
       class="
         fs1 psf t0 l0 r0 x xjb z2 
-        ${state.ui.mobile ? 'bb2b' : ''}
+        ${state.ui.mobile ? 'bb2b bg-white' : ''}
       "
     >
       <div class="x line">

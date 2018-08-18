@@ -1,5 +1,6 @@
 # system
 .DS_Store
+.well-known
 
 # logs
 logs

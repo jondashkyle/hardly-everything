@@ -1,0 +1,29 @@
+title: Lukas T WinklerPrins’s list
+----
+visible: true
+----
+date: 2018-08-09
+----
+author: Lukas T WinklerPrins 
+----
+authorUrl: http://ltwp.net
+----
+category: list
+----
+links:
+  day:
+    title: NOAA Pacific Surface Analysis
+    url: http://www.opc.ncep.noaa.gov/Pac_tab.shtml
+    img: noaa.png
+  week:
+    title: Gimmick Book
+    url: http://gimmickbook.com
+    img: gimmickbook.png
+  month:
+    title: bit-player
+    url: http://bit-player.org
+    img: bit-player.png
+  year:
+    title: Jenny Holzer, Truisms
+    url: https://www.cs.utexas.edu/~field/holzer/truisms.txt
+    img: truisms.png

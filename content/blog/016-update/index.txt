@@ -14,7 +14,7 @@ Possibilities include setting a background image, or selecting any font installe
 
 ```
 .design-container {
-  font-family: "Replica";
+  font-family: "Suisse Intl Mono";
 }
 ```
 
