@@ -226,6 +226,9 @@ function formatEntry (data) {
   for (var key in result) {
     switch (key) {
       case 'url':
+        // TODO this strips `www` from URLs which breaks things that don't have proper redirects setup
+        // TODO this doesn't allow query params
+        // https://mobile.twitter.com/search?q=filter%3Afollows%20-filter%3Aretweets%20-filter%3Areplies%20-filter%3Alikes&src=typed_query&f=live
         result.url = result.url ? normalizeUrl(result.url) : ''
         break
     }
