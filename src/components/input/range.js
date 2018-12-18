@@ -83,6 +83,7 @@ function Input (props = { }) {
 
 function Value (props = { }) {
   var value = props.scale ? Math.floor(props.value / 100 * props.max) : props.value
+  if (props.unit) value += ' ' + props.unit
   return html`
     <div class="psa t0 r0 pen px1 mono">
       ${value}
