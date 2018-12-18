@@ -53,6 +53,11 @@ function view (state, emit) {
         </div>
       </div>
       <div class="c12 p1px ${disabled ? 'pen' : ''}">
+        <div class="tc-black bg-white">
+          ${input(state, emit, state.options.design.entropy)}
+        </div>
+      </div>
+      <div class="c12 p1px ${disabled ? 'pen' : ''}">
         <div class="tc-black bg-white line">
           ${input(state, emit, state.options.design.newTab)}
         </div>

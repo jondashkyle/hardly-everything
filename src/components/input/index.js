@@ -75,6 +75,10 @@ function componentInput (state, emit, option) {
         .render({
           name: option.name,
           value: state.options.values[option.key],
+          scaleValue: option.scaleValue,
+          unit: option.unit,
+          min: option.min,
+          max: option.max,
           showValue: option.showValue,
           onInput: function (data) {
             emit('options:values', {

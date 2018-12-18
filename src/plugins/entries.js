@@ -112,7 +112,7 @@ function Entries (state, emitter) {
     var newEntry = xtend(curEntry, {
       visited: curEntry.visited + 1,
       dateUpdated: dayjs().toISOString(),
-      dateDismissed: dayjs().toISOString()
+      dateDismissed: getDateDismissedWithEntropy()
     })
 
     newState[data.id] = newEntry
@@ -196,6 +196,16 @@ function Entries (state, emitter) {
           ? getDismissedDate(b) - getDismissedDate(a)
           : getDurationDate(b) - getDurationDate(a)
       })
+  }
+
+  function getDateDismissedWithEntropy () {
+    var entropy = state.options.values.entropy
+    var day = dayjs()
+    if (entropy) {
+      var offsetRandom = Math.floor(Math.random() * (entropy / 100 * state.options.design.entropy.max))
+      day = day.add(offsetRandom, 'day')
+    }
+    return day.toISOString()
   }
 }
 

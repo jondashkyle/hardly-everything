@@ -161,13 +161,24 @@ function getDefaultState () {
         type: 'range',
         min: 0,
         max: 25,
-        valueShow: false,
+        showValue: false,
         visible: true
       },
       invert: {
         name: 'Invert',
         key: 'invert',
         visible: false
+      },
+      entropy: {
+        name: 'Randomly offset rest duration',
+        key: 'entropy',
+        type: 'range',
+        min: 0,
+        max: 7,
+        unit: 'days',
+        scaleValue: true,
+        showValue: true,
+        visible: true
       },
       newTab: {
         name: 'Open links in a new window',
@@ -192,6 +203,7 @@ function getDefaultState () {
       invert: false,
       newTab: true,
       autoDismiss: true,
+      entropy: 0,
       css: libDesign.getCssDefaults()
     }, libDesign.getDesignDefaults()),
     loaded: {

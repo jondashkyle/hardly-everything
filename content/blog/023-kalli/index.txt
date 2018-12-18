@@ -13,7 +13,7 @@ category: list
 links:
   day:
     title: Earth
-    url: https://reddit.com/r/todayilearned
+    url: https://earth.nullschool.net
     img: earth.png
   week:
     title: If You Leave

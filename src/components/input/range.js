@@ -31,7 +31,7 @@ module.exports = class Range extends Component {
     })
 
     var value = this.local.showValue
-      ? Value({ value: this.local.value })
+      ? [Value({ value: this.local.value, max: props.max, unit: props.unit, scale: props.scaleValue })]
       : ''
 
     return Container({
@@ -82,9 +82,10 @@ function Input (props = { }) {
 }
 
 function Value (props = { }) {
+  var value = props.scale ? Math.floor(props.value / 100 * props.max) : props.value
   return html`
     <div class="psa t0 r0 pen px1 mono">
-      ${props.value}
+      ${value}
     </div>
   `
 }
