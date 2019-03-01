@@ -56,7 +56,7 @@ function createList (state, emit, props) {
 function createDefault (props) {
   return html`
     <div class="px1 w100 x xw xjc">
-      <div class="w100 lh1-5 serif fs3 pb3">
+      <div class="w100 lh1-5 serif fs3 pb3 tac">
         ${props.title}
       </div>
       <div class="w100 wmxrem60">

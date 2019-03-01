@@ -6,7 +6,7 @@ category: update
 ----
 text:
 
-Hardly Everything considers a sensitivity to time — interval, duration, tempo — critically underdeveloped in the design of everyday products. In response, Hardly Everything exists as an effort to nudge along a evolution of familiar design patterns by introducing this sensitivity, and not at the expense of immediate utility to the user. Its uncompromising in its attempt to be useful, but this goal does not prevent us from questioning fundamental issues of the feed. Should it scroll forever? Should it update continuously?
+Hardly Everything considers a sensitivity to time — interval, duration, tempo — critically underdeveloped in the design of everyday products. In response, Hardly Everything exists as an effort to nudge along an evolution in familiar design patterns by introducing this sensitivity, and not at the expense of immediate utility to the user. Its uncompromising in its attempt to be useful, but this goal does not prevent us from questioning fundamental issues of the feed. Should it scroll forever? Should it update continuously?
 
 There is a simple sophistication in choosing not to continuously maximize. To not just observe but actively nurture nuance.
 
@@ -18,8 +18,8 @@ Rather than rigidly implementing time, as in a schedule where specific moments a
 
 </div>
 
-For example, say you added several links with an interval of seven days—a link on Monday, a link on Tuesday, and so on. If you go a week without visiting one of the links, they will all appear in your feed. If you click them all on a single day, say Friday, they will now all reappear the following Friday instead of being staggered as they were when first added.
+For example, say you added several links with an interval of seven days—a link on Monday, a link on Tuesday, and so on. If you go a week without visiting one of the links, they will all appear in your feed at once. If you click them all on a single day, say Friday, they will now all reappear the following Friday instead of being staggered as they were when first added.
 
-To assist in avoiding this reduction in serendipity, there is now a new feature: *Entropy*, for introducing a little chaos. This is defined by navigating to [**Options**](/options) and adjusting the value for *Randomly offset rest duration*. Now, when clicking a link, a day between zero and your defined level of entropy will be generated when and summed into your period of rest.
+To assist in avoiding this reduction in serendipity, there is now a new feature: *Entropy*, for introducing a little chaos. This is defined by navigating to [**Options**](/options) and adjusting the value for *Randomly offset rest duration*. Now, when clicking a link, a day between zero and your defined level of entropy will be generated and summed into your period of rest.
 
 Hopefully this will be useful, and just the right amount of friction. All feedback is encouraged.
