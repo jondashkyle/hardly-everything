@@ -1,0 +1,31 @@
+title: Jon-Kyle’s list
+----
+visible: true
+----
+date: 2018-05-30
+----
+author: Jon-Kyle
+----
+authorUrl: https://jon-kyle.com
+----
+category: list
+----
+image: true
+----
+links:
+  day:
+    title: Mount Wilson Tower Cam
+    url: http://obs.astro.ucla.edu/towercam.htm
+    img: obs.astro.ucla.edu.png
+  week:
+    title: Walking in LA
+    url: http://walkinginla.com
+    img: walkinginla.com.png
+  month:
+    title: Primitive Technology
+    url: https://youtube.com/channel/UCAL3JXZSzSm8AlZyD3nQdBA
+    img: primitivetechnology.jpg
+  year:
+    title: ofHouses
+    url: http://ofhouses.com
+    img: ofhouses.com.png

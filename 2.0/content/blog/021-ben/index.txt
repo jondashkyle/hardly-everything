@@ -1,0 +1,29 @@
+title: Ben Pieratt’s list
+----
+visible: true
+----
+date: 2018-08-13
+----
+author: Ben Pieratt 
+----
+authorUrl: http://pieratt.com
+----
+category: list
+----
+links:
+  day:
+    title: Reddit TIL
+    url: https://reddit.com/r/todayilearned
+    img: reddit.png
+  week:
+    title: But Does it Float
+    url: http://butdoesitfloat.com 
+    img: bdif.png
+  month:
+    title: Manifestos
+    url: https://github.com/greyscalepress/manifestos/tree/master/content/manifestos
+    img: manifestos.png
+  year:
+    title: Surfstation
+    url: https://surfstation.lu
+    img: surfstation.png

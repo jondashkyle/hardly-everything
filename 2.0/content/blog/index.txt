@@ -1,0 +1,10 @@
+title: Blog
+----
+visible: true
+----
+categories:
+  - essay
+  - list
+  - update
+----
+text: This is the blog!
