@@ -14,7 +14,7 @@
 
 Popular apps and sites often share a common element today; *the feed*. It looks like Facebook’s timeline, or Buzzfeed’s homepage—an endlessly updating stream of content, designed to keep you returning, and spending more time.
 
-**Hardly Everything** attempts to circumnavigate these corporate feeds by supplying you with an *anti-feed*. Your feed closely resembles those already familiar—a scrolling list, at essence. You add things to this list, but when doing so prioritize their importance to you by defining a period of **rest**.
+**Hardly Everything** attempts to circumvent these corporate feeds by supplying you with an *anti-feed*. Your feed closely resembles those already familiar—a scrolling list, at essence. You add things to this list, but when doing so prioritize their importance to you by defining a period of **rest**.
 
 After clicking an entry, it disappears from your feed for the duration of it’s rest. Your feed updates once per day, there is never something new until tomorrow, a natural cycle, shared by a period of another kind of rest.
 
