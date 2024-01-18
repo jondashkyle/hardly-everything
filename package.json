@@ -8,7 +8,7 @@
     "build": "enoki content && browserify src/index.js -t [ envify --NODE_ENV production ] -t [ sheetify -u sheetify-cssnext ] -p [ css-extract -o bundles/bundle.css ] -t babelify -o bundles/bundle.js",
     "start": "enoki content --watch & budo src/index.js --dir . -s bundles/bundle.js -P -- -t sheetify -p [ css-extract -o bundles/bundle.css ]",
     "dev": "enoki content --watch & watchify src/index.js -t sheetify -p [ css-extract -o bundles/bundle.css ] -o bundles/bundle.js",
-    "serve": "python -m SimpleHTTPServer 8080",
+    "serve": "python3 -m http.server 9000",
     "test": "standard"
   },
   "author": "Jon-Kyle Mohr",

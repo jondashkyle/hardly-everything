@@ -2,14 +2,17 @@ var html = require('choo/html')
 
 module.exports = view
 
-function view (state, emit) {
-  var shouldSearchHide = state.ui.entriesViewAll && !state.ui.mobile && state.entries.amount
+function view(state, emit) {
+  var shouldSearchHide =
+    state.ui.entriesViewAll && !state.ui.mobile && state.entries.amount
 
   return html`
-    <div class="
+    <div
+      class="
       psf t0 l0 lh1 x z3 usn sans fs1
       ${state.ui.mobile ? 'r0 bg-white bb2b' : ''}
-    ">
+    "
+    >
       <div class="px1 line fwb">
         <a href="/" class="tc-black">${state.ui.date}</a>
       </div>
@@ -22,20 +25,19 @@ function view (state, emit) {
             ${state.ui.entriesViewAll ? 'op100' : 'op33'} 
           "
           onclick=${handleAllClick}
-        >View all</a>
+          >View all</a
+        >
       </div>
-      <div class="px1 line ${shouldSearchHide ? '' : 'dn'}">
-        ${elSearch()} 
-      </div>
+      <div class="px1 line ${shouldSearchHide ? '' : 'dn'}">${elSearch()}</div>
     </div>
   `
 
-  function handleAllClick () {
+  function handleAllClick() {
     emit('search:update', { value: '', render: false })
     emit('ui:update', { entriesViewAll: !state.ui.entriesViewAll })
   }
 
-  function elSearch () {
+  function elSearch() {
     if (!state.features.search) {
       return ''
     }
@@ -46,7 +48,7 @@ function view (state, emit) {
           value: state.search.term,
           onFocus: function () {
             emit('search:update', {
-              hidePanel: true
+              hidePanel: true,
             })
           },
           onInput: function (data) {
@@ -54,16 +56,16 @@ function view (state, emit) {
               all: true,
               value: data.value,
               hidePanel: true,
-              render: true
+              render: true,
             })
-          }
+          },
         })}
       </div>
     `
   }
 }
 
-function navigationSearch (props = { }) {
+function navigationSearch(props = {}) {
   return html`
     <input
       type="text"
@@ -76,18 +78,18 @@ function navigationSearch (props = { }) {
     />
   `
 
-  function handleInput (event) {
+  function handleInput(event) {
     if (props.onInput) {
       props.onInput({
-        value: event.target.value
+        value: event.target.value,
       })
     }
   }
 
-  function handleFocus (event) {
+  function handleFocus(event) {
     if (props.onFocus) {
       props.onFocus({
-        value: event.target.value
+        value: event.target.value,
       })
     }
   }

@@ -5,23 +5,27 @@ var db = require('../db/user')
 
 module.exports = user
 
-function user (state, emitter) {
+function user(state, emitter) {
   state.user = getState()
 
-  state.events.USER_LOAD= 'user:load'
+  state.events.USER_LOAD = 'user:load'
   state.events.USER_RESET = 'user:reset'
   state.events.USER_LOADED = 'user:loaded'
   state.events.USER_UPDATE = 'user:update'
   state.events.USER_FEATURE = 'user:feature'
   state.events.USER_NOTIFIED = 'user:notified'
   state.events.USER_ANALYTICS = 'user:analytics'
+  state.events.USER_CYCLES_DISMISS = 'user:cycles:dismiss'
 
   emitter.on('DOMContentLoaded', function () {
-    db.get(function (data) {
-      emitter.emit(state.events.USER_LOAD, data)
-    }, function () {
-      emitter.emit(state.events.USER_LOADED, data)
-    })
+    db.get(
+      function (data) {
+        emitter.emit(state.events.USER_LOAD, data)
+      },
+      function () {
+        emitter.emit(state.events.USER_LOADED, data)
+      }
+    )
   })
 
   emitter.on(state.events.USER_LOADED, function (data) {
@@ -67,12 +71,19 @@ function user (state, emitter) {
     }
   })
 
+  // cycles dismissed
+  emitter.on(state.events.USER_CYCLES_DISMISS, function (data) {
+    console.log('yo')
+    state.user.cyclesDismissed = true
+    emitter.emit(state.events.USER_UPDATE)
+  })
+
   // notified
   emitter.on(state.events.USER_NOTIFIED, function (data) {
-    var data = data || { }
+    var data = data || {}
     if (!data.id) return
     state.notifications.active = '' // whoops
-    state.user.notified[data.id] = true 
+    state.user.notified[data.id] = true
     emitter.emit(state.events.USER_UPDATE)
   })
 
@@ -83,22 +94,23 @@ function user (state, emitter) {
   })
 }
 
-function getState () {
+function getState() {
   return {
     credentials: {
       email: '',
       photoURL: '',
-      uuid: ''
+      uuid: '',
     },
     features: {
-      search: true
+      search: true,
     },
     analytics: {
       authenticated: false,
       visits: 0,
-      lastvisit: undefined
+      lastvisit: undefined,
     },
-    notified: { },
-    signedIn: false
+    notified: {},
+    signedIn: false,
+    cyclesDismissed: false,
   }
 }
